@@ -16,6 +16,9 @@ public class EvaluacionMateria {
 	
 	int tipoEvaluacion;
 	Materia materia;
+	int evaluados;
+	double promedioRespuestas[][] = new double[3][5];
+	double promedioPorcentaje[][] = new double[3][5];
 	
 	List<Pregunta> preguntas = null;
 	List<String> observaciones = new ArrayList<String>();
@@ -37,7 +40,7 @@ public class EvaluacionMateria {
 	public boolean equals(Object obj) {
 		// TODO Auto-generated method stub
 		EvaluacionMateria evaluacionMateria = (EvaluacionMateria)obj;
-	return evaluacionMateria.materia.equals(evaluacionMateria) && this.tipoEvaluacion==evaluacionMateria.tipoEvaluacion;
+	return evaluacionMateria.materia.equals(evaluacionMateria.getMateria()) && this.tipoEvaluacion==evaluacionMateria.getTipoEvaluacion();
 	}
 
 	public int getTipoEvaluacion() {
@@ -80,7 +83,36 @@ public class EvaluacionMateria {
 		this.preguntas = preguntas;
 		this.observaciones = observaciones;
 	}
+	public int getEvaluados() {
+		return evaluados;
+	}
 
 
+	public void setEvaluados(int evaluados) {
+		this.evaluados = evaluados;
+	}
+	public double[][] getPromedioRespuestas() {
+		return promedioRespuestas;
+	}
+
+	public void setPromedioRespuestas(double[][] promedioRespuestas) {
+		this.promedioRespuestas = promedioRespuestas;
+	}
+
+	public double[][] getPromedioPorcentaje() {
+		return promedioPorcentaje;
+	}
+
+	public void setPromedioPorcentaje(double[][] promedioPorcentaje) {
+		this.promedioPorcentaje = promedioPorcentaje;
+	}
+
+	@Override
+	public String toString() {
+		return "EvaluacionMateria [tipoEvaluacion=" + tipoEvaluacion
+				+ ", materia=" + materia + ", preguntas=" + preguntas
+				+ ", observaciones=" + observaciones + "]";
+	}
+	
 	
 }

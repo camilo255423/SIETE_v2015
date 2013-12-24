@@ -1,0 +1,49 @@
+@(evaluacionMateria:List[EvaluacionMateria])
+@import models.Pregunta
+
+@main("informes"){
+
+	
+	@for(evaluacion <- evaluacionMateria){
+	<h2>@evaluacion.getMateria().getNombre(), grupo @evaluacion.getMateria().getGrupo()</h2>
+	<div class="tabs">
+		<ul>
+			<li><a href="#tabs-1">Estudiantes</a></li>
+			<li><a href="#tabs-2">Autoevaluación</a></li>
+			
+		</ul>
+	<div id="tabs-1">	
+
+	<h4> Encuestados: @evaluacion.getEvaluados() de @evaluacion.getMateria().getInscritos(), 
+	porcentaje @(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscritos()/100.0)% </h4>
+	
+	@tabladocencia(evaluacion,"Saber Pedagógigo",Pregunta.PEDAGOGICO, 0,5)
+	
+	@tabladocencia(evaluacion,"Saber Específico",Pregunta.ESPECIFICO,6,8)
+	
+	@tabladocencia(evaluacion,"Saber Relacional",Pregunta.RELACIONAL,9,11)
+	
+	<div class="titulotabla">Observaciones</div>
+		<table>
+		<tbody>
+	
+		     @for(observaciones <- evaluacion.getObservaciones()){
+		     <tr>
+	           <td>- @observaciones</td>  
+	          </tr>
+	          }
+	    </tbody>
+	    </table>
+		   
+	</div>	
+	</div>
+	}
+	
+}
+<script>
+        $(function()
+	{
+	$( ".tabs" ).tabs();
+	}
+	);
+	</script>

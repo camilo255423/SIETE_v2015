@@ -16,6 +16,7 @@ public class Materia {
 	String grupo;
 	int inscritos;
 	
+	
 	public Materia(String codigoMateria, String nombre, String grupo,
 			int inscritos) {
 		super();
@@ -113,6 +114,8 @@ public class Materia {
 	public void setInscritos(int inscritos) {
 		this.inscritos = inscritos;
 	}
+
+
 
 
 	private static final String consultaMaterias = "SELECT "   

@@ -15,17 +15,14 @@ public class Application extends Controller {
     }
     public static Result prueba()
     {
-    	String s = "";
-    	String documento = "52172636";
-    	String semestre = "20132";
-    	List<Materia> materias = Materia.findByProfesorAndSemestre(documento, semestre);
-    	for(Materia materia:materias)
-    	{
-    		s=s+materia+"\n";
-    	}
-    	System.out.println("Controlador Prueba");
     	
-    	return ok("prueba: "+"\n"+s);
+    	String s = "";
+    	String documento = "51625497";
+    	String semestre = "20132";
+    	Profesor profesor = new Profesor(documento, semestre);
+    	List<EvaluacionMateria> evaluacionMaterias = profesor.getEvaluacion();
+    
+    	return ok(views.html.informes.informedocencia.render(evaluacionMaterias));
     }
 
 }

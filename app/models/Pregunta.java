@@ -7,10 +7,10 @@ import java.util.List;
 
 public class Pregunta {
 	
-	static final int PEDAGOGICO = 101;
-	static final int ESPECIFICO = 102;
-	static final int RELACIONAL = 103;
-	static final String preguntasTitulos[]={"Pedagógico 1",
+	public static final int PEDAGOGICO = 0;
+	public static final int ESPECIFICO = 1;
+	public static final int RELACIONAL = 2;
+	public static final String preguntasTitulos[]={"Pedagógico 1",
 		"Pedagógico 2","Pedagógico 3","Pedagógico 4","Pedagógico 5","Pedagógico 6",
 		"Específico 7","Específico 8","Específico 9",
 		"Relacional 10","Relacional 11","Relacional 12"};
@@ -19,6 +19,8 @@ public class Pregunta {
 	String titulo;
 	String enunciado;
 	int numeroRespuestasNivel[] = new int[5];
+	double porecentajeNivel[] = new double[5];
+
 	
 	public Pregunta(String titulo) {
 		super();
@@ -38,7 +40,7 @@ public class Pregunta {
 		for(int i=0; i<preguntasTitulos.length;i++)
 		{
 			int tipoPregunta=PEDAGOGICO;
-			if(i+1<6) tipoPregunta=PEDAGOGICO;
+			if(i+1<=6) tipoPregunta=PEDAGOGICO;
 			else
 			if(i+1>=7 && i+1<=9) tipoPregunta=ESPECIFICO;
 			else
@@ -92,6 +94,16 @@ public class Pregunta {
 	public void setNumeroRespuestasNivel(int[] numeroRespuestasNivel) {
 		this.numeroRespuestasNivel = numeroRespuestasNivel;
 	}
+
+	public double[] getPorecentajeNivel() {
+		return porecentajeNivel;
+	}
+
+	public void setPorecentajeNivel(double[] porecentajeNivel) {
+		this.porecentajeNivel = porecentajeNivel;
+	}
+
+	
 
 	@Override
 	public String toString() {
