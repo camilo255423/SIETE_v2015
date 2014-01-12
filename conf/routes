@@ -5,6 +5,6 @@
 # Home page
 GET     /                           controllers.Application.index()
 GET		/prueba						controllers.Application.prueba()
-
+POST 	/informeprofesor			controllers.Informe1.informeProfesor()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

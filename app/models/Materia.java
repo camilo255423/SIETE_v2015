@@ -72,7 +72,7 @@ public class Materia {
 	public boolean equals(Object obj) {
 		Materia materia = (Materia)obj;
 		// TODO Auto-generated method stub
-		return this.codigoMateria==materia.codigoMateria && this.grupo==materia.grupo;
+		return this.codigoMateria.equals(materia.codigoMateria) && this.grupo.equals(materia.grupo);
 	}
 	
 

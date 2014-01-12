@@ -1,0 +1,30 @@
+@(profesores:List[Profesor])
+
+<select name='documento' id='listaProfesores'>
+@for(profesor <- profesores){
+<option value='@profesor.getDocumento()'>@profesor.getApellidos() @profesor.getNombres()</option>
+}
+</select>
+<script>
+$(
+function()
+{
+
+$('#listaProfesores').on("change", cambioProfesor);
+}
+);
+function cambioProfesor()
+{
+$("#informe").html("<div id='progressbar'></div>");
+$("#progressbar").progressbar({
+value:false
+});
+$.post("informeprofesor",{documento: this.value},mostrar);
+
+}
+function mostrar(data)
+{
+
+$("#informe").html(data);
+}
+</script>

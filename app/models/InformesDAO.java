@@ -72,7 +72,8 @@ public class InformesDAO {
 				
 				indiceMateria=evaluacionMaterias.indexOf
 				(new EvaluacionMateria(tipoEvaluacion,new Materia(codigoMateria,grupo),false));
-				
+				System.out.println(evaluacionMaterias);
+				System.out.println(new EvaluacionMateria(tipoEvaluacion,new Materia(codigoMateria,grupo),false));
 				if(indiceMateria!=-1)
 				{	
 					EvaluacionMateria ev = evaluacionMaterias.get(indiceMateria);
@@ -85,17 +86,24 @@ public class InformesDAO {
 						indicePregunta = ev.getPreguntas().indexOf(new Pregunta(tituloPregunta));
 						if(indicePregunta!=-1)
 						{	
+							
 						nivel = Integer.parseInt(rs.getString("valor")) -1;
 						Pregunta pregunta = ev.getPreguntas().get(indicePregunta);
+						//if(indicePregunta==0) System.out.println("indiceMateria:"+indiceMateria+"antes"+pregunta);
 						pregunta.setEnunciado(rs.getString("enunciado"));
 						pregunta.getNumeroRespuestasNivel()[nivel]=numeroRespuestas;
+						
+				//		if(indicePregunta==0) System.out.println("Codiop Materia"+codigoMateria+" grupo "+grupo+" preg "+tituloPregunta+"Nivel "+nivel+" Respuestas: "+numeroRespuestas);
+					//	if(indicePregunta==0) System.out.println(pregunta);
 						}
 					}
 				}							
 			}
 			// realiza los cálculos de los porcentajes y promedios
+			
 			for(EvaluacionMateria evaluacionMateria:evaluacionMaterias)
 			{
+				/*
 				int sum=0;
 				Pregunta pregunta = evaluacionMateria.getPreguntas().get(0);
 				for(int i=0; i<pregunta.getNumeroRespuestasNivel().length;i++)
@@ -144,15 +152,16 @@ public class InformesDAO {
 					evaluacionMateria.getPromedioPorcentaje()[Pregunta.RELACIONAL][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.RELACIONAL][nivel] /3;
 		
 				}
-			
+			*/
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.out.println("Excepcion : "+e.getMessage());
 			System.out.println(e.getLocalizedMessage());
+		
 		}	
-          
+         
      
 	}
 	

@@ -40,7 +40,8 @@ public class EvaluacionMateria {
 	public boolean equals(Object obj) {
 		// TODO Auto-generated method stub
 		EvaluacionMateria evaluacionMateria = (EvaluacionMateria)obj;
-	return evaluacionMateria.materia.equals(evaluacionMateria.getMateria()) && this.tipoEvaluacion==evaluacionMateria.getTipoEvaluacion();
+		
+	return this.getMateria().equals(evaluacionMateria.getMateria()) && this.tipoEvaluacion==evaluacionMateria.getTipoEvaluacion();
 	}
 
 	public int getTipoEvaluacion() {
