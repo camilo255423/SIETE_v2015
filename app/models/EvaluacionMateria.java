@@ -31,8 +31,9 @@ public class EvaluacionMateria {
 		this.materia = materia;
 		if(conPreguntas)
 		{
-			this.preguntas=Pregunta.getPreguntasEvaluacion();
+			this.preguntas=Pregunta.getPreguntasEvaluacion(Pregunta.DOCENCIA);
 		}
+	
 		
 	}
 

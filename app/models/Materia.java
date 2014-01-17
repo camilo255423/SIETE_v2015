@@ -34,6 +34,14 @@ public class Materia {
 	}
 
 
+	public Materia(String codigoMateria, String nombre, String grupo) {
+		super();
+		this.codigoMateria = codigoMateria;
+		this.nombre = nombre;
+		this.grupo = grupo;
+	}
+
+
 	public static List<Materia> findByProfesorAndSemestre(String documento, String semestre)
 	{
      	Connection con = DB.getConnection();

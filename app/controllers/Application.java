@@ -12,19 +12,29 @@ import views.html.*;
 public class Application extends Controller {
 
     public static Result index() {
-        return ok(index.render("Your new application is ready."));
-    }
-    public static Result prueba()
-    {
-    	
-    	
     	String documento = "51625497";
     	String semestre = "20132";
     	Profesor profesor = new Profesor(documento,"","");
-    	List<EvaluacionMateria> evaluacionMaterias = profesor.getEvaluacion(semestre);
+    	Evaluacion evaluacion = profesor.getEvaluacion(semestre);
     	List<Profesor> profesores = Profesor.findAllBySemestre("20132");
-    	return ok(views.html.informes.informedocencia.render(evaluacionMaterias,profesores));
+    	return ok(views.html.informes.informedocencia.render(evaluacion.getEvaluacionDocencia(),profesores));
+    }
+    public static Result prueba()
+    {
+    	String documento = "1014177975";
+       	String semestre = "20132";
+       	Profesor profesor = new Profesor(documento,"","");
+       	Evaluacion evaluacion = profesor.getEvaluacion(semestre);
+       	
+       	return ok("prueba :"+evaluacion.toString());
     	
+  /*  	String documento = "51625497";
+    	String semestre = "20132";
+    	Profesor profesor = new Profesor(documento,"","");
+    	Evaluacion evaluacion = profesor.getEvaluacion(semestre);
+    	List<Profesor> profesores = Profesor.findAllBySemestre("20132");
+    	return ok(views.html.informes.informedocencia.render(evaluacion,profesores));
+    	*/
     	/*
     	List<EvaluacionMateria> ev = new ArrayList<EvaluacionMateria>();
     	

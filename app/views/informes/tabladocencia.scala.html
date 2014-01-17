@@ -29,7 +29,7 @@
              
           </tr>
      	  @defining(new DecimalFormat("##0.00")){formato=>
-          @defining(Pregunta.getPreguntasEvaluacion()){preguntas=>
+          @defining(Pregunta.getPreguntasEvaluacion(Pregunta.DOCENCIA)){preguntas=>
 	          @for(i<-inicio to fin) {
 	          @defining(evaluacionMateria.getPreguntas().get(evaluacionMateria.getPreguntas().indexOf(new Pregunta(preguntas.get(i).getTitulo())))){pregunta=>
 	       	        <tr>

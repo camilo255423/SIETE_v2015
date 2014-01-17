@@ -68,14 +68,14 @@ public class Profesor {
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
-	public List<EvaluacionMateria> getEvaluacion(String semestre) {
-		List<Materia> materias = Materia.findByProfesorAndSemestre(documento, semestre);
+	public Evaluacion getEvaluacion(String semestre) {
+	/*	List<Materia> materias = Materia.findByProfesorAndSemestre(documento, semestre);
 		List<EvaluacionMateria> evaluacion = new ArrayList<EvaluacionMateria> ();
 		for(Materia materia:materias)
 		{
 			evaluacion.add(new EvaluacionMateria(EvaluacionMateria.EVALUACION,materia,true));
-		}
-		InformesDAO.getInformeDetalladoPorMateria(documento, semestre, evaluacion);
+		}*/
+		Evaluacion evaluacion = InformesDAO.getInformeDetalladoPorMateria(documento, semestre);
 		return evaluacion;
 	}
 	
