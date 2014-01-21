@@ -24,7 +24,8 @@ public class Informe1 extends Controller {
    	Profesor profesor = new Profesor(documento,"","");
    	Evaluacion evaluacion = profesor.getEvaluacion(semestre);
    	List<Profesor> profesores = Profesor.findAllBySemestre("20132");
-   	return ok(views.html.informes.informeprofesor.render(evaluacion.getEvaluacionDocencia()));
+   	
+   	return ok(views.html.informes.informeprofesor.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getAutoEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), evaluacion.getAutoEvaluacionInvestigacion()));
    	
 	
    }

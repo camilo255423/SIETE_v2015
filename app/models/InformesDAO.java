@@ -108,10 +108,10 @@ public class InformesDAO {
 				                    "AND PRE.IDPREGUNTAH = CPR.IDPREGUNTAH "+
 				                    "AND CUE.IDCUESTIONARIOH = ENC.IDCUESTIONARIOH "+
 				                     "AND ENC.CEDULA = CLI.CLI_NUMDCTO "+
-				                     "AND ENC.FECHA >= TO_DATE (?, 'yyyy/mm/dd')) "+ // 6 FECHA INICIO
+				                     "AND ENC.FECHA >= TO_DATE (?, 'yyyy-mm-dd')) "+ // 6 FECHA INICIO
 				           "DBAC WHERE       ENC.IDCUESTIONARIOH IN ((SELECT IDCUESTIONARIOH FROM SAI.TBL_H_CUESTIONARIOS "+
-				           "where fecha_inicia >  to_date(?,'yyyy/mm/dd') "+ // 7 FECHA INICIO
-				           "and fecha_inicia < to_date(?,'yyyy/mm/dd'))) "+ // 8 FECHA FIN
+				           "where fecha_inicia >  to_date(?,'yyyy-mm-dd') "+ // 7 FECHA INICIO
+				           "and fecha_inicia < to_date(?,'yyyy-mm-dd'))) "+ // 8 FECHA FIN
 				           "AND CEDULA IN (SELECT   DISTINCT (CLI_NUMDCTO) "+
 				           "FROM   sai.TBL_DOCENTE_RELACION "+
 				           "WHERE   ESTADO = 'ACT') "+
@@ -131,13 +131,12 @@ public class InformesDAO {
 				           "AND RE.IDCUESTIONARIOH = THCP.IDCUESTIONARIOH "+
 				           "AND HCU.IDCUESTIONARIOH = THCP.IDCUESTIONARIOH "+
 				           "AND PRE.IDPREGUNTAH = THCP.IDPREGUNTAH "+
-				           "AND ENC.FECHA >= TO_DATE (?, 'yyyy/mm/dd') "+ // 9 FECHA INICIO
-				 "and (PRE.TITULO like '%Gest%' or PRE.TITULO like '%Inves%' ) "+ 
+				           "AND ENC.FECHA >= TO_DATE (?, 'yyyy-mm-dd') "+ // 9 FECHA INICIO
 				 "and CEDULA = ? "+ // 10 CEDULA
 				 "UNION " +
-				 "SELECT HCU.TITULO, CLI.CLI_TIPODCTO, DR.CLI_NUMDCTO AS CODIGO_PROFESOR,'nn',0,RTA.VALOR RESPUESTA,1,PRE.TITULO AS CONSECUTIVO, "+
-"ENUNCIADO "+
-    "FROM   sai.TBL_H_PREGUNTAS PRE, "+
+				 "SELECT HCU.TITULO, CLI.CLI_TIPODCTO, DR.CLI_NUMDCTO AS CODIGO_PROFESOR,'nn',0,RTA.VALOR RESPUESTA,1,PRE.TITULO AS CONSECUTIVO, "+   
+ "ENUNCIADO "+   
+      "FROM   sai.TBL_H_PREGUNTAS PRE, "+
            "sai.RCT_CLIENTES CLI, "+
            "sai.TBL_INSTANCIA_EVADOC DDOC, "+
            "sai.TBL_ENCUESTADO TE, "+
@@ -145,28 +144,28 @@ public class InformesDAO {
            "sai.TBL_DOCENTE_ROL TDRO, "+
            "sai.TBL_RESULTADOS RTA, "+
            "sai.TBL_RESULTADOS_EVADOC RTADDOC, "+
-          "(SELECT   CLI_NUMDCTO, ID_DOCENTE_ROL "+
+           "(SELECT   CLI_NUMDCTO, ID_DOCENTE_ROL "+
            "FROM   sai.TBL_DOCENTE_RELACION TDRE "+
-            "WHERE   ID_DOCENTE_ROL IN "+
-            "(SELECT   ID_DOCENTE_ROL FROM sai.TBL_DOCENTE_ROL)) DR "+
-            "WHERE  HCU.IDCUESTIONARIOH IN ((SELECT IDCUESTIONARIOH FROM SAI.TBL_H_CUESTIONARIOS "+
-	"where fecha_inicia >  to_date(?,'yyyy/mm/dd') "+ // 11 FECHA INICIO
-	"and fecha_inicia < to_date(?,'yyyy/mm/dd') and (titulo like '%INVEST%' or titulo like '%GEST%'))) "+ // 12 FECHA FIN
-     "AND TDRO.CLI_NUMDCTO = ? "+ // 13 documento
-     "AND TDRO.CLI_NUMDCTO = CLI.CLI_NUMDCTO "+
-     "AND DR.CLI_NUMDCTO = DDOC.CODIGO_PROFESOR "+
-     "AND TDRO.ID_DOCENTE_ROL = DR.ID_DOCENTE_ROL "+
-     "AND HCU.IDCUESTIONARIOH = TE.IDCUESTIONARIOH "+
-     "AND RTA.IDRESULTADOS = TE.IDRESULTADOS "+
-     "AND TE.CEDULA = TDRO.CLI_NUMDCTO "+
-     "AND HCU.IDCUESTIONARIOH = DDOC.IDCUESTIONARIOH "+
-     "AND HCU.IDCUESTIONARIOH = RTA.IDCUESTIONARIOH "+
-     "AND RTA.IDCUESTIONARIOH = DDOC.IDCUESTIONARIOH "+
-     "AND RTA.IDRESULTADOS = RTADDOC.IDRESULTADO "+
-     "AND RTA.IDPREGUNTAH = PRE.IDPREGUNTAH "+
-      "AND RTADDOC.IDINSTANCIA = DDOC.IDINSTANCIA "+
-      "AND HCU.FECHA_INICIA > TO_DATE (?, 'yyyy/mm/dd') "+ // 14 fecha fin
-      "AND codigo_profesor=? "+ // 15  documento
+           "WHERE   ID_DOCENTE_ROL IN "+
+           "(SELECT   ID_DOCENTE_ROL FROM sai.TBL_DOCENTE_ROL)) DR "+
+   "WHERE "+
+   "HCU.IDCUESTIONARIOH IN ((SELECT IDCUESTIONARIOH FROM SAI.TBL_H_CUESTIONARIOS "+
+	"where fecha_inicia >  to_date(?,'yyyy-mm-dd') "+ // 11 fecha inicio
+	"and fecha_inicia < to_date(?,'yyyy-mm-dd') and (titulo like '%INVEST%' or titulo like '%GEST%'))) "+ // 12.fecha fin
+           "AND TDRO.CLI_NUMDCTO = CLI.CLI_NUMDCTO " +
+           "AND DR.CLI_NUMDCTO = DDOC.CODIGO_PROFESOR "+
+           "AND TDRO.ID_DOCENTE_ROL = DR.ID_DOCENTE_ROL "+
+           "AND HCU.IDCUESTIONARIOH = TE.IDCUESTIONARIOH "+
+           "AND RTA.IDRESULTADOS = TE.IDRESULTADOS "+
+           "AND TE.CEDULA = TDRO.CLI_NUMDCTO "+
+           "AND HCU.IDCUESTIONARIOH = DDOC.IDCUESTIONARIOH "+
+           "AND HCU.IDCUESTIONARIOH = RTA.IDCUESTIONARIOH "+
+           "AND RTA.IDCUESTIONARIOH = DDOC.IDCUESTIONARIOH "+
+           "AND RTA.IDRESULTADOS = RTADDOC.IDRESULTADO  "+
+           "AND RTA.IDPREGUNTAH = PRE.IDPREGUNTAH "+
+           "AND RTADDOC.IDINSTANCIA = DDOC.IDINSTANCIA "+
+           "AND HCU.FECHA_INICIA > TO_DATE (?, 'yyyy/mm/dd') "+ //13 fecha inicio
+           " and codigo_profesor=? "+ // 14.cedula
 	"union "+
 	"SELECT     HCU.TITULO, "+
 	           "'', "+
@@ -186,8 +185,8 @@ public class InformesDAO {
 	           "sai.TBL_H_CUESTIONARIO_PREGUNTAS THCP, "+
 	           "sai.TBL_ENCUESTADO ENC "+
 	   "WHERE ENC.IDCUESTIONARIOH IN ((SELECT IDCUESTIONARIOH FROM SAI.TBL_H_CUESTIONARIOS "+
-		"where fecha_inicia >  to_date(?,'yyyy/mm/dd') "+ // 16 fecha inicio 
-		"and fecha_inicia < to_date(?,'yyyy/mm/dd'))) "+ // 17 fecha fin
+		"where fecha_inicia >  to_date(?,'yyyy-mm-dd') "+ // 15 fecha inicio 
+		"and fecha_inicia < to_date(?,'yyyy-mm-dd'))) "+ // 16 fecha fin
 	    "AND CEDULA IN (SELECT   DISTINCT (CLI_NUMDCTO) "+
 	                            "FROM   sai.TBL_DOCENTE_RELACION "+
 	                           "WHERE   ESTADO = 'ACT') "+
@@ -204,11 +203,11 @@ public class InformesDAO {
 	           "AND ENC.IDCUESTIONARIOH = TIE.IDCUESTIONARIOH "+
 	           "AND RE.IDCUESTIONARIOH = TIE.IDCUESTIONARIOH "+
 	           "AND HCU.IDCUESTIONARIOH = TIE.IDCUESTIONARIOH "+
-	           "AND TIE.PERIODO = ? "+ // 18 semestre
+	           "AND TIE.PERIODO = ? "+ // 17. semestre
 	           "AND TIE.CODIGO_PROFESOR = CLI.CLI_NUMDCTO "+
 	           "AND TIE.CODIGO_PROFESOR = CEDULA "+
-	           "AND ENC.FECHA >= TO_DATE (?, 'yyyy/mm/dd') "+ // 19 fecha inicio
-	           "and codigo_profesor=? "; // 20 cedula
+	           "AND ENC.FECHA >= TO_DATE (?, 'yyyy-mm-dd') "+ // 18 fecha inicio
+	           "and codigo_profesor=? "; // 19 cedula
 	
 
 	
@@ -246,8 +245,6 @@ public class InformesDAO {
 				
 				indiceMateria=evaluacionMaterias.indexOf
 				(new EvaluacionMateria(tipoEvaluacion,new Materia(codigoMateria,grupo),false));
-				System.out.println(evaluacionMaterias);
-				System.out.println(new EvaluacionMateria(tipoEvaluacion,new Materia(codigoMateria,grupo),false));
 				if(indiceMateria!=-1)
 				{	
 					EvaluacionMateria ev = evaluacionMaterias.get(indiceMateria);
@@ -263,12 +260,9 @@ public class InformesDAO {
 							
 						nivel = Integer.parseInt(rs.getString("valor")) -1;
 						Pregunta pregunta = ev.getPreguntas().get(indicePregunta);
-						//if(indicePregunta==0) System.out.println("indiceMateria:"+indiceMateria+"antes"+pregunta);
 						pregunta.setEnunciado(rs.getString("enunciado"));
 						pregunta.getNumeroRespuestasNivel()[nivel]=numeroRespuestas;
 						
-				//		if(indicePregunta==0) System.out.println("Codiop Materia"+codigoMateria+" grupo "+grupo+" preg "+tituloPregunta+"Nivel "+nivel+" Respuestas: "+numeroRespuestas);
-					//	if(indicePregunta==0) System.out.println(pregunta);
 						}
 					}
 				}							
@@ -277,7 +271,7 @@ public class InformesDAO {
 			
 			for(EvaluacionMateria evaluacionMateria:evaluacionMaterias)
 			{
-				/*
+				
 				int sum=0;
 				Pregunta pregunta = evaluacionMateria.getPreguntas().get(0);
 				for(int i=0; i<pregunta.getNumeroRespuestasNivel().length;i++)
@@ -326,7 +320,7 @@ public class InformesDAO {
 					evaluacionMateria.getPromedioPorcentaje()[Pregunta.RELACIONAL][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.RELACIONAL][nivel] /3;
 		
 				}
-			*/
+			
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -375,15 +369,17 @@ public class InformesDAO {
 			
 			p.setString(11, periodo[Periodo.FECHAINICIO]);
 			p.setString(12, periodo[Periodo.FECHAFIN]);
-			p.setString(13, documentoProfesor);
-			p.setString(14, periodo[Periodo.FECHAFIN]);
+		
+			p.setString(13, periodo[Periodo.FECHAINICIO]);
+			p.setString(14, documentoProfesor);
 			
-			p.setString(15, documentoProfesor);
-			p.setString(16, periodo[Periodo.FECHAINICIO]);
-			p.setString(17, periodo[Periodo.FECHAFIN]);
-			p.setString(18, semestre);
-			p.setString(19, periodo[Periodo.FECHAINICIO]);
-			p.setString(20, documentoProfesor);
+	
+			p.setString(15, periodo[Periodo.FECHAINICIO]);
+			p.setString(16, periodo[Periodo.FECHAFIN]);
+			p.setString(17, semestre);
+			p.setString(18, periodo[Periodo.FECHAINICIO]);
+			p.setString(19, documentoProfesor);
+			
 			
 			ResultSet rs=p.executeQuery();
 			
@@ -399,20 +395,21 @@ public class InformesDAO {
 					if(rs.getString("tipo_evaluacion").contains("AUTOEVALUACION")) 
 						{
 						tipoEvaluacion = EvaluacionMateria.AUTOEVALUACION;
-						System.out.println("autoevaluación!!!!!!!!!!!!!");
+				
 						}
 					
 			
 					codigoMateria = rs.getString("CODIGO_MATERIA");
 					grupo = rs.getString("GRUPO");
-					ev = new EvaluacionMateria(tipoEvaluacion,new Materia(codigoMateria,codigoMateria,grupo),true);
+					ev = new EvaluacionMateria(tipoEvaluacion,new Materia(codigoMateria,rs.getString("NOMBRE_MATERIA"),grupo, rs.getInt("inscritos")),true);
+					
 					materiaAnterior=rs.getString("CODIGO_MATERIA")+" "+rs.getString("GRUPO");
 					evaluacionMaterias.add(ev);
 					
 				}
 				
 				tituloPregunta = rs.getString("pregunta");
-				System.out.println(tituloPregunta);
+				
 				numeroRespuestas = rs.getInt("conteo");
 				
 				
@@ -429,115 +426,133 @@ public class InformesDAO {
 						nivel = Integer.parseInt(rs.getString("valor")) -1;
 						Pregunta pregunta = ev.getPreguntas().get(indicePregunta);
 						pregunta.setEnunciado(rs.getString("enunciado"));
-						System.out.println(rs.getString("enunciado"));
+					
 						pregunta.getNumeroRespuestasNivel()[nivel]=numeroRespuestas;
 						
 						}
 					}
-											
-			}
-			
-			// realiza los cálculos de los porcentajes y promedios
-			
-			for(EvaluacionMateria evaluacionMateria:evaluacionMaterias)
-			{
-				/*
-				int sum=0;
-				Pregunta pregunta = evaluacionMateria.getPreguntas().get(0);
-				for(int i=0; i<pregunta.getNumeroRespuestasNivel().length;i++)
-				{
-					sum = sum + pregunta.getNumeroRespuestasNivel()[i];
-				}
-				evaluacionMateria.setEvaluados(sum);
-				//porcentajes
-				for(Pregunta preg:evaluacionMateria.getPreguntas())
-				{
-					for( int j=0; j<preg.getNumeroRespuestasNivel().length;j++)
-					{
-						if(evaluacionMateria.getEvaluados()>0)
-						{	
-						preg.getPorecentajeNivel()[Nivel.INFERIOR] =  preg.getNumeroRespuestasNivel()[Nivel.INFERIOR] /(double)evaluacionMateria.getEvaluados();
-						preg.getPorecentajeNivel()[Nivel.BAJO] =  preg.getNumeroRespuestasNivel()[Nivel.BAJO] /(double)evaluacionMateria.getEvaluados();
-						preg.getPorecentajeNivel()[Nivel.MEDIO] =  preg.getNumeroRespuestasNivel()[Nivel.MEDIO] /(double)evaluacionMateria.getEvaluados();
-						preg.getPorecentajeNivel()[Nivel.ALTO] =  preg.getNumeroRespuestasNivel()[Nivel.ALTO] /(double)evaluacionMateria.getEvaluados();
-						preg.getPorecentajeNivel()[Nivel.SUPERIOR] =  preg.getNumeroRespuestasNivel()[Nivel.SUPERIOR] /(double)evaluacionMateria.getEvaluados();
-						}
-					}
-				}
-				//promedios
-			  
-				for(Pregunta preg:evaluacionMateria.getPreguntas())
-				{
-					int tipo = preg.getTipoPregunta();
-					for( nivel=0; nivel<preg.getNumeroRespuestasNivel().length;nivel++)
+					// realiza los cálculos de los porcentajes y promedios
+					
+					for(EvaluacionMateria evaluacionMateria:evaluacionMaterias)
 					{
 						
-						evaluacionMateria.getPromedioRespuestas()[tipo][nivel] =  evaluacionMateria.getPromedioRespuestas()[tipo][nivel] + preg.getNumeroRespuestasNivel()[nivel];
-						evaluacionMateria.getPromedioPorcentaje()[tipo][nivel] =  evaluacionMateria.getPromedioPorcentaje()[tipo][nivel] + preg.getPorecentajeNivel()[nivel];
+						int sum=0;
+						Pregunta pregunta = evaluacionMateria.getPreguntas().get(0);
+						for(int i=0; i<pregunta.getNumeroRespuestasNivel().length;i++)
+						{
+							sum = sum + pregunta.getNumeroRespuestasNivel()[i];
+						}
+						evaluacionMateria.setEvaluados(sum);
+						//porcentajes
+						for(Pregunta preg:evaluacionMateria.getPreguntas())
+						{
+							for( int j=0; j<preg.getNumeroRespuestasNivel().length;j++)
+							{
+								if(evaluacionMateria.getEvaluados()>0)
+								{	
+								preg.getPorecentajeNivel()[Nivel.INFERIOR] =  preg.getNumeroRespuestasNivel()[Nivel.INFERIOR] /(double)evaluacionMateria.getEvaluados();
+								preg.getPorecentajeNivel()[Nivel.BAJO] =  preg.getNumeroRespuestasNivel()[Nivel.BAJO] /(double)evaluacionMateria.getEvaluados();
+								preg.getPorecentajeNivel()[Nivel.MEDIO] =  preg.getNumeroRespuestasNivel()[Nivel.MEDIO] /(double)evaluacionMateria.getEvaluados();
+								preg.getPorecentajeNivel()[Nivel.ALTO] =  preg.getNumeroRespuestasNivel()[Nivel.ALTO] /(double)evaluacionMateria.getEvaluados();
+								preg.getPorecentajeNivel()[Nivel.SUPERIOR] =  preg.getNumeroRespuestasNivel()[Nivel.SUPERIOR] /(double)evaluacionMateria.getEvaluados();
+								}
+							}
+						}
+						//promedios
+					  
+						for(Pregunta preg:evaluacionMateria.getPreguntas())
+						{
+							int tipo = preg.getTipoPregunta();
+							for( nivel=0; nivel<preg.getNumeroRespuestasNivel().length;nivel++)
+							{
+								
+								evaluacionMateria.getPromedioRespuestas()[tipo][nivel] =  evaluacionMateria.getPromedioRespuestas()[tipo][nivel] + preg.getNumeroRespuestasNivel()[nivel];
+								evaluacionMateria.getPromedioPorcentaje()[tipo][nivel] =  evaluacionMateria.getPromedioPorcentaje()[tipo][nivel] + preg.getPorecentajeNivel()[nivel];
+						
+							}
+							
+							
+						}
+						
+						for( nivel=0; nivel<=4;nivel++)
+						{
+							evaluacionMateria.getPromedioRespuestas()[Pregunta.PEDAGOGICO][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.PEDAGOGICO][nivel] /6;
+							evaluacionMateria.getPromedioPorcentaje()[Pregunta.PEDAGOGICO][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.PEDAGOGICO][nivel] /6;
+							evaluacionMateria.getPromedioRespuestas()[Pregunta.ESPECIFICO][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.ESPECIFICO][nivel] /3;
+							evaluacionMateria.getPromedioPorcentaje()[Pregunta.ESPECIFICO][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.ESPECIFICO][nivel] /3;
+							evaluacionMateria.getPromedioRespuestas()[Pregunta.RELACIONAL][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.RELACIONAL][nivel] /3;
+							evaluacionMateria.getPromedioPorcentaje()[Pregunta.RELACIONAL][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.RELACIONAL][nivel] /3;
 				
-					}
+						}
 					
-					
-				}
-				
-				for( nivel=0; nivel<=4;nivel++)
-				{
-					evaluacionMateria.getPromedioRespuestas()[Pregunta.PEDAGOGICO][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.PEDAGOGICO][nivel] /6;
-					evaluacionMateria.getPromedioPorcentaje()[Pregunta.PEDAGOGICO][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.PEDAGOGICO][nivel] /6;
-					evaluacionMateria.getPromedioRespuestas()[Pregunta.ESPECIFICO][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.ESPECIFICO][nivel] /3;
-					evaluacionMateria.getPromedioPorcentaje()[Pregunta.ESPECIFICO][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.ESPECIFICO][nivel] /3;
-					evaluacionMateria.getPromedioRespuestas()[Pregunta.RELACIONAL][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.RELACIONAL][nivel] /3;
-					evaluacionMateria.getPromedioPorcentaje()[Pregunta.RELACIONAL][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.RELACIONAL][nivel] /3;
-		
-				}
-			*/
+					}	
+											
 			}
-			
 			if(rs.getString("tipo_evaluacion").contains("GESTI"))
 			{	
+			
 				Pregunta pregunta;
 				
 				tituloPregunta = rs.getString("pregunta");
 				
 				indicePregunta = evaluacionGestion.getPreguntas().indexOf(new Pregunta(tituloPregunta));
 				numeroRespuestas = rs.getInt("conteo");
+				EvaluacionGestion eg;
 				if(indicePregunta!=-1)
 				{	
-				if(rs.getString("tipo_evaluacion").contains("AUTOEVALUACION"))
-				pregunta = autoEvaluacionGestion.getPreguntas().get(indicePregunta);
+				if(rs.getString("tipo_evaluacion").contains("AUTOEVAL"))
+				{
+					pregunta = autoEvaluacionGestion.getPreguntas().get(indicePregunta);
+					eg = autoEvaluacionGestion;
+				}
 				else
-				pregunta = evaluacionGestion.getPreguntas().get(indicePregunta);	
-			
-				
+				{
+					
+					pregunta = evaluacionGestion.getPreguntas().get(indicePregunta);
+					eg = evaluacionGestion;
+				}
+
+				pregunta.setEnunciado(rs.getString("enunciado"));
 				nivel = Integer.parseInt(rs.getString("valor")) -1;
 				
-				pregunta.setEnunciado(rs.getString("enunciado"));
+				
 				pregunta.getNumeroRespuestasNivel()[nivel]=numeroRespuestas;
-						
+				pregunta.getPorecentajeNivel()[nivel]=100;	
+				eg.getPromedioPorcentaje()[nivel]=eg.getPromedioPorcentaje()[nivel]+100;
+				eg.getPromedioRespuestas()[nivel]++;
 				}
 
 											
 			}
-			if(rs.getString("tipo_evaluacion").contains("INVESTIGACIÓN"))
+			if(rs.getString("tipo_evaluacion").contains("INVESTIGA"))
 			{	
 				tituloPregunta = rs.getString("pregunta");
 				Pregunta pregunta;
 				numeroRespuestas = rs.getInt("conteo");
 				indicePregunta = evaluacionInvestigacion.getPreguntas().indexOf(new Pregunta(tituloPregunta));
-				
+				EvaluacionInvestigacion ei=null;
 				if(indicePregunta!=-1)
 				{	
 				nivel = Integer.parseInt(rs.getString("valor")) -1;
-				if(rs.getString("tipo_evaluacion").contains("AUTOEVALUACION"))
+				if(rs.getString("tipo_evaluacion").contains("AUTOEVAL"))
+				{
 					pregunta = autoEvaluacionInvestigacion.getPreguntas().get(indicePregunta);
+					ei=autoEvaluacionInvestigacion;
+				}
 					else
-					pregunta = evaluacionInvestigacion.getPreguntas().get(indicePregunta);	
+					{
+					pregunta = evaluacionInvestigacion.getPreguntas().get(indicePregunta);
+					ei=evaluacionInvestigacion;
+					}
 				pregunta.setEnunciado(rs.getString("enunciado"));
 				pregunta.getNumeroRespuestasNivel()[nivel]=numeroRespuestas;
-						
-				}
-
+				pregunta.getPorecentajeNivel()[nivel]=100;
+				ei.getPromedioPorcentaje()[nivel]=ei.getPromedioPorcentaje()[nivel]+100;
+				ei.getPromedioRespuestas()[nivel]++;
 											
+				
+				}
+			
 			}
 			// realiza los cálculos de los porcentajes y promedios
 			
@@ -594,14 +609,16 @@ public class InformesDAO {
 			System.out.println(e.getLocalizedMessage());
 		
 		}
-	
-     
+		for( nivel=0; nivel<=3;nivel++)
+		{	
+			evaluacionGestion.getPromedioPorcentaje()[nivel] = evaluacionGestion.getPromedioPorcentaje()[nivel]/6;
+			evaluacionGestion.getPromedioRespuestas()[nivel] = evaluacionGestion.getPromedioRespuestas()[nivel]/6;
+			autoEvaluacionGestion.getPromedioRespuestas()[nivel] = autoEvaluacionGestion.getPromedioRespuestas()[nivel]/6;
+			autoEvaluacionGestion.getPromedioPorcentaje()[nivel] = autoEvaluacionGestion.getPromedioPorcentaje()[nivel]/6;
+		} 
      return new Evaluacion(evaluacionMaterias, evaluacionGestion, evaluacionInvestigacion,autoEvaluacionGestion,autoEvaluacionInvestigacion);
 	}
 	
 	
 
 }
-/*
-<!-- 	<h4> Encuestados: @evaluacion.getEvaluados() de @evaluacion.getMateria().getInscritos(), 
-porcentaje @(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscritos()/100.0)% </h4> -->*/

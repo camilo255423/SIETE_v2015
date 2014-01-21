@@ -324,7 +324,10 @@ padding:10px;
 	float:left;
 	border:2px solid #dfdfdf;	
 }
-
+#tabs-docencia
+{
+	margin: -10px -10px -10px -40px;
+}
 /* Footer Area */
 #footer {
 	clear:both;

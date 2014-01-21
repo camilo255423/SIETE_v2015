@@ -1,0 +1,33 @@
+@(semestres:List[String])
+
+<select name='semestre' id="listasemestres">
+@for(semestre <- semestres){
+<option value='@semestre'>@semestre</option>
+}
+</select>
+<script>
+$(
+function()
+{
+
+$('#listasemestres').on("change", cambioSemestre);
+}
+);
+function cambioSemestre()
+{
+
+$("#informe").html("<div id='progressbar'></div>");
+$("#listaProfesores").html("Cargando...");
+$("#progressbar").progressbar({
+value:false
+});
+$.post("cambiosemestre",{semestre: this.value},mostrarProfesores);
+
+}
+function mostrarProfesores(data)
+{
+
+$("#listaProfesores").html(data);
+$("#informe").html("");
+}
+</script>

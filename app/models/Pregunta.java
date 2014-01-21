@@ -18,7 +18,7 @@ public class Pregunta {
 		"Específico 7","Específico 8","Específico 9",
 		"Relacional 10","Relacional 11","Relacional 12"};
 	public static final String preguntasTitulosGestion[]={"Gestión 1", "Gestión 2", "Gestión 3", "Gestión 4", "Gestión 5", "Gestión 6"};
-	public static final String preguntasTitulosInvestigacion[]={"Investigación 1", "Investigación 2", "Investigación 3", "Investigación 4", "Investigación 5", "Investigación 6"};
+	public static final String preguntasTitulosInvestigacion[]={"Investigativo 1", "Investigativo 2", "Investigativo 3", "Investigativo 4", "Investigativo 5", "Investigativo 6"};
 	
 	int tipoPregunta;
 	String titulo;

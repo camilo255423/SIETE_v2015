@@ -1,10 +1,12 @@
-@(profesores:List[Profesor])
+@(profesores:List[Profesor], conScript:Integer=0)
 
 <select name='documento' id='listaProfesores'>
+<option value=-1> - Seleccion -</option>
 @for(profesor <- profesores){
 <option value='@profesor.getDocumento()'>@profesor.getApellidos() @profesor.getNombres()</option>
 }
 </select>
+@if(conScript==1){
 <script>
 $(
 function()
@@ -28,3 +30,4 @@ function mostrar(data)
 $("#informe").html(data);
 }
 </script>
+}

@@ -5,6 +5,7 @@ import java.util.List;
 
 import play.*;
 import models.*;
+import play.data.Form;
 import play.mvc.*;
 
 import views.html.*;
@@ -17,7 +18,17 @@ public class Application extends Controller {
     	Profesor profesor = new Profesor(documento,"","");
     	Evaluacion evaluacion = profesor.getEvaluacion(semestre);
     	List<Profesor> profesores = Profesor.findAllBySemestre("20132");
-    	return ok(views.html.informes.informedocencia.render(evaluacion.getEvaluacionDocencia(),profesores));
+    	List<String> semestres = Periodo.findAll();
+    	return ok(views.html.informes.informedocencia.render(evaluacion.getEvaluacionDocencia(),profesores,semestres));
+    }
+    public static Result cambioSemestre()
+    {
+    	String semestre = Form.form().bindFromRequest().get("semestre");
+        	
+       	List<Profesor> profesores = Profesor.findAllBySemestre(semestre);
+       
+       	return ok(views.html.lista.render(profesores,0));
+       	
     }
     public static Result prueba()
     {

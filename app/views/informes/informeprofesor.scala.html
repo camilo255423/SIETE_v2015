@@ -1,18 +1,26 @@
-@(evaluacionMateria:List[EvaluacionMateria])
+@(evaluacionMateria:List[EvaluacionMateria], evaluacionGestion:EvaluacionGestion, autoEvaluacionGestion:EvaluacionGestion, evaluacionInvestigacion:EvaluacionInvestigacion,autoEvaluacionInvestigacion:EvaluacionInvestigacion)
 <div id="informe">
-
-        
+<div class="tabs">
+		<ul>
+			<li><a href="#tabs-docencia">Docencia</a></li>
+			<li><a href="#tabs-gestion">Gestión</a></li>
+			<li><a href="#tabs-investigacion">Investigación</a></li>
+			
+		</ul>
+ 	<div id="tabs-docencia">       
 	@for(evaluacion <- evaluacionMateria){
 	@if(evaluacion.getTipoEvaluacion()==EvaluacionMateria.EVALUACION){
 	<h2>@evaluacion.getMateria().getNombre(), grupo @evaluacion.getMateria().getGrupo()</h2>
 	<div class="tabs">
 		<ul>
-			<li><a href="#tabs-1">Estudiantes</a></li>
-			<li><a href="#tabs-2">Autoevaluación</a></li>
+			<li><a href="#tabs-estudiantes">Estudiantes</a></li>
+			<li><a href="#tabs-autoevaluacion">Autoevaluación</a></li>
 			
 		</ul>
-	<div id="tabs-1">	
+	<div id="tabs-estudiantes">	
 
+	<h4> Encuestados: @evaluacion.getEvaluados() de @evaluacion.getMateria().getInscritos(), 
+porcentaje @(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscritos()/100.0)% </h4>
 	
 	@tabladocencia(evaluacion,"Saber Pedagógico",Pregunta.PEDAGOGICO, 0,5)
 	
@@ -33,20 +41,60 @@
 	    </table>
 		   
 	</div>
-	<div id="tabs-2">	
-	@defining(evaluacionMateria.get(evaluacionMateria.indexOf(new EvaluacionMateria(EvaluacionMateria.AUTOEVALUACION,evaluacion.getMateria(),false)))){autoevaluacion=>
-	@tabladocencia(autoevaluacion,"Saber Pedagógico",Pregunta.PEDAGOGICO, 0,5)
-	
-	@tabladocencia(autoevaluacion,"Saber Específico",Pregunta.ESPECIFICO,6,8)
-	
-	@tabladocencia(autoevaluacion,"Saber Relacional",Pregunta.RELACIONAL,9,11)
+	<div id="tabs-autoevaluacion">	
+	@defining(evaluacionMateria.indexOf(new EvaluacionMateria(EvaluacionMateria.AUTOEVALUACION,evaluacion.getMateria(),false))){indice=>
+		@if(indice>=0){
+		@defining(evaluacionMateria.get(indice)){autoevaluacion=>
+		@tabladocencia(autoevaluacion,"Saber Pedagógico",Pregunta.PEDAGOGICO, 0,5)
+		
+		@tabladocencia(autoevaluacion,"Saber Específico",Pregunta.ESPECIFICO,6,8)
+		
+		@tabladocencia(autoevaluacion,"Saber Relacional",Pregunta.RELACIONAL,9,11)
+		}
+		
+	}else{
+	<h1>Sin autoevaluación</h1>
+		}
 	}
-	
-	</div> <!-- div tab2 -->
+	</div> <!-- div autoevaluacion -->
+
 	</div> <!-- div tabs -->
+
 	
 } 
-} 
+}
+	</div> <!--  docencia -->
+<div id="tabs-gestion">
+<div class="tabs">
+		<ul>
+			<li><a href="#tabs-evalgestion">Directivos</a></li>
+			<li><a href="#tabs-autoevalgestion">Autoevaluación</a></li>
+			
+		</ul>
+	<div id="tabs-evalgestion">
+	@tablagestion(evaluacionGestion,"Gestión",Pregunta.GESTION, 0,5)	
+	</div>
+	<div id="tabs-autoevalgestion">	
+	@tablagestion(autoEvaluacionGestion,"Autoevaluación Gestión",Pregunta.GESTION, 0,5)
+	</div>
+</div>
+</div>
+<div id="tabs-investigacion">
+<div class="tabs">
+		<ul>
+			<li><a href="#tabs-evalinvestigacion">Directivos</a></li>
+			<li><a href="#tabs-autoevalinvestigacion">Autoevaluación</a></li>
+			
+		</ul>
+	<div id="tabs-evalinvestigacion">
+	@tablainvestigacion(evaluacionInvestigacion,"Investigación",Pregunta.INVESTIGACION, 0,5)	
+	</div>
+	<div id="tabs-autoevalinvestigacion">	
+	@tablainvestigacion(autoEvaluacionInvestigacion,"Autoevaluación Investigación",Pregunta.INVESTIGACION, 0,5)
+	</div>
+</div>
+</div>
+</div> <!-- tabs docencia-gestión-invest --> 
 </div>  <!-- div informe -->
 <script>
 $( ".tabs" ).tabs();
