@@ -17,7 +17,7 @@ public class Pregunta {
 		"Pedagógico 2","Pedagógico 3","Pedagógico 4","Pedagógico 5","Pedagógico 6",
 		"Específico 7","Específico 8","Específico 9",
 		"Relacional 10","Relacional 11","Relacional 12"};
-	public static final String preguntasTitulosGestion[]={"Gestión 1", "Gestión 2", "Gestión 3", "Gestión 4", "Gestión 5", "Gestión 6"};
+	public static final String preguntasTitulosGestion[]={"Gestión 1", "Gestión 2", "Gestión 3", "Gestión 4", "Gestión 5", "Gestión 6","Gestión 7"};
 	public static final String preguntasTitulosInvestigacion[]={"Investigativo 1", "Investigativo 2", "Investigativo 3", "Investigativo 4", "Investigativo 5", "Investigativo 6"};
 	
 	int tipoPregunta;

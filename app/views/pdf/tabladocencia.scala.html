@@ -4,17 +4,17 @@
 @import java.text.DecimalFormat
 <div class="titulotabla">@titulo</div>
 	
-<table>
+<table border='1'>
 <tbody>
-        <tr>
-        <td class="row_headers" rowspan='2'>Enunciado</td>
+        <tr style="font-size: 8pt;">
+        <td class="row_headers" rowspan='2' width='10cm'>Enunciado</td>
 		<td class="row_headers" colspan='2'>Nivel<br></br>Inferior</td>
 		<td class="row_headers" colspan='2'>Nivel<br></br>Bajo</td>
 		<td class="row_headers" colspan='2'>Nivel<br></br>Medio</td>
 		<td class="row_headers" colspan='2'>Nivel<br></br>Alto</td>
 		<td class="row_headers" colspan='2'>Nivel<br></br>Superior</td>
 	     </tr>
-	     <tr>
+	     <tr style="font-size: 8pt;">
 		
                 <td class="row_headers">Resp.</td>
                 <td class="row_headers">%</td>
@@ -35,17 +35,17 @@
 	          @if(indice>=0){
 		          @defining(evaluacionMateria.getPreguntas().get(indice)){pregunta=>
 		       	        <tr>
-		       	        <td >@pregunta.getEnunciado()</td>
-		       	        <td>@pregunta.getNumeroRespuestasNivel()(Nivel.INFERIOR)</td>
-		                <td>@formato.format(pregunta.getPorecentajeNivel()(Nivel.INFERIOR))%</td>
-		            	<td>@pregunta.getNumeroRespuestasNivel()(Nivel.BAJO)</td>
-		                <td>@formato.format(pregunta.getPorecentajeNivel()(Nivel.BAJO))%</td>
-		                <td>@pregunta.getNumeroRespuestasNivel()(Nivel.MEDIO)</td>
-		                <td>@formato.format(pregunta.getPorecentajeNivel()(Nivel.MEDIO))%</td>
-		                <td>@pregunta.getNumeroRespuestasNivel()(Nivel.ALTO)</td>
-		                <td>@formato.format(pregunta.getPorecentajeNivel()(Nivel.ALTO))%</td>
-		                <td>@pregunta.getNumeroRespuestasNivel()(Nivel.SUPERIOR)</td>
-		                <td>@formato.format(pregunta.getPorecentajeNivel()(Nivel.SUPERIOR))%</td>
+		       	        <td style="font-size: 8pt;">@pregunta.getEnunciado()</td>
+		       	        <td style="font-size: 8pt;">@pregunta.getNumeroRespuestasNivel()(Nivel.INFERIOR)</td>
+		                <td style="font-size: 8pt;">@formato.format(pregunta.getPorecentajeNivel()(Nivel.INFERIOR))%</td>
+		            	<td style="font-size: 8pt;">@pregunta.getNumeroRespuestasNivel()(Nivel.BAJO)</td>
+		                <td style="font-size: 8pt;">@formato.format(pregunta.getPorecentajeNivel()(Nivel.BAJO))%</td>
+		                <td style="font-size: 8pt;">@pregunta.getNumeroRespuestasNivel()(Nivel.MEDIO)</td>
+		                <td style="font-size: 8pt;">@formato.format(pregunta.getPorecentajeNivel()(Nivel.MEDIO))%</td>
+		                <td style="font-size: 8pt;">@pregunta.getNumeroRespuestasNivel()(Nivel.ALTO)</td>
+		                <td style="font-size: 8pt;">@formato.format(pregunta.getPorecentajeNivel()(Nivel.ALTO))%</td>
+		                <td style="font-size: 8pt;">@pregunta.getNumeroRespuestasNivel()(Nivel.SUPERIOR)</td>
+		                <td style="font-size: 8pt;">@formato.format(pregunta.getPorecentajeNivel()(Nivel.SUPERIOR))%</td>
 		                </tr>
 		    			}
 		       
@@ -53,7 +53,7 @@
 	           }
 	      
 	        }
-	               	<tr>
+	               	<tr style="font-size: 8pt;">
 	       	        <td>Promedio</td>
 	       	        <td>@formato.format(evaluacionMateria.getPromedioRespuestas()(saber)(Nivel.INFERIOR))</td>
 	                <td>@formato.format(evaluacionMateria.getPromedioPorcentaje()(saber)(Nivel.INFERIOR))%</td>

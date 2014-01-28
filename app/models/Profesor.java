@@ -14,7 +14,7 @@ public class Profesor {
 	String documento;
 	String nombres;
 	String apellidos;
-
+    
 	public Profesor(String documento, String nombres, String apellidos) {
 		super();
 		this.documento = documento;
@@ -49,7 +49,32 @@ public class Profesor {
 		
 		return profesores;
 	}
+	public static Profesor findByDocumento(String documento)
+	{
+     	Connection con = DB.getConnection();
+		Profesor profesor=null;
+		PreparedStatement p;
+		try {
+			p = con.prepareStatement(consultaProfesor);
+			
+			p.setString(1, documento);
+		
+			ResultSet rs=p.executeQuery();
+			while (rs.next()) {
+				profesor = new Profesor(rs.getString("documento"),
+						rs.getString("nombres"),rs.getString("apellidos"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Excepcion : "+e.getMessage());
+			System.out.println(e.getLocalizedMessage());
+		}
 	
+		
+		
+		return profesor;
+	}
 	public String getDocumento() {
 		return documento;
 	}
@@ -92,6 +117,7 @@ public class Profesor {
 	+"where fecha_inicia >  to_date(?,'yyyy-mm-dd') "
 	+"and fecha_inicia < to_date(?,'yyyy-mm-dd'))) " 
 	+"order by apellidos, nombres asc";
-	
+	private static final String consultaProfesor = "select cli_numdcto as documento, cli_nombres as nombres, cli_apellidos as apellidos "
+			+"from sai.RCT_CLIENTES where  cli_numdcto = ? ";
 	
 }

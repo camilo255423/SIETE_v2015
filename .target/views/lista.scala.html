@@ -1,18 +1,28 @@
 @(profesores:List[Profesor], conScript:Integer=0)
 
 <select name='documento' id='listaProfesores'>
-<option value=-1> - Seleccion -</option>
+<option value=-1></option>
 @for(profesor <- profesores){
 <option value='@profesor.getDocumento()'>@profesor.getApellidos() @profesor.getNombres()</option>
 }
 </select>
+
 @if(conScript==1){
 <script>
 $(
 function()
 {
+var availableTags = [
+      "azul",
+      "blanco",
+      "rojo",
+      "verde"];
+$( "#tags" ).autocomplete({
+      source: availableTags
+    })
 
 $('#listaProfesores').on("change", cambioProfesor);
+
 }
 );
 function cambioProfesor()
@@ -21,13 +31,24 @@ $("#informe").html("<div id='progressbar'></div>");
 $("#progressbar").progressbar({
 value:false
 });
+enlaceDescargas(this.value,$('#listasemestres').val());
 $.post("informeprofesor",{documento: this.value},mostrar);
 
 }
 function mostrar(data)
 {
-
 $("#informe").html(data);
+
+}
+function enlaceDescargas(documento, semestre)
+{
+var enlace = 'informe1/pdf/'+documento+'/'+semestre;
+var s =  "<ul class='side'>";
+s= s+ "<li><a href='"+enlace+"'>Descargar PDF</a></li>";
+enlace = 'informe1/excel/'+documento+'/'+semestre;
+s = s +  "<li><a href='"+enlace+"'>Descargar Excel</a></li>";
+s = s + "</ul>";
+$("#descargas").html(s);
 }
 </script>
 }

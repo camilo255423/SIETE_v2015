@@ -26,7 +26,11 @@ $.post("cambiosemestre",{semestre: this.value},mostrarProfesores);
 }
 function mostrarProfesores(data)
 {
+// var availableTags = data.match("<select(\s+[^>]*)?>(.|\n)*?< /select(\s+[^>]*)?>");
 
+// $( "#tags" ).autocomplete({
+      source: availableTags
+    });
 $("#listaProfesores").html(data);
 $("#informe").html("");
 }

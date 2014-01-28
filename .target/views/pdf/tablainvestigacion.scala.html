@@ -1,0 +1,71 @@
+@(evaluacionInvestigacion:EvaluacionInvestigacion, titulo:String, saber:Int, inicio:Int, fin:Int)
+@import models.Pregunta
+@import models.Nivel
+@import java.text.DecimalFormat
+<div class="titulotabla">@titulo</div>
+	
+<table border='1'>
+<tbody>
+   <tr style="font-size: 8pt;">
+        <td class="row_headers" rowspan='2' width='10cm'>Enunciado</td>
+		<td class="row_headers" colspan='2'>Nivel<br></br>Inferior</td>
+		<td class="row_headers" colspan='2'>Nivel<br></br>Bajo</td>
+		<td class="row_headers" colspan='2'>Nivel<br></br>Medio</td>
+		<td class="row_headers" colspan='2'>Nivel<br></br>Alto</td>
+		<td class="row_headers" colspan='2'>Nivel<br></br>Superior</td>
+	     </tr>
+	     <tr style="font-size: 8pt;">
+		
+                <td class="row_headers">Resp.</td>
+                <td class="row_headers">%</td>
+                <td class="row_headers">Resp.</td>
+                <td class="row_headers">%</td>
+                <td class="row_headers">Resp.</td>
+                <td class="row_headers">%</td>
+                <td class="row_headers">Resp.</td>
+                <td class="row_headers">%</td>
+                <td class="row_headers">Resp.</td>
+                <td class="row_headers">%</td>
+             
+          </tr>
+     	  @defining(new DecimalFormat("##0.00")){formato=>
+          @defining(Pregunta.getPreguntasEvaluacion(Pregunta.INVESTIGACION)){preguntas=>
+	          @for(i<-inicio to fin) {
+	          @defining(evaluacionInvestigacion.getPreguntas().get(evaluacionInvestigacion.getPreguntas().indexOf(new Pregunta(preguntas.get(i).getTitulo())))){pregunta=>
+	       	        <tr style="font-size: 8pt;">
+	       	        <td>@pregunta.getEnunciado()</td>
+	       	        <td>@pregunta.getNumeroRespuestasNivel()(Nivel.INFERIOR)</td>
+	                <td>@formato.format(pregunta.getPorecentajeNivel()(Nivel.INFERIOR))%</td>
+	            	<td>@pregunta.getNumeroRespuestasNivel()(Nivel.BAJO)</td>
+	                <td>@formato.format(pregunta.getPorecentajeNivel()(Nivel.BAJO))%</td>
+	                <td>@pregunta.getNumeroRespuestasNivel()(Nivel.MEDIO)</td>
+	                <td>@formato.format(pregunta.getPorecentajeNivel()(Nivel.MEDIO))%</td>
+	                <td>@pregunta.getNumeroRespuestasNivel()(Nivel.ALTO)</td>
+	                <td>@formato.format(pregunta.getPorecentajeNivel()(Nivel.ALTO))%</td>
+	                <td>@pregunta.getNumeroRespuestasNivel()(Nivel.SUPERIOR)</td>
+	                <td>@formato.format(pregunta.getPorecentajeNivel()(Nivel.SUPERIOR))%</td>
+	                </tr>
+	    			}
+	           }
+		
+	        }
+	        
+        
+        
+        <tr style="font-size: 8pt;">
+	       	        <td >Promedio</td>
+	       	        <td>@formato.format(evaluacionInvestigacion.getPromedioRespuestas()(Nivel.INFERIOR))</td>
+	                <td>@formato.format(evaluacionInvestigacion.getPromedioPorcentaje()(Nivel.INFERIOR))%</td>
+	               	<td>@formato.format(evaluacionInvestigacion.getPromedioRespuestas()(Nivel.BAJO))</td>
+	                <td>@formato.format(evaluacionInvestigacion.getPromedioPorcentaje()(Nivel.BAJO))%</td>
+	                <td>@formato.format(evaluacionInvestigacion.getPromedioRespuestas()(Nivel.MEDIO))</td>
+	                <td>@formato.format(evaluacionInvestigacion.getPromedioPorcentaje()(Nivel.MEDIO))%</td>
+	                <td>@formato.format(evaluacionInvestigacion.getPromedioRespuestas()(Nivel.ALTO))</td>
+	                <td>@formato.format(evaluacionInvestigacion.getPromedioPorcentaje()(Nivel.ALTO))%</td>
+	                <td>@formato.format(evaluacionInvestigacion.getPromedioRespuestas()(Nivel.SUPERIOR))</td>
+	                <td>@formato.format(evaluacionInvestigacion.getPromedioPorcentaje()(Nivel.SUPERIOR))%</td>
+
+	                </tr>
+	        }        
+            </tbody>
+</table>

@@ -7,12 +7,12 @@
 <table>
 <tbody>
         <tr>
-        <td class="row_headers" rowspan=2>Enunciado</td>
-		<td class="row_headers" colspan=2>Nivel<br>Inferior</td>
-		<td class="row_headers" colspan=2>Nivel<br>Bajo</td>
-		<td class="row_headers" colspan=2>Nivel<br>Medio</td>
-		<td class="row_headers" colspan=2>Nivel<br>Alto</td>
-		<td class="row_headers" colspan=2>Nivel<br>Superior</td>
+        <td class="row_headers" rowspan='2'>Enunciado</td>
+		<td class="row_headers" colspan='2'>Nivel<br></br>Inferior</td>
+		<td class="row_headers" colspan='2'>Nivel<br></br>Bajo</td>
+		<td class="row_headers" colspan='2'>Nivel<br></br>Medio</td>
+		<td class="row_headers" colspan='2'>Nivel<br></br>Alto</td>
+		<td class="row_headers" colspan='2'>Nivel<br></br>Superior</td>
 	     </tr>
 	     <tr>
 		
@@ -35,7 +35,7 @@
 	          @if(indice>=0){
 		          @defining(evaluacionMateria.getPreguntas().get(indice)){pregunta=>
 		       	        <tr>
-		       	        <td>@pregunta.getEnunciado()</td>
+		       	        <td >@pregunta.getEnunciado()</td>
 		       	        <td>@pregunta.getNumeroRespuestasNivel()(Nivel.INFERIOR)</td>
 		                <td>@formato.format(pregunta.getPorecentajeNivel()(Nivel.INFERIOR))%</td>
 		            	<td>@pregunta.getNumeroRespuestasNivel()(Nivel.BAJO)</td>

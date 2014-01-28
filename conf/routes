@@ -5,6 +5,8 @@
 # Home page
 GET     /                           controllers.Application.index()
 GET		/prueba						controllers.Application.prueba()
+GET		/informe1/excel/:documento/:semestre						controllers.Informe1.excel(documento:String, semestre:String)
+GET		/informe1/pdf/:documento/:semestre						controllers.Informe1.pdf(documento:String, semestre:String)
 POST 	/informeprofesor			controllers.Informe1.informeProfesor()
 POST 	/cambiosemestre				controllers.Application.cambioSemestre()
 # Map static resources from the /public folder to the /assets URL path
