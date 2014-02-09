@@ -22,6 +22,7 @@ $( "#tags" ).autocomplete({
     })
 
 $('#listaProfesores').on("change", cambioProfesor);
+$('#listainformes').on("change", cambioProfesor);
 
 }
 );
@@ -31,9 +32,13 @@ $("#informe").html("<div id='progressbar'></div>");
 $("#progressbar").progressbar({
 value:false
 });
-enlaceDescargas(this.value,$('#listasemestres').val());
-$.post("informeprofesor",{documento: this.value},mostrar);
-
+enlaceDescargas($('#listaProfesores').val(),$('#listasemestres').val());
+if($('#listainformes').val()==1){
+$.post("informeprofesor",{documento: $('#listaProfesores').val(), semestre: $('#listasemestres').val()},mostrar);
+}
+if($('#listainformes').val()==2){
+$.post("heteroevaluacion",{documento: $('#listaProfesores').val(), semestre: $('#listasemestres').val()},mostrar);
+}
 }
 function mostrar(data)
 {
@@ -42,10 +47,20 @@ $("#informe").html(data);
 }
 function enlaceDescargas(documento, semestre)
 {
-var enlace = 'informe1/pdf/'+documento+'/'+semestre;
+var informe = "";
+if($('#listainformes').val()==1){
+informe="informe1";
+}
+if($('#listainformes').val()==2){
+informe="informe2";
+}
+if($('#listainformes').val()==3){
+informe="informe3";
+}
+var enlace = informe+'/pdf/'+documento+'/'+semestre;
 var s =  "<ul class='side'>";
 s= s+ "<li><a href='"+enlace+"'>Descargar PDF</a></li>";
-enlace = 'informe1/excel/'+documento+'/'+semestre;
+enlace = informe+'/excel/'+documento+'/'+semestre;
 s = s +  "<li><a href='"+enlace+"'>Descargar Excel</a></li>";
 s = s + "</ul>";
 $("#descargas").html(s);

@@ -94,12 +94,7 @@ public class Profesor {
 		this.apellidos = apellidos;
 	}
 	public Evaluacion getEvaluacion(String semestre) {
-	/*	List<Materia> materias = Materia.findByProfesorAndSemestre(documento, semestre);
-		List<EvaluacionMateria> evaluacion = new ArrayList<EvaluacionMateria> ();
-		for(Materia materia:materias)
-		{
-			evaluacion.add(new EvaluacionMateria(EvaluacionMateria.EVALUACION,materia,true));
-		}*/
+
 		Evaluacion evaluacion = InformesDAO.getInformeDetalladoPorMateria(documento, semestre);
 		return evaluacion;
 	}

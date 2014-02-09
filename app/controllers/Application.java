@@ -479,7 +479,7 @@ public class Application extends Controller {
 	    File file=null; 
 		String documento = "51625497";
     	String semestre = "20132";
-    	Profesor profesor = new Profesor(documento,"","");
+    	Profesor profesor = Profesor.findByDocumento(documento);
     	Evaluacion evaluacion = profesor.getEvaluacion(semestre);
     	List<Profesor> profesores = Profesor.findAllBySemestre("20132");
 		try {
@@ -494,7 +494,7 @@ public class Application extends Controller {
 
 			   // XMLWorkerHelper.getInstance().parseXHtml(writer, document,
 			    //    new StringReader("<html><head><title>Test</title></head><body><div style=\"padding-top:200px;\"><p style=\"text-align:center;padding-top:200px;\">This is a test</p></div></body></html>"));
-	 XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeprofesor.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getAutoEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), evaluacion.getAutoEvaluacionInvestigacion()).toString()));
+	 //XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeprofesor.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getAutoEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), evaluacion.getAutoEvaluacionInvestigacion(),null,"").toString()));
         	
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

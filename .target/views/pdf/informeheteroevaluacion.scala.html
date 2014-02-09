@@ -1,0 +1,205 @@
+@(evaluacionMateria:List[EvaluacionMateria], evaluacionGestion:EvaluacionGestion, evaluacionInvestigacion:EvaluacionInvestigacion,profesor:Profesor, semestre:String, imagen:String)
+@import models.Nivel
+@import java.text.DecimalFormat
+      
+ 	<div id="tabs-evalgestion" style='page-break-after:always;'>
+	<img src='@imagen' alt="Logo" title="Logo" />	
+	<h3>Heteroevaluación</h3>
+	<h4>Docente: @profesor.getApellidos() @profesor.getNombres(), Periodo: @semestre</h4>
+	
+	<h2>Saber Pedagógico</h2>
+	
+	<table>
+	<tbody>
+        <tr>
+        <td style="font-size: 8pt; class="row_headers">Asignatura</td>
+		<td style="font-size: 8pt; class="row_headers" >Nivel<br></br>Inferior</td>
+		<td style="font-size: 8pt; class="row_headers" >Nivel<br></br>Bajo</td>
+		<td style="font-size: 8pt; class="row_headers" >Nivel<br></br>Medio</td>
+		<td style="font-size: 8pt; class="row_headers" >Nivel<br></br>Alto</td>
+		<td style="font-size: 8pt; class="row_headers" >Nivel<br></br>Superior</td>
+	     </tr>
+	     @for(evaluacion <- evaluacionMateria){
+	       @defining(new DecimalFormat("##0.00")){formato=>
+       	   @defining((evaluacion.getPromedioRespuestas()(0)(Nivel.INFERIOR)+
+       	   evaluacion.getPromedioRespuestas()(0)(Nivel.BAJO)+
+       	   evaluacion.getPromedioRespuestas()(0)(Nivel.MEDIO)+
+       	   evaluacion.getPromedioRespuestas()(0)(Nivel.ALTO)+
+       	   evaluacion.getPromedioRespuestas()(0)(Nivel.SUPERIOR))
+       	   ){total=>
+	     <tr>
+		@if(total>0) {
+                <td style="font-size: 8pt; class="row_headers">@evaluacion.getMateria().getNombre(), grupo @evaluacion.getMateria().getGrupo()</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(0)(Nivel.INFERIOR)/total))</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(0)(Nivel.BAJO)/total))</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(0)(Nivel.MEDIO)/total))</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(0)(Nivel.ALTO)/total))</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(0)(Nivel.SUPERIOR)/total))</td>
+              
+             }
+          </tr>
+          }
+          }
+          }
+          </tbody>
+          </table>
+          	<h2>Saber Específico</h2>
+   	
+	<table>
+	<tbody>
+	   
+        <tr>
+        <td style="font-size: 8pt; class="row_headers">Asignatura</td>
+		<td style="font-size: 8pt; class="row_headers">Nivel<br></br>Inferior</td>
+		<td style="font-size: 8pt; class="row_headers">Nivel<br></br>Bajo</td>
+		<td style="font-size: 8pt; class="row_headers">Nivel<br></br>Medio</td>
+		<td style="font-size: 8pt; class="row_headers">Nivel<br></br>Alto</td>
+		<td style="font-size: 8pt; class="row_headers">Nivel<br></br>Superior</td>
+	     </tr>
+	      @for(evaluacion <- evaluacionMateria){   
+	       @defining(new DecimalFormat("##0.00")){formato=>
+       	   @defining((evaluacion.getPromedioRespuestas()(1)(Nivel.INFERIOR)+
+       	   evaluacion.getPromedioRespuestas()(1)(Nivel.BAJO)+
+       	   evaluacion.getPromedioRespuestas()(1)(Nivel.MEDIO)+
+       	   evaluacion.getPromedioRespuestas()(1)(Nivel.ALTO)+
+       	   evaluacion.getPromedioRespuestas()(1)(Nivel.SUPERIOR))
+       	   ){total=>
+	     <tr>
+		@if(total>0) {
+                <td style="font-size: 8pt; class="row_headers">@evaluacion.getMateria().getNombre(), grupo @evaluacion.getMateria().getGrupo()</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(1)(Nivel.INFERIOR)/total))</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(1)(Nivel.BAJO)/total))</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(1)(Nivel.MEDIO)/total))</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(1)(Nivel.ALTO)/total))</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(1)(Nivel.SUPERIOR)/total))</td>
+              }
+             
+          </tr>
+          }
+          }
+          }
+          </tbody>
+          </table>
+          <h2>Saber Relacional</h2>
+           <table>
+	<tbody>
+	  
+        <tr>
+        <td style="font-size: 8pt; class="row_headers">Asignatura</td>
+		<td style="font-size: 8pt; class="row_headers">Nivel<br></br>Inferior</td>
+		<td style="font-size: 8pt; class="row_headers">Nivel<br></br>Bajo</td>
+		<td style="font-size: 8pt; class="row_headers">Nivel<br></br>Medio</td>
+		<td style="font-size: 8pt; class="row_headers">Nivel<br></br>Alto</td>
+		<td style="font-size: 8pt; class="row_headers">Nivel<br></br>Superior</td>
+	     </tr>
+	     @for(evaluacion <- evaluacionMateria){ 
+	       @defining(new DecimalFormat("##0.00")){formato=>
+       	   @defining((evaluacion.getPromedioRespuestas()(2)(Nivel.INFERIOR)+
+       	   evaluacion.getPromedioRespuestas()(2)(Nivel.BAJO)+
+       	   evaluacion.getPromedioRespuestas()(2)(Nivel.MEDIO)+
+       	   evaluacion.getPromedioRespuestas()(2)(Nivel.ALTO)+
+       	   evaluacion.getPromedioRespuestas()(2)(Nivel.SUPERIOR))
+       	   ){total=>
+	     <tr>
+		@if(total>0) {
+                <td style="font-size: 8pt; class="row_headers">@evaluacion.getMateria().getNombre(), grupo @evaluacion.getMateria().getGrupo()</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(2)(Nivel.INFERIOR)/total))</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(2)(Nivel.BAJO)/total))</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(2)(Nivel.MEDIO)/total))</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(2)(Nivel.ALTO)/total))</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(2)(Nivel.SUPERIOR)/total))</td>
+              }
+             
+          </tr>
+          }
+          }
+          }
+          </tbody>
+          </table>
+      </div>    
+<div id="tabs-evalgestion" style='page-break-after:always;'>
+<img src='@imagen' alt="Logo" title="Logo" />	
+<h3>Heteroevaluación</h3>
+<h4>Docente: @profesor.getApellidos() @profesor.getNombres(), Periodo: @semestre</h4>	
+          	<h2>Gestión</h2>
+       	
+	<table>
+	<tbody>
+	  
+        <tr>
+        <td style="font-size: 8pt; class="row_headers"></td>
+		<td style="font-size: 8pt; class="row_headers">No Cumple</td>
+		<td style="font-size: 8pt; class="row_headers">Cumple Parcialmente</td>
+		<td style="font-size: 8pt; class="row_headers">Cumple Totalmente</td>
+		<td style="font-size: 8pt; class="row_headers">No Aplica</td>
+	     </tr>
+	  
+	       @defining(new DecimalFormat("##0.00")){formato=>
+       	   @defining((evaluacionGestion.getPromedioRespuestas()(Nivel.INFERIOR)+
+       	   evaluacionGestion.getPromedioRespuestas()(Nivel.BAJO)+
+       	   evaluacionGestion.getPromedioRespuestas()(Nivel.MEDIO)+
+       	   evaluacionGestion.getPromedioRespuestas()(Nivel.ALTO)
+       	   )){total=>
+	     <tr>
+		@if(total>0) {
+                <td style="font-size: 8pt; class="row_headers"></td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacionGestion.getPromedioRespuestas()(Nivel.INFERIOR)/total))</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacionGestion.getPromedioRespuestas()(Nivel.BAJO)/total))</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacionGestion.getPromedioRespuestas()(Nivel.MEDIO)/total))</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacionGestion.getPromedioRespuestas()(Nivel.ALTO)/total))</td>
+               
+              
+            } 
+          </tr>
+          }
+          }
+          
+          </tbody>
+          </table>
+          
+          	<h2>Investigación</h2>
+       	
+	<table>
+	<tbody>
+	  
+        <tr>
+        <td style="font-size: 8pt; class="row_headers"></td>
+		<td style="font-size: 8pt; class="row_headers">Nivel<br></br>Inferior</td>
+		<td style="font-size: 8pt; class="row_headers">Nivel<br></br>Bajo</td>
+		<td style="font-size: 8pt; class="row_headers">Nivel<br></br>Medio</td>
+		<td style="font-size: 8pt; class="row_headers">Nivel<br></br>Alto</td>
+		<td style="font-size: 8pt; class="row_headers">Nivel<br></br>Superior</td>
+	     </tr>
+	  
+	       @defining(new DecimalFormat("##0.00")){formato=>
+       	   @defining((evaluacionGestion.getPromedioRespuestas()(Nivel.INFERIOR)+
+       	   evaluacionInvestigacion.getPromedioRespuestas()(Nivel.BAJO)+
+       	   evaluacionInvestigacion.getPromedioRespuestas()(Nivel.MEDIO)+
+       	   evaluacionInvestigacion.getPromedioRespuestas()(Nivel.ALTO)+
+       	   evaluacionInvestigacion.getPromedioRespuestas()(Nivel.SUPERIOR)
+       	   )){total=>
+	     <tr>
+		@if(total>0) {
+		
+		
+		
+                <td style="font-size: 8pt; class="row_headers"></td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacionInvestigacion.getPromedioRespuestas()(Nivel.INFERIOR)/total))</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacionInvestigacion.getPromedioRespuestas()(Nivel.BAJO)/total))</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacionInvestigacion.getPromedioRespuestas()(Nivel.MEDIO)/total))</td>
+                <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacionInvestigacion.getPromedioRespuestas()(Nivel.ALTO)/total))</td>
+               <td style="font-size: 8pt; class="row_headers">@formato.format((evaluacionInvestigacion.getPromedioRespuestas()(Nivel.SUPERIOR)/total))</td>
+              
+           } 
+          </tr>
+          }
+          }
+          
+          </tbody>
+          </table>
+		 
+
+
+
+</div> <!-- gest-invest --> 
+

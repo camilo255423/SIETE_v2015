@@ -1,11 +1,13 @@
-@(evaluacionMateria:List[EvaluacionMateria], evaluacionGestion:EvaluacionGestion, autoEvaluacionGestion:EvaluacionGestion, evaluacionInvestigacion:EvaluacionInvestigacion,autoEvaluacionInvestigacion:EvaluacionInvestigacion)
+@(evaluacionMateria:List[EvaluacionMateria], evaluacionGestion:EvaluacionGestion, autoEvaluacionGestion:EvaluacionGestion, evaluacionInvestigacion:EvaluacionInvestigacion,autoEvaluacionInvestigacion:EvaluacionInvestigacion, profesor:Profesor, semestre:String, imagen:String)
 <div id="informe">
 <div class="tabs">
 	
  	<div id="tabs-docencia">       
 	@for(evaluacion <- evaluacionMateria){
 	@if(evaluacion.getTipoEvaluacion()==EvaluacionMateria.EVALUACION){
-	<h2>@evaluacion.getMateria().getNombre(), grupo @evaluacion.getMateria().getGrupo()</h2>
+    <img src='@imagen' alt="Logo" title="Logo" />	
+	<h4>Docente: @profesor.getApellidos() @profesor.getNombres(), Periodo: @semestre</h4>
+	 <h4>Asignatura:@evaluacion.getMateria().getNombre(), grupo @evaluacion.getMateria().getGrupo()</h4>
 	<div class="tabs">
 	
 	<div id="tabs-estudiantes" style='page-break-after:always;'>	
@@ -35,6 +37,9 @@ porcentaje @(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscrito
 		   
 	</div>
 	<div id="tabs-autoevaluacion" style='page-break-after:always;'>	
+	<img src='@imagen' alt="Logo" title="Logo" />	
+	<h4>Docente: @profesor.getApellidos() @profesor.getNombres() Periodo: @semestre</h4>
+	<h4>Autoevaluación Asignatura:@evaluacion.getMateria().getNombre(), grupo @evaluacion.getMateria().getGrupo()</h4>
 	@defining(evaluacionMateria.indexOf(new EvaluacionMateria(EvaluacionMateria.AUTOEVALUACION,evaluacion.getMateria(),false))){indice=>
 		@if(indice>=0){
 		@defining(evaluacionMateria.get(indice)){autoevaluacion=>
@@ -62,20 +67,29 @@ porcentaje @(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscrito
 <div class="tabs">
 	
 	<div id="tabs-evalgestion" style='page-break-after:always;'>
+	<img src='@imagen' alt="Logo" title="Logo" />	
+	<h4>Docente: @profesor.getApellidos() @profesor.getNombres() Periodo: @semestre</h4>
 	@tablagestion(evaluacionGestion,"Gestión",Pregunta.GESTION, 0,6)	
 	</div>
-	<div id="tabs-autoevalgestion" style='page-break-after:always;'>	
+	<div id="tabs-autoevalgestion" style='page-break-after:always;'>
+	<img src='@imagen' alt="Logo" title="Logo" />	
+	<h4>Docente: @profesor.getApellidos() @profesor.getNombres() Periodo: @semestre</h4>	
 	@tablagestion(autoEvaluacionGestion,"Autoevaluación Gestión",Pregunta.GESTION, 0,6)
 	</div>
 </div>
 </div>
 <div id="tabs-investigacion" style='page-break-after:always;'>
+
 <div class="tabs">
 		
 	<div id="tabs-evalinvestigacion" style='page-break-after:always;'>
+	<img src='@imagen' alt="Logo" title="Logo" />	
+	<h4>Docente: @profesor.getApellidos() @profesor.getNombres() Periodo: @semestre</h4>
 	@tablainvestigacion(evaluacionInvestigacion,"Investigación",Pregunta.INVESTIGACION, 0,5)	
 	</div>
 	<div id="tabs-autoevalinvestigacion" style='page-break-after:always;'>	
+	<img src='@imagen' alt="Logo" title="Logo" />	
+	<h4>Docente: @profesor.getApellidos() @profesor.getNombres() Periodo: @semestre</h4>
 	@tablainvestigacion(autoEvaluacionInvestigacion,"Autoevaluación Investigación",Pregunta.INVESTIGACION, 0,5)
 	</div>
 </div>

@@ -3,6 +3,7 @@ package controllers;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.List;
@@ -41,6 +42,17 @@ public class Informe1 extends Controller {
 			Document document = new Document();
 		    document.open();
 		    File file=null; 
+		    File folder = new File(".");
+		    final File[] files = folder.listFiles();
+		    for ( final File f : files ) {
+		    	System.out.println(f);
+		    	if(f.getName().contains(".pdf"))
+		    	{	
+			        if ( !f.delete() ) {
+			            System.err.println( "Can't remove " + f.getAbsolutePath() );
+			        }
+		    	}
+		    }
 			
 	    	Profesor profesor = Profesor.findByDocumento(documento);
 	    	Evaluacion evaluacion = profesor.getEvaluacion(semestre);
@@ -50,14 +62,14 @@ public class Informe1 extends Controller {
 				PdfWriter writer = PdfWriter.getInstance(document,
 						
 				        new FileOutputStream(file));
-				
+				String imagen = routes.Assets.at("images/logo-inpahu.png").absoluteURL(request());
 				    document.open();
 			
 			//    	return ok(views.html.informes.informedocencia.render(evaluacion,profesores));    
 
 				   // XMLWorkerHelper.getInstance().parseXHtml(writer, document,
 				    //    new StringReader("<html><head><title>Test</title></head><body><div style=\"padding-top:200px;\"><p style=\"text-align:center;padding-top:200px;\">This is a test</p></div></body></html>"));
-		 XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeprofesor.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getAutoEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), evaluacion.getAutoEvaluacionInvestigacion()).toString()));
+		 XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeprofesor.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getAutoEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), evaluacion.getAutoEvaluacionInvestigacion(), profesor, semestre, imagen).toString()));
 	        	
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -81,11 +93,9 @@ public class Informe1 extends Controller {
    {
 	  
 	String documento = Form.form().bindFromRequest().get("documento");
-   	String semestre = "20132";
+   	String semestre = Form.form().bindFromRequest().get("semestre");
    	Profesor profesor = new Profesor(documento,"","");
    	Evaluacion evaluacion = profesor.getEvaluacion(semestre);
-   	List<Profesor> profesores = Profesor.findAllBySemestre("20132");
-   	
    	return ok(views.html.informes.informeprofesor.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getAutoEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), evaluacion.getAutoEvaluacionInvestigacion()));
    	
 	
@@ -98,6 +108,17 @@ public class Informe1 extends Controller {
    		HSSFWorkbook workbook = new HSSFWorkbook();
    		HSSFSheet sheet = workbook.createSheet("Docencia");
    		//Create a new row in current sheet
+   	 File folder = new File(".");
+	    final File[] files = folder.listFiles();
+	    for ( final File f : files ) {
+	    	
+	    	if(f.getName().contains(".xls"))
+	    	{	
+		        if ( !f.delete() ) {
+		            System.err.println( "Can't remove " + f.getAbsolutePath() );
+		        }
+	    	}
+	    }
    		int fila=0;
    		int columna=0;
    		//DOCENCIA

@@ -5,9 +5,14 @@
 # Home page
 GET     /                           controllers.Application.index()
 GET		/prueba						controllers.Application.prueba()
-GET		/informe1/excel/:documento/:semestre						controllers.Informe1.excel(documento:String, semestre:String)
+GET		/informe1/excel/:documento/:semestre					controllers.Informe1.excel(documento:String, semestre:String)
 GET		/informe1/pdf/:documento/:semestre						controllers.Informe1.pdf(documento:String, semestre:String)
+GET		/informe2/excel/:documento/:semestre					controllers.Informe2.excel(documento:String, semestre:String)
+GET		/informe2/pdf/:documento/:semestre						controllers.Informe2.pdf(documento:String, semestre:String)
+GET		/informe2					controllers.Informe2.informeProfesor()
+GET		/informe3					controllers.Informe3.informeProfesor()
 POST 	/informeprofesor			controllers.Informe1.informeProfesor()
+POST    /heteroevaluacion			controllers.Informe2.informeProfesor()
 POST 	/cambiosemestre				controllers.Application.cambioSemestre()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
