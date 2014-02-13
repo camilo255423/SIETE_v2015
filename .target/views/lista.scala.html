@@ -1,7 +1,7 @@
 @(profesores:List[Profesor], conScript:Integer=0)
 
-<select name='documento' id='listaProfesores'>
-<option value=-1></option>
+<select name='documento' id='listaProfesores' style="width:100%;max-width:99%;">
+<option value=-1>- Seleccione un docente</option>
 @for(profesor <- profesores){
 <option value='@profesor.getDocumento()'>@profesor.getApellidos() @profesor.getNombres()</option>
 }
@@ -38,6 +38,9 @@ $.post("informeprofesor",{documento: $('#listaProfesores').val(), semestre: $('#
 }
 if($('#listainformes').val()==2){
 $.post("heteroevaluacion",{documento: $('#listaProfesores').val(), semestre: $('#listasemestres').val()},mostrar);
+}
+if($('#listainformes').val()==3){
+$.post("informefinal",{documento: $('#listaProfesores').val(), semestre: $('#listasemestres').val()},mostrar);
 }
 }
 function mostrar(data)

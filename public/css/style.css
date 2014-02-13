@@ -55,12 +55,12 @@ h3 {
 
 /* Header Area */
 #topLine {
-	position: fixed;
+position: fixed;
 	z-index: 100;
 	width:1500px;
-	height: 30px;
-	margin:-130px auto;
-	padding:0px 0px 50px 100px;
+	height: 0px;
+	margin:-135px auto;
+	padding: 0px 0px 60px 90px;
 	background:  #ffffff;
 	border-bottom:15px solid #DEEAFA;
 }
@@ -70,7 +70,7 @@ h3 {
 	z-index: 100;
 	width:693px;
 	height: 0px;
-	margin:-40px auto;
+	margin:-45px -370px;
 	padding:0px 0px 50px 250px;
 	background:  #ffffff;
 
@@ -90,17 +90,17 @@ h3 {
 
 
 #header ul.nav {
-	margin-top:90px;
-	margin-bottom:100px;
-	margin-right:50px;
+	margin-top:70px;
+	margin-bottom:300px;
+	margin-right:0px;
 	margin-left:50px;
-	padding:15px 0 0 0;
+	padding:35px 0 0 0;
 	float:right;
 }
 
 #header ul.nav li {
 	display:inline;
-	padding:5px 10px 5px 5px;
+	padding:25px 15px 5px 5px;
 }
 
 #header ul.nav li a{
@@ -110,14 +110,14 @@ h3 {
 #header ul.nav li.active {
 	margin:0;
 	padding: 5px 5px 0px 5px;
-	background:url(../images/nav_corn_l.gif) no-repeat top left;
+<!--	background:url(../images/nav_corn_l.gif) no-repeat top left; -->
 }
 
 
 #header ul.nav li.active a{
 	padding:5px 10px 0px 5px;
 	display:inline;
-	background:url(../images/nav_corn_r.gif) no-repeat top right;
+<!--	background:url(../images/nav_corn_r.gif) no-repeat top right; -->
 	color:#555555;
 }
 
@@ -125,9 +125,9 @@ h3 {
 /* Page Wrappers */
 #outerwrapper  {
 	width:993px;
-	margin: 170px auto 0 auto;
-	padding: 20px 0 10px 0;
-	background:#fff url(../images/top_curve.gif) repeat-y;
+	margin: 170px -5px -400px;
+	padding: 20px 0px 0px 30px;
+<!--	background:#fff url(../images/top_curve.gif) repeat-y; -->
 	z-index: 100;
 	background-position:0px 0px;
 	
@@ -142,9 +142,10 @@ h3 {
 }
 #wrapper {
 	margin-top:10px;
+
 	float:left;
 	width:993px;
-	background:#fff url(../images/content_bg.gif) repeat-y top left;
+<!--	background:#fff url(../images/content_bg.gif) repeat-y top left; -->
 }
 
 
@@ -247,16 +248,17 @@ padding:10px;
 /* Sidebar Area */
 
 #sidebar {
-	width:203px;
+	width:250px;
 
 	 position: fixed;
 	 top:250px;
 	 bottom: auto;
-	 right:130px;
+	 right:100px;
 	 left:auto;
-	background: url(../images/bg-sidebar.gif) repeat top right;
-	border:1px solid #dfdfdf;
-	
+background: url(../images/bg-sidebar.gif) repeat top right; 
+	border:3px solid;
+	border-color: #ffffff;
+<!--	background-color: #F7F7F7; -->
 }
 
 #sidebar h3 {

@@ -1,16 +1,13 @@
-@(evaluacionDocencia:EvaluacionMateria, autoEvaluacionDocencia:EvaluacionMateria, evaluacionGestion:EvaluacionGestion, evaluacionInvestigacion:EvaluacionInvestigacion,autoEvaluacionGestion:EvaluacionGestion, autoEvaluacionInvestigacion:EvaluacionInvestigacion )
+@(evaluacionDocencia:EvaluacionMateria, autoEvaluacionDocencia:EvaluacionMateria, evaluacionGestion:EvaluacionGestion, evaluacionInvestigacion:EvaluacionInvestigacion,autoEvaluacionGestion:EvaluacionGestion, autoEvaluacionInvestigacion:EvaluacionInvestigacion,profesor:Profesor, semestre:String, imagen:String)
 @import models.Nivel
 @import java.text.DecimalFormat
 <div id="informe">
 <div class="tabs">
-		<ul>
-			<li><a href="#tabs-docencia">Informe Final</a></li>
-		
-			
-		</ul>
+	
  	<div id="tabs-docencia">       
 	
 	<div class="titulotabla">Informe Final</div>
+	<img src='@imagen' alt="Logo" title="Logo" />
 	  @defining(new DecimalFormat("##0.00")){formato=>
 	<h2>Campo de La Docencia</h2>
 	<h3>Saber Pedagógico</h3>

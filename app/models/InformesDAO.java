@@ -416,18 +416,21 @@ public class InformesDAO {
 					
 					if(!(rs.getString("tipo_evaluacion")).equals(materiaAnterior))
 					{
+						System.out.println("anterior"+materiaAnterior+"tipo"+rs.getString("tipo_evaluacion"));
 						tipoEvaluacion = EvaluacionMateria.EVALUACION;
 						if(rs.getString("tipo_evaluacion").contains("AUTOEVALUACION")) 
 							{
 							tipoEvaluacion = EvaluacionMateria.AUTOEVALUACION;
-					
+							System.out.println("autoevaluación!!!");
 							}
 						
 				
 						ev = new EvaluacionMateria(tipoEvaluacion,new Materia("",rs.getString("tipo_evaluacion"),"", 0),false);
 						
 						materiaAnterior=rs.getString("tipo_evaluacion");
+						System.out.println("TAMANO ANTES"+evaluacionMaterias.size());
 						evaluacionMaterias.add(ev);
+						System.out.println("TAMANO LUEGO"+evaluacionMaterias.size());
 						
 					}
 					if(rs.getString("saber").equals("Peda")) saber=0;
@@ -437,13 +440,14 @@ public class InformesDAO {
 					
 					if(saber<3)
 					{	
-						System.out.println(rs.getString("valor"));
-					System.out.println("valor"+rs.getInt("valor"));	
-					System.out.println("suma"+rs.getInt("suma"));
+					
 					ev.getPromedioRespuestas()[saber][rs.getInt("valor")-1]=rs.getInt("suma");
 						if (tipoEvaluacion == EvaluacionMateria.AUTOEVALUACION)
 						{
 							totalAutoEvalDocencia[saber]=totalAutoEvalDocencia[saber]+rs.getInt("suma");
+							System.out.println(totalAutoEvalDocencia[saber]);
+							System.out.println(ev.materia.getNombre());
+							System.out.println("saber"+saber+"nivel"+(rs.getInt("valor")-1)+ev.getPromedioRespuestas()[saber][rs.getInt("valor")-1]);
 						}
 						else
 						{
@@ -453,8 +457,6 @@ public class InformesDAO {
 					
 					
 				}
-				if(evaluacionMaterias.size()==0) evaluacionMaterias.add(new EvaluacionMateria(EvaluacionMateria.EVALUACION,new Materia("","","", 0),false));
-				if(evaluacionMaterias.size()==1) evaluacionMaterias.add(new EvaluacionMateria(EvaluacionMateria.AUTOEVALUACION,new Materia("","","", 0),false));
 				if(rs.getString("saber").equals("Gest"))
 				{
 					if(rs.getString("tipo_evaluacion").contains("AUTO"))
@@ -489,7 +491,10 @@ public class InformesDAO {
 				System.out.println(e.getLocalizedMessage());
 			
 			}
-		 
+		 System.out.println(evaluacionMaterias);
+		 if(evaluacionMaterias.size()==0) evaluacionMaterias.add(new EvaluacionMateria(EvaluacionMateria.EVALUACION,new Materia("","","", 0),false));
+		 if(evaluacionMaterias.size()>=1) evaluacionMaterias.add(new EvaluacionMateria(EvaluacionMateria.AUTOEVALUACION,new Materia("","","", 0),false));
+			
 		 double total;
 		 for(int i=0;i<=3;i++)
 		 {	 
@@ -508,6 +513,15 @@ public class InformesDAO {
 				 if(totalDocencia[j]>0) evaluacionMaterias.get(0).getPromedioRespuestas()[j][i] =  evaluacionMaterias.get(0).getPromedioRespuestas()[j][i]/totalDocencia[j];
 				 if(totalAutoEvalDocencia[j]>0) evaluacionMaterias.get(1).getPromedioRespuestas()[j][i] =  evaluacionMaterias.get(1).getPromedioRespuestas()[j][i]/totalAutoEvalDocencia[j];
 			 }
+		 }
+		 System.out.println("eval docente"+evaluacionMaterias.get(0).promedioRespuestas[0][4]);
+		 for(int w=0;w<=2;w++)
+		 {	
+			 for(int j=0;j<=4;j++)
+			 {	 
+				 System.out.println("autoeval docente"+evaluacionMaterias.get(2).promedioRespuestas[w][j]);
+			 }
+		 	
 		 }
 		 return new Evaluacion(evaluacionMaterias, evaluacionGestion, evaluacionInvestigacion,autoEvaluacionGestion,autoEvaluacionInvestigacion);
 
@@ -573,9 +587,6 @@ public class InformesDAO {
 					
 					if(saber<3)
 					{	
-						System.out.println(rs.getString("valor"));
-					System.out.println("valor"+rs.getInt("valor"));	
-					System.out.println("suma"+rs.getInt("suma"));
 					ev.getPromedioRespuestas()[saber][rs.getInt("valor")-1]=rs.getInt("suma");
 					}
 					
