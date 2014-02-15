@@ -710,61 +710,7 @@ public class InformesDAO {
 						
 						}
 					}
-					// realiza los cálculos de los porcentajes y promedios
-					
-					for(EvaluacionMateria evaluacionMateria:evaluacionMaterias)
-					{
-						
-						int sum=0;
-						Pregunta pregunta = evaluacionMateria.getPreguntas().get(0);
-						for(int i=0; i<pregunta.getNumeroRespuestasNivel().length;i++)
-						{
-							sum = sum + pregunta.getNumeroRespuestasNivel()[i];
-						}
-						evaluacionMateria.setEvaluados(sum);
-						//porcentajes
-						for(Pregunta preg:evaluacionMateria.getPreguntas())
-						{
-							for( int j=0; j<preg.getNumeroRespuestasNivel().length;j++)
-							{
-								if(evaluacionMateria.getEvaluados()>0)
-								{	
-								preg.getPorecentajeNivel()[Nivel.INFERIOR] =  preg.getNumeroRespuestasNivel()[Nivel.INFERIOR] /(double)evaluacionMateria.getEvaluados();
-								preg.getPorecentajeNivel()[Nivel.BAJO] =  preg.getNumeroRespuestasNivel()[Nivel.BAJO] /(double)evaluacionMateria.getEvaluados();
-								preg.getPorecentajeNivel()[Nivel.MEDIO] =  preg.getNumeroRespuestasNivel()[Nivel.MEDIO] /(double)evaluacionMateria.getEvaluados();
-								preg.getPorecentajeNivel()[Nivel.ALTO] =  preg.getNumeroRespuestasNivel()[Nivel.ALTO] /(double)evaluacionMateria.getEvaluados();
-								preg.getPorecentajeNivel()[Nivel.SUPERIOR] =  preg.getNumeroRespuestasNivel()[Nivel.SUPERIOR] /(double)evaluacionMateria.getEvaluados();
-								}
-							}
-						}
-						//promedios
-					  
-						for(Pregunta preg:evaluacionMateria.getPreguntas())
-						{
-							int tipo = preg.getTipoPregunta();
-							for( nivel=0; nivel<preg.getNumeroRespuestasNivel().length;nivel++)
-							{
-								
-								evaluacionMateria.getPromedioRespuestas()[tipo][nivel] =  evaluacionMateria.getPromedioRespuestas()[tipo][nivel] + preg.getNumeroRespuestasNivel()[nivel];
-								evaluacionMateria.getPromedioPorcentaje()[tipo][nivel] =  evaluacionMateria.getPromedioPorcentaje()[tipo][nivel] + preg.getPorecentajeNivel()[nivel];
-						
-							}
-							
-							
-						}
-						
-						for( nivel=0; nivel<=4;nivel++)
-						{
-							evaluacionMateria.getPromedioRespuestas()[Pregunta.PEDAGOGICO][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.PEDAGOGICO][nivel] /6;
-							evaluacionMateria.getPromedioPorcentaje()[Pregunta.PEDAGOGICO][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.PEDAGOGICO][nivel] /6;
-							evaluacionMateria.getPromedioRespuestas()[Pregunta.ESPECIFICO][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.ESPECIFICO][nivel] /3;
-							evaluacionMateria.getPromedioPorcentaje()[Pregunta.ESPECIFICO][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.ESPECIFICO][nivel] /3;
-							evaluacionMateria.getPromedioRespuestas()[Pregunta.RELACIONAL][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.RELACIONAL][nivel] /3;
-							evaluacionMateria.getPromedioPorcentaje()[Pregunta.RELACIONAL][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.RELACIONAL][nivel] /3;
 				
-						}
-					
-					}	
 											
 			}
 			if(rs.getString("tipo_evaluacion").contains("GESTI"))
@@ -833,7 +779,70 @@ public class InformesDAO {
 				}
 			
 			}
-			}
+			}// fin while
+			// realiza los cálculos de los porcentajes y promedios
+			int nmateria=0;
+			for(EvaluacionMateria evaluacionMateria:evaluacionMaterias)
+			{
+				nmateria++;
+				int sum=0;
+				Pregunta pregunta = evaluacionMateria.getPreguntas().get(0);
+				for(int i=0; i<pregunta.getNumeroRespuestasNivel().length;i++)
+				{
+					sum = sum + pregunta.getNumeroRespuestasNivel()[i];
+				}
+				evaluacionMateria.setEvaluados(sum);
+				//porcentajes
+				for(Pregunta preg:evaluacionMateria.getPreguntas())
+				{
+					for( int j=0; j<preg.getNumeroRespuestasNivel().length;j++)
+					{
+						if(evaluacionMateria.getEvaluados()>0)
+						{	
+						preg.getPorecentajeNivel()[Nivel.INFERIOR] =  preg.getNumeroRespuestasNivel()[Nivel.INFERIOR] /(double)evaluacionMateria.getEvaluados();
+						preg.getPorecentajeNivel()[Nivel.BAJO] =  preg.getNumeroRespuestasNivel()[Nivel.BAJO] /(double)evaluacionMateria.getEvaluados();
+						preg.getPorecentajeNivel()[Nivel.MEDIO] =  preg.getNumeroRespuestasNivel()[Nivel.MEDIO] /(double)evaluacionMateria.getEvaluados();
+						preg.getPorecentajeNivel()[Nivel.ALTO] =  preg.getNumeroRespuestasNivel()[Nivel.ALTO] /(double)evaluacionMateria.getEvaluados();
+						preg.getPorecentajeNivel()[Nivel.SUPERIOR] =  preg.getNumeroRespuestasNivel()[Nivel.SUPERIOR] /(double)evaluacionMateria.getEvaluados();
+						}
+					}
+				}
+				//promedios
+				if(nmateria==1)
+				System.out.println("Nivel alto antes"+evaluacionMateria.getPromedioRespuestas()[0][3]);
+				for(Pregunta preg:evaluacionMateria.getPreguntas())
+				{
+					int tipo = preg.getTipoPregunta();
+					for( nivel=0; nivel<preg.getNumeroRespuestasNivel().length;nivel++)
+					{
+						
+						evaluacionMateria.getPromedioRespuestas()[tipo][nivel] =  evaluacionMateria.getPromedioRespuestas()[tipo][nivel] + preg.getNumeroRespuestasNivel()[nivel];
+						evaluacionMateria.getPromedioPorcentaje()[tipo][nivel] =  evaluacionMateria.getPromedioPorcentaje()[tipo][nivel] + preg.getPorecentajeNivel()[nivel];
+						if(nivel==3 && tipo==0 && nmateria==1)
+						{	
+						System.out.println("Nivel alto"+evaluacionMateria.getPromedioRespuestas()[tipo][nivel]);
+						}
+					}
+					
+					
+				}
+				
+				for( nivel=0; nivel<=4;nivel++)
+				{
+					if(nivel==3  && nmateria==1)
+					{	
+					System.out.println("Total Nivel alto"+evaluacionMateria.getPromedioRespuestas()[0][nivel]);
+					}
+					evaluacionMateria.getPromedioRespuestas()[Pregunta.PEDAGOGICO][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.PEDAGOGICO][nivel] /6;
+					evaluacionMateria.getPromedioPorcentaje()[Pregunta.PEDAGOGICO][nivel] =  evaluacionMateria.getPromedioPorcentaje()[Pregunta.PEDAGOGICO][nivel] /6;
+					evaluacionMateria.getPromedioRespuestas()[Pregunta.ESPECIFICO][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.ESPECIFICO][nivel] /3;
+					evaluacionMateria.getPromedioPorcentaje()[Pregunta.ESPECIFICO][nivel] =  evaluacionMateria.getPromedioPorcentaje()[Pregunta.ESPECIFICO][nivel] /3;
+					evaluacionMateria.getPromedioRespuestas()[Pregunta.RELACIONAL][nivel] =  evaluacionMateria.getPromedioRespuestas()[Pregunta.RELACIONAL][nivel] /3;
+					evaluacionMateria.getPromedioPorcentaje()[Pregunta.RELACIONAL][nivel] =  evaluacionMateria.getPromedioPorcentaje()[Pregunta.RELACIONAL][nivel] /3;
+		
+				}
+			
+			}	//fin for materias
 			
 			} 
 			catch (SQLException e) {
