@@ -16,7 +16,7 @@ public class InformesDAO {
        "GRP.GRU_CODIGO AS grupo, "+
        "GRP.GRU_CUPO_ASIGNADO AS inscritos "+
        "FROM   SAI.ART_MATERIAS AM, "+
-       "SAI.ART_GRUPOS_VIGENTES GRP "+
+       "(select GRU_SEMESTRE,GRU_CODIGO, MAT_CODIGO, GRU_CUPO_ASIGNADO, CLI_NDCTO_PROF,CLI_TIPODCTO,CLI_TDCTO_PROF from SAI.ART_HISTORIA_GRUPOS union select GRU_SEMESTRE, GRU_CODIGO,MAT_CODIGO, GRU_CUPO_ASIGNADO, CLI_NDCTO_PROF,CLI_TIPODCTO,CLI_TDCTO_PROF from SAI.ART_GRUPOS_VIGENTES) GRP "+
        "WHERE       GRP.GRU_SEMESTRE = ? "+ // 1 semestre
        "AND AM.MAT_SEMESTRE = GRP.GRU_SEMESTRE "+
        "AND GRP.CLI_TIPODCTO <> 'OT' "+
@@ -106,7 +106,7 @@ public class InformesDAO {
 			"FROM (SELECT AM.MAT_NOMBRE AS nombre_materia, GRP.MAT_CODIGO AS codigo_materia, GRP.GRU_CODIGO AS grupo," +
 			"GRP.GRU_CUPO_ASIGNADO AS inscritos "+
 			"FROM   SAI.ART_MATERIAS AM, "+ 
-			"SAI.ART_GRUPOS_VIGENTES GRP "+
+			" (select GRU_SEMESTRE,GRU_CODIGO, MAT_CODIGO, GRU_CUPO_ASIGNADO, CLI_NDCTO_PROF,CLI_TIPODCTO,CLI_TDCTO_PROF from SAI.ART_HISTORIA_GRUPOS union select GRU_SEMESTRE, GRU_CODIGO,MAT_CODIGO, GRU_CUPO_ASIGNADO, CLI_NDCTO_PROF,CLI_TIPODCTO,CLI_TDCTO_PROF from SAI.ART_GRUPOS_VIGENTES) GRP "+
 			"WHERE       GRP.GRU_SEMESTRE = ? "+ // 1 SEMESTRE
 			"AND AM.MAT_SEMESTRE = GRP.GRU_SEMESTRE "+
 			"AND GRP.CLI_TIPODCTO <> 'OT' "+
@@ -281,7 +281,7 @@ public class InformesDAO {
        "GRP.GRU_CODIGO AS grupo, "+
        "GRP.GRU_CUPO_ASIGNADO AS inscritos "+
        "FROM   SAI.ART_MATERIAS AM, "+
-       "SAI.ART_GRUPOS_VIGENTES GRP "+
+       "(select GRU_SEMESTRE,GRU_CODIGO, MAT_CODIGO, GRU_CUPO_ASIGNADO, CLI_NDCTO_PROF,CLI_TIPODCTO,CLI_TDCTO_PROF from SAI.ART_HISTORIA_GRUPOS union select GRU_SEMESTRE, GRU_CODIGO,MAT_CODIGO, GRU_CUPO_ASIGNADO, CLI_NDCTO_PROF,CLI_TIPODCTO,CLI_TDCTO_PROF from SAI.ART_GRUPOS_VIGENTES) GRP "+
        "WHERE       GRP.GRU_SEMESTRE = ? "+ //1 semestre
        "AND AM.MAT_SEMESTRE = GRP.GRU_SEMESTRE "+
        "AND GRP.CLI_TIPODCTO <> 'OT' "+
@@ -416,21 +416,19 @@ public class InformesDAO {
 					
 					if(!(rs.getString("tipo_evaluacion")).equals(materiaAnterior))
 					{
-						System.out.println("anterior"+materiaAnterior+"tipo"+rs.getString("tipo_evaluacion"));
+						
 						tipoEvaluacion = EvaluacionMateria.EVALUACION;
 						if(rs.getString("tipo_evaluacion").contains("AUTOEVALUACION")) 
 							{
 							tipoEvaluacion = EvaluacionMateria.AUTOEVALUACION;
-							System.out.println("autoevaluación!!!");
+						
 							}
 						
 				
 						ev = new EvaluacionMateria(tipoEvaluacion,new Materia("",rs.getString("tipo_evaluacion"),"", 0),false);
-						
 						materiaAnterior=rs.getString("tipo_evaluacion");
-						System.out.println("TAMANO ANTES"+evaluacionMaterias.size());
 						evaluacionMaterias.add(ev);
-						System.out.println("TAMANO LUEGO"+evaluacionMaterias.size());
+				
 						
 					}
 					if(rs.getString("saber").equals("Peda")) saber=0;
@@ -445,9 +443,6 @@ public class InformesDAO {
 						if (tipoEvaluacion == EvaluacionMateria.AUTOEVALUACION)
 						{
 							totalAutoEvalDocencia[saber]=totalAutoEvalDocencia[saber]+rs.getInt("suma");
-							System.out.println(totalAutoEvalDocencia[saber]);
-							System.out.println(ev.materia.getNombre());
-							System.out.println("saber"+saber+"nivel"+(rs.getInt("valor")-1)+ev.getPromedioRespuestas()[saber][rs.getInt("valor")-1]);
 						}
 						else
 						{
@@ -491,38 +486,31 @@ public class InformesDAO {
 				System.out.println(e.getLocalizedMessage());
 			
 			}
-		 System.out.println(evaluacionMaterias);
+		 
 		 if(evaluacionMaterias.size()==0) evaluacionMaterias.add(new EvaluacionMateria(EvaluacionMateria.EVALUACION,new Materia("","","", 0),false));
 		 if(evaluacionMaterias.size()>=1) evaluacionMaterias.add(new EvaluacionMateria(EvaluacionMateria.AUTOEVALUACION,new Materia("","","", 0),false));
 			
 		 double total;
 		 for(int i=0;i<=3;i++)
 		 {	 
-			 if(totalGestion>0) evaluacionGestion.getPromedioRespuestas()[i] = evaluacionGestion.getPromedioRespuestas()[i]/totalGestion;
-			 if(totalAutoEvalGestion>0) autoEvaluacionGestion.getPromedioRespuestas()[i] = evaluacionGestion.getPromedioRespuestas()[i]/totalAutoEvalGestion;
+			 if(totalGestion>0) evaluacionGestion.getPromedioRespuestas()[i] = 100.0*evaluacionGestion.getPromedioRespuestas()[i]/totalGestion;
+			 if(totalAutoEvalGestion>0) autoEvaluacionGestion.getPromedioRespuestas()[i] = 100.0*evaluacionGestion.getPromedioRespuestas()[i]/totalAutoEvalGestion;
 		 }
 		 for(int i=0;i<=4;i++)
 		 {	 
-			 if(totalInvestigacion>0) evaluacionInvestigacion.getPromedioRespuestas()[i] = evaluacionInvestigacion.getPromedioRespuestas()[i]/totalInvestigacion;
-			 if(totalAutoEvalInvestigacion>0) autoEvaluacionInvestigacion.getPromedioRespuestas()[i] = autoEvaluacionInvestigacion.getPromedioRespuestas()[i]/totalAutoEvalInvestigacion;
+			 if(totalInvestigacion>0) evaluacionInvestigacion.getPromedioRespuestas()[i] = 100.0*evaluacionInvestigacion.getPromedioRespuestas()[i]/totalInvestigacion;
+			 if(totalAutoEvalInvestigacion>0) autoEvaluacionInvestigacion.getPromedioRespuestas()[i] = 100.0*autoEvaluacionInvestigacion.getPromedioRespuestas()[i]/totalAutoEvalInvestigacion;
 		 }
 		 for(int i=0;i<=4;i++)
 		 {	 
 			 for(int j=0;j<=2;j++)
 			 {
-				 if(totalDocencia[j]>0) evaluacionMaterias.get(0).getPromedioRespuestas()[j][i] =  evaluacionMaterias.get(0).getPromedioRespuestas()[j][i]/totalDocencia[j];
-				 if(totalAutoEvalDocencia[j]>0) evaluacionMaterias.get(1).getPromedioRespuestas()[j][i] =  evaluacionMaterias.get(1).getPromedioRespuestas()[j][i]/totalAutoEvalDocencia[j];
+				 if(totalDocencia[j]>0) evaluacionMaterias.get(0).getPromedioRespuestas()[j][i] =  100.0*evaluacionMaterias.get(0).getPromedioRespuestas()[j][i]/totalDocencia[j];
+				 if(totalAutoEvalDocencia[j]>0) evaluacionMaterias.get(1).getPromedioRespuestas()[j][i] =  100.0*evaluacionMaterias.get(1).getPromedioRespuestas()[j][i]/totalAutoEvalDocencia[j];
 			 }
 		 }
-		 System.out.println("eval docente"+evaluacionMaterias.get(0).promedioRespuestas[0][4]);
-		 for(int w=0;w<=2;w++)
-		 {	
-			 for(int j=0;j<=4;j++)
-			 {	 
-				 System.out.println("autoeval docente"+evaluacionMaterias.get(2).promedioRespuestas[w][j]);
-			 }
-		 	
-		 }
+		
+	
 		 return new Evaluacion(evaluacionMaterias, evaluacionGestion, evaluacionInvestigacion,autoEvaluacionGestion,autoEvaluacionInvestigacion);
 
 		
@@ -536,7 +524,6 @@ public class InformesDAO {
 		 EvaluacionInvestigacion evaluacionInvestigacion = new EvaluacionInvestigacion(Pregunta.INVESTIGACION); 
 		 Connection con = DB.getConnection();
 		 String periodo[] = Periodo.getFecha(semestre);
-//19246543
 		 int tipoEvaluacion;
 		 String codigoMateria;
 		 String grupo;
@@ -558,7 +545,7 @@ public class InformesDAO {
 				int saber = 0;
 				
 				while (rs.next()) {
-				
+				if(rs.getString("tipo_evaluacion")!=null)	
 				if(rs.getString("tipo_evaluacion").contains("ESTUDIANTES"))
 				{	
 				
@@ -593,8 +580,11 @@ public class InformesDAO {
 					
 				}
 				
+				if(rs.getString("saber")!=null)
 				if(rs.getString("saber").equals("Gest"))
 					evaluacionGestion.getPromedioRespuestas()[rs.getInt("valor")-1]=rs.getInt("suma");
+				
+				if(rs.getString("saber")!=null)
 				if(rs.getString("saber").equals("Inve"))
 					evaluacionInvestigacion.getPromedioRespuestas()[rs.getInt("valor")-1]=rs.getInt("suma");
 				}
@@ -664,7 +654,8 @@ public class InformesDAO {
 			
 			EvaluacionMateria ev=null;
 			while (rs.next()) {
-			
+				
+			if(rs.getString("tipo_evaluacion")!=null)	
 			if(rs.getString("tipo_evaluacion").contains("ESTUDIANTES") || rs.getString("tipo_evaluacion").contains("AUTOEVALUACION DE LA DOCENCIA"))
 			{	
 				
@@ -713,6 +704,7 @@ public class InformesDAO {
 				
 											
 			}
+			if(rs.getString("tipo_evaluacion")!=null)	
 			if(rs.getString("tipo_evaluacion").contains("GESTI"))
 			{	
 			
@@ -749,6 +741,7 @@ public class InformesDAO {
 
 											
 			}
+			if(rs.getString("tipo_evaluacion")!=null)	
 			if(rs.getString("tipo_evaluacion").contains("INVESTIGA"))
 			{	
 				tituloPregunta = rs.getString("pregunta");
@@ -844,10 +837,17 @@ public class InformesDAO {
 		}
 		for( nivel=0; nivel<=3;nivel++)
 		{	
-			evaluacionGestion.getPromedioPorcentaje()[nivel] = evaluacionGestion.getPromedioPorcentaje()[nivel]/6;
-			evaluacionGestion.getPromedioRespuestas()[nivel] = evaluacionGestion.getPromedioRespuestas()[nivel]/6;
-			autoEvaluacionGestion.getPromedioRespuestas()[nivel] = autoEvaluacionGestion.getPromedioRespuestas()[nivel]/6;
-			autoEvaluacionGestion.getPromedioPorcentaje()[nivel] = autoEvaluacionGestion.getPromedioPorcentaje()[nivel]/6;
+			evaluacionGestion.getPromedioPorcentaje()[nivel] = evaluacionGestion.getPromedioPorcentaje()[nivel]/7;
+			evaluacionGestion.getPromedioRespuestas()[nivel] = evaluacionGestion.getPromedioRespuestas()[nivel]/7;
+			autoEvaluacionGestion.getPromedioRespuestas()[nivel] = autoEvaluacionGestion.getPromedioRespuestas()[nivel]/7;
+			autoEvaluacionGestion.getPromedioPorcentaje()[nivel] = autoEvaluacionGestion.getPromedioPorcentaje()[nivel]/7;
+		} 
+		for( nivel=0; nivel<=4;nivel++)
+		{	
+			evaluacionInvestigacion.getPromedioPorcentaje()[nivel] = evaluacionInvestigacion.getPromedioPorcentaje()[nivel]/6;
+			evaluacionInvestigacion.getPromedioRespuestas()[nivel] = evaluacionInvestigacion.getPromedioRespuestas()[nivel]/6;
+			autoEvaluacionInvestigacion.getPromedioRespuestas()[nivel] = autoEvaluacionInvestigacion.getPromedioRespuestas()[nivel]/6;
+			autoEvaluacionInvestigacion.getPromedioPorcentaje()[nivel] = autoEvaluacionInvestigacion.getPromedioPorcentaje()[nivel]/6;
 		} 
      return new Evaluacion(evaluacionMaterias, evaluacionGestion, evaluacionInvestigacion,autoEvaluacionGestion,autoEvaluacionInvestigacion);
 	}

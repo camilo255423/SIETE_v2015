@@ -5,8 +5,7 @@
 <div class="tabs">
 		<ul>
 			<li><a href="#tabs-docencia">Heteroevaluación</a></li>
-		
-			
+			<li><a href="#tabs-autoevaluacion">Autoevaluación</a></li>
 		</ul>
  	<div id="tabs-docencia">       
 	
@@ -33,12 +32,12 @@
        	   ){total=>
 	     <tr>
 		@if(total>0) {
-                <td class="row_headers">@evaluacion.getMateria().getNombre(), grupo @evaluacion.getMateria().getGrupo()</td>
-                <td class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(0)(Nivel.INFERIOR)/total))</td>
-                <td class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(0)(Nivel.BAJO)/total))</td>
-                <td class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(0)(Nivel.MEDIO)/total))</td>
-                <td class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(0)(Nivel.ALTO)/total))</td>
-                <td class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(0)(Nivel.SUPERIOR)/total))</td>
+                <td>@evaluacion.getMateria().getNombre(), grupo @evaluacion.getMateria().getGrupo()</td>
+                <td>@formato.format((100.0*evaluacion.getPromedioRespuestas()(0)(Nivel.INFERIOR)/total)) %</td>
+                <td>@formato.format((100.0*evaluacion.getPromedioRespuestas()(0)(Nivel.BAJO)/total)) %</td>
+                <td>@formato.format((100.0*evaluacion.getPromedioRespuestas()(0)(Nivel.MEDIO)/total)) %</td>
+                <td>@formato.format((100.0*evaluacion.getPromedioRespuestas()(0)(Nivel.ALTO)/total)) %</td>
+                <td>@formato.format((100.0*evaluacion.getPromedioRespuestas()(0)(Nivel.SUPERIOR)/total)) %</td>
               
              }
           </tr>
@@ -70,12 +69,12 @@
        	   ){total=>
 	     <tr>
 		@if(total>0) {
-                <td class="row_headers">@evaluacion.getMateria().getNombre(), grupo @evaluacion.getMateria().getGrupo()</td>
-                <td class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(1)(Nivel.INFERIOR)/total))</td>
-                <td class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(1)(Nivel.BAJO)/total))</td>
-                <td class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(1)(Nivel.MEDIO)/total))</td>
-                <td class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(1)(Nivel.ALTO)/total))</td>
-                <td class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(1)(Nivel.SUPERIOR)/total))</td>
+                <td>@evaluacion.getMateria().getNombre(), grupo @evaluacion.getMateria().getGrupo() %</td>
+                <td>@formato.format((100.0*evaluacion.getPromedioRespuestas()(1)(Nivel.INFERIOR)/total)) %</td>
+                <td>@formato.format((100.0*evaluacion.getPromedioRespuestas()(1)(Nivel.BAJO)/total)) %</td>
+                <td>@formato.format((100.0*evaluacion.getPromedioRespuestas()(1)(Nivel.MEDIO)/total)) %</td>
+                <td>@formato.format((100.0*evaluacion.getPromedioRespuestas()(1)(Nivel.ALTO)/total)) %</td>
+                <td>@formato.format((100.0*evaluacion.getPromedioRespuestas()(1)(Nivel.SUPERIOR)/total)) %</td>
               }
              
           </tr>
@@ -106,12 +105,12 @@
        	   ){total=>
 	     <tr>
 		@if(total>0) {
-                <td class="row_headers">@evaluacion.getMateria().getNombre(), grupo @evaluacion.getMateria().getGrupo()</td>
-                <td class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(2)(Nivel.INFERIOR)/total))</td>
-                <td class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(2)(Nivel.BAJO)/total))</td>
-                <td class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(2)(Nivel.MEDIO)/total))</td>
-                <td class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(2)(Nivel.ALTO)/total))</td>
-                <td class="row_headers">@formato.format((evaluacion.getPromedioRespuestas()(2)(Nivel.SUPERIOR)/total))</td>
+                <td>@evaluacion.getMateria().getNombre(), grupo @evaluacion.getMateria().getGrupo()</td>
+                <td>@formato.format((100.0*evaluacion.getPromedioRespuestas()(2)(Nivel.INFERIOR)/total)) %</td>
+                <td>@formato.format((100.0*evaluacion.getPromedioRespuestas()(2)(Nivel.BAJO)/total)) %</td>
+                <td>@formato.format((100.0*evaluacion.getPromedioRespuestas()(2)(Nivel.MEDIO)/total)) %</td>
+                <td>@formato.format((100.0*evaluacion.getPromedioRespuestas()(2)(Nivel.ALTO)/total)) %</td>
+                <td>@formato.format((100.0*evaluacion.getPromedioRespuestas()(2)(Nivel.SUPERIOR)/total)) %</td>
               }
              
           </tr>
@@ -142,11 +141,11 @@
        	   )){total=>
 	     <tr>
 		@if(total>0) {
-                <td class="row_headers"></td>
-                <td class="row_headers">@formato.format((evaluacionGestion.getPromedioRespuestas()(Nivel.INFERIOR)/total))</td>
-                <td class="row_headers">@formato.format((evaluacionGestion.getPromedioRespuestas()(Nivel.BAJO)/total))</td>
-                <td class="row_headers">@formato.format((evaluacionGestion.getPromedioRespuestas()(Nivel.MEDIO)/total))</td>
-                <td class="row_headers">@formato.format((evaluacionGestion.getPromedioRespuestas()(Nivel.ALTO)/total))</td>
+                <td></td>
+                <td>@formato.format((100.0*evaluacionGestion.getPromedioRespuestas()(Nivel.INFERIOR)/total)) %</td>
+                <td>@formato.format((100.0*evaluacionGestion.getPromedioRespuestas()(Nivel.BAJO)/total)) %</td>
+                <td>@formato.format((100.0*evaluacionGestion.getPromedioRespuestas()(Nivel.MEDIO)/total)) %</td>
+                <td>@formato.format((100.0*evaluacionGestion.getPromedioRespuestas()(Nivel.ALTO)/total)) %</td>
                
               
             } 
@@ -182,12 +181,12 @@
 		
 		
 		
-                <td class="row_headers"></td>
-                <td class="row_headers">@formato.format((evaluacionInvestigacion.getPromedioRespuestas()(Nivel.INFERIOR)/total))</td>
-                <td class="row_headers">@formato.format((evaluacionInvestigacion.getPromedioRespuestas()(Nivel.BAJO)/total))</td>
-                <td class="row_headers">@formato.format((evaluacionInvestigacion.getPromedioRespuestas()(Nivel.MEDIO)/total))</td>
-                <td class="row_headers">@formato.format((evaluacionInvestigacion.getPromedioRespuestas()(Nivel.ALTO)/total))</td>
-               <td class="row_headers">@formato.format((evaluacionInvestigacion.getPromedioRespuestas()(Nivel.SUPERIOR)/total))</td>
+                <td></td>
+                <td>@formato.format((100.0*evaluacionInvestigacion.getPromedioRespuestas()(Nivel.INFERIOR)/total)) %</td>
+                <td>@formato.format((100.0*evaluacionInvestigacion.getPromedioRespuestas()(Nivel.BAJO)/total)) %</td>
+                <td>@formato.format((100.0*evaluacionInvestigacion.getPromedioRespuestas()(Nivel.MEDIO)/total)) %</td>
+                <td>@formato.format((100.0*evaluacionInvestigacion.getPromedioRespuestas()(Nivel.ALTO)/total)) %</td>
+               	<td>@formato.format((100.0*evaluacionInvestigacion.getPromedioRespuestas()(Nivel.SUPERIOR)/total)) %</td>
               
            } 
           </tr>

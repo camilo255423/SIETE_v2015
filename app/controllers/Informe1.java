@@ -45,7 +45,7 @@ public class Informe1 extends Controller {
 		    File folder = new File(".");
 		    final File[] files = folder.listFiles();
 		    for ( final File f : files ) {
-		    	System.out.println(f);
+		    	
 		    	if(f.getName().contains(".pdf"))
 		    	{	
 			        if ( !f.delete() ) {
@@ -62,7 +62,7 @@ public class Informe1 extends Controller {
 				PdfWriter writer = PdfWriter.getInstance(document,
 						
 				        new FileOutputStream(file));
-				String imagen = routes.Assets.at("images/logo-inpahu.png").absoluteURL(request());
+				String imagen = routes.Assets.at("images/logo-inpahu2.png").absoluteURL(request());
 				    document.open();
 			
 			//    	return ok(views.html.informes.informedocencia.render(evaluacion,profesores));    

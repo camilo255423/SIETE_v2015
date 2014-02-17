@@ -44,7 +44,7 @@ public class Informe2 extends Controller {
  		    File folder = new File(".");
  		    final File[] files = folder.listFiles();
  		    for ( final File f : files ) {
- 		    	System.out.println(f);
+ 		    	
  		    	if(f.getName().contains(".pdf"))
  		    	{	
  			        if ( !f.delete() ) {
@@ -55,14 +55,14 @@ public class Informe2 extends Controller {
  			
  		    Profesor profesor = Profesor.findByDocumento(documento);
  	    	Evaluacion evaluacion = InformesDAO.getInformeHeteroEvaluacion(documento, semestre);
- 	    	System.out.println(evaluacion);
+ 	    	
  			try {
  				file = new File(profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".pdf");
  				PdfWriter writer = PdfWriter.getInstance(document,
  						
  				        new FileOutputStream(file));
- 				String imagen = routes.Assets.at("images/logo-inpahu.png").absoluteURL(request());
- 				System.out.println("Ejecutando!!!");
+ 				String imagen = routes.Assets.at("images/logo-inpahu2.png").absoluteURL(request());
+ 				
  				document.open();
  				XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeheteroevaluacion.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), profesor, semestre, imagen).toString()));
  	        	

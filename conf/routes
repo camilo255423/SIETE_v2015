@@ -9,6 +9,8 @@ GET		/informe1/excel/:documento/:semestre					controllers.Informe1.excel(documen
 GET		/informe1/pdf/:documento/:semestre						controllers.Informe1.pdf(documento:String, semestre:String)
 GET		/informe2/excel/:documento/:semestre					controllers.Informe2.excel(documento:String, semestre:String)
 GET		/informe2/pdf/:documento/:semestre						controllers.Informe2.pdf(documento:String, semestre:String)
+GET		/informe3/excel/:documento/:semestre					controllers.Informe3.excel(documento:String, semestre:String)
+GET		/informe3/pdf/:documento/:semestre						controllers.Informe3.pdf(documento:String, semestre:String)
 GET		/informe2					controllers.Informe2.informeProfesor()
 GET		/informe3					controllers.Informe3.informeProfesor()
 POST 	/informeprofesor			controllers.Informe1.informeProfesor()

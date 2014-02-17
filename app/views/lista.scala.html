@@ -28,20 +28,28 @@ $('#listainformes').on("change", cambioProfesor);
 );
 function cambioProfesor()
 {
-$("#informe").html("<div id='progressbar'></div>");
-$("#progressbar").progressbar({
-value:false
-});
-enlaceDescargas($('#listaProfesores').val(),$('#listasemestres').val());
-if($('#listainformes').val()==1){
-$.post("informeprofesor",{documento: $('#listaProfesores').val(), semestre: $('#listasemestres').val()},mostrar);
-}
-if($('#listainformes').val()==2){
-$.post("heteroevaluacion",{documento: $('#listaProfesores').val(), semestre: $('#listasemestres').val()},mostrar);
-}
-if($('#listainformes').val()==3){
-$.post("informefinal",{documento: $('#listaProfesores').val(), semestre: $('#listasemestres').val()},mostrar);
-}
+var documentoProfesor = $('#listaProfesores').val();
+	if(documentoProfesor!=-1)
+	{
+			$("#informe").html("<div id='progressbar'></div>");
+			$("#progressbar").progressbar({
+			value:false
+			});
+			enlaceDescargas($('#listaProfesores').val(),$('#listasemestres').val());
+			if($('#listainformes').val()==1){
+			$.post("informeprofesor",{documento: documentoProfesor, semestre: $('#listasemestres').val()},mostrar);
+			}
+			if($('#listainformes').val()==2){
+			$.post("heteroevaluacion",{documento: documentoProfesor, semestre: $('#listasemestres').val()},mostrar);
+			}
+			if($('#listainformes').val()==3){
+			$.post("informefinal",{documento: documentoProfesor, semestre: $('#listasemestres').val()},mostrar);
+			}
+	}
+	else
+	{
+	$("#informe").html("<div></div>");
+	}
 }
 function mostrar(data)
 {
