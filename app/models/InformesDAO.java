@@ -101,7 +101,93 @@ public class InformesDAO {
   "        'nn', "+
   "        0, "+
   "       RTA.VALOR,  "+
-  "       SUBSTR (PRE.TITULO,1,4)";
+  "       SUBSTR (PRE.TITULO,1,4)"+
+  "union "+
+  "SELECT     HCU.TITULO, "+
+  "           CLI.CLI_TIPODCTO, "+
+  "           CEDULA, "+
+  "          'nn', "+
+  "           0, "+
+  "           VALOR, "+
+  "           count(*), "+
+  "           SUBSTR (PRE.TITULO,1,4) "+
+ "     FROM   sai.TBL_RESULTADOS RE, "+
+"             sai.TBL_H_PREGUNTAS PRE, "+
+"             sai.RCT_CLIENTES CLI, "+
+"             sai.TBL_H_CUESTIONARIOS HCU, "+
+"             sai.TBL_H_CUESTIONARIO_PREGUNTAS THCP, "+
+"             sai.TBL_ENCUESTADO ENC, "+
+"             (SELECT   DISTINCT "+
+"                       (CLI.CLI_NUMDCTO), "+
+"                       RTA.IDRESULTADOS, "+
+"                       ENC.IDCUESTIONARIOH, "+
+"                       DECODE ( "+
+"                          (LENGTH ( "+
+"                              SUBSTR (RTA.VALOR, 1, INSTR (RTA.VALOR, '|') - 1) "+
+"                           )), "+
+"                          6, "+
+"                          SUBSTR (RTA.VALOR, 1, INSTR (RTA.VALOR, '|') - 1), "+
+"                          '' "+
+"                       ) "+
+"                          MATERIA, "+
+"                       CPR.ORDEN, "+
+"                       DECODE ( "+
+"                          (LENGTH ( "+
+"                              SUBSTR (RTA.VALOR, 9, INSTR (RTA.VALOR, '|') - 4) "+
+"                           )), "+
+"                          3, "+
+"                          SUBSTR (RTA.VALOR, 9, INSTR (RTA.VALOR, '|') - 4), "+
+"                          '' "+
+"                       ) "+
+"                          GRUPO "+
+"                FROM   sai.RCT_CLIENTES CLI, "+
+"                       sai.TBL_ENCUESTADO ENC, "+
+"                       sai.TBL_RESULTADOS RTA, "+
+"                       sai.TBL_H_CUESTIONARIOS CUE, "+
+"                       sai.TBL_H_CUESTIONARIO_PREGUNTAS CPR, "+
+"                       sai.TBL_H_PREGUNTAS PRE "+
+"               WHERE       ENC.IDRESULTADOS = RTA.IDRESULTADOS "+
+"                       AND RTA.IDPREGUNTAH = CPR.IDPREGUNTAH "+
+"                       AND RTA.IDCUESTIONARIOH = CPR.IDCUESTIONARIOH "+
+"                       AND CUE.IDCUESTIONARIOH = CPR.IDCUESTIONARIOH "+
+"                       AND PRE.IDPREGUNTAH = CPR.IDPREGUNTAH "+
+"                       AND CUE.IDCUESTIONARIOH = ENC.IDCUESTIONARIOH "+
+"                       AND ENC.CEDULA = CLI.CLI_NUMDCTO "+
+"                       AND ENC.FECHA >= TO_DATE (?, 'yyyy-mm-dd')) "+ // 10 fecha inicio
+"             DBAC "+
+"     WHERE       ENC.IDCUESTIONARIOH IN ((SELECT IDCUESTIONARIOH FROM SAI.TBL_H_CUESTIONARIOS "+
+"  	where fecha_inicia >  to_date(?,'yyyy-mm-dd')  "+ // 11 fecha inicio
+"  	and fecha_inicia < to_date(?,'yyyy-mm-dd'))) "+ // 12 fecha fin
+"             AND CEDULA IN (SELECT   DISTINCT (CLI_NUMDCTO) "+
+"                              FROM   sai.TBL_DOCENTE_RELACION "+
+"                             WHERE   ESTADO = 'ACT') "+
+"             AND CLI.CLI_NUMDCTO = CEDULA "+
+"             AND DBAC.CLI_NUMDCTO = CEDULA "+
+"             AND DBAC.IDRESULTADOS = RE.IDRESULTADOS "+
+"             AND DBAC.IDRESULTADOS = ENC.IDRESULTADOS "+
+"             AND DBAC.IDCUESTIONARIOH = ENC.IDCUESTIONARIOH "+
+"             AND DBAC.IDCUESTIONARIOH = HCU.IDCUESTIONARIOH "+
+"             AND DBAC.IDCUESTIONARIOH = RE.IDCUESTIONARIOH "+
+"             AND DBAC.ORDEN = THCP.ORDEN "+
+"             AND RE.IDRESULTADOS = ENC.IDRESULTADOS "+
+"             AND HCU.IDCUESTIONARIOH = RE.IDCUESTIONARIOH "+
+"             AND ENC.IDCUESTIONARIOH = RE.IDCUESTIONARIOH "+
+"             AND RE.IDPREGUNTAH = PRE.IDPREGUNTAH "+
+"             AND RE.IDPREGUNTAH = THCP.IDPREGUNTAH "+
+"             AND RE.IDCUESTIONARIOH = THCP.IDCUESTIONARIOH "+
+"             AND HCU.IDCUESTIONARIOH = THCP.IDCUESTIONARIOH "+
+"             AND PRE.IDPREGUNTAH = THCP.IDPREGUNTAH "+
+"             AND ENC.FECHA >= TO_DATE (?, 'yyyy-mm-dd') "+ // 13 fecha inicio
+"   and (PRE.TITULO like '%Gest%' or PRE.TITULO like '%Inves%' ) "+ 
+"   and CEDULA = ? "+ // 14 documento
+"   group by  "+
+"     HCU.TITULO, "+
+"             CLI.CLI_TIPODCTO, "+
+"             CEDULA, "+
+"            'nn', "+
+"             0, "+
+"             VALOR, "+
+"             SUBSTR (PRE.TITULO,1,4)";
 	final static String consultaEvaluacion = "SELECT aa2.TIPO_CUESTIONARIO AS tipo_evaluacion, aa1.NOMBRE_MATERIA, aa1.CODIGO_MATERIA, aa1.GRUPO,aa1.INSCRITOS,aa2.VALOR,aa2.CONTEO,aa2.PREGUNTA,aa2.ENUNCIADO " +
 			"FROM (SELECT AM.MAT_NOMBRE AS nombre_materia, GRP.MAT_CODIGO AS codigo_materia, GRP.GRU_CODIGO AS grupo," +
 			"GRP.GRU_CUPO_ASIGNADO AS inscritos "+
@@ -406,6 +492,13 @@ public class InformesDAO {
 				p.setString(7, periodo[Periodo.FECHAFIN]);
 				p.setString(8, periodo[Periodo.FECHAINICIO]);
 				p.setString(9, documentoProfesor);
+				p.setString(10, periodo[Periodo.FECHAINICIO]);
+				p.setString(11, periodo[Periodo.FECHAINICIO]);
+				p.setString(12, periodo[Periodo.FECHAFIN]);
+				p.setString(13, periodo[Periodo.FECHAINICIO]);
+				p.setString(14, documentoProfesor);
+				
+				
 				ResultSet rs=p.executeQuery();
 				int saber = 0;
 				
@@ -452,12 +545,14 @@ public class InformesDAO {
 					
 					
 				}
+				
 				if(rs.getString("saber").equals("Gest"))
 				{
+				
 					if(rs.getString("tipo_evaluacion").contains("AUTO"))
 					{	
 					autoEvaluacionGestion.getPromedioRespuestas()[rs.getInt("valor")-1]=rs.getInt("suma");
-					totalAutoEvalGestion = totalAutoEvalGestion + rs.getInt("suma");
+					totalAutoEvalGestion = totalAutoEvalGestion + rs.getInt("suma");		
 					}
 					else
 					{	
@@ -494,7 +589,8 @@ public class InformesDAO {
 		 for(int i=0;i<=3;i++)
 		 {	 
 			 if(totalGestion>0) evaluacionGestion.getPromedioRespuestas()[i] = 100.0*evaluacionGestion.getPromedioRespuestas()[i]/totalGestion;
-			 if(totalAutoEvalGestion>0) autoEvaluacionGestion.getPromedioRespuestas()[i] = 100.0*evaluacionGestion.getPromedioRespuestas()[i]/totalAutoEvalGestion;
+			 if(totalAutoEvalGestion>0) autoEvaluacionGestion.getPromedioRespuestas()[i] = 100.0*autoEvaluacionGestion.getPromedioRespuestas()[i]/totalAutoEvalGestion;
+			 
 		 }
 		 for(int i=0;i<=4;i++)
 		 {	 
