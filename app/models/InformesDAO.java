@@ -284,6 +284,7 @@ public class InformesDAO {
 				           "AND HCU.IDCUESTIONARIOH = THCP.IDCUESTIONARIOH "+
 				           "AND PRE.IDPREGUNTAH = THCP.IDPREGUNTAH "+
 				           "AND ENC.FECHA >= TO_DATE (?, 'yyyy-mm-dd') "+ // 9 FECHA INICIO
+				           "and (HCU.TITULO like '%AUTO%GEST%' or HCU.TITULO like '%AUTO%INV%') "+
 				 "and CEDULA = ? "+ // 10 CEDULA
 				 "UNION " +
 				 "SELECT HCU.TITULO, CLI.CLI_TIPODCTO, DR.CLI_NUMDCTO AS CODIGO_PROFESOR,'nn',0,RTA.VALOR RESPUESTA,1,PRE.TITULO AS CONSECUTIVO, "+   

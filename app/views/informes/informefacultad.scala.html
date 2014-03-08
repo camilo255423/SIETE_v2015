@@ -1,0 +1,259 @@
+@(evaluacionDocencia:EvaluacionMateria, autoEvaluacionDocencia:EvaluacionMateria, evaluacionGestion:EvaluacionGestion, evaluacionInvestigacion:EvaluacionInvestigacion,autoEvaluacionGestion:EvaluacionGestion, autoEvaluacionInvestigacion:EvaluacionInvestigacion )
+@import models.Nivel
+@import java.text.DecimalFormat
+<div id="informe">
+<div class="tabs">
+		<ul>
+			<li><a href="#tabs-docencia">Informe Final</a></li>
+		
+			
+		</ul>
+ 	<div id="tabs-docencia">       
+	
+	<div class="titulotabla">Informe Final</div>
+	  @defining(new DecimalFormat("##0.00")){formato=>
+	<h2>Campo de La Docencia</h2>
+	<h3>Saber Pedagógico</h3>
+	<table>
+	<tbody>
+        <tr>
+        <td class="row_headers">Nivel de Desempeño</td>
+		<td class="row_headers" >Estudiantes 80%</td>
+		<td class="row_headers" >Autoevaluación 20%</td>
+		<td class="row_headers" >Resultado</td>
+	     </tr>
+	     
+	     
+       	   
+	 
+				<tr>
+				<td class="row_headers">Inferior</td>
+                <td class="row_headers">@formato.format(evaluacionDocencia.getPromedioRespuestas()(0)(Nivel.INFERIOR)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.INFERIOR)) %</td>
+                <td class="row_headers">@formato.format((evaluacionDocencia.getPromedioRespuestas()(0)(Nivel.INFERIOR)*0.8 + autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.INFERIOR)*0.2)) %</td>
+                </tr>
+                <tr>
+				<td class="row_headers">Bajo</td>
+                <td class="row_headers">@formato.format(evaluacionDocencia.getPromedioRespuestas()(0)(Nivel.BAJO)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.BAJO)) %</td>
+                <td class="row_headers">@formato.format((evaluacionDocencia.getPromedioRespuestas()(0)(Nivel.BAJO)*0.8 + autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.BAJO)*0.2)) %</td>
+                </tr>  
+                <tr>
+				<td class="row_headers">Medio</td>
+                <td class="row_headers">@formato.format(evaluacionDocencia.getPromedioRespuestas()(0)(Nivel.MEDIO)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.MEDIO)) %</td>
+                <td class="row_headers">@formato.format((evaluacionDocencia.getPromedioRespuestas()(0)(Nivel.MEDIO)*0.8 + autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.MEDIO)*0.2)) %</td>
+                </tr> 
+                <tr>
+				<td class="row_headers">Alto</td>
+                <td class="row_headers">@formato.format(evaluacionDocencia.getPromedioRespuestas()(0)(Nivel.ALTO)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.ALTO)) %</td>
+                <td class="row_headers">@formato.format((evaluacionDocencia.getPromedioRespuestas()(0)(Nivel.ALTO)*0.8 + autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.ALTO)*0.2)) %</td>
+                </tr> 
+                <tr>
+				<td class="row_headers">Superior</td>
+                <td class="row_headers">@formato.format(evaluacionDocencia.getPromedioRespuestas()(0)(Nivel.SUPERIOR)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.SUPERIOR)) %</td>
+                <td class="row_headers">@formato.format((evaluacionDocencia.getPromedioRespuestas()(0)(Nivel.SUPERIOR)*0.8 + autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.SUPERIOR)*0.2)) %</td>
+                </tr>    
+              
+       
+          </tbody>
+          </table>
+          <h3>Saber Específico</h3>
+	<table>
+	<tbody>
+        <tr>
+        <td class="row_headers">Nivel de Desempeño</td>
+		<td class="row_headers" >Estudiantes 80%</td>
+		<td class="row_headers" >Autoevaluación 20%</td>
+		<td class="row_headers" >Resultado</td>
+	     </tr>
+	     
+	     
+       	   
+	 
+				<tr>
+				<td class="row_headers">Inferior</td>
+                <td class="row_headers">@formato.format(evaluacionDocencia.getPromedioRespuestas()(1)(Nivel.INFERIOR)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionDocencia.getPromedioRespuestas()(1)(Nivel.INFERIOR)) %</td>
+                <td class="row_headers">@formato.format((evaluacionDocencia.getPromedioRespuestas()(1)(Nivel.INFERIOR)*0.8 + autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.INFERIOR)*0.2)) %</td>
+                </tr>
+                <tr>
+				<td class="row_headers">Bajo</td>
+                <td class="row_headers">@formato.format(evaluacionDocencia.getPromedioRespuestas()(1)(Nivel.BAJO)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionDocencia.getPromedioRespuestas()(1)(Nivel.BAJO)) %</td>
+                <td class="row_headers">@formato.format((evaluacionDocencia.getPromedioRespuestas()(1)(Nivel.BAJO)*0.8 + autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.BAJO)*0.2)) %</td>
+                </tr>  
+                <tr>
+				<td class="row_headers">Medio</td>
+                <td class="row_headers">@formato.format(evaluacionDocencia.getPromedioRespuestas()(1)(Nivel.MEDIO)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionDocencia.getPromedioRespuestas()(1)(Nivel.MEDIO)) %</td>
+                <td class="row_headers">@formato.format((evaluacionDocencia.getPromedioRespuestas()(1)(Nivel.MEDIO)*0.8 + autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.MEDIO)*0.2)) %</td>
+                </tr> 
+                <tr>
+				<td class="row_headers">Alto</td>
+                <td class="row_headers">@formato.format(evaluacionDocencia.getPromedioRespuestas()(1)(Nivel.ALTO)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionDocencia.getPromedioRespuestas()(1)(Nivel.ALTO)) %</td>
+                <td class="row_headers">@formato.format((evaluacionDocencia.getPromedioRespuestas()(1)(Nivel.ALTO)*0.8 + autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.ALTO)*0.2)) %</td>
+                </tr> 
+                <tr>
+				<td class="row_headers">Superior</td>
+                <td class="row_headers">@formato.format(evaluacionDocencia.getPromedioRespuestas()(1)(Nivel.SUPERIOR)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionDocencia.getPromedioRespuestas()(1)(Nivel.SUPERIOR)) %</td>
+                <td class="row_headers">@formato.format((evaluacionDocencia.getPromedioRespuestas()(1)(Nivel.SUPERIOR)*0.8 + autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.SUPERIOR)*0.2)) %</td>
+                </tr>    
+          
+          </tbody>
+          </table>
+    <h3>Saber Relacional</h3>
+	<table>
+	<tbody>
+        <tr>
+        <td class="row_headers">Nivel de Desempeño</td>
+		<td class="row_headers" >Estudiantes 80%</td>
+		<td class="row_headers" >Autoevaluación 20%</td>
+		<td class="row_headers" >Resultado</td>
+	     </tr>
+	     
+	     
+       	   
+	 
+				<tr>
+				<td class="row_headers">Inferior</td>
+                <td class="row_headers">@formato.format(evaluacionDocencia.getPromedioRespuestas()(2)(Nivel.INFERIOR)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionDocencia.getPromedioRespuestas()(2)(Nivel.INFERIOR)) %</td>
+                <td class="row_headers">@formato.format((evaluacionDocencia.getPromedioRespuestas()(2)(Nivel.INFERIOR)*0.8 + autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.INFERIOR)*0.2)) %</td>
+                </tr>
+                <tr>
+				<td class="row_headers">Bajo</td>
+                <td class="row_headers">@formato.format(evaluacionDocencia.getPromedioRespuestas()(2)(Nivel.BAJO)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionDocencia.getPromedioRespuestas()(2)(Nivel.BAJO)) %</td>
+                <td class="row_headers">@formato.format((evaluacionDocencia.getPromedioRespuestas()(2)(Nivel.BAJO)*0.8 + autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.BAJO)*0.2)) %</td>
+                </tr>  
+                <tr>
+				<td class="row_headers">Medio</td>
+                <td class="row_headers">@formato.format(evaluacionDocencia.getPromedioRespuestas()(2)(Nivel.MEDIO)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionDocencia.getPromedioRespuestas()(2)(Nivel.MEDIO)) %</td>
+                <td class="row_headers">@formato.format((evaluacionDocencia.getPromedioRespuestas()(2)(Nivel.MEDIO)*0.8 + autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.MEDIO)*0.2)) %</td>
+                </tr> 
+                <tr>
+				<td class="row_headers">Alto</td>
+                <td class="row_headers">@formato.format(evaluacionDocencia.getPromedioRespuestas()(2)(Nivel.ALTO)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionDocencia.getPromedioRespuestas()(2)(Nivel.ALTO)) %</td>
+                <td class="row_headers">@formato.format((evaluacionDocencia.getPromedioRespuestas()(2)(Nivel.ALTO)*0.8 + autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.ALTO)*0.2)) %</td>
+                </tr> 
+                <tr>
+				<td class="row_headers">Superior</td>
+                <td class="row_headers">@formato.format(evaluacionDocencia.getPromedioRespuestas()(2)(Nivel.SUPERIOR)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionDocencia.getPromedioRespuestas()(2)(Nivel.SUPERIOR)) %</td>
+                <td class="row_headers">@formato.format((evaluacionDocencia.getPromedioRespuestas()(2)(Nivel.SUPERIOR)*0.8 + autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.SUPERIOR)*0.2)) %</td>
+                </tr>    
+              
+             
+      
+        
+          
+          </tbody>
+          </table>
+              <h3>Gestión</h3>
+	<table>
+	<tbody>
+        <tr>
+        <td class="row_headers">Nivel de Desempeño</td>
+		<td class="row_headers" >Directivo 60%</td>
+		<td class="row_headers" >Autoevaluación 40%</td>
+		<td class="row_headers" >Resultado</td>
+	     </tr>
+	     
+	     
+       	   
+	 
+				<tr>
+				<td class="row_headers">No Cumple</td>
+                <td class="row_headers">@formato.format(evaluacionGestion.getPromedioRespuestas()(Nivel.INFERIOR)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionGestion.getPromedioRespuestas()(Nivel.INFERIOR)) %</td>
+                <td class="row_headers">@formato.format((evaluacionGestion.getPromedioRespuestas()(Nivel.INFERIOR)*0.6 + autoEvaluacionGestion.getPromedioRespuestas()(Nivel.INFERIOR)*0.4)) %</td>
+                </tr>
+              	<tr>
+				<td class="row_headers">Cumple Parcialmente</td>
+                <td class="row_headers">@formato.format(evaluacionGestion.getPromedioRespuestas()(Nivel.BAJO)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionGestion.getPromedioRespuestas()(Nivel.BAJO)) %</td>
+                <td class="row_headers">@formato.format((evaluacionGestion.getPromedioRespuestas()(Nivel.BAJO)*0.6 + autoEvaluacionGestion.getPromedioRespuestas()(Nivel.BAJO)*0.4)) %</td>
+                </tr>
+                	<tr>
+				<td class="row_headers">Cumple Totalmente</td>
+                <td class="row_headers">@formato.format(evaluacionGestion.getPromedioRespuestas()(Nivel.MEDIO)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionGestion.getPromedioRespuestas()(Nivel.MEDIO)) %</td>
+                <td class="row_headers">@formato.format((evaluacionGestion.getPromedioRespuestas()(Nivel.MEDIO)*0.6 + autoEvaluacionGestion.getPromedioRespuestas()(Nivel.MEDIO)*0.4)) %</td>
+                </tr>
+                	<tr>
+				<td class="row_headers">No Aplica</td>
+                <td class="row_headers">@formato.format(evaluacionGestion.getPromedioRespuestas()(Nivel.ALTO)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionGestion.getPromedioRespuestas()(Nivel.ALTO)) %</td>
+                <td class="row_headers">@formato.format((evaluacionGestion.getPromedioRespuestas()(Nivel.ALTO)*0.6 + autoEvaluacionGestion.getPromedioRespuestas()(Nivel.ALTO)*0.4)) %</td>
+                </tr>
+				
+             
+      
+        
+          
+          </tbody>
+          </table>
+                <h3>Investigación</h3>
+	<table>
+	<tbody>
+        <tr>
+        <td class="row_headers">Nivel de Desempeño</td>
+		<td class="row_headers" >Directivo 60%</td>
+		<td class="row_headers" >Autoevaluación 40%</td>
+		<td class="row_headers" >Resultado</td>
+	     </tr>
+	     
+	     
+       	   
+	 
+				<tr>
+				<td class="row_headers">Inferior</td>
+                <td class="row_headers">@formato.format(evaluacionInvestigacion.getPromedioRespuestas()(Nivel.INFERIOR)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionInvestigacion.getPromedioRespuestas()(Nivel.INFERIOR)) %</td>
+                <td class="row_headers">@formato.format((evaluacionInvestigacion.getPromedioRespuestas()(Nivel.INFERIOR)*0.6 + autoEvaluacionInvestigacion.getPromedioRespuestas()(Nivel.INFERIOR)*0.4)) %</td>
+                </tr>
+              	<tr>
+				<td class="row_headers">Bajo</td>
+                <td class="row_headers">@formato.format(evaluacionInvestigacion.getPromedioRespuestas()(Nivel.BAJO)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionInvestigacion.getPromedioRespuestas()(Nivel.BAJO)) %</td>
+                <td class="row_headers">@formato.format((evaluacionInvestigacion.getPromedioRespuestas()(Nivel.BAJO)*0.6 + autoEvaluacionInvestigacion.getPromedioRespuestas()(Nivel.BAJO)*0.4)) %</td>
+                </tr>
+                	<tr>
+				<td class="row_headers">Medio</td>
+                <td class="row_headers">@formato.format(evaluacionInvestigacion.getPromedioRespuestas()(Nivel.MEDIO)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionInvestigacion.getPromedioRespuestas()(Nivel.MEDIO)) %</td>
+                <td class="row_headers">@formato.format((evaluacionInvestigacion.getPromedioRespuestas()(Nivel.MEDIO)*0.6 + autoEvaluacionInvestigacion.getPromedioRespuestas()(Nivel.MEDIO)*0.4)) %</td>
+                </tr>
+                <tr>
+				<td class="row_headers">Alto</td>
+                <td class="row_headers">@formato.format(evaluacionInvestigacion.getPromedioRespuestas()(Nivel.ALTO)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionInvestigacion.getPromedioRespuestas()(Nivel.ALTO)) %</td>
+                <td class="row_headers">@formato.format((evaluacionInvestigacion.getPromedioRespuestas()(Nivel.ALTO)*0.6 + autoEvaluacionInvestigacion.getPromedioRespuestas()(Nivel.ALTO)*0.4)) %</td>
+                </tr>
+				  <tr>
+				<td class="row_headers">Superior</td>
+                <td class="row_headers">@formato.format(evaluacionInvestigacion.getPromedioRespuestas()(Nivel.SUPERIOR)) %</td>
+                <td class="row_headers">@formato.format(autoEvaluacionInvestigacion.getPromedioRespuestas()(Nivel.SUPERIOR)) %</td>
+                <td class="row_headers">@formato.format((evaluacionInvestigacion.getPromedioRespuestas()(Nivel.SUPERIOR)*0.6 + autoEvaluacionInvestigacion.getPromedioRespuestas()(Nivel.SUPERIOR)*0.4)) %</td>
+                </tr>
+             
+      
+        
+          
+          </tbody>
+          </table>
+    
+          }
+  </div> <!--  docencia -->
+=</div> <!-- tabs docencia-gestión-invest --> 
+</div>  <!-- div informe -->
+<script>
+$( ".tabs" ).tabs();
+</script>

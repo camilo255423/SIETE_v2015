@@ -22,10 +22,15 @@ $( "#tags" ).autocomplete({
     })
 
 $('#listaProfesores').on("change", cambioProfesor);
-$('#listainformes').on("change", cambioProfesor);
+$('#listainformes').on("change", cambioInforme);
 
 }
 );
+function cambioInforme()
+{
+cambioSemestre();
+cambioProfesor();
+}
 function cambioProfesor()
 {
 var documentoProfesor = $('#listaProfesores').val();
@@ -44,6 +49,9 @@ var documentoProfesor = $('#listaProfesores').val();
 			}
 			if($('#listainformes').val()==3){
 			$.post("informefinal",{documento: documentoProfesor, semestre: $('#listasemestres').val()},mostrar);
+			}
+			if($('#listainformes').val()==4){
+			$.post("informefacultad",{documento: documentoProfesor, semestre: $('#listasemestres').val()},mostrar);
 			}
 	}
 	else
@@ -67,6 +75,12 @@ informe="informe2";
 }
 if($('#listainformes').val()==3){
 informe="informe3";
+}
+if($('#listainformes').val()==4){
+informe="informe4";
+}
+if($('#listainformes').val()==5){
+informe="informe5";
 }
 var enlace = informe+'/pdf/'+documento+'/'+semestre;
 var s =  "<ul class='side'>";

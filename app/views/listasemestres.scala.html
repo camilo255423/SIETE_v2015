@@ -11,17 +11,21 @@ function()
 {
 
 $('#listasemestres').on("change", cambioSemestre);
+
 }
 );
 function cambioSemestre()
 {
-
+var entidad;
 $("#informe").html("<div id='progressbar'></div>");
 $("#listaProfesores").html("Cargando...");
 $("#progressbar").progressbar({
 value:false
 });
-$.post("cambiosemestre",{semestre: this.value},mostrarProfesores);
+if($('#listainformes').val()==1 || $('#listainformes').val()==2 || $('#listainformes').val()==3 ) entidad="profesores";
+if($('#listainformes').val()==4) entidad="facultades";
+if($('#listainformes').val()==5) entidad="programas";
+$.post("cambiosemestre",{semestre: $('#listasemestres').val(), valor: entidad},mostrarProfesores); // 0 profesores 1 facultades 2 programas
 
 }
 function mostrarProfesores(data)

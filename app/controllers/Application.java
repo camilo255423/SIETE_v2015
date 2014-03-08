@@ -40,10 +40,26 @@ public class Application extends Controller {
     public static Result cambioSemestre()
     {
     	String semestre = Form.form().bindFromRequest().get("semestre");
-        	
-       	List<Profesor> profesores = Profesor.findAllBySemestre(semestre);
+    	String valor = Form.form().bindFromRequest().get("valor");	
        
-       	return ok(views.html.lista.render(profesores,0));
+    	if(valor.equals("profesores"))
+    	{	
+    	List<Profesor> profesores = Profesor.findAllBySemestre(semestre);
+    	System.out.println("profesores");
+    	return ok(views.html.lista.render(profesores,0));
+    	}
+    	if(valor.equals("facultades"))
+    	{	
+    	List<Facultad> facultades = Facultad.findAll();
+    	return ok(views.html.listafacultades.render(facultades,0));
+    	}
+    	if(valor.equals("programas"))
+    	{	
+    	List<Programa> programas = Programa.findAll();
+    	return ok(views.html.listaprogramas.render(programas,0));
+    	}
+    	
+       	return ok(views.html.lista.render(null,0));
        	
     }
     public static Result excel()
