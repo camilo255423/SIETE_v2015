@@ -414,13 +414,13 @@ public class ReportesDAO {
 "codigo_facultad, nombre_facultad,  valor, saber,tipo_evaluacion  "+
 "order by codigo_facultad, nombre_facultad, tipo_evaluacion, saber ";
 
-	final static String consultaPorPrograma="select codigo_programa, nombre_programa, avg(porcentaje), valor, saber,tipo_evaluacion  "+
+	final static String consultaPorPrograma="select codigo_programa, nombre_programa, avg(porcentaje) as porcentaje, valor, saber,tipo_evaluacion  "+
 "	from "+
 "	(SELECT  distinct "+ 
 "	           p.pro_codprograma as codigo_programa, "+
 "	           p.pro_nombreprog as nombre_programa, "+
 "	           GRP.CLI_NDCTO_PROF as codprof "+
-"	    FROM   (select GRU_SEMESTRE,GRU_CODIGO, MAT_CODIGO, GRU_CUPO_ASIGNADO, CLI_NDCTO_PROF,CLI_TIPODCTO,CLI_TDCTO_PROF from SAI.ART_HISTORIA_GRUPOS union select GRU_SEMESTRE, GRU_CODIGO,MAT_CODIGO, GRU_CUPO_ASIGNADO, CLI_NDCTO_PROF,CLI_TIPODCTO,CLI_TDCTO_PROF from SAI.ART_GRUPOS_VIGENTES) GRP , --Se coloca en comentareo, únicamente para sacar la inf. del 20131 "+
+"	    FROM   (select GRU_SEMESTRE,GRU_CODIGO, MAT_CODIGO, GRU_CUPO_ASIGNADO, CLI_NDCTO_PROF,CLI_TIPODCTO,CLI_TDCTO_PROF from SAI.ART_HISTORIA_GRUPOS union select GRU_SEMESTRE, GRU_CODIGO,MAT_CODIGO, GRU_CUPO_ASIGNADO, CLI_NDCTO_PROF,CLI_TIPODCTO,CLI_TDCTO_PROF from SAI.ART_GRUPOS_VIGENTES) GRP , "+
 "	         sai.art_materias_pensum m, sai.art_programas p, RCT_CLIENTES CLI "+
 "	   WHERE   m.MAT_CODIGO=grp.MAT_CODIGO and m.PRO_CODPROGRAMA = p.PRO_CODPROGRAMA "+
 "	           AND GRP.GRU_SEMESTRE = ? "+ // 1. semestre
@@ -609,7 +609,6 @@ public class ReportesDAO {
 "	           AND RE.IDCUESTIONARIOH = THCP.IDCUESTIONARIOH "+
 "	           AND HCU.IDCUESTIONARIOH = THCP.IDCUESTIONARIOH "+
 "	           AND PRE.IDPREGUNTAH = THCP.IDPREGUNTAH "+
-"	           --AND DBAC.MATERIA IS NOT NULL "+
 "	           AND ENC.FECHA >= TO_DATE (?, 'yyyy/mm/dd') "+ // 11. fecha inicio
 "	 and (PRE.TITULO like '%Gest%' or PRE.TITULO like '%Inves%' ) "+
 "	 group by "+ 
@@ -793,12 +792,10 @@ public class ReportesDAO {
 "	           AND HCU.IDCUESTIONARIOH = RE.IDCUESTIONARIOH "+
 "	           AND ENC.IDCUESTIONARIOH = RE.IDCUESTIONARIOH "+
 "	           AND RE.IDPREGUNTAH = PRE.IDPREGUNTAH "+
-"	           --TEMP "+
 "	           AND RE.IDPREGUNTAH = THCP.IDPREGUNTAH "+
 "	           AND RE.IDCUESTIONARIOH = THCP.IDCUESTIONARIOH "+
 "	           AND HCU.IDCUESTIONARIOH = THCP.IDCUESTIONARIOH "+
 "	           AND PRE.IDPREGUNTAH = THCP.IDPREGUNTAH "+
-"	           --AND DBAC.MATERIA IS NOT NULL "+
 "	           AND ENC.FECHA >= TO_DATE (?, 'yyyy/mm/dd') "+  // 21 fecha inicio
 "	           and (HCU.TITULO like '%AUTO%GEST%' or HCU.TITULO like '%AUTO%INV%') "+ 
 "	 and (PRE.TITULO like '%Gest%' or PRE.TITULO like '%Inves%' ) "+
@@ -813,12 +810,13 @@ public class ReportesDAO {
 "	where parcial.tipo_evaluacion=total.tipo_evaluacion and parcial.cedula=total.cedula and parcial.saber=total.saber "+
 "	) niveles "+
 "	where programas.codprof=niveles.cedula "+
+" and codigo_programa=? "+
 "	group by "+
 "	codigo_programa, nombre_programa,  valor, saber,tipo_evaluacion "+
-" order by codigo_facultad, nombre_facultad, tipo_evaluacion, saber";
+" order by codigo_programa, nombre_programa, tipo_evaluacion, saber";
 	
 	public static Evaluacion
-	getInformeFinal(String codigoFacultad, String semestre)
+	getInformeFacultad(String codigoFacultad, String semestre)
 	{
 		 EvaluacionPrograma evaluacion = new EvaluacionPrograma();
 		 List<EvaluacionMateria> evaluacionMaterias = new ArrayList<EvaluacionMateria>();
@@ -959,6 +957,151 @@ public class ReportesDAO {
 		
 		
 	}
+
+
+
+public static Evaluacion
+getInformePrograma(String codigoPrograma, String semestre)
+{
+	 EvaluacionPrograma evaluacion = new EvaluacionPrograma();
+	 List<EvaluacionMateria> evaluacionMaterias = new ArrayList<EvaluacionMateria>();
+	 EvaluacionGestion evaluacionGestion = new EvaluacionGestion(Pregunta.GESTION); 
+	 EvaluacionInvestigacion evaluacionInvestigacion = new EvaluacionInvestigacion(Pregunta.INVESTIGACION); 
+	 EvaluacionGestion autoEvaluacionGestion = new EvaluacionGestion(Pregunta.GESTION); 
+	 EvaluacionInvestigacion autoEvaluacionInvestigacion = new EvaluacionInvestigacion(Pregunta.INVESTIGACION); 
+	 Connection con = DB.getConnection();
+	 String periodo[] = Periodo.getFecha(semestre);
+	 EvaluacionMateria ev=null;
+	 double totalDocencia[]= new double[3];
+	 double totalAutoEvalDocencia[]= new double[3];
+	 double totalGestion=0;
+	 double totalAutoEvalGestion=0;
+	 double totalInvestigacion=0;
+	 double totalAutoEvalInvestigacion=0;
+	int indicePregunta;
+	int indiceMateria;
+	int nivel;
+	String s[];
+	int tipoEvaluacion=0;
+	String codigoMateria;
+	PreparedStatement p;
+	String grupo;
+	String tituloPregunta;
+	int numeroRespuestas;
+	String materiaAnterior="";
+	 try {
+			p = con.prepareStatement(consultaPorPrograma);
+			p.setString(1, semestre);
+			p.setString(2, semestre);
+			p.setString(3, "%%"+semestre+"%%");
+			p.setString(4, "%%"+semestre+"%%");
+			p.setString(5, periodo[Periodo.FECHAINICIO]);
+			p.setString(6, periodo[Periodo.FECHAFIN]);
+			p.setString(7, periodo[Periodo.FECHAINICIO]);
+			p.setString(8, periodo[Periodo.FECHAINICIO]);
+			p.setString(9, periodo[Periodo.FECHAINICIO]);
+			p.setString(10, periodo[Periodo.FECHAFIN]);
+			p.setString(11, periodo[Periodo.FECHAINICIO]);
+			p.setString(12, semestre);
+			p.setString(13, "%%"+semestre+"%%");
+			p.setString(14, "%%"+semestre+"%%");
+			p.setString(15, periodo[Periodo.FECHAINICIO]);
+			p.setString(16, periodo[Periodo.FECHAFIN]);
+			p.setString(17, periodo[Periodo.FECHAINICIO]);
+			p.setString(18, periodo[Periodo.FECHAINICIO]);
+			p.setString(19, periodo[Periodo.FECHAINICIO]);
+			p.setString(20, periodo[Periodo.FECHAFIN]);
+			p.setString(21, periodo[Periodo.FECHAINICIO]);
+			p.setString(22, codigoPrograma);
+			
+			ResultSet rs=p.executeQuery();
+			int saber = 0;
+			String codPrograma="";
+	
+			while (rs.next()) {
+		
+			if(rs.getString("tipo_evaluacion").contains("ESTUDIANTES") || rs.getString("tipo_evaluacion").contains("AUTOEVALUACION DE LA DOCENCIA"))
+			{	
+				
+				if(!(rs.getString("tipo_evaluacion")).equals(materiaAnterior))
+				{
+					
+					tipoEvaluacion = EvaluacionMateria.EVALUACION;
+					if(rs.getString("tipo_evaluacion").contains("AUTOEVALUACION")) 
+						{
+						tipoEvaluacion = EvaluacionMateria.AUTOEVALUACION;
+					
+						}
+					
+			
+					ev = new EvaluacionMateria(tipoEvaluacion,new Materia("",rs.getString("tipo_evaluacion"),"", 0),false);
+					materiaAnterior=rs.getString("tipo_evaluacion");
+					evaluacionMaterias.add(ev);
+			
+					
+				}
+				if(rs.getString("saber").equals("Peda")) saber=0;
+				else if(rs.getString("saber").equals("Espe")) saber=1;
+				else if(rs.getString("saber").equals("Rela")) saber=2;
+				else saber=10;
+				
+				if(saber<3)
+				{	
+				
+				ev.getPromedioRespuestas()[saber][rs.getInt("valor")-1]=rs.getInt("porcentaje");
+				
+				}
+				
+				
+			}
+			
+			if(rs.getString("saber").equals("Gest"))
+			{
+			
+				if(rs.getString("tipo_evaluacion").contains("AUTO"))
+				{	
+				autoEvaluacionGestion.getPromedioRespuestas()[rs.getInt("valor")-1]=rs.getInt("porcentaje");
+						
+				}
+				else
+				{	
+				evaluacionGestion.getPromedioRespuestas()[rs.getInt("valor")-1]=rs.getInt("porcentaje");
+				
+				}
+				
+			}
+			if(rs.getString("saber").equals("Inve"))
+			{	if(rs.getString("tipo_evaluacion").contains("AUTO"))
+				{
+				autoEvaluacionInvestigacion.getPromedioRespuestas()[rs.getInt("valor")-1]=rs.getInt("porcentaje");
+				
+				}
+				else
+				{	
+				evaluacionInvestigacion.getPromedioRespuestas()[rs.getInt("valor")-1]=rs.getInt("porcentaje");
+				
+				}
+			}
+			}
+	 }catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Excepcion : "+e.getMessage());
+			System.out.println(e.getLocalizedMessage());
+		
+		}
+	 
+	 if(evaluacionMaterias.size()==0) evaluacionMaterias.add(new EvaluacionMateria(EvaluacionMateria.EVALUACION,new Materia("","","", 0),false));
+	 if(evaluacionMaterias.size()>=1) evaluacionMaterias.add(new EvaluacionMateria(EvaluacionMateria.AUTOEVALUACION,new Materia("","","", 0),false));
+		
+
+	
+
+	 return new Evaluacion(evaluacionMaterias, evaluacionGestion, evaluacionInvestigacion,autoEvaluacionGestion,autoEvaluacionInvestigacion);
+
+	
+	
+}
 
 
 }

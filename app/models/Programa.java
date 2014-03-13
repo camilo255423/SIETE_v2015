@@ -30,7 +30,7 @@ public class Programa {
 		List<Programa> programas = new ArrayList<Programa>();
 		PreparedStatement p;
 		try {
-			p = con.prepareStatement(consultaFacultad);
+			p = con.prepareStatement(consultaProgramas);
 			
 		
 			ResultSet rs=p.executeQuery();
@@ -73,13 +73,41 @@ public class Programa {
 		this.nombre = nombre;
 	}
 
+	public static Programa findById(String id)
+	{
+     	Connection con = DB.getConnection();
+		Programa programa=null;
+		PreparedStatement p;
+		try {
+			p = con.prepareStatement(consultaIdPrograma);
+			
+			p.setString(1, id);
+		
+			ResultSet rs=p.executeQuery();
+			while (rs.next()) {
+				programa = new Programa(rs.getString("codprograma"),
+						rs.getString("nombre"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Excepcion : "+e.getMessage());
+			System.out.println(e.getLocalizedMessage());
+		}
+	
+		
+		
+		return programa;
+	}
 
 
 
-
-	private static final String consultaFacultad ="select pro_codprograma as codprograma, pro_nombreprog as nombre " +
+	private static final String consultaProgramas ="select pro_codprograma as codprograma, pro_nombreprog as nombre " +
 			"from sai.art_programas "+
 			" order by pro_nombreprog";
+	private static final String consultaIdPrograma ="select pro_codprograma as codprograma, pro_nombreprog as nombre " +
+			"from sai.art_programas "+
+			" where pro_codprograma = ?";
 
 	
 }

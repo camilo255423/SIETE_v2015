@@ -27,7 +27,7 @@ public class Facultad {
 		List<Facultad> facultades = new ArrayList<Facultad>();
 		PreparedStatement p;
 		try {
-			p = con.prepareStatement(consultaFacultad);
+			p = con.prepareStatement(consultaFacultades);
 			
 		
 			ResultSet rs=p.executeQuery();
@@ -46,7 +46,33 @@ public class Facultad {
 		
 		return facultades;
 	}
+	public static Facultad findById(String id)
+	{
+     	Connection con = DB.getConnection();
+		Facultad facultad=null;
+		PreparedStatement p;
+		try {
+			p = con.prepareStatement(consultaIdFacultad);
+			
+			p.setString(1, id);
 		
+			ResultSet rs=p.executeQuery();
+			while (rs.next()) {
+				facultad = new Facultad(rs.getString("ID_DECAN"),
+						rs.getString("DESCRIP"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Excepcion : "+e.getMessage());
+			System.out.println(e.getLocalizedMessage());
+		}
+	
+		
+		
+		return facultad;
+	}
+	
 	
 	public String getCodFacultad() {
 		return codFacultad;
@@ -62,7 +88,7 @@ public class Facultad {
 	}
 
 
-	private static final String consultaFacultad ="select * from sai.SCT_DECAN where id_decan>=1 and id_decan<=4";
-
+	private static final String consultaFacultades ="select * from sai.SCT_DECAN where id_decan>=1 and id_decan<=4";
+	private static final String consultaIdFacultad ="select * from sai.SCT_DECAN where id_decan=?";
 	
 }

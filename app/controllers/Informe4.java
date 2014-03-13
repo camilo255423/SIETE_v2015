@@ -21,6 +21,7 @@ import models.Evaluacion;
 import models.EvaluacionGestion;
 import models.EvaluacionInvestigacion;
 import models.EvaluacionMateria;
+import models.Facultad;
 import models.InformesDAO;
 import models.Nivel;
 import models.Pregunta;
@@ -36,23 +37,21 @@ public class Informe4 extends Controller {
     
     	return null;
     }
-    public static Result informeProgramas()
+    public static Result informeFacultad()
     {
     	String codigoFacultad = Form.form().bindFromRequest().get("documento");
        	String semestre = Form.form().bindFromRequest().get("semestre");
-    
-    //	Profesor profesor = Profesor.findByDocumento(documento);
-    	Evaluacion evaluacion = ReportesDAO.getInformeFinal(codigoFacultad, semestre);
+    	Evaluacion evaluacion = ReportesDAO.getInformeFacultad(codigoFacultad, semestre);
     	EvaluacionMateria evaluacionDocencia=null;
     	EvaluacionMateria autoEvaluacionDocencia=null;
     	if(evaluacion.getEvaluacionDocencia().size()>=1) evaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(0);
     	if(evaluacion.getEvaluacionDocencia().size()>=2) autoEvaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(1);
 
-    	return ok(views.html.informes.informefinal.render(evaluacionDocencia,autoEvaluacionDocencia,evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),evaluacion.getAutoEvaluacionGestion(),evaluacion.getAutoEvaluacionInvestigacion()));
+    	return ok(views.html.informes.informefacultad.render(evaluacionDocencia,autoEvaluacionDocencia,evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),evaluacion.getAutoEvaluacionGestion(),evaluacion.getAutoEvaluacionInvestigacion()));
     	
  	
     }
-    public static Result pdf(String documento, String semestre)
+    public static Result pdf(String codigoFacultad, String semestre)
     {
  			Document document = new Document();
  		    document.open();
@@ -68,23 +67,22 @@ public class Informe4 extends Controller {
  			        }
  		    	}
  		    }
- 		   Profesor profesor = Profesor.findByDocumento(documento);
- 		   Evaluacion evaluacion = InformesDAO.getInformeFinal(documento, semestre);
+ 		   Facultad facultad = Facultad.findById(codigoFacultad);
+ 		   Evaluacion evaluacion = ReportesDAO.getInformeFacultad(codigoFacultad, semestre);
  	    	EvaluacionMateria evaluacionDocencia=null;
  	    	EvaluacionMateria autoEvaluacionDocencia=null;
  	    	if(evaluacion.getEvaluacionDocencia().size()>=1) evaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(0);
  	    	if(evaluacion.getEvaluacionDocencia().size()>=2) autoEvaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(1);
 
  			try {
- 				file = new File(profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".pdf");
+ 				file = new File(facultad.getNombre()+" "+semestre+".pdf");
  				PdfWriter writer = PdfWriter.getInstance(document,
  						
  				        new FileOutputStream(file));
  				String imagen = routes.Assets.at("images/logo-inpahu2.png").absoluteURL(request());
  				
  				document.open();
- 				//XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeheteroevaluacion.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), profesor, semestre, imagen).toString()));
- 				XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informefinal.render(evaluacionDocencia,autoEvaluacionDocencia,evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),evaluacion.getAutoEvaluacionGestion(),evaluacion.getAutoEvaluacionInvestigacion(), profesor, semestre, imagen).toString()));
+ 				XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informefacultad.render(evaluacionDocencia,autoEvaluacionDocencia,evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),evaluacion.getAutoEvaluacionGestion(),evaluacion.getAutoEvaluacionInvestigacion(), facultad, semestre, imagen).toString()));
  	        	
  			} catch (FileNotFoundException e) {
  				// TODO Auto-generated catch block
@@ -104,10 +102,10 @@ public class Informe4 extends Controller {
  			return ok(file);
  	    
     }
-    public static Result excel(String documento, String semestre)
+    public static Result excel(String codigoFacultad, String semestre)
     {
-    	Profesor profesor = Profesor.findByDocumento(documento);
-    	Evaluacion evaluacion = InformesDAO.getInformeFinal(documento, semestre);
+    	Facultad facultad = Facultad.findById(codigoFacultad);
+    	Evaluacion evaluacion = ReportesDAO.getInformeFacultad(codigoFacultad, semestre);
    		HSSFWorkbook workbook = new HSSFWorkbook();
    		EvaluacionGestion eg = evaluacion.getEvaluacionGestion();
    		EvaluacionGestion aeg = evaluacion.getAutoEvaluacionGestion(); 
@@ -152,8 +150,8 @@ public class Informe4 extends Controller {
    		columna=0;	
    		row = sheet.createRow(fila++);
    		row.createCell(columna++).setCellValue(saberes[w]);
-   		row.createCell(columna++).setCellValue("Porcentaje de Respuestas Estudiantes, Ponderación 80%");
-   		row.createCell(columna++).setCellValue("Porcentaje de Respuestas Autoevaluación, Ponderación 20%");
+   		row.createCell(columna++).setCellValue("Porcentaje promedio de Respuestas Estudiantes, Ponderación 80%");
+   		row.createCell(columna++).setCellValue("Porcentaje promedio de Respuestas Autoevaluación, Ponderación 20%");
    		row.createCell(columna++).setCellValue("Evaluación Resultante");
    		columna=0;
    		row = sheet.createRow(fila++);
@@ -197,8 +195,8 @@ public class Informe4 extends Controller {
    		row = sheet.createRow(fila++);
    		columna=0;
    		row.createCell(columna++).setCellValue("Gestión");
-   		row.createCell(columna++).setCellValue("Porcentaje de Respuestas Directivo, Ponderación 60%");
-   		row.createCell(columna++).setCellValue("Porcentaje de Respuestas Autoevaluación, Ponderación 40%");
+   		row.createCell(columna++).setCellValue("Porcentaje promedio de Respuestas Directivo, Ponderación 60%");
+   		row.createCell(columna++).setCellValue("Porcentaje promedio de Respuestas Autoevaluación, Ponderación 40%");
    		row.createCell(columna++).setCellValue("Evaluación Resultante");
    		row = sheet.createRow(fila++);
    		columna=0;
@@ -233,8 +231,8 @@ public class Informe4 extends Controller {
    		row = sheet.createRow(fila++);
    		columna=0;
    		row.createCell(columna++).setCellValue("Investigación");
-   		row.createCell(columna++).setCellValue("Porcentaje de Respuestas Directivo, Ponderación 60%");
-   		row.createCell(columna++).setCellValue("Porcentaje de Respuestas Autoevaluación, Ponderación 40%");
+   		row.createCell(columna++).setCellValue("Porcentaje promedio de Respuestas Directivo, Ponderación 60%");
+   		row.createCell(columna++).setCellValue("Porcentaje promedio de Respuestas Autoevaluación, Ponderación 40%");
    		row.createCell(columna++).setCellValue("Evaluación Resultante");
    		columna=0;
    		row = sheet.createRow(fila++);
@@ -268,7 +266,7 @@ public class Informe4 extends Controller {
    		
    		//Set value to new value
    		 FileOutputStream out;
-   		 File file = new File(profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
+   		 File file = new File(facultad.getNombre()+" "+semestre+".xls");
    		
    		try {
    		    out = 

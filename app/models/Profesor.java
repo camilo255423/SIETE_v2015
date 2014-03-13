@@ -28,15 +28,14 @@ public class Profesor {
 		PreparedStatement p;
 		try {
 			p = con.prepareStatement(consultaProfesores);
-			String periodo[] = Periodo.getFecha(semestre);
-			p.setString(1, periodo[Periodo.FECHAINICIO]);
-			p.setString(2, periodo[Periodo.FECHAFIN]);
+			String fecha = Periodo.getFechaContrato(semestre);
+			p.setString(1, fecha);
+			p.setString(2, fecha);
+			System.out.println(fecha);
 			ResultSet rs=p.executeQuery();
-			System.out.println(periodo[Periodo.FECHAINICIO]);
-			System.out.println(periodo[Periodo.FECHAFIN]);
 			while (rs.next()) {
 				profesores.add(new Profesor(rs.getString("documento"),
-						rs.getString("nombres"),rs.getString("apellidos")));
+						rs.getString("nombres"),rs.getString("primer_apellido")+" "+rs.getString("segundo_apellido")));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -105,14 +104,13 @@ public class Profesor {
 				+ ", apellidos=" + apellidos + "]";
 	}
 
-	private static final String consultaProfesores ="select cli_numdcto as documento, cli_nombres as nombres, cli_apellidos as apellidos "
-	+"from sai.RCT_CLIENTES where  cli_numdcto in "
-	+"(select distinct codigo_profesor from sai.tbl_instancia_evadoc where  IDCUESTIONARIOH in " 
-	+"(SELECT IDCUESTIONARIOH FROM SAI.TBL_H_CUESTIONARIOS "
-	+"where fecha_inicia >  to_date(?,'yyyy-mm-dd') "
-	+"and fecha_inicia < to_date(?,'yyyy-mm-dd'))) " 
-	+"order by apellidos, nombres asc";
+	private static final String consultaProfesores =" SELECT  distinct NIT as documento, nombre as nombres, primer_apellido,segundo_apellido "+
+  "FROM   ICEBERG.EMPLEADO "+
+ "WHERE to_date(?,'yyyy-mm-dd')>fecha_ingreso and "+ 
+ "to_date(?,'yyyy-mm-dd')<FECHA_FIN_CONTRATO "+
+  "order by primer_apellido, segundo_apellido, nombre ";
+	
 	private static final String consultaProfesor = "select cli_numdcto as documento, cli_nombres as nombres, cli_apellidos as apellidos "
-			+"from sai.RCT_CLIENTES where  cli_numdcto = ? ";
+			+"from sai.RCT_CLIENTES where  cli_numdcto = ?";
 	
 }

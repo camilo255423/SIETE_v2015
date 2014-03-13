@@ -25,6 +25,7 @@ import models.InformesDAO;
 import models.Nivel;
 import models.Pregunta;
 import models.Profesor;
+import models.Programa;
 import models.ReportesDAO;
 import play.data.Form;
 import play.mvc.Controller;
@@ -36,23 +37,22 @@ public class Informe5 extends Controller {
     
     	return null;
     }
-    public static Result informeFacultad()
+    public static Result informePrograma()
     {
-    	String codigoFacultad = Form.form().bindFromRequest().get("documento");
+    	String codigoPrograma = Form.form().bindFromRequest().get("documento");
        	String semestre = Form.form().bindFromRequest().get("semestre");
     
-    //	Profesor profesor = Profesor.findByDocumento(documento);
-    	Evaluacion evaluacion = ReportesDAO.getInformeFinal(codigoFacultad, semestre);
+    	Evaluacion evaluacion = ReportesDAO.getInformePrograma(codigoPrograma, semestre);
     	EvaluacionMateria evaluacionDocencia=null;
     	EvaluacionMateria autoEvaluacionDocencia=null;
     	if(evaluacion.getEvaluacionDocencia().size()>=1) evaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(0);
     	if(evaluacion.getEvaluacionDocencia().size()>=2) autoEvaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(1);
 
-    	return ok(views.html.informes.informefinal.render(evaluacionDocencia,autoEvaluacionDocencia,evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),evaluacion.getAutoEvaluacionGestion(),evaluacion.getAutoEvaluacionInvestigacion()));
+    	return ok(views.html.informes.informeprograma.render(evaluacionDocencia,autoEvaluacionDocencia,evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),evaluacion.getAutoEvaluacionGestion(),evaluacion.getAutoEvaluacionInvestigacion()));
     	
  	
     }
-    public static Result pdf(String documento, String semestre)
+    public static Result pdf(String codigoPrograma, String semestre)
     {
  			Document document = new Document();
  		    document.open();
@@ -68,15 +68,15 @@ public class Informe5 extends Controller {
  			        }
  		    	}
  		    }
- 		   Profesor profesor = Profesor.findByDocumento(documento);
- 		   Evaluacion evaluacion = InformesDAO.getInformeFinal(documento, semestre);
+ 		   Programa programa = Programa.findById(codigoPrograma);
+ 		  Evaluacion evaluacion = ReportesDAO.getInformePrograma(codigoPrograma, semestre);
  	    	EvaluacionMateria evaluacionDocencia=null;
  	    	EvaluacionMateria autoEvaluacionDocencia=null;
  	    	if(evaluacion.getEvaluacionDocencia().size()>=1) evaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(0);
  	    	if(evaluacion.getEvaluacionDocencia().size()>=2) autoEvaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(1);
 
  			try {
- 				file = new File(profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".pdf");
+ 				file = new File(programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".pdf");
  				PdfWriter writer = PdfWriter.getInstance(document,
  						
  				        new FileOutputStream(file));
@@ -84,7 +84,7 @@ public class Informe5 extends Controller {
  				
  				document.open();
  				//XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeheteroevaluacion.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), profesor, semestre, imagen).toString()));
- 				XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informefinal.render(evaluacionDocencia,autoEvaluacionDocencia,evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),evaluacion.getAutoEvaluacionGestion(),evaluacion.getAutoEvaluacionInvestigacion(), profesor, semestre, imagen).toString()));
+ 				XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeprograma.render(evaluacionDocencia,autoEvaluacionDocencia,evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),evaluacion.getAutoEvaluacionGestion(),evaluacion.getAutoEvaluacionInvestigacion(), programa, semestre, imagen).toString()));
  	        	
  			} catch (FileNotFoundException e) {
  				// TODO Auto-generated catch block
@@ -104,10 +104,10 @@ public class Informe5 extends Controller {
  			return ok(file);
  	    
     }
-    public static Result excel(String documento, String semestre)
+    public static Result excel(String codigoPrograma, String semestre)
     {
-    	Profesor profesor = Profesor.findByDocumento(documento);
-    	Evaluacion evaluacion = InformesDAO.getInformeFinal(documento, semestre);
+    	Programa programa = Programa.findById(codigoPrograma);
+    	Evaluacion evaluacion = InformesDAO.getInformeFinal(codigoPrograma, semestre);
    		HSSFWorkbook workbook = new HSSFWorkbook();
    		EvaluacionGestion eg = evaluacion.getEvaluacionGestion();
    		EvaluacionGestion aeg = evaluacion.getAutoEvaluacionGestion(); 
@@ -268,7 +268,7 @@ public class Informe5 extends Controller {
    		
    		//Set value to new value
    		 FileOutputStream out;
-   		 File file = new File(profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
+   		 File file = new File(programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".xls");
    		
    		try {
    		    out = 

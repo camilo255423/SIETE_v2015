@@ -13,6 +13,9 @@ GET		/informe3/excel/:documento/:semestre					controllers.Informe3.excel(documen
 GET		/informe3/pdf/:documento/:semestre						controllers.Informe3.pdf(documento:String, semestre:String)
 GET		/informe4/excel/:documento/:semestre					controllers.Informe4.excel(documento:String, semestre:String)
 GET		/informe4/pdf/:documento/:semestre						controllers.Informe4.pdf(documento:String, semestre:String)
+GET		/informe5/excel/:documento/:semestre					controllers.Informe5.excel(documento:String, semestre:String)
+GET		/informe5/pdf/:documento/:semestre						controllers.Informe5.pdf(documento:String, semestre:String)
+
 
 GET		/informe2					controllers.Informe2.informeProfesor()
 GET		/informe3					controllers.Informe3.informeProfesor()
@@ -20,6 +23,7 @@ POST 	/informeprofesor			controllers.Informe1.informeProfesor()
 POST    /heteroevaluacion			controllers.Informe2.informeProfesor()
 POST	/informefinal				controllers.Informe3.informeProfesor()
 POST	/informefacultad			controllers.Informe4.informeFacultad()
+POST	/informeprograma			controllers.Informe5.informePrograma()
 POST 	/cambiosemestre				controllers.Application.cambioSemestre()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

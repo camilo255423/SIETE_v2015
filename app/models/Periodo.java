@@ -36,6 +36,26 @@ public class Periodo {
 		
 		return fecha;
 	}
+	public static String getFechaContrato(String periodo)
+	{
+		String fecha;
+		
+		String ano = periodo.substring(0, 4);
+		char semestre = periodo.charAt(4);
+		System.out.println("semestre"+semestre);
+		if(semestre=='1')
+		{	
+			fecha=ano+"-"+"03"+"-"+"03";
+			
+		}	
+		else
+		{	
+			fecha=ano+"-"+"10"+"-"+"10";
+			
+		}			
+		
+		return fecha;
+	}
 	public static List<String> findAll()
 	{
 		List<String> semestres = new ArrayList<String>();

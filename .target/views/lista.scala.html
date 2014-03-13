@@ -34,8 +34,9 @@ cambioProfesor();
 function cambioProfesor()
 {
 var documentoProfesor = $('#listaProfesores').val();
-	if(documentoProfesor!=-1)
+	if(documentoProfesor!=-1 && documentoProfesor)
 	{
+	
 			$("#informe").html("<div id='progressbar'></div>");
 			$("#progressbar").progressbar({
 			value:false
@@ -52,6 +53,9 @@ var documentoProfesor = $('#listaProfesores').val();
 			}
 			if($('#listainformes').val()==4){
 			$.post("informefacultad",{documento: documentoProfesor, semestre: $('#listasemestres').val()},mostrar);
+			}
+				if($('#listainformes').val()==5){
+			$.post("informeprograma",{documento: documentoProfesor, semestre: $('#listasemestres').val()},mostrar);
 			}
 	}
 	else
