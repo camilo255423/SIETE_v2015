@@ -462,51 +462,15 @@ public class Application extends Controller {
     }
     public static Result prueba(){
   	
-		Document document = new Document();
-	   document.open();
-	    File file=null; 
-		String documento = "51625497";
-    	String semestre = "20132";
-    	Profesor profesor = Profesor.findByDocumento(documento);
-    	Evaluacion evaluacion = profesor.getEvaluacion(semestre);
-    	List<Profesor> profesores = Profesor.findAllBySemestre("20132");
-		try {
-			file = new File("prueba.pdf");
-			PdfWriter writer = PdfWriter.getInstance(document,
-					
-			        new FileOutputStream(file));
-			
-			    document.open();
+	NumeroParticipantes numeroParticipantes = NumeroParticipantes.findBySemestre("20131");
+	String s="";
+	for(Facultad facultad:numeroParticipantes.getEstudiantesEvaluadosPorFacultad())
+	{
+		s = s + facultad + "\n";
+	}
+	return ok("prueba:\n "+s);
 		
-		//    	return ok(views.html.informes.informedocencia.render(evaluacion,profesores));    
-
-			   // XMLWorkerHelper.getInstance().parseXHtml(writer, document,
-			    //    new StringReader("<html><head><title>Test</title></head><body><div style=\"padding-top:200px;\"><p style=\"text-align:center;padding-top:200px;\">This is a test</p></div></body></html>"));
-	 //XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeprofesor.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getAutoEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), evaluacion.getAutoEvaluacionInvestigacion(),null,"").toString()));
-        	
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (DocumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	
-	    
-
-	    document.close();
-		
-	   // ok(views.html.informes.tabladocencia.render(evaluacion.getEvaluacionDocencia().get(0),"Saber Pedagógico",Pregunta.PEDAGOGICO, 0,5));
-		
-		
-		return ok(file);
-    //	return ok("");
-
-    }
+	    }
 }
 
 //}
