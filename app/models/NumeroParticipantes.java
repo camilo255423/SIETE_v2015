@@ -39,6 +39,7 @@ public class NumeroParticipantes {
 		PreparedStatement p;
 		
 		String periodo[] = Periodo.getFecha(semestre);
+		String fechaContrato = Periodo.getFechaContrato(semestre);
 			try {
 				p = con.prepareStatement(NumeroParticipantes.consultaEstudiantesEvaluadosPorFacultad);
 				p.setString(1, semestre);
@@ -46,6 +47,39 @@ public class NumeroParticipantes {
 				p.setString(3, periodo[Periodo.FECHAINICIO]);
 				p.setString(4, periodo[Periodo.FECHAFIN]);
 				estudiantesEvaluadosPorFacultad = NumeroParticipantes.consultarParticipantes(p); 
+				
+				p = con.prepareStatement(NumeroParticipantes.consultaDocentesEvaluadosPorEstudiantesPorFacultad);
+				p.setString(1, fechaContrato);
+				p.setString(2, fechaContrato);
+				p.setString(3, fechaContrato);
+				p.setString(4, fechaContrato);
+				p.setString(5, periodo[Periodo.FECHAINICIO]);
+				p.setString(6, periodo[Periodo.FECHAFIN]);
+				docentesEvaluadosPorEstudiantesPorFacultad = NumeroParticipantes.consultarParticipantes(p);
+				
+				p = con.prepareStatement(NumeroParticipantes.consultaDocentesEvaluadosPorEstudiantesPorFacultad);
+				p.setString(1, fechaContrato);
+				p.setString(2, fechaContrato);
+				p.setString(3, fechaContrato);
+				p.setString(4, fechaContrato);
+				p.setString(5, periodo[Periodo.FECHAINICIO]);
+				p.setString(6, periodo[Periodo.FECHAFIN]);
+				p.setString(7, semestre);
+				p.setString(8, periodo[Periodo.FECHAINICIO]);
+				docentesConAutoevaluacionPorFacultad = NumeroParticipantes.consultarParticipantes(p);
+				
+				p = con.prepareStatement(NumeroParticipantes.consultaDocentesEvaluadosPorEstudiantesPorFacultad);
+				p.setString(1, fechaContrato);
+				p.setString(2, fechaContrato);		
+				p.setString(3, periodo[Periodo.FECHAINICIO]);
+				p.setString(4, periodo[Periodo.FECHAFIN]);
+				p.setString(5, fechaContrato);
+				p.setString(6, fechaContrato);
+				p.setString(7, periodo[Periodo.FECHAINICIO]);
+				p.setString(8, periodo[Periodo.FECHAFIN]);
+				p.setString(9, periodo[Periodo.FECHAINICIO]);
+				p.setString(10, periodo[Periodo.FECHAFIN]);
+				directivosGestionEvaluadosPorFacultad = NumeroParticipantes.consultarParticipantes(p);
 				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -172,16 +206,16 @@ public class NumeroParticipantes {
 "SELECT   count(distinct NIT) as inscritos, facultad_centro_costo.ID_DECAN as id_decan, facultad_centro_costo.nombre as facultad "+
 "  FROM   ICEBERG.EMPLEADO E, ICEBERG.CENTRO_COSTO CC, facultad_centro_costo "+
 " WHERE    E.CENTRO_COSTO = CC.CENTRO_COSTO "+
-"  and to_date('2013-10-03','yyyy-mm-dd')>fecha_ingreso and "+ 
-" to_date('2013-10-03','yyyy-mm-dd')<E.FECHA_FIN_CONTRATO "+
+"  and to_date(?,'yyyy-mm-dd')>fecha_ingreso and "+ 
+" to_date(?,'yyyy-mm-dd')<E.FECHA_FIN_CONTRATO "+
 " and CC.CENTRO_COSTO_PREDECESOR=facultad_centro_costo.centro_costo "+
 " group by facultad_centro_costo.ID_DECAN,facultad_centro_costo.nombre "+
 " ) a, "+
 "(SELECT   count(distinct NIT) as evaluados, facultad_centro_costo.ID_DECAN as id_decan "+
 "  FROM   ICEBERG.EMPLEADO E, ICEBERG.CENTRO_COSTO CC, facultad_centro_costo "+
 " WHERE    E.CENTRO_COSTO = CC.CENTRO_COSTO "+
-"  and to_date('2013-10-03','yyyy-mm-dd')>fecha_ingreso and "+ 
-" to_date('2013-10-03','yyyy-mm-dd')<E.FECHA_FIN_CONTRATO "+
+"  and to_date(?,'yyyy-mm-dd')>fecha_ingreso and "+ 
+" to_date(?,'yyyy-mm-dd')<E.FECHA_FIN_CONTRATO "+
 " and CC.CENTRO_COSTO_PREDECESOR=facultad_centro_costo.centro_costo "+
 " and nit in  "+
 " ( "+
@@ -198,13 +232,175 @@ public class NumeroParticipantes {
 "                     and rta.VALOR like '%||%' "+
 "                     and not rta.VALOR like '%||%||%' "+
 "                     and   ENC.IDCUESTIONARIOH IN ((SELECT IDCUESTIONARIOH FROM SAI.TBL_H_CUESTIONARIOS "+
-"where fecha_inicia >  to_date('2013-01-01','yyyy-mm-dd')   "+
-"and fecha_inicia < to_date('2013-06-01','yyyy-mm-dd'))) "+
+"where fecha_inicia >  to_date(?,'yyyy-mm-dd')   "+
+"and fecha_inicia < to_date(?,'yyyy-mm-dd'))) "+
 ") "+
 "group by facultad_centro_costo.ID_DECAN "+
 ") b "+
 "where a.ID_DECAN = b.ID_DECAN "+
 "order By IDFACULTAD ";	 
-
+private  static final String consultaDocentesConAutoevaluacionPorFacultad =
+"select a.ID_DECAN as idFacultad,facultad,evaluados as participantes, inscritos as total, evaluados*100/inscritos as porcentaje "+
+"from "+
+"( "+
+"SELECT   count(distinct NIT) as inscritos, facultad_centro_costo.ID_DECAN as id_decan, facultad_centro_costo.nombre as facultad "+
+"  FROM   ICEBERG.EMPLEADO E, ICEBERG.CENTRO_COSTO CC, facultad_centro_costo "+
+" WHERE    E.CENTRO_COSTO = CC.CENTRO_COSTO "+
+"  and to_date(?,'yyyy-mm-dd')>fecha_ingreso and "+ 
+" to_date(?,'yyyy-mm-dd')<E.FECHA_FIN_CONTRATO "+
+" and CC.CENTRO_COSTO_PREDECESOR=facultad_centro_costo.centro_costo "+
+" group by facultad_centro_costo.ID_DECAN,facultad_centro_costo.nombre "+
+" ) a, "+
+"( "+
+"SELECT   count(distinct NIT) as evaluados, facultad_centro_costo.ID_DECAN as id_decan "+
+"  FROM   ICEBERG.EMPLEADO E, ICEBERG.CENTRO_COSTO CC, facultad_centro_costo "+
+" WHERE    E.CENTRO_COSTO = CC.CENTRO_COSTO "+
+"  and to_date(?,'yyyy-mm-dd')>fecha_ingreso and "+ 
+" to_date(?,'yyyy-mm-dd')<E.FECHA_FIN_CONTRATO "+
+" and CC.CENTRO_COSTO_PREDECESOR=facultad_centro_costo.centro_costo "+
+" and nit in ( "+
+"  SELECT    DISTINCT CEDULA "+
+"    FROM   sai.TBL_RESULTADOS RE, "+
+"           sai.TBL_H_PREGUNTAS PRE, "+
+"           sai.RCT_CLIENTES CLI, "+
+"           sai.TBL_H_CUESTIONARIOS HCU, "+
+"           sai.TBL_INSTANCIA_EVADOC TIE, "+
+"           sai.TBL_RESULTADOS_EVADOC TRE, "+
+"           sai.TBL_H_CUESTIONARIO_PREGUNTAS THCP, "+
+"           sai.TBL_ENCUESTADO ENC "+
+"   WHERE   HCU.IDCUESTIONARIOH IN ((SELECT IDCUESTIONARIOH FROM SAI.TBL_H_CUESTIONARIOS "+ 
+"where fecha_inicia >  to_date(?,'yyyy-mm-dd') "+  
+"and fecha_inicia < to_date(?,'yyyy-mm-dd'))) "+
+"AND CEDULA IN (SELECT   DISTINCT (CLI_NUMDCTO) "+
+"                            FROM   sai.TBL_DOCENTE_RELACION "+
+"                           WHERE   ESTADO = 'ACT') "+
+"           AND CLI.CLI_NUMDCTO = CEDULA "+
+"           AND RE.IDRESULTADOS = ENC.IDRESULTADOS "+
+"           AND HCU.IDCUESTIONARIOH = RE.IDCUESTIONARIOH "+
+"           AND ENC.IDCUESTIONARIOH = RE.IDCUESTIONARIOH "+
+"           AND ENC.IDCUESTIONARIOH = THCP.IDCUESTIONARIOH "+
+"           AND RE.IDPREGUNTAH = PRE.IDPREGUNTAH "+
+"           AND PRE.IDPREGUNTAH = THCP.IDPREGUNTAH "+
+"           AND TIE.IDINSTANCIA = TRE.IDINSTANCIA "+
+"           AND ENC.IDRESULTADOS = TRE.IDRESULTADO "+
+"           AND HCU.IDCUESTIONARIOH = ENC.IDCUESTIONARIOH "+
+"           AND ENC.IDCUESTIONARIOH = TIE.IDCUESTIONARIOH "+
+"           AND RE.IDCUESTIONARIOH = TIE.IDCUESTIONARIOH "+
+"           AND HCU.IDCUESTIONARIOH = TIE.IDCUESTIONARIOH "+
+"           AND TIE.PERIODO =? "+
+"           AND TIE.CODIGO_PROFESOR = CLI.CLI_NUMDCTO "+
+"           AND TIE.CODIGO_PROFESOR = CEDULA "+
+"           AND ENC.FECHA >= TO_DATE (?, 'yyyy/mm/dd') "+
+") "+
+" group by facultad_centro_costo.ID_DECAN "+
+" ) b "+
+" where a.ID_DECAN = b.ID_DECAN "+
+" order by idFacultad ";
+public static final String consultaDirectivosGestionEvaluadosPorFacultad=
+"select a.ID_DECAN as idFacultad,facultad,encuestados as participantes, total, encuestados*100/total as porcentaje "+
+"from "+
+"(select count(distinct cedula) as total, facultad_centro_costo.ID_DECAN as id_decan, facultad_centro_costo.nombre as facultad "+
+"from sai.tbl_encuestado enc,sai.tbl_h_cuestionarios cue,ICEBERG.EMPLEADO E, ICEBERG.CENTRO_COSTO CC, facultad_centro_costo "+
+"where  "+
+"E.CENTRO_COSTO = CC.CENTRO_COSTO "+
+"and CC.CENTRO_COSTO_PREDECESOR=facultad_centro_costo.centro_costo "+
+"and enc.cedula=E.NIT "+
+" and to_date(?,'yyyy-mm-dd')>fecha_ingreso and "+ 
+" to_date(?,'yyyy-mm-dd')<E.FECHA_FIN_CONTRATO "+
+"and ENC.IDCUESTIONARIOH IN ((SELECT IDCUESTIONARIOH FROM SAI.TBL_H_CUESTIONARIOS "+
+"where fecha_inicia >  to_date(?,'yyyy-mm-dd')   "+
+"and fecha_inicia < to_date(?,'yyyy-mm-dd'))) "+
+"and enc.IDCUESTIONARIOH=cue.IDCUESTIONARIOH "+
+"and cue.titulo like '%GESTION%' "+
+"group by facultad_centro_costo.ID_DECAN,facultad_centro_costo.nombre "+
+") a, "+
+"( "+
+"select count(distinct cedula) as encuestados,  facultad_centro_costo.ID_DECAN "+
+"from sai.tbl_encuestado enc,sai.tbl_h_cuestionarios cue,ICEBERG.EMPLEADO E, ICEBERG.CENTRO_COSTO CC, facultad_centro_costo "+
+"where  "+
+"E.CENTRO_COSTO = CC.CENTRO_COSTO "+
+"and CC.CENTRO_COSTO_PREDECESOR=facultad_centro_costo.centro_costo "+
+"and enc.cedula=E.NIT "+
+" and to_date(?,'yyyy-mm-dd')>fecha_ingreso and "+ 
+" to_date(?,'yyyy-mm-dd')<E.FECHA_FIN_CONTRATO "+
+"and ENC.IDCUESTIONARIOH IN ((SELECT IDCUESTIONARIOH FROM SAI.TBL_H_CUESTIONARIOS "+
+"where fecha_inicia >  to_date(?,'yyyy-mm-dd')   "+
+"and fecha_inicia < to_date(?,'yyyy-mm-dd'))) "+
+"and enc.IDCUESTIONARIOH=cue.IDCUESTIONARIOH "+
+"and cue.titulo like '%GESTION%' "+
+"and cedula in "+
+"( "+
+"select distinct(CEDULA) "+
+"from sai.tbl_encuestado enc,    sai.tbl_resultados rta, "+
+"           sai.tbl_h_cuestionarios cue,  sai.tbl_h_cuestionario_preguntas cpr, "+
+"             sai.tbl_h_preguntas pre "+
+"           where    enc.idresultados = rta.idresultados "+
+"                     AND rta.idpreguntah = cpr.idpreguntah "+
+"                     AND rta.idcuestionarioh = cpr.idcuestionarioh "+
+"                     AND cue.idcuestionarioh = cpr.idcuestionarioh "+
+"                     AND pre.idpreguntah = cpr.idpreguntah "+
+"                     AND cue.idcuestionarioh = enc.idcuestionarioh "+
+"                     and cue.titulo like '%GESTION%' "+
+"                     and   ENC.IDCUESTIONARIOH IN ((SELECT IDCUESTIONARIOH FROM SAI.TBL_H_CUESTIONARIOS "+
+"where fecha_inicia >  to_date(?,'yyyy-mm-dd')   "+
+"and fecha_inicia < to_date(?,'yyyy-mm-dd'))) "+
+") "+
+"group by facultad_centro_costo.ID_DECAN "+
+") b "+
+" where a.ID_DECAN = b.ID_DECAN "+
+"order by idFacultad"; 
+public static final String consultaDirectivosInvestigacionEvaluadosPorFacultad=
+"select a.ID_DECAN as idFacultad,facultad,encuestados as participantes, total, encuestados*100/total as porcentaje "+
+"from "+
+"(select count(distinct cedula) as total,  facultad_centro_costo.ID_DECAN as id_decan, facultad_centro_costo.nombre as facultad "+
+"from sai.tbl_encuestado enc,sai.tbl_h_cuestionarios cue,ICEBERG.EMPLEADO E, ICEBERG.CENTRO_COSTO CC, facultad_centro_costo "+
+"where  "+
+"E.CENTRO_COSTO = CC.CENTRO_COSTO "+
+"and CC.CENTRO_COSTO_PREDECESOR=facultad_centro_costo.centro_costo "+
+"and enc.cedula=E.NIT "+
+" and to_date(?,'yyyy-mm-dd')>fecha_ingreso and "+ 
+" to_date(?,'yyyy-mm-dd')<E.FECHA_FIN_CONTRATO "+
+"and ENC.IDCUESTIONARIOH IN ((SELECT IDCUESTIONARIOH FROM SAI.TBL_H_CUESTIONARIOS "+
+"where fecha_inicia >  to_date(?,'yyyy-mm-dd')   "+
+"and fecha_inicia < to_date(?,'yyyy-mm-dd'))) "+
+"and enc.IDCUESTIONARIOH=cue.IDCUESTIONARIOH "+
+"and cue.titulo like '%INVEST%' "+
+"group by facultad_centro_costo.ID_DECAN,facultad_centro_costo.nombre "+
+") a, "+
+"( "+
+"select count(distinct cedula) as encuestados,  facultad_centro_costo.ID_DECAN "+
+"from sai.tbl_encuestado enc,sai.tbl_h_cuestionarios cue,ICEBERG.EMPLEADO E, ICEBERG.CENTRO_COSTO CC, facultad_centro_costo "+
+"where  "+
+"E.CENTRO_COSTO = CC.CENTRO_COSTO "+
+"and CC.CENTRO_COSTO_PREDECESOR=facultad_centro_costo.centro_costo "+
+"and enc.cedula=E.NIT "+
+" and to_date(?,'yyyy-mm-dd')>fecha_ingreso and "+ 
+" to_date(?,'yyyy-mm-dd')<E.FECHA_FIN_CONTRATO "+
+"and ENC.IDCUESTIONARIOH IN ((SELECT IDCUESTIONARIOH FROM SAI.TBL_H_CUESTIONARIOS "+
+"where fecha_inicia >  to_date(?,'yyyy-mm-dd') "+  
+"and fecha_inicia < to_date(?,'yyyy-mm-dd'))) "+
+"and enc.IDCUESTIONARIOH=cue.IDCUESTIONARIOH "+
+"and cue.titulo like '%INVEST%' "+
+"and cedula in "+
+"( "+
+"select distinct(CEDULA) "+
+"from sai.tbl_encuestado enc,    sai.tbl_resultados rta, "+
+"           sai.tbl_h_cuestionarios cue,  sai.tbl_h_cuestionario_preguntas cpr, "+
+"             sai.tbl_h_preguntas pre "+
+"           where    enc.idresultados = rta.idresultados "+
+"                     AND rta.idpreguntah = cpr.idpreguntah "+
+"                     AND rta.idcuestionarioh = cpr.idcuestionarioh "+
+"                     AND cue.idcuestionarioh = cpr.idcuestionarioh "+
+"                     AND pre.idpreguntah = cpr.idpreguntah "+
+"                     AND cue.idcuestionarioh = enc.idcuestionarioh "+
+"                     and cue.titulo like '%INVEST%' "+
+"                     and   ENC.IDCUESTIONARIOH IN ((SELECT IDCUESTIONARIOH FROM SAI.TBL_H_CUESTIONARIOS "+
+"where fecha_inicia >  to_date(?,'yyyy-mm-dd')   "+
+"and fecha_inicia < to_date(?,'yyyy-mm-dd'))) "+
+") "+
+"group by facultad_centro_costo.ID_DECAN "+
+") b "+
+" where a.ID_DECAN = b.ID_DECAN "+
+"order by idFacultad";
 
 }
