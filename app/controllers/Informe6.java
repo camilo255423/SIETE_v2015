@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -21,6 +22,7 @@ import models.Evaluacion;
 import models.EvaluacionGestion;
 import models.EvaluacionInvestigacion;
 import models.EvaluacionMateria;
+import models.Facultad;
 import models.InformesDAO;
 import models.Nivel;
 import models.NumeroParticipantes;
@@ -40,7 +42,8 @@ public class Informe6 extends Controller {
     }
     public static Result informeParticipantes()
     {
-    	NumeroParticipantes numeroParticipantes = NumeroParticipantes.findBySemestre("20131");
+    	String semestre = Form.form().bindFromRequest().get("semestre");
+    	NumeroParticipantes numeroParticipantes = NumeroParticipantes.findBySemestre(semestre);
       return ok(views.html.informes.informeparticipantes.render(numeroParticipantes.getEstudiantesEvaluadosPorFacultad(),
     			numeroParticipantes.getDocentesEvaluadosPorEstudiantesPorFacultad(),
      			numeroParticipantes.getDocentesConAutoevaluacionPorFacultad(),
@@ -49,7 +52,7 @@ public class Informe6 extends Controller {
     	
  	
     }
-    public static Result pdf(String codigoPrograma, String semestre)
+    public static Result pdf(String Documento, String semestre)
     {
  			Document document = new Document();
  		    document.open();
@@ -65,15 +68,10 @@ public class Informe6 extends Controller {
  			        }
  		    	}
  		    }
- 		   Programa programa = Programa.findById(codigoPrograma);
- 		  Evaluacion evaluacion = ReportesDAO.getInformePrograma(codigoPrograma, semestre);
- 	    	EvaluacionMateria evaluacionDocencia=null;
- 	    	EvaluacionMateria autoEvaluacionDocencia=null;
- 	    	if(evaluacion.getEvaluacionDocencia().size()>=1) evaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(0);
- 	    	if(evaluacion.getEvaluacionDocencia().size()>=2) autoEvaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(1);
-
+ 		   NumeroParticipantes numeroParticipantes = NumeroParticipantes.findBySemestre(semestre);
+ 	    	
  			try {
- 				file = new File(programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".pdf");
+ 				file = new File("Participantes Evaluación Docente "+semestre+".pdf");
  				PdfWriter writer = PdfWriter.getInstance(document,
  						
  				        new FileOutputStream(file));
@@ -81,7 +79,12 @@ public class Informe6 extends Controller {
  				
  				document.open();
  				//XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeheteroevaluacion.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), profesor, semestre, imagen).toString()));
- 				XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeprograma.render(evaluacionDocencia,autoEvaluacionDocencia,evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),evaluacion.getAutoEvaluacionGestion(),evaluacion.getAutoEvaluacionInvestigacion(), programa, semestre, imagen).toString()));
+ 				XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeparticipantes.render
+ 						(numeroParticipantes.getEstudiantesEvaluadosPorFacultad(),
+ 				    			numeroParticipantes.getDocentesEvaluadosPorEstudiantesPorFacultad(),
+ 				     			numeroParticipantes.getDocentesConAutoevaluacionPorFacultad(),
+ 				   			numeroParticipantes.getDirectivosGestionEvaluadosPorFacultad(),
+ 				   			numeroParticipantes.getDirectivosInvestigacionEvaluadosPorFacultad(), semestre, imagen).toString()));
  	        	
  			} catch (FileNotFoundException e) {
  				// TODO Auto-generated catch block
@@ -103,18 +106,15 @@ public class Informe6 extends Controller {
     }
     public static Result excel(String codigoPrograma, String semestre)
     {
-    	Programa programa = Programa.findById(codigoPrograma);
-    	Evaluacion evaluacion = InformesDAO.getInformeFinal(codigoPrograma, semestre);
-   		HSSFWorkbook workbook = new HSSFWorkbook();
-   		EvaluacionGestion eg = evaluacion.getEvaluacionGestion();
-   		EvaluacionGestion aeg = evaluacion.getAutoEvaluacionGestion(); 
-   		EvaluacionInvestigacion ei = evaluacion.getEvaluacionInvestigacion();
-   		EvaluacionInvestigacion aei = evaluacion.getAutoEvaluacionInvestigacion();
-   		HSSFSheet sheet = workbook.createSheet("Docencia");
-   		double porcentajeDocenciaEstudiantes=0.8;
-   		double porcentajeDocenciaAutoevaluacion=0.2;
-   		double porcentajeGestion=0.6;
-   		double porcentajeGestionAutoevaluacion=0.2;
+    	NumeroParticipantes numeroParticipantes = NumeroParticipantes.findBySemestre(semestre);
+        	HSSFWorkbook workbook = new HSSFWorkbook();
+        	ArrayList<Facultad> estudiantesEvaluadosPorFacultad = numeroParticipantes.getEstudiantesEvaluadosPorFacultad();
+        	ArrayList<Facultad> docentesEvaluadosPorEstudiantesPorFacultad = numeroParticipantes.getDocentesEvaluadosPorEstudiantesPorFacultad();
+        	ArrayList<Facultad> docentesConAutoevaluacionPorFacultad = numeroParticipantes.getDocentesConAutoevaluacionPorFacultad();
+        	ArrayList<Facultad> directivosGestionEvaluadosPorFacultad = numeroParticipantes.getDirectivosGestionEvaluadosPorFacultad();
+        	ArrayList<Facultad> directivosInvestigacionEvaluadosPorFacultad = numeroParticipantes.getDirectivosInvestigacionEvaluadosPorFacultad();
+        	HSSFSheet sheet = workbook.createSheet("Número de participantes "+semestre);
+   		
    		
    		//Create a new row in current sheet
    	 File folder = new File(".");
@@ -132,140 +132,109 @@ public class Informe6 extends Controller {
 	    int fila=0;
    		int columna=0;
    		Row row = null;
-   		//DOCENCIA
-   		EvaluacionMateria ev =  evaluacion.getEvaluacionDocencia().get(0);
-   		EvaluacionMateria aev =  evaluacion.getEvaluacionDocencia().get(1);
-   			columna=0;
-   		 row = sheet.createRow(fila++);
-   		//Create a new cell in current row
-   		Cell cell = row.createCell(columna);
+   		//No estudiantes
+   		columna=0;
    		row = sheet.createRow(fila++);
-   		List<Pregunta> preguntas = Pregunta.getPreguntasEvaluacion(Pregunta.DOCENCIA);
-   		String saberes[]={"Saber Pedagógico","Saber Específico","Saber Relacional"};
-   		for(int w=0;w<=2;w++)
-   		{
-   		
-   		
+   		row = sheet.createRow(fila++);
+   		row.createCell(columna).setCellValue("Número de estudiantes evaluados");
    		columna=0;	
    		row = sheet.createRow(fila++);
-   		row.createCell(columna++).setCellValue(saberes[w]);
-   		row.createCell(columna++).setCellValue("Porcentaje de Respuestas Estudiantes, Ponderación 80%");
-   		row.createCell(columna++).setCellValue("Porcentaje de Respuestas Autoevaluación, Ponderación 20%");
-   		row.createCell(columna++).setCellValue("Evaluación Resultante");
+   		row.createCell(columna++).setCellValue("Facultad");
+   		row.createCell(columna++).setCellValue("No de Estudiantes Participantes");
+   		row.createCell(columna++).setCellValue("Total Estudiantes");
+   		row.createCell(columna++).setCellValue("Porcentaje");
+   		for(Facultad facultad:estudiantesEvaluadosPorFacultad)
+   		{	
    		columna=0;
    		row = sheet.createRow(fila++);
-  	   	row.createCell(columna++).setCellValue("Nivel Inferior");
-   		row.createCell(columna++).setCellValue(ev.getPromedioRespuestas()[w][Nivel.INFERIOR]);
-   		row.createCell(columna++).setCellValue(aev.getPromedioRespuestas()[w][Nivel.INFERIOR]);
-   		row.createCell(columna++).setCellValue(porcentajeDocenciaEstudiantes*ev.getPromedioRespuestas()[w][Nivel.INFERIOR]+porcentajeDocenciaAutoevaluacion*aev.getPromedioRespuestas()[w][Nivel.INFERIOR]);
-   		
-   		columna=0;
-   		row = sheet.createRow(fila++);
-   		row.createCell(columna++).setCellValue("Nivel Bajo");
-   		row.createCell(columna++).setCellValue(ev.getPromedioRespuestas()[w][Nivel.BAJO]);
-   		row.createCell(columna++).setCellValue(aev.getPromedioRespuestas()[w][Nivel.BAJO]);
-   		row.createCell(columna++).setCellValue(porcentajeDocenciaEstudiantes*ev.getPromedioRespuestas()[w][Nivel.BAJO]+porcentajeDocenciaAutoevaluacion*aev.getPromedioRespuestas()[w][Nivel.BAJO]);
-   		
-   		columna=0;
-   		row = sheet.createRow(fila++);
-   		row.createCell(columna++).setCellValue("Nivel Medio");
-   		row.createCell(columna++).setCellValue(ev.getPromedioRespuestas()[w][Nivel.MEDIO]);
-   		row.createCell(columna++).setCellValue(aev.getPromedioRespuestas()[w][Nivel.MEDIO]);
-   		row.createCell(columna++).setCellValue(porcentajeDocenciaEstudiantes*ev.getPromedioRespuestas()[w][Nivel.MEDIO]+porcentajeDocenciaAutoevaluacion*aev.getPromedioRespuestas()[w][Nivel.MEDIO]);
-   		
-   		columna=0;
-   		row = sheet.createRow(fila++);
-   		row.createCell(columna++).setCellValue("Nivel Alto");
-   		row.createCell(columna++).setCellValue(ev.getPromedioRespuestas()[w][Nivel.ALTO]);
-   		row.createCell(columna++).setCellValue(aev.getPromedioRespuestas()[w][Nivel.ALTO]);
-   		row.createCell(columna++).setCellValue(porcentajeDocenciaEstudiantes*ev.getPromedioRespuestas()[w][Nivel.ALTO]+porcentajeDocenciaAutoevaluacion*aev.getPromedioRespuestas()[w][Nivel.ALTO]);
-   		
-   		columna=0;
-   		row = sheet.createRow(fila++);
-   		row.createCell(columna++).setCellValue("Nivel Superior");
-   		row.createCell(columna++).setCellValue(ev.getPromedioRespuestas()[w][Nivel.SUPERIOR]);
-   		row.createCell(columna++).setCellValue(aev.getPromedioRespuestas()[w][Nivel.SUPERIOR]);
-   		row.createCell(columna++).setCellValue(porcentajeDocenciaEstudiantes*ev.getPromedioRespuestas()[w][Nivel.SUPERIOR]+porcentajeDocenciaAutoevaluacion*aev.getPromedioRespuestas()[w][Nivel.SUPERIOR]);
-   		row = sheet.createRow(fila++);
-   		
+  	   	row.createCell(columna++).setCellValue(facultad.getNombre());
+   		row.createCell(columna++).setCellValue(facultad.getParticipantes());
+   		row.createCell(columna++).setCellValue(facultad.getTotal());
+   		row.createCell(columna++).setCellValue(facultad.getPorcentaje());
    		}
-   	
-   		row = sheet.createRow(fila++);
-   		row = sheet.createRow(fila++);
-   		columna=0;
-   		row.createCell(columna++).setCellValue("Gestión");
-   		row.createCell(columna++).setCellValue("Porcentaje de Respuestas Directivo, Ponderación 60%");
-   		row.createCell(columna++).setCellValue("Porcentaje de Respuestas Autoevaluación, Ponderación 40%");
-   		row.createCell(columna++).setCellValue("Evaluación Resultante");
-   		row = sheet.createRow(fila++);
-   		columna=0;
-   		row.createCell(columna++).setCellValue("No cumple");
-   		row.createCell(columna++).setCellValue(eg.getPromedioRespuestas()[Nivel.INFERIOR]);	
-   		row.createCell(columna++).setCellValue(aeg.getPromedioRespuestas()[Nivel.INFERIOR]);	
-   		row.createCell(columna++).setCellValue(porcentajeGestion*eg.getPromedioRespuestas()[Nivel.INFERIOR]+porcentajeGestionAutoevaluacion*aeg.getPromedioRespuestas()[Nivel.INFERIOR]);
-   		
-   		row = sheet.createRow(fila++);
-   		columna=0;
-   		row.createCell(columna++).setCellValue("Cumple Parcialmente");
-   		row.createCell(columna++).setCellValue(eg.getPromedioRespuestas()[Nivel.BAJO]);	
-   		row.createCell(columna++).setCellValue(aeg.getPromedioRespuestas()[Nivel.BAJO]);	
-   		row.createCell(columna++).setCellValue(porcentajeGestion*eg.getPromedioRespuestas()[Nivel.BAJO]+porcentajeGestionAutoevaluacion*aeg.getPromedioRespuestas()[Nivel.BAJO]);
-   		
-   		row = sheet.createRow(fila++);
-   		columna=0;
-   		row.createCell(columna++).setCellValue("Cumple Totalmente");
-   		row.createCell(columna++).setCellValue(eg.getPromedioRespuestas()[Nivel.MEDIO]);	
-   		row.createCell(columna++).setCellValue(aeg.getPromedioRespuestas()[Nivel.MEDIO]);	
-   		row.createCell(columna++).setCellValue(porcentajeGestion*eg.getPromedioRespuestas()[Nivel.MEDIO]+porcentajeGestionAutoevaluacion*aeg.getPromedioRespuestas()[Nivel.MEDIO]);
-   		
-   		row = sheet.createRow(fila++);
-   		columna=0;
-   		row.createCell(columna++).setCellValue("No Aplica");
-   		row.createCell(columna++).setCellValue(eg.getPromedioRespuestas()[Nivel.ALTO]);	
-   		row.createCell(columna++).setCellValue(aeg.getPromedioRespuestas()[Nivel.ALTO]);	
-   		row.createCell(columna++).setCellValue(porcentajeGestion*eg.getPromedioRespuestas()[Nivel.ALTO]+porcentajeGestionAutoevaluacion*aeg.getPromedioRespuestas()[Nivel.ALTO]);
-   		
-		
-   		row = sheet.createRow(fila++);
-   		row = sheet.createRow(fila++);
-   		columna=0;
-   		row.createCell(columna++).setCellValue("Investigación");
-   		row.createCell(columna++).setCellValue("Porcentaje de Respuestas Directivo, Ponderación 60%");
-   		row.createCell(columna++).setCellValue("Porcentaje de Respuestas Autoevaluación, Ponderación 40%");
-   		row.createCell(columna++).setCellValue("Evaluación Resultante");
+   	//No docentes evaluados por estudiantes
    		columna=0;
    		row = sheet.createRow(fila++);
-   		row.createCell(columna++).setCellValue("Inferior");
-   		row.createCell(columna++).setCellValue(ei.getPromedioRespuestas()[Nivel.INFERIOR]);	
-   		row.createCell(columna++).setCellValue(aei.getPromedioRespuestas()[Nivel.INFERIOR]);	
-   		
    		row = sheet.createRow(fila++);
-   		columna=0;
-   		row.createCell(columna++).setCellValue("Bajo");
-   		row.createCell(columna++).setCellValue(ei.getPromedioRespuestas()[Nivel.BAJO]);	
-   		row.createCell(columna++).setCellValue(aei.getPromedioRespuestas()[Nivel.BAJO]);	
-   		
+   		row.createCell(columna).setCellValue("Número de docentes evaluados por los estudiantes");
+   		columna=0;	
    		row = sheet.createRow(fila++);
+   		row.createCell(columna++).setCellValue("Facultad");
+   		row.createCell(columna++).setCellValue("No de Estudiantes Participantes");
+   		row.createCell(columna++).setCellValue("Total Estudiantes");
+   		row.createCell(columna++).setCellValue("Porcentaje");
+   		for(Facultad facultad:docentesEvaluadosPorEstudiantesPorFacultad)
+   		{	
    		columna=0;
-   		row.createCell(columna++).setCellValue("Medio");
-   		row.createCell(columna++).setCellValue(ei.getPromedioRespuestas()[Nivel.MEDIO]);	
-   		row.createCell(columna++).setCellValue(aei.getPromedioRespuestas()[Nivel.MEDIO]);	
-   		
    		row = sheet.createRow(fila++);
+  	   	row.createCell(columna++).setCellValue(facultad.getNombre());
+   		row.createCell(columna++).setCellValue(facultad.getParticipantes());
+   		row.createCell(columna++).setCellValue(facultad.getTotal());
+   		row.createCell(columna++).setCellValue(facultad.getPorcentaje());
+   		}
+   	//No docentes con autoevaluación
    		columna=0;
-   		row.createCell(columna++).setCellValue("Alto");
-   		row.createCell(columna++).setCellValue(ei.getPromedioRespuestas()[Nivel.ALTO]);	
-   		row.createCell(columna++).setCellValue(aei.getPromedioRespuestas()[Nivel.ALTO]);	
-		
    		row = sheet.createRow(fila++);
+   		row = sheet.createRow(fila++);
+   		row.createCell(columna).setCellValue("Número de docentes con autoevaluación");
+   		columna=0;	
+   		row = sheet.createRow(fila++);
+   		row.createCell(columna++).setCellValue("Facultad");
+   		row.createCell(columna++).setCellValue("No de Estudiantes Participantes");
+   		row.createCell(columna++).setCellValue("Total Estudiantes");
+   		row.createCell(columna++).setCellValue("Porcentaje");
+   		for(Facultad facultad:docentesConAutoevaluacionPorFacultad)
+   		{	
    		columna=0;
-   		row.createCell(columna++).setCellValue("Superior");
-   		row.createCell(columna++).setCellValue(ei.getPromedioRespuestas()[Nivel.SUPERIOR]);	
-   		row.createCell(columna++).setCellValue(aei.getPromedioRespuestas()[Nivel.SUPERIOR]);	
-   		
+   		row = sheet.createRow(fila++);
+  	   	row.createCell(columna++).setCellValue(facultad.getNombre());
+   		row.createCell(columna++).setCellValue(facultad.getParticipantes());
+   		row.createCell(columna++).setCellValue(facultad.getTotal());
+   		row.createCell(columna++).setCellValue(facultad.getPorcentaje());
+   		}
+   	//No directivos que realizaron gestión
+   		columna=0;
+   		row = sheet.createRow(fila++);
+   		row = sheet.createRow(fila++);
+   		row.createCell(columna).setCellValue("Número de directivos que evaluaron gestión");
+   		columna=0;	
+   		row = sheet.createRow(fila++);
+   		row.createCell(columna++).setCellValue("Facultad");
+   		row.createCell(columna++).setCellValue("No de Estudiantes Participantes");
+   		row.createCell(columna++).setCellValue("Total Estudiantes");
+   		row.createCell(columna++).setCellValue("Porcentaje");
+   		for(Facultad facultad:directivosGestionEvaluadosPorFacultad)
+   		{	
+   		columna=0;
+   		row = sheet.createRow(fila++);
+  	   	row.createCell(columna++).setCellValue(facultad.getNombre());
+   		row.createCell(columna++).setCellValue(facultad.getParticipantes());
+   		row.createCell(columna++).setCellValue(facultad.getTotal());
+   		row.createCell(columna++).setCellValue(facultad.getPorcentaje());
+   		}
+   	//No estudiantes
+   		columna=0;
+   		row = sheet.createRow(fila++);
+   		row = sheet.createRow(fila++);
+   		row.createCell(columna).setCellValue("Número de directivos que evaluaron investigación");
+   		columna=0;	
+   		row = sheet.createRow(fila++);
+   		row.createCell(columna++).setCellValue("Facultad");
+   		row.createCell(columna++).setCellValue("No de Estudiantes Participantes");
+   		row.createCell(columna++).setCellValue("Total Estudiantes");
+   		row.createCell(columna++).setCellValue("Porcentaje");
+   		for(Facultad facultad:directivosInvestigacionEvaluadosPorFacultad)
+   		{	
+   		columna=0;
+   		row = sheet.createRow(fila++);
+  	   	row.createCell(columna++).setCellValue(facultad.getNombre());
+   		row.createCell(columna++).setCellValue(facultad.getParticipantes());
+   		row.createCell(columna++).setCellValue(facultad.getTotal());
+   		row.createCell(columna++).setCellValue(facultad.getPorcentaje());
+   		}
    		//Set value to new value
    		 FileOutputStream out;
-   		 File file = new File(programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".xls");
+   		 File file = new File("Número de participantes evaluación desempeño docente "+semestre+".xls");
    		
    		try {
    		    out = 

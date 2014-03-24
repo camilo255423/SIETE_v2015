@@ -28,19 +28,21 @@ $('#listainformes').on("change", cambioInforme);
 );
 function cambioInforme()
 {
+
 cambioSemestre();
 cambioProfesor();
 }
 function cambioProfesor()
 {
 var documentoProfesor = $('#listaProfesores').val();
-	if(documentoProfesor!=-1 && documentoProfesor)
-	{
-	
-			$("#informe").html("<div id='progressbar'></div>");
+	$("#informe").html("<div id='progressbar'>Cargando, por favor espere...</div>");
 			$("#progressbar").progressbar({
 			value:false
 			});
+	if(documentoProfesor!=-1 && documentoProfesor)
+	{
+	
+		
 			enlaceDescargas($('#listaProfesores').val(),$('#listasemestres').val());
 			if($('#listainformes').val()==1){
 			$.post("informeprofesor",{documento: documentoProfesor, semestre: $('#listasemestres').val()},mostrar);

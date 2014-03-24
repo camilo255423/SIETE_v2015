@@ -1,0 +1,132 @@
+@(estudiantesEvaluadosPorFacultad:List[Facultad],
+    			docentesEvaluadosPorEstudiantesPorFacultad:List[Facultad],
+    			docentesConAutoevaluacionPorFacultad:List[Facultad],
+    			directivosGestionEvaluadosPorFacultad:List[Facultad],
+    			directivosInvestigacionEvaluadosPorFacultad:List[Facultad],
+    			 semestre:String, imagen:String)
+@import models.Nivel
+@import java.text.DecimalFormat
+<div id="informe">
+	<table width='704'>
+  	 <tr style="font-size: 8pt;">
+    <td style="font-size: 8pt; class="row_headers" width='222'>&nbsp;</td>
+    <td style="font-size: 8pt; class="row_headers" width='466'><img width='219' height='63' src='@imagen' alt='Logo title='Logo'  align='left' hspace='12' /></td>
+  	</tr>
+  	
+	</table>
+	<div style="text-align:center"><p><b>Evaluación del Desempeño Docente @semestre</b></p></div>
+	<div style="text-align:center"><p><b>Informe Número de Participantes por Facultad</b></p></div>
+
+ @defining(new DecimalFormat("##0.00")){formato=>
+<div class="tabs">
+	
+ 	<div id="tabs-estudiantes">       
+	<h3>Número de Estudiantes Evaluados</h3>
+		<table border="1">
+		<tbody>
+		<tr>
+			<td style="font-size: 8pt; class="row_headers"><b>Facultad</b></td>
+			<td style="font-size: 8pt; class="row_headers"><b>Número de Participantes</b></td>
+			<td style="font-size: 8pt; class="row_headers"><b>Total Estudiantes</b></td>
+			<td style="font-size: 8pt; class="row_headers"><b>Porcentaje</b></td>
+		</tr>
+		@for(facultad <- estudiantesEvaluadosPorFacultad){
+		 <tr>
+			<td style="font-size: 8pt; class="row_headers">@facultad.getNombre()</td>
+			<td style="font-size: 8pt; class="row_headers" align="center">@facultad.getParticipantes()</td>
+			<td style="font-size: 8pt; class="row_headers" align="center">@facultad.getTotal()</td>
+			<td style="font-size: 8pt; class="row_headers" align="center">@formato.format(facultad.getPorcentaje()) %</td>
+		</tr>
+		}
+		</tbody>
+	    </table>
+	</div>	   
+	<div id="tabs-docentes">	
+		<h3>Número de Docentes Evaluados por los Estudiantes</h3>
+		<table border="1">
+		<tbody>
+		<tr>
+			<td style="font-size: 8pt; class="row_headers"><b>Facultad</b></td>
+			<td style="font-size: 8pt; class="row_headers"><b>Número de Docentes Evaluados</b></td>
+			<td style="font-size: 8pt; class="row_headers"><b>Número Total de Docentes</b></td>
+			<td style="font-size: 8pt; class="row_headers"><b>Porcentaje</b></td>
+		</tr>
+		@for(facultad <- docentesEvaluadosPorEstudiantesPorFacultad){
+		 <tr>
+			<td style="font-size: 8pt; class="row_headers">@facultad.getNombre()</td>
+			<td style="font-size: 8pt; class="row_headers" align="center">@facultad.getParticipantes()</td>
+			<td style="font-size: 8pt; class="row_headers" align="center">@facultad.getTotal()</td>
+			<td style="font-size: 8pt; class="row_headers" align="center">@formato.format(facultad.getPorcentaje()) %</td>
+		</tr>
+		}
+		</tbody>
+	    </table>
+	</div> <!-- div docentes -->
+
+
+<div id="tabs-autoeval">
+	<h3>Número de Docentes que realizaron Autoevaluación</h3>
+		<table border="1">
+		<tbody>
+		<tr>
+			<td style="font-size: 8pt; class="row_headers"><b>Facultad</b></td>
+			<td style="font-size: 8pt; class="row_headers" width='3cm' align="center"><b>Número de Docentes con Autoevaluación</b></td>
+			<td style="font-size: 8pt; class="row_headers" width='3cm' align="center"><b>Número Total de Docentes</b></td>
+			<td style="font-size: 8pt; class="row_headers"><b>Porcentaje</b></td>
+		</tr>
+		@for(facultad <- docentesConAutoevaluacionPorFacultad){
+		 <tr>
+			<td style="font-size: 8pt; class="row_headers">@facultad.getNombre()</td>
+			<td style="font-size: 8pt; class="row_headers" align="center">@facultad.getParticipantes()</td>
+			<td style="font-size: 8pt; class="row_headers" align="center">@facultad.getTotal()</td>
+			<td style="font-size: 8pt; class="row_headers" align="center">@formato.format(facultad.getPorcentaje()) %</td>
+		</tr>
+		}
+		</tbody>
+	    </table>
+</div>
+<div id="tabs-gestion">
+<h3>Número de Directivos que evaluaron la gestión de sus docentes</h3>
+		<table border="1">
+		<tbody>
+		<tr>
+			<td style="font-size: 8pt; class="row_headers"><b>Facultad</b></td>
+			<td style="font-size: 8pt; class="row_headers" width='3cm' align="center"><b>Número de Directivos Participantes</b></td>
+			<td style="font-size: 8pt; class="row_headers" width='3cm' align="center"><b>Número Total de Docentes</b></td>
+			<td style="font-size: 8pt; class="row_headers"><b>Porcentaje</b></td>
+		</tr>
+		@for(facultad <- directivosGestionEvaluadosPorFacultad){
+		 <tr>
+			<td style="font-size: 8pt; class="row_headers">@facultad.getNombre()</td>
+			<td style="font-size: 8pt; class="row_headers" align="center">@facultad.getParticipantes()</td>
+			<td style="font-size: 8pt; class="row_headers" align="center">@facultad.getTotal()</td>
+			<td style="font-size: 8pt; class="row_headers" align="center">@formato.format(facultad.getPorcentaje()) %</td>
+		</tr>
+		}
+		</tbody>
+	    </table>
+</div>
+<div id="tabs-investigacion">
+<h3>Número de Directivos que evaluaron investigación</h3>
+		<table border="1">
+		<tbody>
+		<tr>
+			<td style="font-size: 8pt; class="row_headers"><b>Facultad</b></td>
+			<td style="font-size: 8pt; class="row_headers" width='3cm' align="center"><b>Número de Directivos Participantes</b></td>
+			<td style="font-size: 8pt; class="row_headers" width='3cm' align="center"><b>Número Total de Docentes</b></td>
+			<td style="font-size: 8pt; class="row_headers"><b>Porcentaje</b></td>
+		</tr>
+		@for(facultad <- directivosInvestigacionEvaluadosPorFacultad){
+		 <tr>
+			<td style="font-size: 8pt; class="row_headers">@facultad.getNombre()</td>
+			<td style="font-size: 8pt; class="row_headers" align="center">@facultad.getParticipantes()</td>
+			<td style="font-size: 8pt; class="row_headers" align="center">@facultad.getTotal()</td>
+			<td style="font-size: 8pt; class="row_headers" align="center">@formato.format(facultad.getPorcentaje()) %</td>
+		</tr>
+		}
+		</tbody>
+	    </table>
+</div>
+</div> <!-- tabs -->
+}
+</div>  <!-- div informe -->

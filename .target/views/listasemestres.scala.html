@@ -17,7 +17,8 @@ $('#listasemestres').on("change", cambioSemestre);
 function cambioSemestre()
 {
 var entidad;
-$("#informe").html("<div id='progressbar'></div>");
+$("#informe").html("<div id='progressbar'>Cargando, por favor espere...</div>");
+
 $("#listaProfesores").html("Cargando...");
 $("#progressbar").progressbar({
 value:false
@@ -31,11 +32,14 @@ $("#descargas").hide();
 }
 function mostrarProfesores(data)
 {
+$("#informe").html("<div id='progressbar'>Cargando, por favor espere...</div>");
+$("#progressbar").progressbar({
+value:false
+});
 	if(data=="participantes")
 	{
-	$("#informe").html("<div id='progressbar'></div>");
 	$.post("informeparticipantes",{semestre: $('#listasemestres').val()},mostrar);	
-	enlaceDescargas(0,0);
+	enlaceDescargas(0,$('#listasemestres').val());
 	$('#listaProfesores').hide();
 	}
 	else
