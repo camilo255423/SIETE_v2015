@@ -25,13 +25,25 @@ value:false
 if($('#listainformes').val()==1 || $('#listainformes').val()==2 || $('#listainformes').val()==3 ) entidad="profesores";
 if($('#listainformes').val()==4) entidad="facultades";
 if($('#listainformes').val()==5) entidad="programas";
+if($('#listainformes').val()==6) entidad="participantes";
 $.post("cambiosemestre",{semestre: $('#listasemestres').val(), valor: entidad},mostrarProfesores); // 0 profesores 1 facultades 2 programas
-
+$("#descargas").hide();
 }
 function mostrarProfesores(data)
 {
+	if(data=="participantes")
+	{
+	$("#informe").html("<div id='progressbar'></div>");
+	$.post("informeparticipantes",{semestre: $('#listasemestres').val()},mostrar);	
+	enlaceDescargas(0,0);
+	$('#listaProfesores').hide();
+	}
+	else
+	{
+	$("#listaProfesores").html(data);
+	$("#informe").html("");
+	$('#listaProfesores').show();
+	}
 
-$("#listaProfesores").html(data);
-$("#informe").html("");
 }
 </script>

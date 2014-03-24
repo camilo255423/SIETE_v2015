@@ -20,8 +20,8 @@ public class Periodo {
 		String fecha[]= new String [2];
 		
 		String ano = periodo.substring(0, 4);
-		String semestre = periodo.substring(4, 4);
-		if(semestre.equals("1"))
+		char semestre = periodo.charAt(4);
+		if(semestre=='1')
 		{	
 			fecha[Periodo.FECHAINICIO]=ano+"-"+"01"+"-"+"01";
 			fecha[Periodo.FECHAFIN]=ano+"-"+"06"+"-"+"30";

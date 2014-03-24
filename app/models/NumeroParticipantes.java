@@ -57,7 +57,7 @@ public class NumeroParticipantes {
 				p.setString(6, periodo[Periodo.FECHAFIN]);
 				docentesEvaluadosPorEstudiantesPorFacultad = NumeroParticipantes.consultarParticipantes(p);
 				
-				p = con.prepareStatement(NumeroParticipantes.consultaDocentesEvaluadosPorEstudiantesPorFacultad);
+				p = con.prepareStatement(NumeroParticipantes.consultaDocentesConAutoevaluacionPorFacultad);
 				p.setString(1, fechaContrato);
 				p.setString(2, fechaContrato);
 				p.setString(3, fechaContrato);
@@ -67,8 +67,9 @@ public class NumeroParticipantes {
 				p.setString(7, semestre);
 				p.setString(8, periodo[Periodo.FECHAINICIO]);
 				docentesConAutoevaluacionPorFacultad = NumeroParticipantes.consultarParticipantes(p);
+
 				
-				p = con.prepareStatement(NumeroParticipantes.consultaDocentesEvaluadosPorEstudiantesPorFacultad);
+				p = con.prepareStatement(NumeroParticipantes.consultaDirectivosGestionEvaluadosPorFacultad);
 				p.setString(1, fechaContrato);
 				p.setString(2, fechaContrato);		
 				p.setString(3, periodo[Periodo.FECHAINICIO]);
@@ -80,6 +81,19 @@ public class NumeroParticipantes {
 				p.setString(9, periodo[Periodo.FECHAINICIO]);
 				p.setString(10, periodo[Periodo.FECHAFIN]);
 				directivosGestionEvaluadosPorFacultad = NumeroParticipantes.consultarParticipantes(p);
+				
+				p = con.prepareStatement(NumeroParticipantes.consultaDirectivosInvestigacionEvaluadosPorFacultad);
+				p.setString(1, fechaContrato);
+				p.setString(2, fechaContrato);		
+				p.setString(3, periodo[Periodo.FECHAINICIO]);
+				p.setString(4, periodo[Periodo.FECHAFIN]);
+				p.setString(5, fechaContrato);
+				p.setString(6, fechaContrato);
+				p.setString(7, periodo[Periodo.FECHAINICIO]);
+				p.setString(8, periodo[Periodo.FECHAFIN]);
+				p.setString(9, periodo[Periodo.FECHAINICIO]);
+				p.setString(10, periodo[Periodo.FECHAFIN]);
+				directivosInvestigacionEvaluadosPorFacultad = NumeroParticipantes.consultarParticipantes(p);
 				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -200,7 +214,7 @@ public class NumeroParticipantes {
 "where a.id_facultad=b.id_facultad "+ 
 "order by idFacultad"; 
 	private static final String consultaDocentesEvaluadosPorEstudiantesPorFacultad=
-"select a.ID_DECAN as idFacultad,facultad,evaluados as participantes, total, evaluados*100/inscritos as porcentaje "+
+"select a.ID_DECAN as idFacultad,facultad,evaluados as participantes, inscritos as total, evaluados*100/inscritos as porcentaje "+
 "from "+
 "( "+
 "SELECT   count(distinct NIT) as inscritos, facultad_centro_costo.ID_DECAN as id_decan, facultad_centro_costo.nombre as facultad "+

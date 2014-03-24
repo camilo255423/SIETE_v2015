@@ -45,7 +45,7 @@ public class Application extends Controller {
     	if(valor.equals("profesores"))
     	{	
     	List<Profesor> profesores = Profesor.findAllBySemestre(semestre);
-    	System.out.println("profesores");
+    	
     	return ok(views.html.lista.render(profesores,0));
     	}
     	if(valor.equals("facultades"))
@@ -58,7 +58,10 @@ public class Application extends Controller {
     	List<Programa> programas = Programa.findAll();
     	return ok(views.html.listaprogramas.render(programas,0));
     	}
-    	
+    	if(valor.equals("participantes"))
+    	{
+    		return ok("participantes");
+    	}
        	return ok(views.html.lista.render(null,0));
        	
     }
@@ -463,8 +466,30 @@ public class Application extends Controller {
     public static Result prueba(){
   	
 	NumeroParticipantes numeroParticipantes = NumeroParticipantes.findBySemestre("20131");
-	String s="";
+	String s="Estudiantes \n";
 	for(Facultad facultad:numeroParticipantes.getEstudiantesEvaluadosPorFacultad())
+	{
+		s = s + facultad + "\n";
+	}
+	s=s+"Docentes \n";
+	for(Facultad facultad:numeroParticipantes.getDocentesEvaluadosPorEstudiantesPorFacultad())
+	{
+		s = s + facultad + "\n";
+	}
+	s=s+"Docentes AutoEval \n";
+	for(Facultad facultad:numeroParticipantes.getDocentesConAutoevaluacionPorFacultad())
+	{
+		s = s + facultad + "\n";
+	}
+	s=s+"Directivos Gestión \n";
+	
+	for(Facultad facultad:numeroParticipantes.getDirectivosGestionEvaluadosPorFacultad())
+	{
+		s = s + facultad + "\n";
+	}
+	s=s+"Directivos Investigación \n";
+	
+	for(Facultad facultad:numeroParticipantes.getDirectivosInvestigacionEvaluadosPorFacultad())
 	{
 		s = s + facultad + "\n";
 	}

@@ -57,9 +57,14 @@ var documentoProfesor = $('#listaProfesores').val();
 				if($('#listainformes').val()==5){
 			$.post("informeprograma",{documento: documentoProfesor, semestre: $('#listasemestres').val()},mostrar);
 			}
+			if($('#listainformes').val()==6){
+			$.post("informeparticipantes",{semestre: $('#listasemestres').val()},mostrar);
+			}
+			$("#descargas").show();
 	}
 	else
 	{
+	$("#descargas").hide();
 	$("#informe").html("<div></div>");
 	}
 }
@@ -86,12 +91,20 @@ informe="informe4";
 if($('#listainformes').val()==5){
 informe="informe5";
 }
-var enlace = informe+'/pdf/'+documento+'/'+semestre;
-var s =  "<ul class='side'>";
-s= s+ "<li><a href='"+enlace+"'>Descargar PDF</a></li>";
-enlace = informe+'/excel/'+documento+'/'+semestre;
-s = s +  "<li><a href='"+enlace+"'>Descargar Excel</a></li>";
-s = s + "</ul>";
+if($('#listainformes').val()==6){
+informe="informe6";
+$("#descargas").show();
+}
+
+var enlace = '';
+var s =  '';
+	enlace=informe+'/pdf/'+documento+'/'+semestre;
+	s =  "<ul class='side'>";
+	s= s+ "<li><a href='"+enlace+"'>Descargar PDF</a></li>";
+	enlace = informe+'/excel/'+documento+'/'+semestre;
+	s = s +  "<li><a href='"+enlace+"'>Descargar Excel</a></li>";
+	s = s + "</ul>";
+
 $("#descargas").html(s);
 }
 </script>
