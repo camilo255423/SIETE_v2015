@@ -83,7 +83,9 @@ public class Informe1 extends Controller {
 			}
 
 		
-		    
+			response().setContentType("application/x-download");  
+	  		response().setHeader("Content-disposition","attachment; filename="+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".pdf");
+	   		    
 
 		    document.close();
 			return ok(file);
@@ -505,6 +507,8 @@ public class Informe1 extends Controller {
    		} catch (IOException e) {
    		    e.printStackTrace();
    		}
+   		response().setContentType("application/x-download");  
+  		response().setHeader("Content-disposition","attachment; filename="+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
    		
    		return ok(file);
           // 

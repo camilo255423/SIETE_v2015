@@ -1,11 +1,11 @@
-name := "ModuloInformes"
+// name := "ModuloInformes"
 
-version := "1.0-SNAPSHOT"
+// version := "1.0-SNAPSHOT"
 
-libraryDependencies ++= Seq(
-  javaJdbc,
-  javaEbean,
-  cache
-)     
+// libraryDependencies ++= Seq(
+//  javaJdbc,
+//  javaEbean,
+//  cache
+// )     
 
-play.Project.playJavaSettings
+// play.Project.playJavaSettings

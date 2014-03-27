@@ -1,0 +1,6 @@
+[0m[[0minfo[0m] [0mCompiling 31 Scala sources and 23 Java sources to /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/scala-2.10/classes...[0m
+[0m[[33mwarn[0m] [0m/home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/conf/routes:26: unreachable code[0m
+[0m[[33mwarn[0m] [0mPOST	/informefinal				controllers.Informe3.informeProfesor()[0m
+[0m[[33mwarn[0m] [0m/home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/conf/routes:25: unreachable code[0m
+[0m[[33mwarn[0m] [0mPOST    /heteroevaluacion			controllers.Informe2.informeProfesor()[0m
+[0m[[33mwarn[0m] [0mtwo warnings found[0m

@@ -5,14 +5,14 @@ import com.github.play2war.plugin._
 
 object ApplicationBuild extends Build {
 
-  val appName         = "Test_App"
-  val appVersion      = "1.0-SNAPSHOT"
+  val appName         = "informes"
+  val appVersion      = "1"
 
   val appDependencies = Seq(
-    // Add your project dependencies here,
+     //Add your project dependencies here,
 
     jdbc,
-    anorm
+ anorm
   )
 
 

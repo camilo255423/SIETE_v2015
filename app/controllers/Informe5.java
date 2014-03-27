@@ -99,7 +99,9 @@ public class Informe5 extends Controller {
 
  		
  		    
-
+ 			response().setContentType("application/x-download");  
+ 	  		response().setHeader("Content-disposition","attachment; filename="+programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".pdf");
+ 	   	
  		    document.close();
  			return ok(file);
  	    
@@ -282,7 +284,9 @@ public class Informe5 extends Controller {
    		} catch (IOException e) {
    		    e.printStackTrace();
    		}
-   		
+   		response().setContentType("application/x-download");  
+	  	response().setHeader("Content-disposition","attachment; filename="+programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".xls");
+	   		
    		return ok(file);
 
     }

@@ -96,7 +96,9 @@ public class Informe3 extends Controller {
  				e.printStackTrace();
  			}
 
- 		
+ 			response().setContentType("application/x-download");  
+ 	  		response().setHeader("Content-disposition","attachment; filename="+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".pdf");
+ 	   	
  		    
 
  		    document.close();
@@ -282,6 +284,9 @@ public class Informe3 extends Controller {
    		    e.printStackTrace();
    		}
    		
+   		response().setContentType("application/x-download");  
+  		response().setHeader("Content-disposition","attachment; filename="+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
+   	
    		return ok(file);
 
     }

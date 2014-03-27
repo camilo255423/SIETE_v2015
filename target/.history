@@ -1,0 +1,21 @@
+eclipse
+run
+clean
+run
+clean
+run
+clean
+run
+war
+play war
+exit
+run
+clean
+run
+play
+run
+play
+run
+clear
+clean
+run

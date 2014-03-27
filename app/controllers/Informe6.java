@@ -97,7 +97,9 @@ public class Informe6 extends Controller {
  				e.printStackTrace();
  			}
 
- 		
+ 			response().setContentType("application/x-download");  
+ 	  		response().setHeader("Content-disposition","attachment; filename="+"Participantes Evaluación Docente "+semestre+".pdf");
+ 	   	
  		    
 
  		    document.close();
@@ -248,7 +250,9 @@ public class Informe6 extends Controller {
    		} catch (IOException e) {
    		    e.printStackTrace();
    		}
-   		
+   		response().setContentType("application/x-download");  
+	  	response().setHeader("Content-disposition","attachment; filename="+"Participantes Evaluación Docente "+semestre+".xls");
+	   	
    		return ok(file);
 
     }
