@@ -58,7 +58,7 @@ public class Informe1 extends Controller {
 	    	Evaluacion evaluacion = profesor.getEvaluacion(semestre);
 	    	
 			try {
-				file = new File(profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".pdf");
+				file = new File("Detallado "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".pdf");
 				PdfWriter writer = PdfWriter.getInstance(document,
 						
 				        new FileOutputStream(file));
@@ -84,7 +84,7 @@ public class Informe1 extends Controller {
 
 		
 			response().setContentType("application/x-download");  
-	  		response().setHeader("Content-disposition","attachment; filename="+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".pdf");
+	  		response().setHeader("Content-disposition","attachment; filename="+"Detallado "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".pdf");
 	   		    
 
 		    document.close();
@@ -493,7 +493,7 @@ public class Informe1 extends Controller {
    		
    		//Set value to new value
    		 FileOutputStream out;
-   		 File file = new File(profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
+   		 File file = new File("Detallado "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
    		
    		try {
    		    out = 
@@ -508,7 +508,7 @@ public class Informe1 extends Controller {
    		    e.printStackTrace();
    		}
    		response().setContentType("application/x-download");  
-  		response().setHeader("Content-disposition","attachment; filename="+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
+  		response().setHeader("Content-disposition","attachment; filename="+"Detallado "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
    		
    		return ok(file);
           // 

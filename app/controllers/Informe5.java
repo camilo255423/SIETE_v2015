@@ -76,7 +76,7 @@ public class Informe5 extends Controller {
  	    	if(evaluacion.getEvaluacionDocencia().size()>=2) autoEvaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(1);
 
  			try {
- 				file = new File(programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".pdf");
+ 				file = new File("Programa "+programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".pdf");
  				PdfWriter writer = PdfWriter.getInstance(document,
  						
  				        new FileOutputStream(file));
@@ -100,7 +100,7 @@ public class Informe5 extends Controller {
  		
  		    
  			response().setContentType("application/x-download");  
- 	  		response().setHeader("Content-disposition","attachment; filename="+programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".pdf");
+ 	  		response().setHeader("Content-disposition","attachment; filename="+"Programa "+programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".pdf");
  	   	
  		    document.close();
  			return ok(file);
@@ -109,13 +109,13 @@ public class Informe5 extends Controller {
     public static Result excel(String codigoPrograma, String semestre)
     {
     	Programa programa = Programa.findById(codigoPrograma);
-    	Evaluacion evaluacion = InformesDAO.getInformeFinal(codigoPrograma, semestre);
+    	Evaluacion evaluacion = ReportesDAO.getInformePrograma(codigoPrograma, semestre);
    		HSSFWorkbook workbook = new HSSFWorkbook();
    		EvaluacionGestion eg = evaluacion.getEvaluacionGestion();
    		EvaluacionGestion aeg = evaluacion.getAutoEvaluacionGestion(); 
    		EvaluacionInvestigacion ei = evaluacion.getEvaluacionInvestigacion();
    		EvaluacionInvestigacion aei = evaluacion.getAutoEvaluacionInvestigacion();
-   		HSSFSheet sheet = workbook.createSheet("Docencia");
+   		HSSFSheet sheet = workbook.createSheet("Informe Programa");
    		double porcentajeDocenciaEstudiantes=0.8;
    		double porcentajeDocenciaAutoevaluacion=0.2;
    		double porcentajeGestion=0.6;
@@ -270,7 +270,7 @@ public class Informe5 extends Controller {
    		
    		//Set value to new value
    		 FileOutputStream out;
-   		 File file = new File(programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".xls");
+   		 File file = new File("Programa "+programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".xls");
    		
    		try {
    		    out = 
@@ -285,7 +285,7 @@ public class Informe5 extends Controller {
    		    e.printStackTrace();
    		}
    		response().setContentType("application/x-download");  
-	  	response().setHeader("Content-disposition","attachment; filename="+programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".xls");
+	  	response().setHeader("Content-disposition","attachment; filename="+"Programa "+programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".xls");
 	   		
    		return ok(file);
 

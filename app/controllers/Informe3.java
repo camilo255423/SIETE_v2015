@@ -75,7 +75,7 @@ public class Informe3 extends Controller {
  	    	if(evaluacion.getEvaluacionDocencia().size()>=2) autoEvaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(1);
 
  			try {
- 				file = new File(profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".pdf");
+ 				file = new File("Final "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".pdf");
  				PdfWriter writer = PdfWriter.getInstance(document,
  						
  				        new FileOutputStream(file));
@@ -97,7 +97,7 @@ public class Informe3 extends Controller {
  			}
 
  			response().setContentType("application/x-download");  
- 	  		response().setHeader("Content-disposition","attachment; filename="+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".pdf");
+ 	  		response().setHeader("Content-disposition","attachment; filename="+"Final "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".pdf");
  	   	
  		    
 
@@ -114,7 +114,7 @@ public class Informe3 extends Controller {
    		EvaluacionGestion aeg = evaluacion.getAutoEvaluacionGestion(); 
    		EvaluacionInvestigacion ei = evaluacion.getEvaluacionInvestigacion();
    		EvaluacionInvestigacion aei = evaluacion.getAutoEvaluacionInvestigacion();
-   		HSSFSheet sheet = workbook.createSheet("Docencia");
+   		HSSFSheet sheet = workbook.createSheet("Informe Final");
    		double porcentajeDocenciaEstudiantes=0.8;
    		double porcentajeDocenciaAutoevaluacion=0.2;
    		double porcentajeGestion=0.6;
@@ -269,7 +269,7 @@ public class Informe3 extends Controller {
    		
    		//Set value to new value
    		 FileOutputStream out;
-   		 File file = new File(profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
+   		 File file = new File("Final "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
    		
    		try {
    		    out = 
@@ -285,7 +285,7 @@ public class Informe3 extends Controller {
    		}
    		
    		response().setContentType("application/x-download");  
-  		response().setHeader("Content-disposition","attachment; filename="+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
+  		response().setHeader("Content-disposition","attachment; filename="+"Final "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
    	
    		return ok(file);
 
