@@ -75,7 +75,7 @@ public class Informe4 extends Controller {
  	    	if(evaluacion.getEvaluacionDocencia().size()>=2) autoEvaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(1);
 
  			try {
- 				file = new File(facultad.getNombre()+" "+semestre+".pdf");
+ 				file = new File("Facultad "+facultad.getNombre()+" "+semestre+".pdf");
  				PdfWriter writer = PdfWriter.getInstance(document,
  						
  				        new FileOutputStream(file));
@@ -97,7 +97,7 @@ public class Informe4 extends Controller {
 
  		
  			response().setContentType("application/x-download");  
- 	  		response().setHeader("Content-disposition","attachment; filename="+facultad.getNombre()+" "+semestre+".pdf");
+ 	  		response().setHeader("Content-disposition","attachment; filename="+"Facultad "+facultad.getNombre()+" "+semestre+".pdf");
  	   	
 
  		    document.close();
@@ -113,7 +113,7 @@ public class Informe4 extends Controller {
    		EvaluacionGestion aeg = evaluacion.getAutoEvaluacionGestion(); 
    		EvaluacionInvestigacion ei = evaluacion.getEvaluacionInvestigacion();
    		EvaluacionInvestigacion aei = evaluacion.getAutoEvaluacionInvestigacion();
-   		HSSFSheet sheet = workbook.createSheet("Docencia");
+   		HSSFSheet sheet = workbook.createSheet("Informe de Facultad");
    		double porcentajeDocenciaEstudiantes=0.8;
    		double porcentajeDocenciaAutoevaluacion=0.2;
    		double porcentajeGestion=0.6;
@@ -268,7 +268,7 @@ public class Informe4 extends Controller {
    		
    		//Set value to new value
    		 FileOutputStream out;
-   		 File file = new File(facultad.getNombre()+" "+semestre+".xls");
+   		 File file = new File("Facultad "+facultad.getNombre()+" "+semestre+".xls");
    		
    		try {
    		    out = 
@@ -284,7 +284,7 @@ public class Informe4 extends Controller {
    		}
 
    		response().setContentType("application/x-download");  
-	  	response().setHeader("Content-disposition","attachment; filename="+facultad.getNombre()+" "+semestre+".xls");
+	  	response().setHeader("Content-disposition","attachment; filename="+"Facultad "+facultad.getNombre()+" "+semestre+".xls");
 	   	
    		return ok(file);
 

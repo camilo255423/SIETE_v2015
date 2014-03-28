@@ -93,7 +93,7 @@ public class Informe2 extends Controller {
    		HSSFWorkbook workbook = new HSSFWorkbook();
    		EvaluacionGestion eg = evaluacion.getEvaluacionGestion();
    		EvaluacionInvestigacion ei = evaluacion.getEvaluacionInvestigacion();
-   		HSSFSheet sheet = workbook.createSheet("Docencia");
+   		HSSFSheet sheet = workbook.createSheet("Heteroevaluación");
    		//Create a new row in current sheet
    	 File folder = new File(".");
 	    final File[] files = folder.listFiles();
@@ -205,7 +205,7 @@ public class Informe2 extends Controller {
    		
    		//Set value to new value
    		 FileOutputStream out;
-   		 File file = new File(profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
+   		 File file = new File("Heteroevaluación "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
    		
    		try {
    		    out = 
@@ -220,7 +220,7 @@ public class Informe2 extends Controller {
    		    e.printStackTrace();
    		}
    		response().setContentType("application/x-download");  
-  		response().setHeader("Content-disposition","attachment; filename="+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
+  		response().setHeader("Content-disposition","attachment; filename="+"Heteroevaluación "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
    	
    		return ok(file);
 
