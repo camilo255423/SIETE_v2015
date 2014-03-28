@@ -20,14 +20,14 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object informeparticipantes extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template5[List[Facultad],List[Facultad],List[Facultad],List[Facultad],List[Facultad],play.api.templates.HtmlFormat.Appendable] {
+object informeparticipantes extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template5[List[Facultad],List[Facultad],List[Facultad],List[Facultad],List[Facultad],play.api.templates.Html] {
 
     /**/
     def apply/*1.2*/(estudiantesEvaluadosPorFacultad:List[Facultad],
     			docentesEvaluadosPorEstudiantesPorFacultad:List[Facultad],
     			docentesConAutoevaluacionPorFacultad:List[Facultad],
     			directivosGestionEvaluadosPorFacultad:List[Facultad],
-    			directivosInvestigacionEvaluadosPorFacultad:List[Facultad]):play.api.templates.HtmlFormat.Appendable = {
+    			directivosInvestigacionEvaluadosPorFacultad:List[Facultad]):play.api.templates.Html = {
         _display_ {import models.Nivel
 
 import java.text.DecimalFormat
@@ -159,19 +159,19 @@ $( ".tabs" ).tabs();
 </script>"""))}
     }
     
-    def render(estudiantesEvaluadosPorFacultad:List[Facultad],docentesEvaluadosPorEstudiantesPorFacultad:List[Facultad],docentesConAutoevaluacionPorFacultad:List[Facultad],directivosGestionEvaluadosPorFacultad:List[Facultad],directivosInvestigacionEvaluadosPorFacultad:List[Facultad]): play.api.templates.HtmlFormat.Appendable = apply(estudiantesEvaluadosPorFacultad,docentesEvaluadosPorEstudiantesPorFacultad,docentesConAutoevaluacionPorFacultad,directivosGestionEvaluadosPorFacultad,directivosInvestigacionEvaluadosPorFacultad)
+    def render(estudiantesEvaluadosPorFacultad:List[Facultad],docentesEvaluadosPorEstudiantesPorFacultad:List[Facultad],docentesConAutoevaluacionPorFacultad:List[Facultad],directivosGestionEvaluadosPorFacultad:List[Facultad],directivosInvestigacionEvaluadosPorFacultad:List[Facultad]): play.api.templates.Html = apply(estudiantesEvaluadosPorFacultad,docentesEvaluadosPorEstudiantesPorFacultad,docentesConAutoevaluacionPorFacultad,directivosGestionEvaluadosPorFacultad,directivosInvestigacionEvaluadosPorFacultad)
     
-    def f:((List[Facultad],List[Facultad],List[Facultad],List[Facultad],List[Facultad]) => play.api.templates.HtmlFormat.Appendable) = (estudiantesEvaluadosPorFacultad,docentesEvaluadosPorEstudiantesPorFacultad,docentesConAutoevaluacionPorFacultad,directivosGestionEvaluadosPorFacultad,directivosInvestigacionEvaluadosPorFacultad) => apply(estudiantesEvaluadosPorFacultad,docentesEvaluadosPorEstudiantesPorFacultad,docentesConAutoevaluacionPorFacultad,directivosGestionEvaluadosPorFacultad,directivosInvestigacionEvaluadosPorFacultad)
+    def f:((List[Facultad],List[Facultad],List[Facultad],List[Facultad],List[Facultad]) => play.api.templates.Html) = (estudiantesEvaluadosPorFacultad,docentesEvaluadosPorEstudiantesPorFacultad,docentesConAutoevaluacionPorFacultad,directivosGestionEvaluadosPorFacultad,directivosInvestigacionEvaluadosPorFacultad) => apply(estudiantesEvaluadosPorFacultad,docentesEvaluadosPorEstudiantesPorFacultad,docentesConAutoevaluacionPorFacultad,directivosGestionEvaluadosPorFacultad,directivosInvestigacionEvaluadosPorFacultad)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Mar 27 21:27:50 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/informes/informeparticipantes.scala.html
-                    HASH: 40100902e2a9696f7bc33e178423e0295c8fbae4
-                    MATRIX: 866->1|1314->303|1341->357|1396->378|1441->415|1488->425|2065->967|2129->1015|2168->1016|2220->1033|2237->1041|2271->1053|2320->1067|2337->1075|2378->1094|2427->1108|2444->1116|2477->1127|2526->1141|2542->1148|2597->1181|2647->1200|2967->1485|3042->1544|3081->1545|3133->1562|3150->1570|3184->1582|3233->1596|3250->1604|3291->1623|3340->1637|3357->1645|3390->1656|3439->1670|3455->1677|3510->1710|3560->1729|3906->2040|3975->2093|4014->2094|4066->2111|4083->2119|4117->2131|4166->2145|4183->2153|4224->2172|4273->2186|4290->2194|4323->2205|4372->2219|4388->2226|4443->2259|4493->2278|4825->2575|4895->2629|4934->2630|4986->2647|5003->2655|5037->2667|5086->2681|5103->2689|5144->2708|5193->2722|5210->2730|5243->2741|5292->2755|5308->2762|5363->2795|5414->2814|5740->3104|5817->3164|5857->3165|5910->3182|5928->3190|5963->3202|6013->3216|6031->3224|6073->3243|6123->3257|6141->3265|6175->3276|6225->3290|6242->3297|6298->3330|6349->3349|6436->3404
+                    DATE: Fri Mar 28 08:45:20 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/informes/informeparticipantes.scala.html
+                    HASH: 99a78f643ebfea14ed08b7c44ac779b83ba49b8e
+                    MATRIX: 815->1|1246->303|1273->357|1328->378|1373->415|1420->425|1997->967|2061->1015|2100->1016|2152->1033|2169->1041|2203->1053|2252->1067|2269->1075|2310->1094|2359->1108|2376->1116|2409->1127|2458->1141|2474->1148|2529->1181|2579->1200|2899->1485|2974->1544|3013->1545|3065->1562|3082->1570|3116->1582|3165->1596|3182->1604|3223->1623|3272->1637|3289->1645|3322->1656|3371->1670|3387->1677|3442->1710|3492->1729|3838->2040|3907->2093|3946->2094|3998->2111|4015->2119|4049->2131|4098->2145|4115->2153|4156->2172|4205->2186|4222->2194|4255->2205|4304->2219|4320->2226|4375->2259|4425->2278|4757->2575|4827->2629|4866->2630|4918->2647|4935->2655|4969->2667|5018->2681|5035->2689|5076->2708|5125->2722|5142->2730|5175->2741|5224->2755|5240->2762|5295->2795|5346->2814|5672->3104|5749->3164|5789->3165|5842->3182|5860->3190|5895->3202|5945->3216|5963->3224|6005->3243|6055->3257|6073->3265|6107->3276|6157->3290|6174->3297|6230->3330|6281->3349|6368->3404
                     LINES: 26->1|36->5|37->8|38->9|38->9|38->9|57->28|57->28|57->28|59->30|59->30|59->30|60->31|60->31|60->31|61->32|61->32|61->32|62->33|62->33|62->33|64->35|78->49|78->49|78->49|80->51|80->51|80->51|81->52|81->52|81->52|82->53|82->53|82->53|83->54|83->54|83->54|85->56|101->72|101->72|101->72|103->74|103->74|103->74|104->75|104->75|104->75|105->76|105->76|105->76|106->77|106->77|106->77|108->79|122->93|122->93|122->93|124->95|124->95|124->95|125->96|125->96|125->96|126->97|126->97|126->97|127->98|127->98|127->98|129->100|143->114|143->114|143->114|145->116|145->116|145->116|146->117|146->117|146->117|147->118|147->118|147->118|148->119|148->119|148->119|150->121|155->126
                     -- GENERATED --
                 */

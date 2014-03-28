@@ -1,15 +1,6 @@
-[0m[[0mdebug[0m] [0m[0m
-[0m[[0mdebug[0m] [0mInitial source changes: [0m
-[0m[[0mdebug[0m] [0m	removed:Set()[0m
-[0m[[0mdebug[0m] [0m	added: Set()[0m
-[0m[[0mdebug[0m] [0m	modified: Set()[0m
-[0m[[0mdebug[0m] [0mRemoved products: Set()[0m
-[0m[[0mdebug[0m] [0mModified external sources: Set()[0m
-[0m[[0mdebug[0m] [0mModified binary dependencies: Set()[0m
-[0m[[0mdebug[0m] [0mInitial directly invalidated sources: Set()[0m
-[0m[[0mdebug[0m] [0m[0m
-[0m[[0mdebug[0m] [0mSources indirectly invalidated by:[0m
-[0m[[0mdebug[0m] [0m	product: Set()[0m
-[0m[[0mdebug[0m] [0m	binary dep: Set()[0m
-[0m[[0mdebug[0m] [0m	external source: Set()[0m
-[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set()[0m
+[0m[[0minfo[0m] [0mCompiling 31 Scala sources and 23 Java sources to /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes...[0m
+[0m[[33mwarn[0m] [0m/home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/conf/routes:26: unreachable code[0m
+[0m[[33mwarn[0m] [0mPOST	/informefinal				controllers.Informe3.informeProfesor()[0m
+[0m[[33mwarn[0m] [0m/home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/conf/routes:25: unreachable code[0m
+[0m[[33mwarn[0m] [0mPOST    /heteroevaluacion			controllers.Informe2.informeProfesor()[0m
+[0m[[33mwarn[0m] [0mtwo warnings found[0m

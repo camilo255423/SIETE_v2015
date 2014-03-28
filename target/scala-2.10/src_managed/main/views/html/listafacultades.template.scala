@@ -20,10 +20,10 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object listafacultades extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template2[List[Facultad],Integer,play.api.templates.HtmlFormat.Appendable] {
+object listafacultades extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template2[List[Facultad],Integer,play.api.templates.Html] {
 
     /**/
-    def apply/*1.2*/(facultades:List[Facultad], conScript:Integer=0):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*1.2*/(facultades:List[Facultad], conScript:Integer=0):play.api.templates.Html = {
         _display_ {
 
 Seq[Any](format.raw/*1.50*/("""
@@ -37,19 +37,19 @@ Seq[Any](format.raw/*1.50*/("""
 """))}
     }
     
-    def render(facultades:List[Facultad],conScript:Integer): play.api.templates.HtmlFormat.Appendable = apply(facultades,conScript)
+    def render(facultades:List[Facultad],conScript:Integer): play.api.templates.Html = apply(facultades,conScript)
     
-    def f:((List[Facultad],Integer) => play.api.templates.HtmlFormat.Appendable) = (facultades,conScript) => apply(facultades,conScript)
+    def f:((List[Facultad],Integer) => play.api.templates.Html) = (facultades,conScript) => apply(facultades,conScript)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Mar 27 21:27:43 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/listafacultades.scala.html
-                    HASH: c4dade4afbbffd5290a4ff60a772ad696ac1900d
-                    MATRIX: 800->1|942->49|1112->185|1154->212|1192->213|1244->230|1260->238|1298->255|1336->258|1352->266|1385->278|1426->289
+                    DATE: Fri Mar 28 08:45:15 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/listafacultades.scala.html
+                    HASH: 77167e2ff0641c1174128d2729733de87ad3a813
+                    MATRIX: 749->1|874->49|1044->185|1086->212|1124->213|1176->230|1192->238|1230->255|1268->258|1284->266|1317->278|1358->289
                     LINES: 26->1|29->1|33->5|33->5|33->5|34->6|34->6|34->6|34->6|34->6|34->6|35->7
                     -- GENERATED --
                 */

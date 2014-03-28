@@ -1,6 +1,6 @@
-// @SOURCE:/home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/conf/routes
-// @HASH:296401ffeb547e53732270e68fcec30865bee6cc
-// @DATE:Thu Mar 27 21:27:38 COT 2014
+// @SOURCE:/home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/conf/routes
+// @HASH:88a42ac4e6440cd4e30deb770049c56d6a83eb5a
+// @DATE:Fri Mar 28 08:45:14 COT 2014
 
 package controllers;
 
@@ -21,8 +21,8 @@ public static final controllers.javascript.ReverseInforme4 Informe4 = new contro
 public static final controllers.javascript.ReverseInforme6 Informe6 = new controllers.javascript.ReverseInforme6();
 public static final controllers.javascript.ReverseInforme3 Informe3 = new controllers.javascript.ReverseInforme3();
 public static final controllers.javascript.ReverseApplication Application = new controllers.javascript.ReverseApplication();
-public static final controllers.javascript.ReverseInforme2 Informe2 = new controllers.javascript.ReverseInforme2();
-}
+public static final controllers.javascript.ReverseInforme2 Informe2 = new controllers.javascript.ReverseInforme2();    
+}   
 public static class ref {
 public static final controllers.ref.ReverseInforme5 Informe5 = new controllers.ref.ReverseInforme5();
 public static final controllers.ref.ReverseAssets Assets = new controllers.ref.ReverseAssets();
@@ -31,7 +31,7 @@ public static final controllers.ref.ReverseInforme4 Informe4 = new controllers.r
 public static final controllers.ref.ReverseInforme6 Informe6 = new controllers.ref.ReverseInforme6();
 public static final controllers.ref.ReverseInforme3 Informe3 = new controllers.ref.ReverseInforme3();
 public static final controllers.ref.ReverseApplication Application = new controllers.ref.ReverseApplication();
-public static final controllers.ref.ReverseInforme2 Informe2 = new controllers.ref.ReverseInforme2();
+public static final controllers.ref.ReverseInforme2 Informe2 = new controllers.ref.ReverseInforme2();    
+} 
 }
-}
-          
+              

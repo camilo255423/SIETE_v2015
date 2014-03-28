@@ -20,10 +20,10 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object listainformes extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template0[play.api.templates.HtmlFormat.Appendable] {
+object listainformes extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template0[play.api.templates.Html] {
 
     /**/
-    def apply():play.api.templates.HtmlFormat.Appendable = {
+    def apply():play.api.templates.Html = {
         _display_ {
 
 Seq[Any](format.raw/*1.1*/("""<select id='listainformes'>
@@ -36,19 +36,19 @@ Seq[Any](format.raw/*1.1*/("""<select id='listainformes'>
 </select>"""))}
     }
     
-    def render(): play.api.templates.HtmlFormat.Appendable = apply()
+    def render(): play.api.templates.Html = apply()
     
-    def f:(() => play.api.templates.HtmlFormat.Appendable) = () => apply()
+    def f:(() => play.api.templates.Html) = () => apply()
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Mar 27 21:27:43 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/listainformes.scala.html
-                    HASH: bd653012fac2f230f5cb2ff50518baa939d446fd
-                    MATRIX: 863->0
+                    DATE: Fri Mar 28 08:45:15 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/listainformes.scala.html
+                    HASH: 1855e0a839e399094487d5e6400589d8ec0fa8e7
+                    MATRIX: 795->0
                     LINES: 29->1
                     -- GENERATED --
                 */

@@ -20,10 +20,10 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object listasemestres extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template1[List[String],play.api.templates.HtmlFormat.Appendable] {
+object listasemestres extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template1[List[String],play.api.templates.Html] {
 
     /**/
-    def apply/*1.2*/(semestres:List[String]):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*1.2*/(semestres:List[String]):play.api.templates.Html = {
         _display_ {
 
 Seq[Any](format.raw/*1.26*/("""
@@ -81,19 +81,19 @@ value:false
 </script>"""))}
     }
     
-    def render(semestres:List[String]): play.api.templates.HtmlFormat.Appendable = apply(semestres)
+    def render(semestres:List[String]): play.api.templates.Html = apply(semestres)
     
-    def f:((List[String]) => play.api.templates.HtmlFormat.Appendable) = (semestres) => apply(semestres)
+    def f:((List[String]) => play.api.templates.Html) = (semestres) => apply(semestres)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Mar 27 21:27:43 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/listasemestres.scala.html
-                    HASH: dc30fef5d34fed92a97744b47e0ced73eb768eb9
-                    MATRIX: 789->1|907->25|989->73|1030->99|1068->100|1120->117|1149->125|1187->128|1216->136|1257->147|1318->181|1346->182|1427->236|1455->237|1512->267|1540->268|1737->437|1766->438|1806->451|1834->452|2176->766|2205->767|2285->819|2314->820|2427->906|2455->907|2516->941|2544->942|2684->1054|2713->1055|2753->1068|2781->1069|2839->1100|2867->1101|2927->1133|2956->1134|3020->1170|3049->1171|3168->1263|3196->1264|3231->1272|3259->1273|3379->1366|3407->1367|3436->1369|3464->1370
+                    DATE: Fri Mar 28 08:45:15 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/listasemestres.scala.html
+                    HASH: 5f6b17cfa4a782c2fcdc7c9a06d965ebf9585bd2
+                    MATRIX: 738->1|839->25|921->73|962->99|1000->100|1052->117|1081->125|1119->128|1148->136|1189->147|1250->181|1278->182|1359->236|1387->237|1444->267|1472->268|1669->437|1698->438|1738->451|1766->452|2108->766|2137->767|2217->819|2246->820|2359->906|2387->907|2448->941|2476->942|2616->1054|2645->1055|2685->1068|2713->1069|2771->1100|2799->1101|2859->1133|2888->1134|2952->1170|2981->1171|3100->1263|3128->1264|3163->1272|3191->1273|3311->1366|3339->1367|3368->1369|3396->1370
                     LINES: 26->1|29->1|32->4|32->4|32->4|33->5|33->5|33->5|33->5|34->6|39->11|39->11|43->15|43->15|46->18|46->18|51->23|51->23|53->25|53->25|58->30|58->30|58->30|58->30|60->32|60->32|62->34|62->34|64->36|64->36|66->38|66->38|68->40|68->40|69->41|69->41|69->41|69->41|72->44|72->44|74->46|74->46|78->50|78->50|80->52|80->52
                     -- GENERATED --
                 */

@@ -20,10 +20,10 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object informedocencia extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template3[List[EvaluacionMateria],List[Profesor],List[String],play.api.templates.HtmlFormat.Appendable] {
+object informedocencia extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template3[List[EvaluacionMateria],List[Profesor],List[String],play.api.templates.Html] {
 
     /**/
-    def apply/*1.2*/(evaluacionMateria:List[EvaluacionMateria], profesores:List[Profesor],semestres:List[String]):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*1.2*/(evaluacionMateria:List[EvaluacionMateria], profesores:List[Profesor],semestres:List[String]):play.api.templates.Html = {
         _display_ {import models.Pregunta
 
 
@@ -41,19 +41,19 @@ Seq[Any](format.raw/*1.95*/("""
 """))}
     }
     
-    def render(evaluacionMateria:List[EvaluacionMateria],profesores:List[Profesor],semestres:List[String]): play.api.templates.HtmlFormat.Appendable = apply(evaluacionMateria,profesores,semestres)
+    def render(evaluacionMateria:List[EvaluacionMateria],profesores:List[Profesor],semestres:List[String]): play.api.templates.Html = apply(evaluacionMateria,profesores,semestres)
     
-    def f:((List[EvaluacionMateria],List[Profesor],List[String]) => play.api.templates.HtmlFormat.Appendable) = (evaluacionMateria,profesores,semestres) => apply(evaluacionMateria,profesores,semestres)
+    def f:((List[EvaluacionMateria],List[Profesor],List[String]) => play.api.templates.Html) = (evaluacionMateria,profesores,semestres) => apply(evaluacionMateria,profesores,semestres)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Mar 27 21:27:47 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/informes/informedocencia.scala.html
-                    HASH: ceaae20854a50d4ce397ee02c1d2eff314c32fc7
-                    MATRIX: 838->1|1048->94|1075->119|1112->122|1136->138|1174->139|1243->173|1294->202|1329->206
+                    DATE: Fri Mar 28 08:45:18 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/informes/informedocencia.scala.html
+                    HASH: 1d216360ad85296d982d16eb9355c1bf1ad982cc
+                    MATRIX: 787->1|980->94|1007->119|1044->122|1068->138|1106->139|1175->173|1226->202|1261->206
                     LINES: 26->1|30->1|31->3|33->5|33->5|33->5|38->10|38->10|40->12
                     -- GENERATED --
                 */

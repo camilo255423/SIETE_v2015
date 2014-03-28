@@ -20,10 +20,10 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object mainmenu extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template0[play.api.templates.HtmlFormat.Appendable] {
+object mainmenu extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template0[play.api.templates.Html] {
 
     /**/
-    def apply():play.api.templates.HtmlFormat.Appendable = {
+    def apply():play.api.templates.Html = {
         _display_ {
 
 Seq[Any](format.raw/*2.5*/("""<ul class="nav">
@@ -33,19 +33,19 @@ Seq[Any](format.raw/*2.5*/("""<ul class="nav">
         </ul>"""))}
     }
     
-    def render(): play.api.templates.HtmlFormat.Appendable = apply()
+    def render(): play.api.templates.Html = apply()
     
-    def f:(() => play.api.templates.HtmlFormat.Appendable) = () => apply()
+    def f:(() => play.api.templates.Html) = () => apply()
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Mar 27 21:27:42 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/mainmenu.scala.html
-                    HASH: 1f4f82b7509afc6fabf23d6576640954a1ffbea6
-                    MATRIX: 858->9
+                    DATE: Fri Mar 28 08:45:15 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/mainmenu.scala.html
+                    HASH: 500aa0e616a848e6664faad22989cd4985385604
+                    MATRIX: 790->9
                     LINES: 29->2
                     -- GENERATED --
                 */

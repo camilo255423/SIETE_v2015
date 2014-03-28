@@ -20,10 +20,10 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object main extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template2[String,Html,play.api.templates.HtmlFormat.Appendable] {
+object main extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template2[String,Html,play.api.templates.Html] {
 
     /**/
-    def apply/*1.2*/(title: String)(content: Html):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*1.2*/(title: String)(content: Html):play.api.templates.Html = {
         _display_ {
 
 Seq[Any](format.raw/*1.32*/("""
@@ -61,19 +61,19 @@ Seq[Any](format.raw/*1.32*/("""
 """))}
     }
     
-    def render(title:String,content:Html): play.api.templates.HtmlFormat.Appendable = apply(title)(content)
+    def render(title:String,content:Html): play.api.templates.Html = apply(title)(content)
     
-    def f:((String) => (Html) => play.api.templates.HtmlFormat.Appendable) = (title) => (content) => apply(title)(content)
+    def f:((String) => (Html) => play.api.templates.Html) = (title) => (content) => apply(title)(content)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Mar 27 21:27:42 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/main.scala.html
-                    HASH: 5512e434a0a42c547ad6e7d9c0a6e9ecb0f08813
-                    MATRIX: 778->1|902->31|990->84|1016->89|1077->115|1091->121|1139->148|1230->204|1244->210|1323->268|1418->327|1433->333|1487->365|1572->414|1587->420|1652->463|1829->605|1861->615|1931->649|1946->655|2004->691|2190->842|2219->849
+                    DATE: Fri Mar 28 08:45:15 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/main.scala.html
+                    HASH: 2f004ec23719528688515c7378beab953978d6b4
+                    MATRIX: 727->1|834->31|922->84|948->89|1009->115|1023->121|1071->148|1162->204|1176->210|1255->268|1350->327|1365->333|1419->365|1504->414|1519->420|1584->463|1761->605|1793->615|1863->649|1878->655|1936->691|2122->842|2151->849
                     LINES: 26->1|29->1|35->7|35->7|36->8|36->8|36->8|37->9|37->9|37->9|38->10|38->10|38->10|39->11|39->11|39->11|46->18|46->18|48->20|48->20|48->20|55->27|55->27
                     -- GENERATED --
                 */
