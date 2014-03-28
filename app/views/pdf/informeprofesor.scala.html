@@ -31,11 +31,11 @@ porcentaje @(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscrito
 		<table border='1'>
 		<tbody>
 	 			<tr>
-	           <td style="font-size: 8pt; width='7cm'">OBSERVACIONES</td>  
+	           <td width='650' style="font-size: 8pt;">OBSERVACIONES</td>  
 	          </tr>
 		     @for(observaciones <- evaluacion.getObservaciones()){
 		     <tr>
-	           <td style="font-size: 8pt; width='7cm'">- @observaciones</td>  
+	           <td width='650' style="font-size: 8pt;">- @observaciones</td>  
 	          </tr>
 	          }
 	    </tbody>

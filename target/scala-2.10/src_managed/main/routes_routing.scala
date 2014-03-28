@@ -1,6 +1,6 @@
 // @SOURCE:/home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/conf/routes
-// @HASH:88a42ac4e6440cd4e30deb770049c56d6a83eb5a
-// @DATE:Mon Mar 24 19:20:22 COT 2014
+// @HASH:296401ffeb547e53732270e68fcec30865bee6cc
+// @DATE:Thu Mar 27 21:27:38 COT 2014
 
 
 import play.core._
@@ -17,7 +17,7 @@ object Routes extends Router.Routes {
 private var _prefix = "/"
 
 def setPrefix(prefix: String) {
-  _prefix = prefix  
+  _prefix = prefix
   List[(String,Routes)]().foreach {
     case (p, router) => router.setPrefix(prefix + (if(prefix.endsWith("/")) "" else "/") + p)
   }
@@ -25,7 +25,7 @@ def setPrefix(prefix: String) {
 
 def prefix = _prefix
 
-lazy val defaultPrefix = { if(Routes.prefix.endsWith("/")) "" else "/" } 
+lazy val defaultPrefix = { if(Routes.prefix.endsWith("/")) "" else "/" }
 
 
 // @LINE:6
@@ -127,9 +127,9 @@ def documentation = List(("""GET""", prefix,"""controllers.Application.index()""
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]] 
 }}
-       
-    
-def routes:PartialFunction[RequestHeader,Handler] = {        
+      
+
+def routes:PartialFunction[RequestHeader,Handler] = {
 
 // @LINE:6
 case controllers_Application_index0(params) => {
@@ -323,6 +323,6 @@ case controllers_Assets_at23(params) => {
 }
         
 }
-    
+
 }
-        
+     

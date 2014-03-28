@@ -20,10 +20,10 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object listaprogramas extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template2[List[Programa],Integer,play.api.templates.Html] {
+object listaprogramas extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template2[List[Programa],Integer,play.api.templates.HtmlFormat.Appendable] {
 
     /**/
-    def apply/*1.2*/(programas:List[Programa], conScript:Integer=0):play.api.templates.Html = {
+    def apply/*1.2*/(programas:List[Programa], conScript:Integer=0):play.api.templates.HtmlFormat.Appendable = {
         _display_ {
 
 Seq[Any](format.raw/*1.49*/("""
@@ -37,19 +37,19 @@ Seq[Any](format.raw/*1.49*/("""
 """))}
     }
     
-    def render(programas:List[Programa],conScript:Integer): play.api.templates.Html = apply(programas,conScript)
+    def render(programas:List[Programa],conScript:Integer): play.api.templates.HtmlFormat.Appendable = apply(programas,conScript)
     
-    def f:((List[Programa],Integer) => play.api.templates.Html) = (programas,conScript) => apply(programas,conScript)
+    def f:((List[Programa],Integer) => play.api.templates.HtmlFormat.Appendable) = (programas,conScript) => apply(programas,conScript)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Mar 24 19:20:24 COT 2014
+                    DATE: Thu Mar 27 21:27:42 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/listaprogramas.scala.html
-                    HASH: 1a6e1603955d84c95a154d284c417abb891cdb17
-                    MATRIX: 748->1|872->48|1041->183|1082->209|1120->210|1172->227|1188->235|1226->252|1264->255|1280->263|1318->280|1355->282|1371->290|1404->302|1445->313
+                    HASH: 7dae5c4e0844dc8012a230630fc49460101dbdd2
+                    MATRIX: 799->1|940->48|1109->183|1150->209|1188->210|1240->227|1256->235|1294->252|1332->255|1348->263|1386->280|1423->282|1439->290|1472->302|1513->313
                     LINES: 26->1|29->1|33->5|33->5|33->5|34->6|34->6|34->6|34->6|34->6|34->6|34->6|34->6|34->6|35->7
                     -- GENERATED --
                 */

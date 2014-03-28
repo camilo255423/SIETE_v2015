@@ -20,10 +20,10 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object informeprofesor extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template5[List[EvaluacionMateria],EvaluacionGestion,EvaluacionGestion,EvaluacionInvestigacion,EvaluacionInvestigacion,play.api.templates.Html] {
+object informeprofesor extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template5[List[EvaluacionMateria],EvaluacionGestion,EvaluacionGestion,EvaluacionInvestigacion,EvaluacionInvestigacion,play.api.templates.HtmlFormat.Appendable] {
 
     /**/
-    def apply/*1.2*/(evaluacionMateria:List[EvaluacionMateria], evaluacionGestion:EvaluacionGestion, autoEvaluacionGestion:EvaluacionGestion, evaluacionInvestigacion:EvaluacionInvestigacion,autoEvaluacionInvestigacion:EvaluacionInvestigacion):play.api.templates.Html = {
+    def apply/*1.2*/(evaluacionMateria:List[EvaluacionMateria], evaluacionGestion:EvaluacionGestion, autoEvaluacionGestion:EvaluacionGestion, evaluacionInvestigacion:EvaluacionInvestigacion,autoEvaluacionInvestigacion:EvaluacionInvestigacion):play.api.templates.HtmlFormat.Appendable = {
         _display_ {
 
 Seq[Any](format.raw/*1.224*/("""
@@ -129,19 +129,19 @@ $( ".tabs" ).tabs();
 </script>"""))}
     }
     
-    def render(evaluacionMateria:List[EvaluacionMateria],evaluacionGestion:EvaluacionGestion,autoEvaluacionGestion:EvaluacionGestion,evaluacionInvestigacion:EvaluacionInvestigacion,autoEvaluacionInvestigacion:EvaluacionInvestigacion): play.api.templates.Html = apply(evaluacionMateria,evaluacionGestion,autoEvaluacionGestion,evaluacionInvestigacion,autoEvaluacionInvestigacion)
+    def render(evaluacionMateria:List[EvaluacionMateria],evaluacionGestion:EvaluacionGestion,autoEvaluacionGestion:EvaluacionGestion,evaluacionInvestigacion:EvaluacionInvestigacion,autoEvaluacionInvestigacion:EvaluacionInvestigacion): play.api.templates.HtmlFormat.Appendable = apply(evaluacionMateria,evaluacionGestion,autoEvaluacionGestion,evaluacionInvestigacion,autoEvaluacionInvestigacion)
     
-    def f:((List[EvaluacionMateria],EvaluacionGestion,EvaluacionGestion,EvaluacionInvestigacion,EvaluacionInvestigacion) => play.api.templates.Html) = (evaluacionMateria,evaluacionGestion,autoEvaluacionGestion,evaluacionInvestigacion,autoEvaluacionInvestigacion) => apply(evaluacionMateria,evaluacionGestion,autoEvaluacionGestion,evaluacionInvestigacion,autoEvaluacionInvestigacion)
+    def f:((List[EvaluacionMateria],EvaluacionGestion,EvaluacionGestion,EvaluacionInvestigacion,EvaluacionInvestigacion) => play.api.templates.HtmlFormat.Appendable) = (evaluacionMateria,evaluacionGestion,autoEvaluacionGestion,evaluacionInvestigacion,autoEvaluacionInvestigacion) => apply(evaluacionMateria,evaluacionGestion,autoEvaluacionGestion,evaluacionInvestigacion,autoEvaluacionInvestigacion)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Mar 24 19:20:31 COT 2014
+                    DATE: Thu Mar 27 21:27:49 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/informes/informeprofesor.scala.html
-                    HASH: 05a366cf7ccf917ac315f8eaafd77830c36e95f0
-                    MATRIX: 843->1|1143->223|1430->475|1482->511|1521->512|1559->515|1632->579|1671->580|1713->587|1732->597|1779->622|1824->631|1843->641|1889->665|2139->879|2158->889|2195->904|2236->909|2255->919|2305->947|2356->962|2456->1040|2503->1052|2594->1121|2634->1126|2724->1194|2764->1199|2855->1268|2969->1347|3036->1398|3075->1399|3143->1431|3178->1444|3247->1481|3360->1559|3492->1681|3540->1690|3579->1694|3601->1707|3640->1708|3679->1712|3727->1751|3782->1768|3821->1772|3916->1845|3958->1852|4052->1924|4094->1931|4189->2004|4224->2008|4248->2014|4260->2018|4298->2019|4362->2052|4396->2055|4495->2123|4529->2126|4803->2365|4888->2428|4969->2474|5073->2556|5366->2814|5475->2901|5562->2953|5691->3059
+                    HASH: 2abec2fe86f1159eee52a0c1cc49d7a5b323a209
+                    MATRIX: 894->1|1211->223|1498->475|1550->511|1589->512|1627->515|1700->579|1739->580|1781->587|1800->597|1847->622|1892->631|1911->641|1957->665|2207->879|2226->889|2263->904|2304->909|2323->919|2373->947|2424->962|2524->1040|2571->1052|2662->1121|2702->1126|2792->1194|2832->1199|2923->1268|3037->1347|3104->1398|3143->1399|3211->1431|3246->1444|3315->1481|3428->1559|3560->1681|3608->1690|3647->1694|3669->1707|3708->1708|3747->1712|3795->1751|3850->1768|3889->1772|3984->1845|4026->1852|4120->1924|4162->1931|4257->2004|4292->2008|4316->2014|4328->2018|4366->2019|4430->2052|4464->2055|4563->2123|4597->2126|4871->2365|4956->2428|5037->2474|5141->2556|5434->2814|5543->2901|5630->2953|5759->3059
                     LINES: 26->1|29->1|39->11|39->11|39->11|40->12|40->12|40->12|41->13|41->13|41->13|41->13|41->13|41->13|50->22|50->22|50->22|50->22|50->22|50->22|51->23|51->23|53->25|53->25|55->27|55->27|57->29|57->29|63->35|63->35|63->35|65->37|65->37|67->39|73->45|73->45|73->45|74->46|74->46|74->46|75->47|75->47|75->47|76->48|76->48|78->50|78->50|80->52|80->52|81->53|83->55|83->55|83->55|85->57|86->58|92->64|93->65|103->75|103->75|106->78|106->78|118->90|118->90|121->93|121->93
                     -- GENERATED --
                 */

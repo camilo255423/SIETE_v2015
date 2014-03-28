@@ -1,41 +1,21 @@
-2014-03-24 12:52:36,329 - [INFO] - from play in pool-4-thread-4 
+2014-03-27 22:20:20,055 - [INFO] - from play in pool-4-thread-2 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2014-03-24 12:52:58,889 - [INFO] - from play in play-internal-execution-context-1 
+2014-03-27 22:20:34,591 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
 
-2014-03-24 12:53:01,209 - [INFO] - from play in play-internal-execution-context-1 
+2014-03-27 22:20:35,522 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2014-03-24 17:48:59,748 - [ERROR] - from com.jolbox.bonecp.ConnectionPartition in com.google.common.base.internal.Finalizer 
-Error while closing off internal db connection
-java.sql.SQLRecoverableException: IO Error: Connection timed out
-	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:587) ~[ojdbc6.jar:11.2.0.3.0]
-	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:4011) ~[ojdbc6.jar:11.2.0.3.0]
-	at com.jolbox.bonecp.ConnectionPartition$1.finalizeReferent(ConnectionPartition.java:164) ~[bonecp.jar:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_25]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_25]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_25]
-	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_25]
-	at com.google.common.base.internal.Finalizer.cleanUp(Finalizer.java:159) ~[guava.jar:na]
-	at com.google.common.base.internal.Finalizer.run(Finalizer.java:132) ~[guava.jar:na]
-	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
-Caused by: java.net.SocketException: Connection timed out
-	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.7.0_25]
-	at java.net.SocketInputStream.read(SocketInputStream.java:150) ~[na:1.7.0_25]
-	at java.net.SocketInputStream.read(SocketInputStream.java:121) ~[na:1.7.0_25]
-	at oracle.net.ns.Packet.receive(Packet.java:308) ~[ojdbc6.jar:11.2.0.3.0]
-	at oracle.net.ns.DataPacket.receive(DataPacket.java:106) ~[ojdbc6.jar:11.2.0.3.0]
-	at oracle.net.ns.NetInputStream.getNextPacket(NetInputStream.java:324) ~[ojdbc6.jar:11.2.0.3.0]
-	at oracle.net.ns.NetInputStream.read(NetInputStream.java:268) ~[ojdbc6.jar:11.2.0.3.0]
-	at oracle.net.ns.NetInputStream.read(NetInputStream.java:190) ~[ojdbc6.jar:11.2.0.3.0]
-	at oracle.net.ns.NetInputStream.read(NetInputStream.java:107) ~[ojdbc6.jar:11.2.0.3.0]
-	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.readNextPacket(T4CSocketInputStreamWrapper.java:124) ~[ojdbc6.jar:11.2.0.3.0]
-	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.read(T4CSocketInputStreamWrapper.java:80) ~[ojdbc6.jar:11.2.0.3.0]
-	at oracle.jdbc.driver.T4CMAREngine.unmarshalUB1(T4CMAREngine.java:1137) ~[ojdbc6.jar:11.2.0.3.0]
-	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:350) ~[ojdbc6.jar:11.2.0.3.0]
-	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227) ~[ojdbc6.jar:11.2.0.3.0]
-	at oracle.jdbc.driver.T4C7Ocommoncall.doOLOGOFF(T4C7Ocommoncall.java:61) ~[ojdbc6.jar:11.2.0.3.0]
-	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:574) ~[ojdbc6.jar:11.2.0.3.0]
-	... 9 common frames omitted
+2014-03-27 22:22:36,774 - [INFO] - from play in play-internal-execution-context-3 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-27 22:22:36,878 - [INFO] - from play in play-internal-execution-context-3 
+Application started (Dev)
+
+2014-03-27 22:24:05,020 - [INFO] - from play in play-internal-execution-context-3 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-27 22:24:05,104 - [INFO] - from play in play-internal-execution-context-3 
+Application started (Dev)
 

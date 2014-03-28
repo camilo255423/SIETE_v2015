@@ -20,10 +20,10 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object tablagestion extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template5[EvaluacionGestion,String,Int,Int,Int,play.api.templates.Html] {
+object tablagestion extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template5[EvaluacionGestion,String,Int,Int,Int,play.api.templates.HtmlFormat.Appendable] {
 
     /**/
-    def apply/*1.2*/(evaluacionGestion:EvaluacionGestion, titulo:String, saber:Int, inicio:Int, fin:Int):play.api.templates.Html = {
+    def apply/*1.2*/(evaluacionGestion:EvaluacionGestion, titulo:String, saber:Int, inicio:Int, fin:Int):play.api.templates.HtmlFormat.Appendable = {
         _display_ {import models.Pregunta
 
 import models.Nivel
@@ -98,19 +98,19 @@ Seq[Any](format.raw/*1.86*/("""
 """))}
     }
     
-    def render(evaluacionGestion:EvaluacionGestion,titulo:String,saber:Int,inicio:Int,fin:Int): play.api.templates.Html = apply(evaluacionGestion,titulo,saber,inicio,fin)
+    def render(evaluacionGestion:EvaluacionGestion,titulo:String,saber:Int,inicio:Int,fin:Int): play.api.templates.HtmlFormat.Appendable = apply(evaluacionGestion,titulo,saber,inicio,fin)
     
-    def f:((EvaluacionGestion,String,Int,Int,Int) => play.api.templates.Html) = (evaluacionGestion,titulo,saber,inicio,fin) => apply(evaluacionGestion,titulo,saber,inicio,fin)
+    def f:((EvaluacionGestion,String,Int,Int,Int) => play.api.templates.HtmlFormat.Appendable) = (evaluacionGestion,titulo,saber,inicio,fin) => apply(evaluacionGestion,titulo,saber,inicio,fin)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Mar 24 19:20:29 COT 2014
+                    DATE: Thu Mar 27 21:27:47 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/pdf/tablagestion.scala.html
-                    HASH: 230c99e48f843af80353a9a1e5e5d8c344159d3a
-                    MATRIX: 764->1|1001->85|1028->163|1089->189|1116->195|2289->1332|2335->1369|2383->1379|2431->1391|2499->1450|2549->1462|2598->1475|2635->1496|2675->1498|2724->1511|2866->1643|2916->1654|3021->1723|3038->1731|3075->1746|3163->1798|3180->1806|3216->1833|3254->1849|3342->1901|3358->1908|3436->1963|3522->2013|3539->2021|3575->2048|3609->2060|3697->2112|3713->2119|3787->2170|3876->2223|3893->2231|3929->2258|3964->2271|4052->2323|4068->2330|4143->2382|4232->2435|4249->2443|4285->2470|4319->2482|4407->2534|4423->2541|4497->2592|4583->2646|4629->2660|4675->2674|4848->2811|4864->2818|4953->2884|5041->2936|5057->2943|5146->3009|5235->3062|5251->3069|5336->3131|5424->3183|5440->3190|5525->3252|5614->3305|5630->3312|5716->3375|5804->3427|5820->3434|5906->3497|5995->3550|6011->3557|6096->3619|6184->3671|6200->3678|6285->3740|6364->3787
+                    HASH: 556fac22aba60fd73e0e9f864527a10f8c354c28
+                    MATRIX: 815->1|1069->85|1096->163|1157->189|1184->195|2357->1332|2403->1369|2451->1379|2499->1391|2567->1450|2617->1462|2666->1475|2703->1496|2743->1498|2792->1511|2934->1643|2984->1654|3089->1723|3106->1731|3143->1746|3231->1798|3248->1806|3284->1833|3322->1849|3410->1901|3426->1908|3504->1963|3590->2013|3607->2021|3643->2048|3677->2060|3765->2112|3781->2119|3855->2170|3944->2223|3961->2231|3997->2258|4032->2271|4120->2323|4136->2330|4211->2382|4300->2435|4317->2443|4353->2470|4387->2482|4475->2534|4491->2541|4565->2592|4651->2646|4697->2660|4743->2674|4916->2811|4932->2818|5021->2884|5109->2936|5125->2943|5214->3009|5303->3062|5319->3069|5404->3131|5492->3183|5508->3190|5593->3252|5682->3305|5698->3312|5784->3375|5872->3427|5888->3434|5974->3497|6063->3550|6079->3557|6164->3619|6252->3671|6268->3678|6353->3740|6432->3787
                     LINES: 26->1|34->1|35->5|35->5|35->5|60->30|60->30|60->30|61->31|61->31|61->31|62->32|62->32|62->32|63->33|63->33|63->33|65->35|65->35|65->35|66->36|66->36|66->36|66->36|67->37|67->37|67->37|68->38|68->38|68->38|68->38|69->39|69->39|69->39|70->40|70->40|70->40|70->40|71->41|71->41|71->41|72->42|72->42|72->42|72->42|73->43|73->43|73->43|76->46|77->47|79->49|84->54|84->54|84->54|85->55|85->55|85->55|86->56|86->56|86->56|87->57|87->57|87->57|88->58|88->58|88->58|89->59|89->59|89->59|90->60|90->60|90->60|91->61|91->61|91->61|95->65
                     -- GENERATED --
                 */
