@@ -4,7 +4,7 @@
 		module="moduloinformes-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20140123151700"
+		publication="20140327163152"
 		e:scalaVersion="2.10" e:sbtVersion="0.13"
 	>
 		<description>
