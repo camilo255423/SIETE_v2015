@@ -45,7 +45,7 @@ Seq[Any](format.raw/*1.1*/("""<select id='listainformes'>
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Mar 28 08:45:15 COT 2014
+                    DATE: Fri Mar 28 10:07:47 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/listainformes.scala.html
                     HASH: 1855e0a839e399094487d5e6400589d8ec0fa8e7
                     MATRIX: 795->0

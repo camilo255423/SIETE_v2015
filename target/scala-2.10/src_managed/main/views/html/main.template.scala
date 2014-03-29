@@ -70,7 +70,7 @@ Seq[Any](format.raw/*1.32*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Mar 28 08:45:15 COT 2014
+                    DATE: Fri Mar 28 10:07:46 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/main.scala.html
                     HASH: 2f004ec23719528688515c7378beab953978d6b4
                     MATRIX: 727->1|834->31|922->84|948->89|1009->115|1023->121|1071->148|1162->204|1176->210|1255->268|1350->327|1365->333|1419->365|1504->414|1519->420|1584->463|1761->605|1793->615|1863->649|1878->655|1936->691|2122->842|2151->849

@@ -54,7 +54,7 @@ Seq[Any](format.raw/*1.53*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Mar 28 08:45:15 COT 2014
+                    DATE: Fri Mar 28 10:07:47 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/sidebar.scala.html
                     HASH: 7d0745b38fbc1c6d50c5182f362181c83acab7c6
                     MATRIX: 746->1|874->52|984->127|1030->152|1084->171|1120->186|1174->205|1214->224

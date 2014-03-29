@@ -42,7 +42,7 @@ Seq[Any](format.raw/*2.5*/("""<ul class="nav">
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Mar 28 08:45:15 COT 2014
+                    DATE: Fri Mar 28 10:07:46 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/mainmenu.scala.html
                     HASH: 500aa0e616a848e6664faad22989cd4985385604
                     MATRIX: 790->9
