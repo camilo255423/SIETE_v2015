@@ -2,6 +2,8 @@ Build.scala
 build.sbt
 plugins.sbt
 build.properties
+*.class
+
 
 
 
