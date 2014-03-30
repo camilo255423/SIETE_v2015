@@ -5,18 +5,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.TimeZone;
 
-import com.fasterxml.jackson.databind.JsonNode;
+
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-
-import models.Periodo;
-import models.Profesor;
 
 
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
-import play.api.libs.json.util.*;
 
 public class Admin extends Controller{
 	public static List<String> locations() {
