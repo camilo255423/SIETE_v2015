@@ -1,6 +1,7 @@
 @(semestres:List[String])
 
 <select name='semestre' id="listasemestres">
+<option value='-1'>- Seleccione -</option>
 @for(semestre <- semestres){
 <option value='@semestre'>@semestre</option>
 }
@@ -16,38 +17,61 @@ $('#listasemestres').on("change", cambioSemestre);
 );
 function cambioSemestre()
 {
-var entidad;
-$("#informe").html("<div id='progressbar'>Cargando, por favor espere...</div>");
 
-$("#listaProfesores").html("Cargando...");
-$("#progressbar").progressbar({
-value:false
-});
-if($('#listainformes').val()==1 || $('#listainformes').val()==2 || $('#listainformes').val()==3 ) entidad="profesores";
-if($('#listainformes').val()==4) entidad="facultades";
-if($('#listainformes').val()==5) entidad="programas";
-if($('#listainformes').val()==6) entidad="participantes";
-$.post("cambiosemestre",{semestre: $('#listasemestres').val(), valor: entidad},mostrarProfesores); // 0 profesores 1 facultades 2 programas
-$("#descargas").hide();
+@if(session.get("rol")==Rol.PROFESOR){
+var documentoProfesor = '@session.get("documento")';
+    if($('#listasemestres').val()!=-1)
+    {
+	$("#informe").html("<div id='progressbar'>Cargando, por favor espere...</div>");
+	$("#progressbar").progressbar({
+	value:false
+	});
+	$.post("informeprofesor",{documento: documentoProfesor, semestre: $('#listasemestres').val()},mostrar);
+	}
+
+}else{
+	var entidad;
+	if($('#listasemestres').val()!=-1)
+    {
+	$("#informe").html("<div id='progressbar'>Cargando, por favor espere...</div>");
+	
+	$("#listaProfesores").html("Cargando...");
+	$("#progressbar").progressbar({
+	value:false
+	});
+	if($('#listainformes').val()==1 || $('#listainformes').val()==2 || $('#listainformes').val()==3 ) entidad="profesores";
+	if($('#listainformes').val()==4) entidad="facultades";
+	if($('#listainformes').val()==5) entidad="programas";
+	if($('#listainformes').val()==6) entidad="participantes";
+	$.post("cambiosemestre",{semestre: $('#listasemestres').val(), valor: entidad},mostrarProfesores); // 0 profesores 1 facultades 2 programas
+	$("#descargas").hide();
+	}
+	}
+	function mostrarProfesores(data)
+	{
+	$("#informe").html("<div id='progressbar'>Cargando, por favor espere...</div>");
+	$("#progressbar").progressbar({
+	value:false
+	});
+		if(data=="participantes")
+		{
+		$.post("informeparticipantes",{semestre: $('#listasemestres').val()},mostrar);	
+		enlaceDescargas(0,$('#listasemestres').val());
+		$('#listaProfesores').hide();
+		}
+		else
+		{
+		$("#listaProfesores").html(data);
+		$("#informe").html("");
+		$('#listaProfesores').show();
+		}
+	
+} // fin-else @session
 }
-function mostrarProfesores(data)
+
+function mostrar(data)
 {
-$("#informe").html("<div id='progressbar'>Cargando, por favor espere...</div>");
-$("#progressbar").progressbar({
-value:false
-});
-	if(data=="participantes")
-	{
-	$.post("informeparticipantes",{semestre: $('#listasemestres').val()},mostrar);	
-	enlaceDescargas(0,$('#listasemestres').val());
-	$('#listaProfesores').hide();
-	}
-	else
-	{
-	$("#listaProfesores").html(data);
-	$("#informe").html("");
-	$('#listaProfesores').show();
-	}
+$("#informe").html(data);
 
 }
 </script>

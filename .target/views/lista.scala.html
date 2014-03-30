@@ -34,6 +34,8 @@ cambioProfesor();
 }
 function cambioProfesor()
 {
+if($('#listasemestres').val()!=-1)
+{
 var documentoProfesor = $('#listaProfesores').val();
 	$("#informe").html("<div id='progressbar'>Cargando, por favor espere...</div>");
 			$("#progressbar").progressbar({
@@ -70,11 +72,8 @@ var documentoProfesor = $('#listaProfesores').val();
 	$("#informe").html("<div></div>");
 	}
 }
-function mostrar(data)
-{
-$("#informe").html(data);
-
 }
+
 function enlaceDescargas(documento, semestre)
 {
 var informe = "";

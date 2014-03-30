@@ -28,13 +28,15 @@ import models.Profesor;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.Security;
 
 public class Informe3 extends Controller {
-
+	@Security.Authenticated(Secured.class)
     public static Result index() {
     
     	return null;
     }
+	@Security.Authenticated(Secured.class)
     public static Result informeProfesor()
     {
     	String documento = Form.form().bindFromRequest().get("documento");
@@ -51,6 +53,7 @@ public class Informe3 extends Controller {
     	
  	
     }
+	@Security.Authenticated(Secured.class)
     public static Result pdf(String documento, String semestre)
     {
  			Document document = new Document();
@@ -105,7 +108,8 @@ public class Informe3 extends Controller {
  			return ok(file);
  	    
     }
-    public static Result excel(String documento, String semestre)
+	@Security.Authenticated(Secured.class)
+	public static Result excel(String documento, String semestre)
     {
     	Profesor profesor = Profesor.findByDocumento(documento);
     	Evaluacion evaluacion = InformesDAO.getInformeFinal(documento, semestre);

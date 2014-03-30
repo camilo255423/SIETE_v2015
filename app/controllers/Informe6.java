@@ -33,13 +33,15 @@ import models.ReportesDAO;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.Security;
 
 public class Informe6 extends Controller {
-
+	@Security.Authenticated(Secured.class)
     public static Result index() {
     
     	return null;
     }
+	@Security.Authenticated(Secured.class)
     public static Result informeParticipantes()
     {
     	String semestre = Form.form().bindFromRequest().get("semestre");
@@ -52,6 +54,7 @@ public class Informe6 extends Controller {
     	
  	
     }
+	@Security.Authenticated(Secured.class)
     public static Result pdf(String Documento, String semestre)
     {
  			Document document = new Document();
@@ -106,7 +109,8 @@ public class Informe6 extends Controller {
  			return ok(file);
  	    
     }
-    public static Result excel(String codigoPrograma, String semestre)
+	@Security.Authenticated(Secured.class)
+	public static Result excel(String codigoPrograma, String semestre)
     {
     	NumeroParticipantes numeroParticipantes = NumeroParticipantes.findBySemestre(semestre);
         	HSSFWorkbook workbook = new HSSFWorkbook();

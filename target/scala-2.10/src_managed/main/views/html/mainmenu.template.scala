@@ -28,7 +28,7 @@ object mainmenu extends BaseScalaTemplate[play.api.templates.Html,Format[play.ap
 
 Seq[Any](format.raw/*2.5*/("""<ul class="nav">
           <li><a href="">Home</a></li>
-          <li class="active"><a href="">Log out</a></li>
+          <li class="active"><a href="/logout">Log out</a></li>
    
         </ul>"""))}
     }
@@ -42,10 +42,17 @@ Seq[Any](format.raw/*2.5*/("""<ul class="nav">
 }
                 /*
                     -- GENERATED --
+<<<<<<< HEAD
                     DATE: Fri Mar 28 10:07:46 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/mainmenu.scala.html
                     HASH: 500aa0e616a848e6664faad22989cd4985385604
                     MATRIX: 790->9
+=======
+                    DATE: Sat Mar 29 16:54:25 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/mainmenu.scala.html
+                    HASH: a9806d649ce60ae25d95b784681332f8a5a14dbc
+                    MATRIX: 858->9
+>>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
                     LINES: 29->2
                     -- GENERATED --
                 */

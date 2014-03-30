@@ -11,7 +11,6 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.util.CellRangeAddress;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -27,15 +26,15 @@ import models.Nivel;
 import models.Pregunta;
 import models.Profesor;
 import play.data.Form;
-import play.mvc.Controller;
-import play.mvc.Result;
+import play.mvc.*;
 
 public class Informe2 extends Controller {
-
+	@Security.Authenticated(Secured.class)
     public static Result index() {
     
     	return null;
     }
+	@Security.Authenticated(Secured.class)
     public static Result pdf(String documento, String semestre)
     {
  			Document document = new Document();
@@ -86,7 +85,8 @@ public class Informe2 extends Controller {
  			return ok(file);
  	    
     }
-    public static Result excel(String documento, String semestre)
+	@Security.Authenticated(Secured.class)
+	public static Result excel(String documento, String semestre)
     {
     	Profesor profesor = Profesor.findByDocumento(documento);
     	Evaluacion evaluacion = InformesDAO.getInformeHeteroEvaluacion(documento, semestre);
@@ -225,7 +225,8 @@ public class Informe2 extends Controller {
    		return ok(file);
 
     }
-    public static Result informeProfesor()
+	@Security.Authenticated(Secured.class)
+	public static Result informeProfesor()
     {
     	String documento = Form.form().bindFromRequest().get("documento");
        	String semestre = Form.form().bindFromRequest().get("semestre");

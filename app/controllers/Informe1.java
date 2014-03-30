@@ -28,15 +28,16 @@ import models.Pregunta;
 import models.Profesor;
 import play.data.Form;
 import play.mvc.Controller;
-import play.mvc.Result;
+import play.mvc.*;
 import views.html.*;
 
 public class Informe1 extends Controller {
-
+	@Security.Authenticated(Secured.class)
     public static Result index() {
     
     	return null;
     }
+	@Security.Authenticated(Secured.class)
    public static Result pdf(String documento, String semestre)
    {
 			Document document = new Document();
@@ -65,10 +66,6 @@ public class Informe1 extends Controller {
 				String imagen = routes.Assets.at("images/logo-inpahu2.png").absoluteURL(request());
 				    document.open();
 			
-			//    	return ok(views.html.informes.informedocencia.render(evaluacion,profesores));    
-
-				   // XMLWorkerHelper.getInstance().parseXHtml(writer, document,
-				    //    new StringReader("<html><head><title>Test</title></head><body><div style=\"padding-top:200px;\"><p style=\"text-align:center;padding-top:200px;\">This is a test</p></div></body></html>"));
 		 XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeprofesor.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getAutoEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), evaluacion.getAutoEvaluacionInvestigacion(), profesor, semestre, imagen).toString()));
 	        	
 			} catch (FileNotFoundException e) {
@@ -91,7 +88,9 @@ public class Informe1 extends Controller {
 			return ok(file);
 	    
    }
+	@Security.Authenticated(Secured.class)
    public static Result informeProfesor()
+
    {
 	  
 	String documento = Form.form().bindFromRequest().get("documento");
@@ -102,6 +101,7 @@ public class Informe1 extends Controller {
    	
 	
    }
+	@Security.Authenticated(Secured.class)
    public static Result excel(String documento, String semestre)
    {
 		

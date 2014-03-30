@@ -28,36 +28,24 @@ object main extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.te
 
 Seq[Any](format.raw/*1.32*/("""
 
-<!DOCTYPE html>
-
-<html>
-    <head>
-        <title>"""),_display_(Seq[Any](/*7.17*/title)),format.raw/*7.22*/("""</title>
-	    <link href="""),_display_(Seq[Any](/*8.18*/routes/*8.24*/.Assets.at("css/style.css"))),format.raw/*8.51*/(""" type="text/css" rel="stylesheet"></link>
-		<link href="""),_display_(Seq[Any](/*9.15*/routes/*9.21*/.Assets.at("css/custom-theme/jquery-ui-1.10.3.custom.css"))),format.raw/*9.79*/("""  type="text/css"  rel="stylesheet"></link>
-		<script src="""),_display_(Seq[Any](/*10.16*/routes/*10.22*/.Assets.at("js/jquery-1.9.1.js"))),format.raw/*10.54*/(""" type="text/javascript"></script>
-		<script src="""),_display_(Seq[Any](/*11.16*/routes/*11.22*/.Assets.at("js/jquery-ui-1.10.3.custom.js"))),format.raw/*11.65*/(""" type="text/javascript"></script>
-		
-    </head>
-    <body>
+"""),_display_(Seq[Any](/*3.2*/encabezado("Informes")/*3.24*/{_display_(Seq[Any](format.raw/*3.25*/("""
     <div id="topLine">
       <div id="header">
       <div id="linea"></div>
-    	"""),_display_(Seq[Any](/*18.7*/mainmenu())),format.raw/*18.17*/("""
+    	"""),_display_(Seq[Any](/*7.7*/mainmenu())),format.raw/*7.17*/("""
     
-        <h1><span><img src="""),_display_(Seq[Any](/*20.29*/routes/*20.35*/.Assets.at("images/logo-inpahu.png"))),format.raw/*20.71*/(""" alt="Logo" title="Logo" /></span></h1>
+        <h1><span><img src="""),_display_(Seq[Any](/*9.29*/routes/*9.35*/.Assets.at("images/logo-inpahu.png"))),format.raw/*9.71*/(""" alt="Logo" title="Logo" /></span></h1>
       </div>
     </div>
 
   <div id="outerwrapper">
        <div id="wrapper">
        <div id="content">
-       """),_display_(Seq[Any](/*27.9*/content)),format.raw/*27.16*/("""
+       """),_display_(Seq[Any](/*16.9*/content)),format.raw/*16.16*/("""
        </div>
        </div>
   </div>     
-    </body>
-</html>
+""")))})),format.raw/*20.2*/("""    
 """))}
     }
     
@@ -70,11 +58,19 @@ Seq[Any](format.raw/*1.32*/("""
 }
                 /*
                     -- GENERATED --
+<<<<<<< HEAD
                     DATE: Fri Mar 28 10:07:46 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/main.scala.html
                     HASH: 2f004ec23719528688515c7378beab953978d6b4
                     MATRIX: 727->1|834->31|922->84|948->89|1009->115|1023->121|1071->148|1162->204|1176->210|1255->268|1350->327|1365->333|1419->365|1504->414|1519->420|1584->463|1761->605|1793->615|1863->649|1878->655|1936->691|2122->842|2151->849
                     LINES: 26->1|29->1|35->7|35->7|36->8|36->8|36->8|37->9|37->9|37->9|38->10|38->10|38->10|39->11|39->11|39->11|46->18|46->18|48->20|48->20|48->20|55->27|55->27
+=======
+                    DATE: Sat Mar 29 11:12:06 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/main.scala.html
+                    HASH: 2023409a40a7eeae7953ee7a06c24fcfaecfe825
+                    MATRIX: 778->1|902->31|939->34|969->56|1007->57|1124->140|1155->150|1224->184|1238->190|1295->226|1481->377|1510->384|1585->428
+                    LINES: 26->1|29->1|31->3|31->3|31->3|35->7|35->7|37->9|37->9|37->9|44->16|44->16|48->20
+>>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
                     -- GENERATED --
                 */
             

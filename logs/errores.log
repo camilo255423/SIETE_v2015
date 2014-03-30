@@ -80,3 +80,1380 @@ Failed to acquire connection to jdbc:oracle:thin:@192.168.1.66:1521/test11 Sleep
 2014-03-29 09:09:24,497 - [ERROR] - from com.jolbox.bonecp.hooks.AbstractConnectionHook in BoneCP-pool-watch-thread 
 Failed to acquire connection to jdbc:oracle:thin:@192.168.1.66:1521/test11 Sleeping for 1000ms and trying again. Attempts left: 8. Exception: oracle.net.ns.NetException: The Network Adapter could not establish the connection
 
+2014-03-29 10:45:45,536 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 10:45:48,967 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-03-29 10:47:56,849 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 10:47:58,520 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-03-29 10:50:50,183 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 10:50:50,276 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-03-29 10:53:45,333 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 10:53:45,422 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-03-29 11:01:39,785 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6hl9p8fjd - Internal server error, for (GET) [/] ->
+
+play.PlayExceptions$CompilationException: Compilation error[not enough arguments for method apply: (title: String)(content: play.api.templates.Html)play.api.templates.HtmlFormat.Appendable in object encabezado.
+Unspecified value parameter title.]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-03-29 11:02:37,975 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6hl9pbnld - Internal server error, for (GET) [/] ->
+
+play.PlayExceptions$CompilationException: Compilation error[missing arguments for method apply in object encabezado;
+follow this method with `_' if you want to treat it as a partially applied function]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-03-29 11:03:50,465 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6hl9pg11i - Internal server error, for (GET) [/] ->
+
+play.PlayExceptions$CompilationException: Compilation error[missing arguments for method apply in object encabezado;
+follow this method with `_' if you want to treat it as a partially applied function]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-03-29 11:07:16,652 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6hla01k1n - Internal server error, for (GET) [/] ->
+
+play.PlayExceptions$CompilationException: Compilation error[missing arguments for method apply in object encabezado;
+follow this method with `_' if you want to treat it as a partially applied function]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-03-29 11:08:16,442 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6hla054dd - Internal server error, for (GET) [/] ->
+
+play.PlayExceptions$CompilationException: Compilation error[missing arguments for method apply in object encabezado;
+follow this method with `_' if you want to treat it as a partially applied function]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-03-29 11:08:31,685 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6hla0611l - Internal server error, for (GET) [/] ->
+
+play.PlayExceptions$CompilationException: Compilation error[not found: value encabezado_]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-03-29 11:09:28,171 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6hla096g8 - Internal server error, for (GET) [/] ->
+
+play.PlayExceptions$CompilationException: Compilation error[missing arguments for method apply in object encabezado;
+follow this method with `_' if you want to treat it as a partially applied function]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-03-29 11:12:15,648 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 11:12:17,213 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2014-03-29 11:13:45,896 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 11:13:45,981 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2014-03-29 11:15:04,185 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 11:15:04,266 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2014-03-29 11:27:38,991 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 11:27:41,668 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-03-29 11:28:42,963 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 11:28:43,072 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-03-29 11:30:46,317 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 11:30:46,418 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-03-29 11:31:15,498 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 11:31:15,579 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-03-29 11:33:57,007 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 11:33:57,082 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2014-03-29 11:52:13,648 - [INFO] - from play in play-internal-execution-context-6 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 11:52:13,726 - [INFO] - from play in play-internal-execution-context-6 
+Application started (Dev)
+
+2014-03-29 11:53:06,792 - [ERROR] - from com.jolbox.bonecp.ConnectionTesterThread in BoneCP-keep-alive-scheduler 
+Connection tester thread interrupted exception received. Shutting down tester thread.
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[na:1.7.0_25]
+	at com.jolbox.bonecp.ConnectionTesterThread.run(ConnectionTesterThread.java:134) ~[bonecp.jar:na]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166) ~[na:1.7.0_25]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178) ~[na:1.7.0_25]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) ~[na:1.7.0_25]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+
+2014-03-29 11:55:35,938 - [INFO] - from play in play-internal-execution-context-11 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 11:55:36,009 - [INFO] - from play in play-internal-execution-context-11 
+Application started (Dev)
+
+2014-03-29 12:11:51,802 - [INFO] - from play in play-internal-execution-context-11 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 12:11:52,062 - [INFO] - from play in play-internal-execution-context-11 
+Application started (Dev)
+
+2014-03-29 12:12:45,368 - [ERROR] - from com.jolbox.bonecp.ConnectionTesterThread in BoneCP-keep-alive-scheduler 
+Connection tester thread interrupted exception received. Shutting down tester thread.
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[na:1.7.0_25]
+	at com.jolbox.bonecp.ConnectionTesterThread.run(ConnectionTesterThread.java:134) ~[bonecp.jar:na]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166) ~[na:1.7.0_25]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178) ~[na:1.7.0_25]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) ~[na:1.7.0_25]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+
+2014-03-29 12:13:43,849 - [ERROR] - from application in New I/O worker #6 
+
+
+! @6hla8kg7f - Internal server error, for (GET) [/login] ->
+
+play.PlayExceptions$CompilationException: Compilation error[error: unreachable statement]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-03-29 12:14:39,055 - [INFO] - from play in play-internal-execution-context-11 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 12:14:39,135 - [INFO] - from play in play-internal-execution-context-11 
+Application started (Dev)
+
+2014-03-29 16:27:19,436 - [ERROR] - from com.jolbox.bonecp.ConnectionTesterThread in BoneCP-keep-alive-scheduler 
+Destroy connection exception
+java.sql.SQLRecoverableException: IO Error: Connection reset
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:587) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:4011) ~[ojdbc6.jar:11.2.0.3.0]
+	at com.jolbox.bonecp.ConnectionHandle.internalClose(ConnectionHandle.java:504) ~[bonecp.jar:na]
+	at com.jolbox.bonecp.ConnectionTesterThread.closeConnection(ConnectionTesterThread.java:162) ~[bonecp.jar:na]
+	at com.jolbox.bonecp.ConnectionTesterThread.run(ConnectionTesterThread.java:95) ~[bonecp.jar:na]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166) ~[na:1.7.0_25]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178) ~[na:1.7.0_25]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) ~[na:1.7.0_25]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:189) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:121) ~[na:1.7.0_25]
+	at oracle.net.ns.Packet.receive(Packet.java:308) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.DataPacket.receive(DataPacket.java:106) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.getNextPacket(NetInputStream.java:324) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:268) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:190) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:107) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.readNextPacket(T4CSocketInputStreamWrapper.java:124) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.read(T4CSocketInputStreamWrapper.java:80) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CMAREngine.unmarshalUB1(T4CMAREngine.java:1137) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:350) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4C7Ocommoncall.doOLOGOFF(T4C7Ocommoncall.java:61) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:574) ~[ojdbc6.jar:11.2.0.3.0]
+	... 12 common frames omitted
+
+2014-03-29 16:35:08,663 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 16:35:11,573 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-03-29 16:55:05,927 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 16:55:06,037 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-03-29 17:05:55,723 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 17:05:55,823 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-03-29 17:12:26,314 - [ERROR] - from com.jolbox.bonecp.ConnectionPartition in com.google.common.base.internal.Finalizer 
+Error while closing off internal db connection
+java.sql.SQLRecoverableException: IO Error: Connection timed out
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:587) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:4011) ~[ojdbc6.jar:11.2.0.3.0]
+	at com.jolbox.bonecp.ConnectionPartition$1.finalizeReferent(ConnectionPartition.java:164) ~[bonecp.jar:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_25]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_25]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_25]
+	at com.google.common.base.internal.Finalizer.cleanUp(Finalizer.java:159) ~[guava.jar:na]
+	at com.google.common.base.internal.Finalizer.run(Finalizer.java:132) ~[guava.jar:na]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+Caused by: java.net.SocketException: Connection timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:150) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:121) ~[na:1.7.0_25]
+	at oracle.net.ns.Packet.receive(Packet.java:308) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.DataPacket.receive(DataPacket.java:106) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.getNextPacket(NetInputStream.java:324) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:268) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:190) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:107) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.readNextPacket(T4CSocketInputStreamWrapper.java:124) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.read(T4CSocketInputStreamWrapper.java:80) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CMAREngine.unmarshalUB1(T4CMAREngine.java:1137) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:350) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4C7Ocommoncall.doOLOGOFF(T4C7Ocommoncall.java:61) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:574) ~[ojdbc6.jar:11.2.0.3.0]
+	... 9 common frames omitted
+
+2014-03-29 17:20:40,981 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 17:20:41,060 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-03-29 17:21:04,914 - [ERROR] - from com.jolbox.bonecp.ConnectionTesterThread in BoneCP-keep-alive-scheduler 
+Connection tester thread interrupted exception received. Shutting down tester thread.
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[na:1.7.0_25]
+	at com.jolbox.bonecp.ConnectionTesterThread.run(ConnectionTesterThread.java:134) ~[bonecp.jar:na]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166) ~[na:1.7.0_25]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178) ~[na:1.7.0_25]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) ~[na:1.7.0_25]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+
+2014-03-29 17:25:14,696 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 17:25:14,793 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-03-29 17:25:48,551 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 17:25:48,640 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-03-29 17:28:39,837 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 17:28:39,907 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2014-03-29 17:29:54,664 - [INFO] - from play in play-internal-execution-context-6 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 17:29:54,748 - [INFO] - from play in play-internal-execution-context-6 
+Application started (Dev)
+
+2014-03-29 17:30:41,891 - [ERROR] - from com.jolbox.bonecp.ConnectionPartition in com.google.common.base.internal.Finalizer 
+Error while closing off internal db connection
+java.sql.SQLRecoverableException: IO Error: Connection timed out
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:587) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:4011) ~[ojdbc6.jar:11.2.0.3.0]
+	at com.jolbox.bonecp.ConnectionPartition$1.finalizeReferent(ConnectionPartition.java:164) ~[bonecp.jar:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_25]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_25]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_25]
+	at com.google.common.base.internal.Finalizer.cleanUp(Finalizer.java:159) ~[guava.jar:na]
+	at com.google.common.base.internal.Finalizer.run(Finalizer.java:132) ~[guava.jar:na]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+Caused by: java.net.SocketException: Connection timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:150) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:121) ~[na:1.7.0_25]
+	at oracle.net.ns.Packet.receive(Packet.java:308) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.DataPacket.receive(DataPacket.java:106) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.getNextPacket(NetInputStream.java:324) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:268) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:190) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:107) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.readNextPacket(T4CSocketInputStreamWrapper.java:124) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.read(T4CSocketInputStreamWrapper.java:80) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CMAREngine.unmarshalUB1(T4CMAREngine.java:1137) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:350) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4C7Ocommoncall.doOLOGOFF(T4C7Ocommoncall.java:61) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:574) ~[ojdbc6.jar:11.2.0.3.0]
+	... 9 common frames omitted
+
+2014-03-29 17:34:42,446 - [ERROR] - from application in New I/O worker #5 
+
+
+! @6hlboo97c - Internal server error, for (GET) [/] ->
+
+play.PlayExceptions$CompilationException: Compilation error[error: no suitable method found for session(String,int)]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-03-29 17:35:29,635 - [INFO] - from play in play-internal-execution-context-6 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 17:35:29,704 - [INFO] - from play in play-internal-execution-context-6 
+Application started (Dev)
+
+2014-03-29 17:37:03,388 - [ERROR] - from com.jolbox.bonecp.ConnectionTesterThread in BoneCP-keep-alive-scheduler 
+Connection tester thread interrupted exception received. Shutting down tester thread.
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[na:1.7.0_25]
+	at com.jolbox.bonecp.ConnectionTesterThread.run(ConnectionTesterThread.java:134) ~[bonecp.jar:na]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166) ~[na:1.7.0_25]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178) ~[na:1.7.0_25]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) ~[na:1.7.0_25]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+
+2014-03-29 17:40:33,361 - [INFO] - from play in play-internal-execution-context-8 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 17:40:33,428 - [INFO] - from play in play-internal-execution-context-8 
+Application started (Dev)
+
+2014-03-29 17:47:51,332 - [INFO] - from play in play-internal-execution-context-8 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-29 17:47:51,408 - [INFO] - from play in play-internal-execution-context-8 
+Application started (Dev)
+
+2014-03-29 17:48:55,523 - [ERROR] - from com.jolbox.bonecp.ConnectionPartition in com.google.common.base.internal.Finalizer 
+Error while closing off internal db connection
+java.sql.SQLRecoverableException: IO Error: Connection timed out
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:587) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:4011) ~[ojdbc6.jar:11.2.0.3.0]
+	at com.jolbox.bonecp.ConnectionPartition$1.finalizeReferent(ConnectionPartition.java:164) ~[bonecp.jar:na]
+	at sun.reflect.GeneratedMethodAccessor9.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_25]
+	at com.google.common.base.internal.Finalizer.cleanUp(Finalizer.java:159) ~[guava.jar:na]
+	at com.google.common.base.internal.Finalizer.run(Finalizer.java:132) ~[guava.jar:na]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+Caused by: java.net.SocketException: Connection timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:150) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:121) ~[na:1.7.0_25]
+	at oracle.net.ns.Packet.receive(Packet.java:308) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.DataPacket.receive(DataPacket.java:106) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.getNextPacket(NetInputStream.java:324) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:268) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:190) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:107) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.readNextPacket(T4CSocketInputStreamWrapper.java:124) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.read(T4CSocketInputStreamWrapper.java:80) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CMAREngine.unmarshalUB1(T4CMAREngine.java:1137) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:350) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4C7Ocommoncall.doOLOGOFF(T4C7Ocommoncall.java:61) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:574) ~[ojdbc6.jar:11.2.0.3.0]
+	... 8 common frames omitted
+
+2014-03-29 18:07:11,204 - [ERROR] - from com.jolbox.bonecp.ConnectionPartition in com.google.common.base.internal.Finalizer 
+Error while closing off internal db connection
+java.sql.SQLRecoverableException: IO Error: Connection timed out
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:587) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:4011) ~[ojdbc6.jar:11.2.0.3.0]
+	at com.jolbox.bonecp.ConnectionPartition$1.finalizeReferent(ConnectionPartition.java:164) ~[bonecp.jar:na]
+	at sun.reflect.GeneratedMethodAccessor9.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_25]
+	at com.google.common.base.internal.Finalizer.cleanUp(Finalizer.java:159) ~[guava.jar:na]
+	at com.google.common.base.internal.Finalizer.run(Finalizer.java:132) ~[guava.jar:na]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+Caused by: java.net.SocketException: Connection timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:150) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:121) ~[na:1.7.0_25]
+	at oracle.net.ns.Packet.receive(Packet.java:308) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.DataPacket.receive(DataPacket.java:106) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.getNextPacket(NetInputStream.java:324) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:268) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:190) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:107) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.readNextPacket(T4CSocketInputStreamWrapper.java:124) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.read(T4CSocketInputStreamWrapper.java:80) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CMAREngine.unmarshalUB1(T4CMAREngine.java:1137) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:350) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4C7Ocommoncall.doOLOGOFF(T4C7Ocommoncall.java:61) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:574) ~[ojdbc6.jar:11.2.0.3.0]
+	... 8 common frames omitted
+
+2014-03-30 08:28:30,944 - [ERROR] - from com.jolbox.bonecp.ConnectionPartition in com.google.common.base.internal.Finalizer 
+Error while closing off internal db connection
+java.sql.SQLRecoverableException: IO Error: Connection timed out
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:587) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:4011) ~[ojdbc6.jar:11.2.0.3.0]
+	at com.jolbox.bonecp.ConnectionPartition$1.finalizeReferent(ConnectionPartition.java:164) ~[bonecp.jar:na]
+	at sun.reflect.GeneratedMethodAccessor9.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_25]
+	at com.google.common.base.internal.Finalizer.cleanUp(Finalizer.java:159) ~[guava.jar:na]
+	at com.google.common.base.internal.Finalizer.run(Finalizer.java:132) ~[guava.jar:na]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+Caused by: java.net.SocketException: Connection timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:150) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:121) ~[na:1.7.0_25]
+	at oracle.net.ns.Packet.receive(Packet.java:308) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.DataPacket.receive(DataPacket.java:106) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.getNextPacket(NetInputStream.java:324) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:268) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:190) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:107) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.readNextPacket(T4CSocketInputStreamWrapper.java:124) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.read(T4CSocketInputStreamWrapper.java:80) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CMAREngine.unmarshalUB1(T4CMAREngine.java:1137) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:350) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4C7Ocommoncall.doOLOGOFF(T4C7Ocommoncall.java:61) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:574) ~[ojdbc6.jar:11.2.0.3.0]
+	... 8 common frames omitted
+
+2014-03-30 08:46:52,691 - [ERROR] - from com.jolbox.bonecp.ConnectionPartition in com.google.common.base.internal.Finalizer 
+Error while closing off internal db connection
+java.sql.SQLRecoverableException: IO Error: Connection timed out
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:587) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:4011) ~[ojdbc6.jar:11.2.0.3.0]
+	at com.jolbox.bonecp.ConnectionPartition$1.finalizeReferent(ConnectionPartition.java:164) ~[bonecp.jar:na]
+	at sun.reflect.GeneratedMethodAccessor9.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_25]
+	at com.google.common.base.internal.Finalizer.cleanUp(Finalizer.java:159) ~[guava.jar:na]
+	at com.google.common.base.internal.Finalizer.run(Finalizer.java:132) ~[guava.jar:na]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+Caused by: java.net.SocketException: Connection timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:150) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:121) ~[na:1.7.0_25]
+	at oracle.net.ns.Packet.receive(Packet.java:308) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.DataPacket.receive(DataPacket.java:106) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.getNextPacket(NetInputStream.java:324) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:268) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:190) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:107) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.readNextPacket(T4CSocketInputStreamWrapper.java:124) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.read(T4CSocketInputStreamWrapper.java:80) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CMAREngine.unmarshalUB1(T4CMAREngine.java:1137) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:350) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4C7Ocommoncall.doOLOGOFF(T4C7Ocommoncall.java:61) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:574) ~[ojdbc6.jar:11.2.0.3.0]
+	... 8 common frames omitted
+
+2014-03-30 08:48:00,184 - [ERROR] - from com.jolbox.bonecp.ConnectionPartition in com.google.common.base.internal.Finalizer 
+Error while closing off internal db connection
+java.sql.SQLRecoverableException: IO Error: Connection reset
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:587) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:4011) ~[ojdbc6.jar:11.2.0.3.0]
+	at com.jolbox.bonecp.ConnectionPartition$1.finalizeReferent(ConnectionPartition.java:164) ~[bonecp.jar:na]
+	at sun.reflect.GeneratedMethodAccessor9.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_25]
+	at com.google.common.base.internal.Finalizer.cleanUp(Finalizer.java:159) ~[guava.jar:na]
+	at com.google.common.base.internal.Finalizer.run(Finalizer.java:132) ~[guava.jar:na]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:189) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:121) ~[na:1.7.0_25]
+	at oracle.net.ns.Packet.receive(Packet.java:308) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.DataPacket.receive(DataPacket.java:106) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.getNextPacket(NetInputStream.java:324) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:268) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:190) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:107) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.readNextPacket(T4CSocketInputStreamWrapper.java:124) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.read(T4CSocketInputStreamWrapper.java:80) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CMAREngine.unmarshalUB1(T4CMAREngine.java:1137) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:350) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4C7Ocommoncall.doOLOGOFF(T4C7Ocommoncall.java:61) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:574) ~[ojdbc6.jar:11.2.0.3.0]
+	... 8 common frames omitted
+
+2014-03-30 08:48:05,094 - [ERROR] - from application in New I/O worker #5 
+
+
+! @6hlgema91 - Internal server error, for (GET) [/] ->
+
+play.PlayExceptions$CompilationException: Compilation error[unclosed character literal]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-03-30 08:48:05,797 - [ERROR] - from application in New I/O worker #6 
+
+
+! @6hlgemba3 - Internal server error, for (GET) [/login] ->
+
+play.PlayExceptions$CompilationException: Compilation error[unclosed character literal]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-03-30 08:49:05,276 - [INFO] - from play in play-internal-execution-context-8 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 08:49:08,429 - [INFO] - from play in play-internal-execution-context-8 
+Application started (Dev)
+
+2014-03-30 08:52:56,537 - [INFO] - from play in play-internal-execution-context-8 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 08:52:56,620 - [INFO] - from play in play-internal-execution-context-8 
+Application started (Dev)
+
+2014-03-30 08:55:02,267 - [INFO] - from play in play-internal-execution-context-8 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 08:55:02,340 - [INFO] - from play in play-internal-execution-context-8 
+Application started (Dev)
+
+2014-03-30 08:56:27,215 - [INFO] - from play in play-internal-execution-context-13 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 08:56:27,283 - [INFO] - from play in play-internal-execution-context-13 
+Application started (Dev)
+
+2014-03-30 09:01:44,988 - [INFO] - from play in play-internal-execution-context-13 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 09:01:45,071 - [INFO] - from play in play-internal-execution-context-13 
+Application started (Dev)
+
+2014-03-30 09:05:08,300 - [ERROR] - from com.jolbox.bonecp.ConnectionPartition in com.google.common.base.internal.Finalizer 
+Error while closing off internal db connection
+java.sql.SQLRecoverableException: IO Error: Connection timed out
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:587) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:4011) ~[ojdbc6.jar:11.2.0.3.0]
+	at com.jolbox.bonecp.ConnectionPartition$1.finalizeReferent(ConnectionPartition.java:164) ~[bonecp.jar:na]
+	at sun.reflect.GeneratedMethodAccessor9.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_25]
+	at com.google.common.base.internal.Finalizer.cleanUp(Finalizer.java:159) ~[guava.jar:na]
+	at com.google.common.base.internal.Finalizer.run(Finalizer.java:132) ~[guava.jar:na]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+Caused by: java.net.SocketException: Connection timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:150) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:121) ~[na:1.7.0_25]
+	at oracle.net.ns.Packet.receive(Packet.java:308) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.DataPacket.receive(DataPacket.java:106) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.getNextPacket(NetInputStream.java:324) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:268) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:190) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:107) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.readNextPacket(T4CSocketInputStreamWrapper.java:124) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.read(T4CSocketInputStreamWrapper.java:80) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CMAREngine.unmarshalUB1(T4CMAREngine.java:1137) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:350) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4C7Ocommoncall.doOLOGOFF(T4C7Ocommoncall.java:61) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:574) ~[ojdbc6.jar:11.2.0.3.0]
+	... 8 common frames omitted
+
+2014-03-30 09:10:31,632 - [INFO] - from play in play-internal-execution-context-14 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 09:10:31,709 - [INFO] - from play in play-internal-execution-context-14 
+Application started (Dev)
+
+2014-03-30 09:19:43,098 - [INFO] - from play in play-internal-execution-context-14 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 09:19:43,173 - [INFO] - from play in play-internal-execution-context-14 
+Application started (Dev)
+
+2014-03-30 09:20:24,868 - [INFO] - from play in play-internal-execution-context-14 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 09:20:24,945 - [INFO] - from play in play-internal-execution-context-14 
+Application started (Dev)
+
+2014-03-30 09:21:02,341 - [INFO] - from play in play-internal-execution-context-14 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 09:21:02,412 - [INFO] - from play in play-internal-execution-context-14 
+Application started (Dev)
+
+2014-03-30 09:21:30,260 - [ERROR] - from play in play-internal-execution-context-14 
+Cannot invoke the action, eventually got an error: java.lang.StringIndexOutOfBoundsException: String index out of range: 4
+
+2014-03-30 09:21:30,402 - [ERROR] - from application in play-internal-execution-context-14 
+
+
+! @6hlgj6ck0 - Internal server error, for (POST) [/informeprofesor] ->
+
+play.api.Application$$anon$1: Execution exception[[StringIndexOutOfBoundsException: String index out of range: 4]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.0]
+	at play.api.DefaultApplication.handleError(Application.scala:399) ~[play_2.10.jar:2.2.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[play_2.10.jar:2.2.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[play_2.10.jar:2.2.0]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) ~[play_2.10.jar:2.2.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) ~[play_2.10.jar:2.2.0]
+	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:33) ~[scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:411) ~[scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:408) ~[scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) ~[scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) ~[play-iteratees_2.10.jar:2.2.0]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) ~[scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) ~[scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:254) ~[scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:249) ~[scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+Caused by: java.lang.StringIndexOutOfBoundsException: String index out of range: 4
+	at java.lang.String.substring(String.java:1907) ~[na:1.7.0_25]
+	at models.Periodo.getFecha(Periodo.java:22) ~[na:na]
+	at models.InformesDAO.getInformeDetalladoPorMateria(InformesDAO.java:710) ~[na:na]
+	at models.Profesor.getEvaluacion(Profesor.java:97) ~[na:na]
+	at controllers.Informe1.informeProfesor(Informe1.java:100) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$20$$anonfun$apply$20.apply(routes_routing.scala:301) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$20$$anonfun$apply$20.apply(routes_routing.scala:301) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10.jar:2.2.0]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10.jar:2.2.0]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10.jar:2.2.0]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10.jar:2.2.0]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10.jar:2.2.0]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.0]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:278) ~[scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:274) ~[scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) ~[scala-library.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10.jar:2.2.0]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10.jar:2.2.0]
+	... 4 common frames omitted
+
+2014-03-30 09:23:15,788 - [ERROR] - from com.jolbox.bonecp.ConnectionPartition in com.google.common.base.internal.Finalizer 
+Error while closing off internal db connection
+java.sql.SQLRecoverableException: IO Error: Connection timed out
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:587) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:4011) ~[ojdbc6.jar:11.2.0.3.0]
+	at com.jolbox.bonecp.ConnectionPartition$1.finalizeReferent(ConnectionPartition.java:164) ~[bonecp.jar:na]
+	at sun.reflect.GeneratedMethodAccessor9.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_25]
+	at com.google.common.base.internal.Finalizer.cleanUp(Finalizer.java:159) ~[guava.jar:na]
+	at com.google.common.base.internal.Finalizer.run(Finalizer.java:132) ~[guava.jar:na]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+Caused by: java.net.SocketException: Connection timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:150) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:121) ~[na:1.7.0_25]
+	at oracle.net.ns.Packet.receive(Packet.java:308) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.DataPacket.receive(DataPacket.java:106) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.getNextPacket(NetInputStream.java:324) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:268) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:190) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:107) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.readNextPacket(T4CSocketInputStreamWrapper.java:124) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.read(T4CSocketInputStreamWrapper.java:80) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CMAREngine.unmarshalUB1(T4CMAREngine.java:1137) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:350) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4C7Ocommoncall.doOLOGOFF(T4C7Ocommoncall.java:61) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:574) ~[ojdbc6.jar:11.2.0.3.0]
+	... 8 common frames omitted
+
+2014-03-30 09:24:07,101 - [INFO] - from play in play-internal-execution-context-14 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 09:24:07,176 - [INFO] - from play in play-internal-execution-context-14 
+Application started (Dev)
+
+2014-03-30 09:29:28,095 - [INFO] - from play in play-internal-execution-context-18 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 09:29:28,173 - [INFO] - from play in play-internal-execution-context-18 
+Application started (Dev)
+
+2014-03-30 09:37:07,115 - [INFO] - from play in play-internal-execution-context-19 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 09:37:07,185 - [INFO] - from play in play-internal-execution-context-19 
+Application started (Dev)
+
+2014-03-30 09:41:19,181 - [ERROR] - from com.jolbox.bonecp.ConnectionPartition in com.google.common.base.internal.Finalizer 
+Error while closing off internal db connection
+java.sql.SQLRecoverableException: IO Error: Connection timed out
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:587) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:4011) ~[ojdbc6.jar:11.2.0.3.0]
+	at com.jolbox.bonecp.ConnectionPartition$1.finalizeReferent(ConnectionPartition.java:164) ~[bonecp.jar:na]
+	at sun.reflect.GeneratedMethodAccessor9.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_25]
+	at com.google.common.base.internal.Finalizer.cleanUp(Finalizer.java:159) ~[guava.jar:na]
+	at com.google.common.base.internal.Finalizer.run(Finalizer.java:132) ~[guava.jar:na]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+Caused by: java.net.SocketException: Connection timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:150) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:121) ~[na:1.7.0_25]
+	at oracle.net.ns.Packet.receive(Packet.java:308) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.DataPacket.receive(DataPacket.java:106) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.getNextPacket(NetInputStream.java:324) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:268) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:190) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:107) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.readNextPacket(T4CSocketInputStreamWrapper.java:124) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.read(T4CSocketInputStreamWrapper.java:80) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CMAREngine.unmarshalUB1(T4CMAREngine.java:1137) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:350) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4C7Ocommoncall.doOLOGOFF(T4C7Ocommoncall.java:61) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:574) ~[ojdbc6.jar:11.2.0.3.0]
+	... 8 common frames omitted
+
+2014-03-30 09:59:22,574 - [ERROR] - from com.jolbox.bonecp.ConnectionPartition in com.google.common.base.internal.Finalizer 
+Error while closing off internal db connection
+java.sql.SQLRecoverableException: IO Error: Connection timed out
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:587) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:4011) ~[ojdbc6.jar:11.2.0.3.0]
+	at com.jolbox.bonecp.ConnectionPartition$1.finalizeReferent(ConnectionPartition.java:164) ~[bonecp.jar:na]
+	at sun.reflect.GeneratedMethodAccessor9.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_25]
+	at com.google.common.base.internal.Finalizer.cleanUp(Finalizer.java:159) ~[guava.jar:na]
+	at com.google.common.base.internal.Finalizer.run(Finalizer.java:132) ~[guava.jar:na]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+Caused by: java.net.SocketException: Connection timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:150) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:121) ~[na:1.7.0_25]
+	at oracle.net.ns.Packet.receive(Packet.java:308) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.DataPacket.receive(DataPacket.java:106) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.getNextPacket(NetInputStream.java:324) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:268) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:190) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:107) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.readNextPacket(T4CSocketInputStreamWrapper.java:124) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.read(T4CSocketInputStreamWrapper.java:80) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CMAREngine.unmarshalUB1(T4CMAREngine.java:1137) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:350) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4C7Ocommoncall.doOLOGOFF(T4C7Ocommoncall.java:61) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:574) ~[ojdbc6.jar:11.2.0.3.0]
+	... 8 common frames omitted
+
+2014-03-30 10:17:34,193 - [ERROR] - from com.jolbox.bonecp.ConnectionPartition in com.google.common.base.internal.Finalizer 
+Error while closing off internal db connection
+java.sql.SQLRecoverableException: IO Error: Connection timed out
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:587) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:4011) ~[ojdbc6.jar:11.2.0.3.0]
+	at com.jolbox.bonecp.ConnectionPartition$1.finalizeReferent(ConnectionPartition.java:164) ~[bonecp.jar:na]
+	at sun.reflect.GeneratedMethodAccessor9.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_25]
+	at com.google.common.base.internal.Finalizer.cleanUp(Finalizer.java:159) ~[guava.jar:na]
+	at com.google.common.base.internal.Finalizer.run(Finalizer.java:132) ~[guava.jar:na]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+Caused by: java.net.SocketException: Connection timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:150) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:121) ~[na:1.7.0_25]
+	at oracle.net.ns.Packet.receive(Packet.java:308) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.DataPacket.receive(DataPacket.java:106) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.getNextPacket(NetInputStream.java:324) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:268) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:190) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:107) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.readNextPacket(T4CSocketInputStreamWrapper.java:124) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.read(T4CSocketInputStreamWrapper.java:80) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CMAREngine.unmarshalUB1(T4CMAREngine.java:1137) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:350) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4C7Ocommoncall.doOLOGOFF(T4C7Ocommoncall.java:61) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:574) ~[ojdbc6.jar:11.2.0.3.0]
+	... 8 common frames omitted
+
+2014-03-30 10:30:06,931 - [ERROR] - from application in New I/O worker #2 
+
+
+! @6hlh26i88 - Internal server error, for (GET) [/] ->
+
+play.PlayExceptions$CompilationException: Compilation error[value prueba is not a member of object controllers.Application]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-03-30 10:31:43,833 - [INFO] - from play in play-internal-execution-context-19 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 10:31:45,408 - [INFO] - from play in play-internal-execution-context-19 
+Application started (Dev)
+
+2014-03-30 10:32:34,134 - [INFO] - from play in play-internal-execution-context-19 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 10:32:34,197 - [INFO] - from play in play-internal-execution-context-19 
+Application started (Dev)
+
+2014-03-30 10:35:39,597 - [ERROR] - from com.jolbox.bonecp.ConnectionPartition in com.google.common.base.internal.Finalizer 
+Error while closing off internal db connection
+java.sql.SQLRecoverableException: IO Error: Connection timed out
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:587) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:4011) ~[ojdbc6.jar:11.2.0.3.0]
+	at com.jolbox.bonecp.ConnectionPartition$1.finalizeReferent(ConnectionPartition.java:164) ~[bonecp.jar:na]
+	at sun.reflect.GeneratedMethodAccessor9.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_25]
+	at com.google.common.base.internal.Finalizer.cleanUp(Finalizer.java:159) ~[guava.jar:na]
+	at com.google.common.base.internal.Finalizer.run(Finalizer.java:132) ~[guava.jar:na]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+Caused by: java.net.SocketException: Connection timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:150) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:121) ~[na:1.7.0_25]
+	at oracle.net.ns.Packet.receive(Packet.java:308) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.DataPacket.receive(DataPacket.java:106) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.getNextPacket(NetInputStream.java:324) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:268) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:190) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:107) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.readNextPacket(T4CSocketInputStreamWrapper.java:124) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.read(T4CSocketInputStreamWrapper.java:80) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CMAREngine.unmarshalUB1(T4CMAREngine.java:1137) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:350) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4C7Ocommoncall.doOLOGOFF(T4C7Ocommoncall.java:61) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:574) ~[ojdbc6.jar:11.2.0.3.0]
+	... 8 common frames omitted
+
+2014-03-30 10:35:58,517 - [INFO] - from play in play-internal-execution-context-22 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 10:35:58,589 - [INFO] - from play in play-internal-execution-context-22 
+Application started (Dev)
+
+2014-03-30 11:36:08,402 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 11:36:09,970 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-03-30 11:37:51,049 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 11:37:51,156 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-03-30 11:37:58,831 - [ERROR] - from play in play-internal-execution-context-1 
+Cannot invoke the action, eventually got an error: java.lang.ClassCastException: java.util.ArrayList cannot be cast to scala.collection.Seq
+
+2014-03-30 11:37:58,906 - [ERROR] - from application in play-internal-execution-context-1 
+
+
+! @6hlhb49nn - Internal server error, for (GET) [/admin] ->
+
+play.api.Application$$anon$1: Execution exception[[ClassCastException: java.util.ArrayList cannot be cast to scala.collection.Seq]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.0]
+	at play.api.DefaultApplication.handleError(Application.scala:399) ~[play_2.10.jar:2.2.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[play_2.10.jar:2.2.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) ~[play_2.10.jar:2.2.0]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) ~[play_2.10.jar:2.2.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) ~[play_2.10.jar:2.2.0]
+	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:33) ~[scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:411) ~[scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:408) ~[scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) ~[scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) ~[play-iteratees_2.10.jar:2.2.0]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) ~[scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) ~[scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:254) ~[scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:249) ~[scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+Caused by: java.lang.ClassCastException: java.util.ArrayList cannot be cast to scala.collection.Seq
+	at controllers.Admin.autocompleteLabel(Admin.java:47) ~[na:na]
+	at views.html.admin$.apply(admin.template.scala:30) ~[na:na]
+	at views.html.admin$.render(admin.template.scala:40) ~[na:na]
+	at views.html.admin.render(admin.template.scala) ~[na:na]
+	at controllers.Admin.index(Admin.java:54) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$15$$anonfun$apply$15.apply(routes_routing.scala:265) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$15$$anonfun$apply$15.apply(routes_routing.scala:265) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10.jar:2.2.0]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10.jar:2.2.0]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10.jar:2.2.0]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10.jar:2.2.0]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10.jar:2.2.0]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.0]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:278) ~[scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:274) ~[scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) ~[scala-library.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10.jar:2.2.0]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10.jar:2.2.0]
+	... 4 common frames omitted
+
+2014-03-30 12:25:54,692 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 12:25:55,883 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-03-30 12:27:06,366 - [ERROR] - from application in New I/O worker #6 
+
+
+! @6hlhhg22f - Internal server error, for (GET) [/admin] ->
+
+play.PlayExceptions$CompilationException: Compilation error[unclosed character literal]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-03-30 12:27:38,172 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 12:27:38,284 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-03-30 12:28:05,596 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 12:28:05,686 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-03-30 12:29:06,837 - [INFO] - from play in play-internal-execution-context-3 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 12:29:06,945 - [INFO] - from play in play-internal-execution-context-3 
+Application started (Dev)
+
+2014-03-30 12:29:55,202 - [INFO] - from play in play-internal-execution-context-3 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 12:29:55,304 - [INFO] - from play in play-internal-execution-context-3 
+Application started (Dev)
+
+2014-03-30 12:31:26,940 - [INFO] - from play in play-internal-execution-context-3 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 12:31:27,017 - [INFO] - from play in play-internal-execution-context-3 
+Application started (Dev)
+
+2014-03-30 12:31:51,751 - [INFO] - from play in play-internal-execution-context-3 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 12:31:51,824 - [INFO] - from play in play-internal-execution-context-3 
+Application started (Dev)
+
+2014-03-30 12:32:35,989 - [INFO] - from play in play-internal-execution-context-3 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 12:32:36,057 - [INFO] - from play in play-internal-execution-context-3 
+Application started (Dev)
+
+2014-03-30 12:34:48,093 - [ERROR] - from application in New I/O worker #5 
+
+
+! @6hlhig939 - Internal server error, for (GET) [/admin] ->
+
+play.PlayExceptions$CompilationException: Compilation error[not enough arguments for method autocompleteLabel: (x$1: String)play.mvc.Result.
+Unspecified value parameter x$1.]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-03-30 12:35:36,002 - [INFO] - from play in play-internal-execution-context-3 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 12:35:36,071 - [INFO] - from play in play-internal-execution-context-3 
+Application started (Dev)
+
+2014-03-30 12:36:41,913 - [INFO] - from play in play-internal-execution-context-3 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 12:36:41,989 - [INFO] - from play in play-internal-execution-context-3 
+Application started (Dev)
+
+2014-03-30 12:37:39,154 - [INFO] - from play in play-internal-execution-context-3 
+database [default] connected at jdbc:oracle:thin:@192.168.1.66:1521/test11
+
+2014-03-30 12:37:39,229 - [INFO] - from play in play-internal-execution-context-3 
+Application started (Dev)
+
+2014-03-30 14:53:11,756 - [ERROR] - from com.jolbox.bonecp.ConnectionTesterThread in BoneCP-keep-alive-scheduler 
+Destroy connection exception
+java.sql.SQLRecoverableException: IO Error: Connection timed out
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:587) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:4011) ~[ojdbc6.jar:11.2.0.3.0]
+	at com.jolbox.bonecp.ConnectionHandle.internalClose(ConnectionHandle.java:504) ~[bonecp.jar:na]
+	at com.jolbox.bonecp.ConnectionTesterThread.closeConnection(ConnectionTesterThread.java:162) ~[bonecp.jar:na]
+	at com.jolbox.bonecp.ConnectionTesterThread.run(ConnectionTesterThread.java:95) ~[bonecp.jar:na]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166) ~[na:1.7.0_25]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178) ~[na:1.7.0_25]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) ~[na:1.7.0_25]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+Caused by: java.net.SocketException: Connection timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:150) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:121) ~[na:1.7.0_25]
+	at oracle.net.ns.Packet.receive(Packet.java:308) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.DataPacket.receive(DataPacket.java:106) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.getNextPacket(NetInputStream.java:324) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:268) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:190) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:107) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.readNextPacket(T4CSocketInputStreamWrapper.java:124) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.read(T4CSocketInputStreamWrapper.java:80) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CMAREngine.unmarshalUB1(T4CMAREngine.java:1137) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:350) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4C7Ocommoncall.doOLOGOFF(T4C7Ocommoncall.java:61) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:574) ~[ojdbc6.jar:11.2.0.3.0]
+	... 12 common frames omitted
+
+2014-03-30 15:11:19,236 - [ERROR] - from com.jolbox.bonecp.ConnectionTesterThread in BoneCP-keep-alive-scheduler 
+Destroy connection exception
+java.sql.SQLRecoverableException: IO Error: Connection timed out
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:587) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:4011) ~[ojdbc6.jar:11.2.0.3.0]
+	at com.jolbox.bonecp.ConnectionHandle.internalClose(ConnectionHandle.java:504) ~[bonecp.jar:na]
+	at com.jolbox.bonecp.ConnectionTesterThread.closeConnection(ConnectionTesterThread.java:162) ~[bonecp.jar:na]
+	at com.jolbox.bonecp.ConnectionTesterThread.run(ConnectionTesterThread.java:95) ~[bonecp.jar:na]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) ~[na:1.7.0_25]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166) ~[na:1.7.0_25]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178) ~[na:1.7.0_25]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) ~[na:1.7.0_25]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) ~[na:1.7.0_25]
+	at java.lang.Thread.run(Thread.java:724) ~[na:1.7.0_25]
+Caused by: java.net.SocketException: Connection timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:150) ~[na:1.7.0_25]
+	at java.net.SocketInputStream.read(SocketInputStream.java:121) ~[na:1.7.0_25]
+	at oracle.net.ns.Packet.receive(Packet.java:308) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.DataPacket.receive(DataPacket.java:106) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.getNextPacket(NetInputStream.java:324) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:268) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:190) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.net.ns.NetInputStream.read(NetInputStream.java:107) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.readNextPacket(T4CSocketInputStreamWrapper.java:124) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CSocketInputStreamWrapper.read(T4CSocketInputStreamWrapper.java:80) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CMAREngine.unmarshalUB1(T4CMAREngine.java:1137) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:350) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:227) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4C7Ocommoncall.doOLOGOFF(T4C7Ocommoncall.java:61) ~[ojdbc6.jar:11.2.0.3.0]
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:574) ~[ojdbc6.jar:11.2.0.3.0]
+	... 12 common frames omitted
+
