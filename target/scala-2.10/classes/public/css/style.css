@@ -64,7 +64,10 @@ position: fixed;
 	background:  #ffffff;
 	border-bottom:15px solid #DEEAFA;
 }
-
+.error
+{
+	color: red;
+}
 #header{
 	position: fixed;
 	z-index: 100;
@@ -135,11 +138,20 @@ position: fixed;
 
 #emptyouterwrapper {
 	width:993px;
-	margin: 170px auto 0 auto;
+	margin: 170px auto 0px auto;
 	z-index: 100;
 	background-position:0px 0px;
 	
 }
+#login
+{
+background: #DEEAFA;	
+margin-left: 300px;
+width: 300px;
+padding: 10px 10px 10px 10px;
+z-index: 0;
+}
+
 #wrapper {
 	margin-top:10px;
 
@@ -224,7 +236,6 @@ padding:10px;
 
 #content form input {
 	border:1px solid #fff;
-	background:#FFFFA0;
 	padding-left:0.5em; 
 	margin-bottom:0.6em;
 }

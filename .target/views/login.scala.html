@@ -1,0 +1,37 @@
+@(form: Form[Application.Login])
+@encabezado("Autenticación"){
+ <div id="topLine">
+      <div id="header">
+      <div id="linea"></div>
+    	
+    
+        <h1><span><img src=@routes.Assets.at("images/logo-inpahu.png") alt="Logo" title="Logo" /></span></h1>
+      </div>
+    </div>
+      <div id="emptyouterwrapper">
+       
+       
+        @helper.form(routes.Application.authenticate) {
+	   <div id="login">
+	   	@if(form.hasGlobalErrors) {
+		    <p class="error">
+		        @form.globalError.message
+		    </p>
+		}
+	   <p>
+	     <b> Correo: </b> <input name="email" placeholder="correo" value="@form("email").value">
+	   </p>
+	   <p>
+	      <b> Clave: </b> <input name="password" placeholder="clave">
+	   </p>
+	   <p>
+	      <button type="submit">Aceptar</button>
+	   </p>
+		
+		</div>
+		}
+
+       </div>
+   
+		    
+}

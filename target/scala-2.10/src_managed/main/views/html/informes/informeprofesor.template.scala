@@ -55,7 +55,7 @@ porcentaje """),_display_(Seq[Any](/*23.13*/(10000*evaluacion.getEvaluados()/eva
 	"""),_display_(Seq[Any](/*27.3*/tabladocencia(evaluacion,"Saber Específico",Pregunta.ESPECIFICO,6,8))),format.raw/*27.71*/("""
 	
 	"""),_display_(Seq[Any](/*29.3*/tabladocencia(evaluacion,"Saber Relacional",Pregunta.RELACIONAL,9,11))),format.raw/*29.72*/("""
-	
+	"""),_display_(Seq[Any](/*30.3*/if(session.get("rol")==Rol.COORDINADOR || session.get("rol")==Rol.ADMINISTRADOR)/*30.83*/{_display_(Seq[Any](format.raw/*30.84*/("""
 	<div class="titulotabla">Observaciones</div>
 		<table>
 		<tbody>
@@ -69,28 +69,29 @@ porcentaje """),_display_(Seq[Any](/*23.13*/(10000*evaluacion.getEvaluados()/eva
 	    </table>
 		   
 	</div>
+	""")))})),format.raw/*44.3*/("""
 	<div id="tabs-autoevaluacion">	
-	"""),_display_(Seq[Any](/*45.3*/defining(evaluacionMateria.indexOf(new EvaluacionMateria(EvaluacionMateria.AUTOEVALUACION,evaluacion.getMateria(),false)))/*45.125*/{indice=>_display_(Seq[Any](format.raw/*45.134*/("""
-		"""),_display_(Seq[Any](/*46.4*/if(indice>=0)/*46.17*/{_display_(Seq[Any](format.raw/*46.18*/("""
-		"""),_display_(Seq[Any](/*47.4*/defining(evaluacionMateria.get(indice))/*47.43*/{autoevaluacion=>_display_(Seq[Any](format.raw/*47.60*/("""
-		"""),_display_(Seq[Any](/*48.4*/tabladocencia(autoevaluacion,"Saber Pedagógico",Pregunta.PEDAGOGICO, 0,5))),format.raw/*48.77*/("""
+	"""),_display_(Seq[Any](/*46.3*/defining(evaluacionMateria.indexOf(new EvaluacionMateria(EvaluacionMateria.AUTOEVALUACION,evaluacion.getMateria(),false)))/*46.125*/{indice=>_display_(Seq[Any](format.raw/*46.134*/("""
+		"""),_display_(Seq[Any](/*47.4*/if(indice>=0)/*47.17*/{_display_(Seq[Any](format.raw/*47.18*/("""
+		"""),_display_(Seq[Any](/*48.4*/defining(evaluacionMateria.get(indice))/*48.43*/{autoevaluacion=>_display_(Seq[Any](format.raw/*48.60*/("""
+		"""),_display_(Seq[Any](/*49.4*/tabladocencia(autoevaluacion,"Saber Pedagógico",Pregunta.PEDAGOGICO, 0,5))),format.raw/*49.77*/("""
 		
-		"""),_display_(Seq[Any](/*50.4*/tabladocencia(autoevaluacion,"Saber Específico",Pregunta.ESPECIFICO,6,8))),format.raw/*50.76*/("""
+		"""),_display_(Seq[Any](/*51.4*/tabladocencia(autoevaluacion,"Saber Específico",Pregunta.ESPECIFICO,6,8))),format.raw/*51.76*/("""
 		
-		"""),_display_(Seq[Any](/*52.4*/tabladocencia(autoevaluacion,"Saber Relacional",Pregunta.RELACIONAL,9,11))),format.raw/*52.77*/("""
-		""")))})),format.raw/*53.4*/("""
+		"""),_display_(Seq[Any](/*53.4*/tabladocencia(autoevaluacion,"Saber Relacional",Pregunta.RELACIONAL,9,11))),format.raw/*53.77*/("""
+		""")))})),format.raw/*54.4*/("""
 		
-	""")))}/*55.3*/else/*55.7*/{_display_(Seq[Any](format.raw/*55.8*/("""
+	""")))}/*56.3*/else/*56.7*/{_display_(Seq[Any](format.raw/*56.8*/("""
 	<h1>Sin autoevaluación</h1>
-		""")))})),format.raw/*57.4*/("""
-	""")))})),format.raw/*58.3*/("""
+		""")))})),format.raw/*58.4*/("""
+	""")))})),format.raw/*59.3*/("""
 	</div> <!-- div autoevaluacion -->
 
 	</div> <!-- div tabs -->
 
 	
-""")))})),format.raw/*64.2*/(""" 
-""")))})),format.raw/*65.2*/("""
+""")))})),format.raw/*65.2*/(""" 
+""")))})),format.raw/*66.2*/("""
 	</div> <!--  docencia -->
 <div id="tabs-gestion">
 <div class="tabs">
@@ -100,10 +101,10 @@ porcentaje """),_display_(Seq[Any](/*23.13*/(10000*evaluacion.getEvaluados()/eva
 			
 		</ul>
 	<div id="tabs-evalgestion">
-	"""),_display_(Seq[Any](/*75.3*/tablagestion(evaluacionGestion,"Gestión",Pregunta.GESTION, 0,6))),format.raw/*75.66*/("""	
+	"""),_display_(Seq[Any](/*76.3*/tablagestion(evaluacionGestion,"Gestión",Pregunta.GESTION, 0,6))),format.raw/*76.66*/("""	
 	</div>
 	<div id="tabs-autoevalgestion">	
-	"""),_display_(Seq[Any](/*78.3*/tablagestion(autoEvaluacionGestion,"Autoevaluación Gestión",Pregunta.GESTION, 0,6))),format.raw/*78.85*/("""
+	"""),_display_(Seq[Any](/*79.3*/tablagestion(autoEvaluacionGestion,"Autoevaluación Gestión",Pregunta.GESTION, 0,6))),format.raw/*79.85*/("""
 	</div>
 </div>
 </div>
@@ -115,10 +116,10 @@ porcentaje """),_display_(Seq[Any](/*23.13*/(10000*evaluacion.getEvaluados()/eva
 			
 		</ul>
 	<div id="tabs-evalinvestigacion">
-	"""),_display_(Seq[Any](/*90.3*/tablainvestigacion(evaluacionInvestigacion,"Investigación",Pregunta.INVESTIGACION, 0,5))),format.raw/*90.90*/("""	
+	"""),_display_(Seq[Any](/*91.3*/tablainvestigacion(evaluacionInvestigacion,"Investigación",Pregunta.INVESTIGACION, 0,5))),format.raw/*91.90*/("""	
 	</div>
 	<div id="tabs-autoevalinvestigacion">	
-	"""),_display_(Seq[Any](/*93.3*/tablainvestigacion(autoEvaluacionInvestigacion,"Autoevaluación Investigación",Pregunta.INVESTIGACION, 0,5))),format.raw/*93.109*/("""
+	"""),_display_(Seq[Any](/*94.3*/tablainvestigacion(autoEvaluacionInvestigacion,"Autoevaluación Investigación",Pregunta.INVESTIGACION, 0,5))),format.raw/*94.109*/("""
 	</div>
 </div>
 </div>
@@ -138,11 +139,11 @@ $( ".tabs" ).tabs();
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Mar 27 21:27:49 COT 2014
+                    DATE: Sun Mar 30 09:10:26 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/informes/informeprofesor.scala.html
-                    HASH: 2abec2fe86f1159eee52a0c1cc49d7a5b323a209
-                    MATRIX: 894->1|1211->223|1498->475|1550->511|1589->512|1627->515|1700->579|1739->580|1781->587|1800->597|1847->622|1892->631|1911->641|1957->665|2207->879|2226->889|2263->904|2304->909|2323->919|2373->947|2424->962|2524->1040|2571->1052|2662->1121|2702->1126|2792->1194|2832->1199|2923->1268|3037->1347|3104->1398|3143->1399|3211->1431|3246->1444|3315->1481|3428->1559|3560->1681|3608->1690|3647->1694|3669->1707|3708->1708|3747->1712|3795->1751|3850->1768|3889->1772|3984->1845|4026->1852|4120->1924|4162->1931|4257->2004|4292->2008|4316->2014|4328->2018|4366->2019|4430->2052|4464->2055|4563->2123|4597->2126|4871->2365|4956->2428|5037->2474|5141->2556|5434->2814|5543->2901|5630->2953|5759->3059
-                    LINES: 26->1|29->1|39->11|39->11|39->11|40->12|40->12|40->12|41->13|41->13|41->13|41->13|41->13|41->13|50->22|50->22|50->22|50->22|50->22|50->22|51->23|51->23|53->25|53->25|55->27|55->27|57->29|57->29|63->35|63->35|63->35|65->37|65->37|67->39|73->45|73->45|73->45|74->46|74->46|74->46|75->47|75->47|75->47|76->48|76->48|78->50|78->50|80->52|80->52|81->53|83->55|83->55|83->55|85->57|86->58|92->64|93->65|103->75|103->75|106->78|106->78|118->90|118->90|121->93|121->93
+                    HASH: 95092790b80785dd0aa0dc1430082fae0ddd80ae
+                    MATRIX: 894->1|1211->223|1498->475|1550->511|1589->512|1627->515|1700->579|1739->580|1781->587|1800->597|1847->622|1892->631|1911->641|1957->665|2207->879|2226->889|2263->904|2304->909|2323->919|2373->947|2424->962|2524->1040|2571->1052|2662->1121|2702->1126|2792->1194|2832->1199|2923->1268|2961->1271|3050->1351|3089->1352|3201->1429|3268->1480|3307->1481|3375->1513|3410->1526|3479->1563|3555->1608|3626->1644|3758->1766|3806->1775|3845->1779|3867->1792|3906->1793|3945->1797|3993->1836|4048->1853|4087->1857|4182->1930|4224->1937|4318->2009|4360->2016|4455->2089|4490->2093|4514->2099|4526->2103|4564->2104|4628->2137|4662->2140|4761->2208|4795->2211|5069->2450|5154->2513|5235->2559|5339->2641|5632->2899|5741->2986|5828->3038|5957->3144
+                    LINES: 26->1|29->1|39->11|39->11|39->11|40->12|40->12|40->12|41->13|41->13|41->13|41->13|41->13|41->13|50->22|50->22|50->22|50->22|50->22|50->22|51->23|51->23|53->25|53->25|55->27|55->27|57->29|57->29|58->30|58->30|58->30|63->35|63->35|63->35|65->37|65->37|67->39|72->44|74->46|74->46|74->46|75->47|75->47|75->47|76->48|76->48|76->48|77->49|77->49|79->51|79->51|81->53|81->53|82->54|84->56|84->56|84->56|86->58|87->59|93->65|94->66|104->76|104->76|107->79|107->79|119->91|119->91|122->94|122->94
                     -- GENERATED --
                 */
             

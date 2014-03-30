@@ -3,11 +3,14 @@
           <h3> Menú</h3>
           <p>Semestre: @listasemestres(semestres)</p>
           <p>@listainformes()</p>
+          @if(session.get("rol")==Rol.COORDINADOR || session.get("rol")==Rol.ADMINISTRADOR){
           <p>@lista(profesores,1)</p>
+          }
+          @if(session.get("rol")==Rol.COORDINADOR || session.get("rol")==Rol.ADMINISTRADOR){
           <div id='descargas'>
           
           </div>
-       
+       	  }
   <!--        
 	<div class="ui-widget">
 	  <label for="tags">Tags: </label>

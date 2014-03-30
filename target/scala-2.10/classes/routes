@@ -4,7 +4,6 @@
 
 # Home page
 GET     /                           controllers.Application.index()
-GET		/prueba						controllers.Application.prueba()
 GET		/informe1/excel/:documento/:semestre					controllers.Informe1.excel(documento:String, semestre:String)
 GET		/informe1/pdf/:documento/:semestre						controllers.Informe1.pdf(documento:String, semestre:String)
 GET		/informe2/excel/:documento/:semestre					controllers.Informe2.excel(documento:String, semestre:String)
@@ -18,7 +17,9 @@ GET		/informe5/pdf/:documento/:semestre						controllers.Informe5.pdf(documento:
 GET		/informe6/excel/:documento/:semestre					controllers.Informe6.excel(documento:String, semestre:String)
 GET		/informe6/pdf/:documento/:semestre						controllers.Informe6.pdf(documento:String, semestre:String)
 
-
+GET     /login                  	controllers.Application.login()
+GET     /logout                  	controllers.Application.logout()
+POST    /login                      controllers.Application.authenticate()
 GET		/informe2					controllers.Informe2.informeProfesor()
 GET		/informe3					controllers.Informe3.informeProfesor()
 POST 	/informeprofesor			controllers.Informe1.informeProfesor()
