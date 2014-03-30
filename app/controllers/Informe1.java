@@ -66,10 +66,6 @@ public class Informe1 extends Controller {
 				String imagen = routes.Assets.at("images/logo-inpahu2.png").absoluteURL(request());
 				    document.open();
 			
-			//    	return ok(views.html.informes.informedocencia.render(evaluacion,profesores));    
-
-				   // XMLWorkerHelper.getInstance().parseXHtml(writer, document,
-				    //    new StringReader("<html><head><title>Test</title></head><body><div style=\"padding-top:200px;\"><p style=\"text-align:center;padding-top:200px;\">This is a test</p></div></body></html>"));
 		 XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeprofesor.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getAutoEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), evaluacion.getAutoEvaluacionInvestigacion(), profesor, semestre, imagen).toString()));
 	        	
 			} catch (FileNotFoundException e) {

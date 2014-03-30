@@ -1,0 +1,12 @@
+
+@main(""){
+<input name="location" class="autocomplete" data-url='autocompleteLabel' />
+}
+<script>
+$('input.autocomplete').each( function() {
+   var $input = $(this);
+   var serverUrl = $input.data('url');
+   $input.autocomplete({ source:serverUrl });
+});
+
+</script>
