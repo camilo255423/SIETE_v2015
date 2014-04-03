@@ -1,6 +1,15 @@
 package models;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
+
+import play.db.DB;
 import play.db.ebean.*;
 import com.avaje.ebean.*;
 
@@ -9,7 +18,7 @@ public class Usuario extends Model {
 
     @Id
     public String email;
-    public String name;
+    public String nombre;
     public String password;
     String documento;
     String rol;
@@ -36,16 +45,22 @@ public class Usuario extends Model {
 
    
 
-	public Usuario(String email, String name, String password,
+	public Usuario(String email, String nombre, String password,
 			String documento, String rol) {
 		super();
 		this.email = email;
-		this.name = name;
+		this.nombre = nombre;
 		this.password = password;
 		this.documento = documento;
 		this.rol = rol;
 	}
-
+	public Usuario( String nombre,
+			String documento, String rol) {
+		super();
+		this.nombre = nombre;
+		this.documento = documento;
+		this.rol = rol;
+	}
 
 
 
@@ -59,14 +74,21 @@ public class Usuario extends Model {
 	}
 
 
-	public String getName() {
-		return name;
+	
+
+
+	public String getNombre() {
+		return nombre;
 	}
 
 
-	public void setName(String name) {
-		this.name = name;
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
+
+
 
 
 	public String getPassword() {
@@ -87,6 +109,12 @@ public class Usuario extends Model {
 	public void setRol(String rol) {
 		this.rol = rol;
 	}
+	public String getNombreRol()
+	{
+		if(this.rol.equals(Rol.ADMINISTRADOR)) return "ADMINISTRADOR";
+		else if (this.rol.equals(Rol.COORDINADOR)) return "COORDINADOR";
+		return "PROFESOR";
+	}
 
 
 
@@ -97,13 +125,50 @@ public class Usuario extends Model {
 
 
 
-
 	public void setDocumento(String documento) {
 		this.documento = documento;
 	}
+	public static List<Usuario> findAllByNombre(String termino)
+	{
+     	Connection con = DB.getConnection();
+		List<Usuario> usuarios = new ArrayList<Usuario>();
+		PreparedStatement p;
+		try {
+			p = con.prepareStatement(consultaUsuarios);
+		
+			p.setString(1, "%%"+termino+"%%");
+		
+			ResultSet rs=p.executeQuery();
+			while (rs.next()) {
+				usuarios.add(new Usuario("",rs.getString("nombres"),""
+						,rs.getString("documento"),""));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Excepcion : "+e.getMessage());
+			System.out.println(e.getLocalizedMessage());
+		}
+	
+		
+		
+		return usuarios;
+	}
+	public Usuario findByDocumento(String documento)
+	{
+		return null;
+	}
+	private static final String consultaUsuarios = "select  CLI_NUMDCTO as documento, CLI_APELLIDOS || ' ' || CLI_NOMBRES as nombres " +
+			"from sai.rct_clientes where "+
+	" CLI_NUMDCTO || CLI_APELLIDOS || ' ' || ' ' || CLI_NOMBRES like ? order by nombres";
+	
+	
+	private static final String consultaBuscarPorDocumento="select c.CLI_NUMDCTO as documento, cli_apellidos ||' '||cli_nombres as nombre, " +
+	" id_rol from sai.rct_clientes c left join permiso p "+ 
+	" on c.CLI_NUMDCTO = p.CEDULA "+ 
+    " where c.CLI_NUMDCTO =?";
 
-
-
+	
 
 
 }

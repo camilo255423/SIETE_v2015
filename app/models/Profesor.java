@@ -48,6 +48,7 @@ public class Profesor {
 		
 		return profesores;
 	}
+
 	public static Profesor findByDocumento(String documento)
 	{
      	Connection con = DB.getConnection();

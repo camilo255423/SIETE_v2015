@@ -17,14 +17,15 @@ public class Application extends Controller {
         public String password;
         
         public String validate() {
-        Usuario usuario = Usuario.authenticate(email, password);	
-           if (usuario == null) {
-              return "Correo o clave incorrecta";
+        String cedula = LoginWebService.autenticar(email, password);
+           if (cedula!=null) {
+        	   session().clear();
+               session("rol", Rol.ADMINISTRADOR);
+               session("documento",cedula);
+              
             }
            else {
-        	   session().clear();
-               session("rol", usuario.getRol());
-               session("documento",usuario.getDocumento());
+        	   return "Usuario o contraseña incorrecta";
            }
         	   
             return null;

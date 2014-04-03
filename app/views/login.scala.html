@@ -10,7 +10,7 @@
     </div>
       <div id="emptyouterwrapper">
        
-       
+      
         @helper.form(routes.Application.authenticate) {
 	   <div id="login">
 	   	@if(form.hasGlobalErrors) {
@@ -19,13 +19,13 @@
 		    </p>
 		}
 	   <p>
-	     <b> Correo: </b> <input name="email" placeholder="correo" value="@form("email").value">
+	     <input class='cajalogin' name="email" placeholder="Usuario" value="@form("email").value">
 	   </p>
 	   <p>
-	      <b> Clave: </b> <input name="password" placeholder="clave">
+	     <input class='cajalogin' type="password" name="password" placeholder="Contraseña">
 	   </p>
 	   <p>
-	      <button type="submit">Aceptar</button>
+	      <button type="submit" id="botonlogin">Aceptar</button>
 	   </p>
 		
 		</div>
