@@ -43,7 +43,10 @@ public class Usuario extends Model {
     }
 
 
-   
+	public Usuario()
+	{
+		
+	}
 
 	public Usuario(String email, String nombre, String password,
 			String documento, String rol) {
@@ -154,9 +157,29 @@ public class Usuario extends Model {
 		
 		return usuarios;
 	}
-	public Usuario findByDocumento(String documento)
+	public static Usuario findByDocumento(String documento)
 	{
-		return null;
+		Connection con = DB.getConnection();
+		Usuario usuario = null;
+		PreparedStatement p;
+		try {
+			p = con.prepareStatement(consultaBuscarPorDocumento);
+		
+			p.setString(1, documento);
+		
+			ResultSet rs=p.executeQuery();
+			if (rs.next()) {
+				usuario = 
+				new Usuario(rs.getString("nombre"), rs.getString("documento"),
+						rs.getString("id_rol"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Excepcion : "+e.getMessage());
+			System.out.println(e.getLocalizedMessage());
+		}
+		return usuario;
 	}
 	private static final String consultaUsuarios = "select  CLI_NUMDCTO as documento, CLI_APELLIDOS || ' ' || CLI_NOMBRES as nombres " +
 			"from sai.rct_clientes where "+

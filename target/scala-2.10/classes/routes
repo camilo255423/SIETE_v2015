@@ -20,6 +20,7 @@ GET		/informe6/pdf/:documento/:semestre						controllers.Informe6.pdf(documento:
 GET    /autocompleteLabel         	controllers.Admin.autocompleteLabel(term:String)
 GET    /admin						controllers.Admin.index()
 POST    /borrarpermiso				controllers.Admin.borrar()
+POST    /insertarpermiso			controllers.Admin.insertar()
 GET     /login                  	controllers.Application.login()
 GET     /logout                  	controllers.Application.logout()
 POST    /login                      controllers.Application.authenticate()

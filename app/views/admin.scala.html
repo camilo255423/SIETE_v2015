@@ -1,8 +1,16 @@
 @(permisos:List[Permiso])
 @main(""){
-<table border="1" id="tabla">
+<div class="tabs" style="position: absolute; left: 300px;">
+		<ul>
+			<li><a href="#tabs-admin">Administración de Permisos</a></li>
+		
+			
+		</ul>
+ 	<div id="tabs-admin">      
+
+<table id="tabla">
 <tr>
-<td><b>Usuario</b></td><td><b>Rol</b></td><td><b>Programa</b></td><td><b>Operacion</b></td>
+<td><b>Usuario</b></td><td><b>Rol</b></td><td><b>Programa</b></td><td><b>Operación</b></td>
 </tr>
 <tr>
 <td width='220'><input id='inputusuario' name="location" class="autocomplete-relation" data-url='autocompleteLabel' size='40'/></td>
@@ -26,11 +34,18 @@
 </tr>
 }
 </table>
+</div><!-- tab admin -->
+</div><!-- tabs -->
+<div id="errorDialog" title="Error">
+</div>
+<div id="confirmDialog" title="Eliminar Permiso">
+</div>
 
 }
 <script>
 var fila;
 var nuevaFila; 
+
 $('input.autocomplete-relation').each( function() {
    var $input = $(this);
 
@@ -82,25 +97,44 @@ var error=0;
 
 	if($('#nuevodocumento').val()!='-1')
 	{
-	
+	documento=$('#nuevodocumento').val();
 		if($('#listaProfesores').css('display')!='none')
 		{
-			documento=$('#nuevodocumento').val();
+			
 			if($('#listaProfesores').val()=='-1')
 			{
-			alert('Por favor seleccione un programa');
+		
+		    $("#errorDialog").dialog({
+		      modal: true,
+		      title: "Adicionar permiso",
+		      buttons: {
+		        Aceptar: function() {
+		          $( this ).dialog( "close" );
+		        }
+		      }
+		    });
+		$("#errorDialog").html("<p>Por favor seleccione un programa.</p>");
 			error=1;
 			}
 			else
 			{
-			programa = $('#listaProfesores').val();
+			codigoPrograma = $('#listaProfesores').val();
 			nombrePrograma = $('#listaProfesores option:selected').text();
 			}
 		}
 	}
 	else
 	{
-		alert('Por favor seleccione un usuario');
+		$("#errorDialog").dialog({
+		      modal: true,
+		      title: "Adicionar permiso",
+		      buttons: {
+		        Aceptar: function() {
+		          $( this ).dialog( "close" );
+		        }
+		      }
+		    });
+		$("#errorDialog").html("<p>Por favor seleccione un usuario.</p>");
 		error=1;
 	}
 	if(error==0)
@@ -108,7 +142,7 @@ var error=0;
 	nuevaFila = "<tr><td>"+usuario+"</td><td>"+nombreRol+"</td><td>"+nombrePrograma+"</td><td>"+
 	"<a href='javascript: void(0)' data-documento='"+documento+"' class='eliminar'"+
 	 ">Eliminar</a></td>";
-	
+	$.post("insertarpermiso",{documento: documento, idRol: idRol, codigoPrograma: codigoPrograma}, adicionar);
 	}
 }
 );
@@ -127,10 +161,27 @@ $('#listaroles').on('change', function(){
 }
 );
 $('.eliminar').on("click",function(){
-var documento = $(this).attr('data-documento');
-fila = $(this);
-$.post("borrarpermiso",{documento: documento}, borrar); 
-	
+  var documento = $(this).attr('data-documento');
+	fila = $(this);
+
+
+	$( "#confirmDialog" ).dialog({
+      resizable: false,
+      height:240,
+      modal: true,
+      buttons: {
+        Eliminar: function() {
+        
+        $.post("borrarpermiso",{documento: documento}, borrar); 
+          $( this ).dialog( "close" );
+        },
+        Cancelar: function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
+    $("#confirmDialog").html("<p>Va a Eliminar este permiso.</p>");
+  
 
 }
 );
@@ -155,8 +206,10 @@ $("#tabla").append(nuevaFila);
 }
 else
 {
-alert("No se pudo eliminar el registro de la base de datos. ");
+alert("No se pudo insertar el registro en la base de datos. ");
 }
 }
+
+$( ".tabs" ).tabs();
 
 </script>

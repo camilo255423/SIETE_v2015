@@ -26,8 +26,12 @@ object mainmenu extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendab
     def apply():play.api.templates.HtmlFormat.Appendable = {
         _display_ {
 
-Seq[Any](format.raw/*2.5*/("""<ul class="nav">
-          <li><a href="">Home</a></li>
+Seq[Any](format.raw/*2.6*/("""<ul class="nav">
+    	
+          <li><a href="/">Informes</a></li>
+          """),_display_(Seq[Any](/*5.12*/if(session.get("rol")==Rol.ADMINISTRADOR)/*5.53*/{_display_(Seq[Any](format.raw/*5.54*/("""
+          <li><a href="/admin">Administración</a></li>
+          """)))})),format.raw/*7.12*/("""
           <li class="active"><a href="/logout">Log out</a></li>
    
         </ul>"""))}
@@ -42,11 +46,11 @@ Seq[Any](format.raw/*2.5*/("""<ul class="nav">
 }
                 /*
                     -- GENERATED --
-                    DATE: Wed Apr 02 13:48:39 COT 2014
+                    DATE: Thu Apr 03 13:49:51 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/mainmenu.scala.html
-                    HASH: a9806d649ce60ae25d95b784681332f8a5a14dbc
-                    MATRIX: 858->9
-                    LINES: 29->2
+                    HASH: 090e7f79e45ea4b99d885ccd987a2c473a53ce9d
+                    MATRIX: 858->10|971->88|1020->129|1058->130|1156->197
+                    LINES: 29->2|32->5|32->5|32->5|34->7
                     -- GENERATED --
                 */
             
