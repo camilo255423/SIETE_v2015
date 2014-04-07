@@ -25,8 +25,10 @@ public class Application extends Controller {
         	else
         	{
         		cedula = LoginWebService.autenticar(email, password);
+        		System.out.println(cedula);
         	}
         // 13923305 EMILIO BARAJAS
+        	
            if (cedula!=null) {
         	   Usuario usuario = Usuario.findByDocumento(cedula);
         	   if(usuario!=null)
@@ -35,13 +37,21 @@ public class Application extends Controller {
 	        	   if(usuario.getRol()!=null)
 	        	   {
 	               session("rol", usuario.getRol());
+	               	if(usuario.getRol().equals(Rol.COORDINADOR))
+	               		{
+	               			Permiso permiso = Permiso.findByDocumento(cedula);
+	               			session("codigoPrograma",permiso.getPrograma().getCodPrograma());
+	               			session("nombrePrograma",permiso.getPrograma().getNombre()); 
+	               	
+	               		}
+	               		
 	        	   }
 	        	   else
 	        	   {
 	        	   session("rol", Rol.PROFESOR);	   
 	        	   }
 	               session("documento",cedula);
-	               session("documento",usuario.getNombre());
+	               session("nombre",usuario.getNombre());
         	   }
         	   else
         	   {
@@ -98,8 +108,18 @@ public class Application extends Controller {
     	String valor = Form.form().bindFromRequest().get("valor");	
        
     	if(valor.equals("profesores"))
-    	{	
-    	List<Profesor> profesores = Profesor.findAllBySemestre(semestre);
+    	{
+    		
+    	List<Profesor> profesores = null;
+    	if(session("rol").equals(Rol.COORDINADOR))
+    	{
+    		profesores= Profesor.findAllBySemestreAndPrograma(semestre, session("codigoPrograma"));		
+    	
+    	}
+    	else
+    	{
+    		profesores= Profesor.findAllBySemestre(semestre);
+    	}
     	
     	return ok(views.html.lista.render(profesores,0));
     	}
@@ -110,7 +130,17 @@ public class Application extends Controller {
     	}
     	if(valor.equals("programas"))
     	{	
-    	List<Programa> programas = Programa.findAll();
+    		List<Programa> programas=null;
+    		if(session("rol").equals(Rol.COORDINADOR))
+        	{
+    			
+    			programas = new ArrayList<Programa>();
+    			programas.add(Programa.findById(session("codigoPrograma")));
+        	}
+    		else
+    		{
+    			programas = Programa.findAll();
+    		}
     	return ok(views.html.listaprogramas.render(programas,0));
     	}
     	if(valor.equals("participantes"))

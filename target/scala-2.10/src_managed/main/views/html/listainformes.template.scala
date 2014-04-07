@@ -34,9 +34,13 @@ Seq[Any](format.raw/*2.1*/("""<select id='listainformes'>
 """)))})),format.raw/*7.2*/("""
 """),_display_(Seq[Any](/*8.2*/if(session.get("rol")==Rol.ADMINISTRADOR)/*8.43*/{_display_(Seq[Any](format.raw/*8.44*/("""
 <option value='4'>Informe 4 - por Facultad</option>
+""")))})),format.raw/*10.2*/("""
+"""),_display_(Seq[Any](/*11.2*/if(session.get("rol")==Rol.COORDINADOR || session.get("rol")==Rol.ADMINISTRADOR)/*11.82*/{_display_(Seq[Any](format.raw/*11.83*/("""
 <option value='5'>Informe 5 - por Programa</option>
+""")))})),format.raw/*13.2*/("""
+"""),_display_(Seq[Any](/*14.2*/if(session.get("rol")==Rol.ADMINISTRADOR)/*14.43*/{_display_(Seq[Any](format.raw/*14.44*/("""
 <option value='6'>Informe 6 - Participantes</option>
-""")))})),format.raw/*12.2*/("""
+""")))})),format.raw/*16.2*/("""
 </select>"""))}
     }
     
@@ -49,11 +53,11 @@ Seq[Any](format.raw/*2.1*/("""<select id='listainformes'>
 }
                 /*
                     -- GENERATED --
-                    DATE: Wed Apr 02 13:48:39 COT 2014
+                    DATE: Mon Apr 07 15:44:52 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/listainformes.scala.html
-                    HASH: 49b3e642072fc08840c4f9e54c2ce71bbc152718
-                    MATRIX: 863->1|975->79|1063->159|1101->160|1234->263|1270->265|1319->306|1357->307|1547->466
-                    LINES: 29->2|31->4|31->4|31->4|34->7|35->8|35->8|35->8|39->12
+                    HASH: 68a8b787e88beafb4c44787574dde760e25857cd
+                    MATRIX: 863->1|975->79|1063->159|1101->160|1234->263|1270->265|1319->306|1357->307|1442->361|1479->363|1568->443|1607->444|1692->498|1729->500|1779->541|1818->542|1904->597
+                    LINES: 29->2|31->4|31->4|31->4|34->7|35->8|35->8|35->8|37->10|38->11|38->11|38->11|40->13|41->14|41->14|41->14|43->16
                     -- GENERATED --
                 */
             

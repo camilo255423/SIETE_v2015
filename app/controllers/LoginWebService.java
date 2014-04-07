@@ -39,7 +39,7 @@ public class LoginWebService {
 		 respuesta = LoginWebService.soapMessageToString(soapResponse).split("-");
 		 if(LoginWebService.soapMessageToString(soapResponse).contains("SUCCESSFUL"))
 		 {
-			 return respuesta[7]; // retorna la cédula del usuario
+			 return respuesta[5]; // retorna la cédula del usuario
 		 }
 		 
 		 return null;

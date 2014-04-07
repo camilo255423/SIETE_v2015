@@ -7,6 +7,7 @@ import java.util.TimeZone;
 
 import models.AutocompleteValue;
 import models.Permiso;
+import models.Rol;
 import models.Usuario;
 
 
@@ -18,6 +19,7 @@ import play.data.Form;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.Security;
 
 public class Admin extends Controller{
 	public static List<String> locations() {
@@ -77,8 +79,12 @@ public class Admin extends Controller{
 		   
 		   return ok(result);
 	}
+	@Security.Authenticated(Secured.class)
 	  public static Result index() {
-
+		  if(!session("rol").equals(Rol.ADMINISTRADOR))
+		  {
+			  return ok("Acceso denegado para este rol");
+		  }
 	    	List<Permiso> permisos = Permiso.findAll();
 	    
 	    	return ok(views.html.admin.render(permisos));

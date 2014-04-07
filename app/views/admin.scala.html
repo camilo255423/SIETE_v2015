@@ -14,7 +14,7 @@
 </tr>
 <tr>
 <td width='220'><input id='inputusuario' name="location" class="autocomplete-relation" data-url='autocompleteLabel' size='40'/></td>
-<td><select name="listaroles" id='listaroles'><option value='1'>ADMINISTRADOR</option><option value='2'>COORDINADOR</option></select></td>
+<td><select name="listaroles" id='listaroles'><option value='1'>ADMINISTRADOR</option><option value='2'>DIRECTOR DE PROGRAMA</option></select></td>
 <td><b>@listaprogramas(Programa.findAll(),0)</b></td>
 <td><a href="javascript: void(0)" 
 	 id="adicionar"
@@ -67,7 +67,7 @@ $('input.autocomplete-relation').each( function() {
          // Save the selection item and value in the two inputs.
          $input.val(ui.item.label);
          $hidden.val(ui.item.value);
-         alert(ui.item.value);
+         
          return false;
       }
    });

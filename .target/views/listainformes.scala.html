@@ -7,7 +7,11 @@
 }
 @if(session.get("rol")==Rol.ADMINISTRADOR){
 <option value='4'>Informe 4 - por Facultad</option>
+}
+@if(session.get("rol")==Rol.COORDINADOR || session.get("rol")==Rol.ADMINISTRADOR){
 <option value='5'>Informe 5 - por Programa</option>
+}
+@if(session.get("rol")==Rol.ADMINISTRADOR){
 <option value='6'>Informe 6 - Participantes</option>
 }
 </select>
