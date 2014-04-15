@@ -1,4 +1,4 @@
-@(evaluacionDocencia:EvaluacionMateria, autoEvaluacionDocencia:EvaluacionMateria, evaluacionGestion:EvaluacionGestion, evaluacionInvestigacion:EvaluacionInvestigacion,autoEvaluacionGestion:EvaluacionGestion, autoEvaluacionInvestigacion:EvaluacionInvestigacion,facultad:Facultad, semestre:String, imagen:String)
+@(evaluacionDocencia:EvaluacionMateria, autoEvaluacionDocencia:EvaluacionMateria, evaluacionGestion:EvaluacionGestion, evaluacionInvestigacion:EvaluacionInvestigacion,autoEvaluacionGestion:EvaluacionGestion, autoEvaluacionInvestigacion:EvaluacionInvestigacion,mejorPeor:List[SaberNivel],facultad:Facultad, semestre:String, imagen:String)
 @import models.Nivel
 @import java.text.DecimalFormat
 <div id="informe">
@@ -20,6 +20,9 @@
   
 	  @defining(new DecimalFormat("##0.00")){formato=>
 <h4>Campo de la Docencia</h4>
+	<p><b>Mejor Saber: @mejorPeor.get(0).getSaber() Nivel: @Nivel.toString(mejorPeor.get(0).getNivel()) @formato.format(mejorPeor.get(0).getPromedio()) %</b></p>  
+	 <p><b>Peor Saber: @mejorPeor.get(1).getSaber() Nivel: @Nivel.toString(mejorPeor.get(1).getNivel()) @formato.format(mejorPeor.get(1).getPromedio()) %</b></p>
+
 	<table border='1'>
 	<tbody>
          <tr style="font-size: 8pt;">

@@ -18,7 +18,8 @@ public class Application extends Controller {
         
         public String validate() {
         	String cedula="";
-        	if(email.equals("13923305") || email.equals("79511724"))
+        	// 52348310 Johanna Ovalle
+        	if(email.equals("13923305") || email.equals("79511724") || email.equals("52348310"))
         	{ 
         		cedula = email;
         	}

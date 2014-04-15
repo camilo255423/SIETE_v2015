@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EvaluacionPrograma {
@@ -11,6 +12,8 @@ public class EvaluacionPrograma {
 	EvaluacionInvestigacion EvaluacionInvestigacion;
 	EvaluacionGestion AutoEvaluacionGestion;
 	EvaluacionInvestigacion AutoEvaluacionInvestigacion;
+	ArrayList mejorCampo = new ArrayList();
+	ArrayList peorCampo = new ArrayList();
 	public EvaluacionPrograma()
 	{}
 	public EvaluacionPrograma(String codPrograma, String programa,
