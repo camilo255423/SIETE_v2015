@@ -44,7 +44,8 @@ public class Informe5 extends Controller {
     	ArrayList<SaberNivel> mejorPeorSaberDocencia;
     	String codigoPrograma = Form.form().bindFromRequest().get("documento");
        	String semestre = Form.form().bindFromRequest().get("semestre");
-    
+        Programa programa = Programa.findById(codigoPrograma);
+ 		
     	Evaluacion evaluacion = ReportesDAO.getInformePrograma(codigoPrograma, semestre);
     	EvaluacionMateria evaluacionDocencia=null;
     	EvaluacionMateria autoEvaluacionDocencia=null;
@@ -54,7 +55,7 @@ public class Informe5 extends Controller {
     	mejorPeorSaberDocencia = ReportesDAO.getMejorPeorCampoDocencia(evaluacion.getEvaluacionDocencia());
     	return ok(views.html.informes.informeprograma.render(evaluacionDocencia,autoEvaluacionDocencia,
     			evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),evaluacion.getAutoEvaluacionGestion(),
-    			evaluacion.getAutoEvaluacionInvestigacion(),mejorPeorSaberDocencia));
+    			evaluacion.getAutoEvaluacionInvestigacion(),mejorPeorSaberDocencia,programa,semestre));
     	
  	
     }

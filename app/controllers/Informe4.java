@@ -46,13 +46,14 @@ public class Informe4 extends Controller {
 		ArrayList<SaberNivel> mejorPeorSaberDocencia;
     	String codigoFacultad = Form.form().bindFromRequest().get("documento");
        	String semestre = Form.form().bindFromRequest().get("semestre");
+        Facultad facultad = Facultad.findById(codigoFacultad);
     	Evaluacion evaluacion = ReportesDAO.getInformeFacultad(codigoFacultad, semestre);
     	EvaluacionMateria evaluacionDocencia=null;
     	EvaluacionMateria autoEvaluacionDocencia=null;
     	if(evaluacion.getEvaluacionDocencia().size()>=1) evaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(0);
     	if(evaluacion.getEvaluacionDocencia().size()>=2) autoEvaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(1);
     	mejorPeorSaberDocencia = ReportesDAO.getMejorPeorCampoDocencia(evaluacion.getEvaluacionDocencia());
-    	return ok(views.html.informes.informefacultad.render(evaluacionDocencia,autoEvaluacionDocencia,evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),evaluacion.getAutoEvaluacionGestion(),evaluacion.getAutoEvaluacionInvestigacion(),mejorPeorSaberDocencia));
+    	return ok(views.html.informes.informefacultad.render(evaluacionDocencia,autoEvaluacionDocencia,evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),evaluacion.getAutoEvaluacionGestion(),evaluacion.getAutoEvaluacionInvestigacion(),mejorPeorSaberDocencia,facultad,semestre));
     	
  	
     }

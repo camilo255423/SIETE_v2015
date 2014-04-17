@@ -20,22 +20,24 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object informeparticipantes extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template5[List[Facultad],List[Facultad],List[Facultad],List[Facultad],List[Facultad],play.api.templates.HtmlFormat.Appendable] {
+object informeparticipantes extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template6[List[Facultad],List[Facultad],List[Facultad],List[Facultad],List[Facultad],String,play.api.templates.HtmlFormat.Appendable] {
 
     /**/
     def apply/*1.2*/(estudiantesEvaluadosPorFacultad:List[Facultad],
     			docentesEvaluadosPorEstudiantesPorFacultad:List[Facultad],
     			docentesConAutoevaluacionPorFacultad:List[Facultad],
     			directivosGestionEvaluadosPorFacultad:List[Facultad],
-    			directivosInvestigacionEvaluadosPorFacultad:List[Facultad]):play.api.templates.HtmlFormat.Appendable = {
+    			directivosInvestigacionEvaluadosPorFacultad:List[Facultad], semestre:String):play.api.templates.HtmlFormat.Appendable = {
         _display_ {import models.Nivel
 
 import java.text.DecimalFormat
 
 
-Seq[Any](format.raw/*5.67*/("""
+Seq[Any](format.raw/*5.84*/("""
 """),format.raw/*8.1*/("""<div id="informe">
- """),_display_(Seq[Any](/*9.3*/defining(new DecimalFormat("##0.00"))/*9.40*/{formato=>_display_(Seq[Any](format.raw/*9.50*/("""
+<h2 style="text-align: center;">Informe de Participantes """),_display_(Seq[Any](/*9.59*/semestre)),format.raw/*9.67*/("""</h2>
+
+ """),_display_(Seq[Any](/*11.3*/defining(new DecimalFormat("##0.00"))/*11.40*/{formato=>_display_(Seq[Any](format.raw/*11.50*/("""
 <div class="tabs">
 		<ul>
 			<li><a href="#tabs-estudiantes">Estudiantes</a></li>
@@ -54,14 +56,14 @@ Seq[Any](format.raw/*5.67*/("""
 			<td>Total Estudiantes</td>
 			<td>Porcentaje</td>
 		</tr>
-		"""),_display_(Seq[Any](/*28.4*/for(facultad <- estudiantesEvaluadosPorFacultad) yield /*28.52*/{_display_(Seq[Any](format.raw/*28.53*/("""
+		"""),_display_(Seq[Any](/*30.4*/for(facultad <- estudiantesEvaluadosPorFacultad) yield /*30.52*/{_display_(Seq[Any](format.raw/*30.53*/("""
 		 <tr>
-			<td>"""),_display_(Seq[Any](/*30.9*/facultad/*30.17*/.getNombre())),format.raw/*30.29*/("""</td>
-			<td>"""),_display_(Seq[Any](/*31.9*/facultad/*31.17*/.getParticipantes())),format.raw/*31.36*/("""</td>
-			<td>"""),_display_(Seq[Any](/*32.9*/facultad/*32.17*/.getTotal())),format.raw/*32.28*/("""</td>
-			<td>"""),_display_(Seq[Any](/*33.9*/formato/*33.16*/.format(facultad.getPorcentaje()))),format.raw/*33.49*/(""" %</td>
+			<td>"""),_display_(Seq[Any](/*32.9*/facultad/*32.17*/.getNombre())),format.raw/*32.29*/("""</td>
+			<td>"""),_display_(Seq[Any](/*33.9*/facultad/*33.17*/.getParticipantes())),format.raw/*33.36*/("""</td>
+			<td>"""),_display_(Seq[Any](/*34.9*/facultad/*34.17*/.getTotal())),format.raw/*34.28*/("""</td>
+			<td>"""),_display_(Seq[Any](/*35.9*/formato/*35.16*/.format(facultad.getPorcentaje()))),format.raw/*35.49*/(""" %</td>
 		</tr>
-		""")))})),format.raw/*35.4*/("""
+		""")))})),format.raw/*37.4*/("""
 		</tbody>
 	    </table>
 	</div>	   
@@ -75,14 +77,14 @@ Seq[Any](format.raw/*5.67*/("""
 			<td>Número Total de Docentes</td>
 			<td>Porcentaje</td>
 		</tr>
-		"""),_display_(Seq[Any](/*49.4*/for(facultad <- docentesEvaluadosPorEstudiantesPorFacultad) yield /*49.63*/{_display_(Seq[Any](format.raw/*49.64*/("""
+		"""),_display_(Seq[Any](/*51.4*/for(facultad <- docentesEvaluadosPorEstudiantesPorFacultad) yield /*51.63*/{_display_(Seq[Any](format.raw/*51.64*/("""
 		 <tr>
-			<td>"""),_display_(Seq[Any](/*51.9*/facultad/*51.17*/.getNombre())),format.raw/*51.29*/("""</td>
-			<td>"""),_display_(Seq[Any](/*52.9*/facultad/*52.17*/.getParticipantes())),format.raw/*52.36*/("""</td>
-			<td>"""),_display_(Seq[Any](/*53.9*/facultad/*53.17*/.getTotal())),format.raw/*53.28*/("""</td>
-			<td>"""),_display_(Seq[Any](/*54.9*/formato/*54.16*/.format(facultad.getPorcentaje()))),format.raw/*54.49*/(""" %</td>
+			<td>"""),_display_(Seq[Any](/*53.9*/facultad/*53.17*/.getNombre())),format.raw/*53.29*/("""</td>
+			<td>"""),_display_(Seq[Any](/*54.9*/facultad/*54.17*/.getParticipantes())),format.raw/*54.36*/("""</td>
+			<td>"""),_display_(Seq[Any](/*55.9*/facultad/*55.17*/.getTotal())),format.raw/*55.28*/("""</td>
+			<td>"""),_display_(Seq[Any](/*56.9*/formato/*56.16*/.format(facultad.getPorcentaje()))),format.raw/*56.49*/(""" %</td>
 		</tr>
-		""")))})),format.raw/*56.4*/("""
+		""")))})),format.raw/*58.4*/("""
 		</tbody>
 	    </table>
 	</div> <!-- div docentes -->
@@ -98,14 +100,14 @@ Seq[Any](format.raw/*5.67*/("""
 			<td>Número Total de Docentes</td>
 			<td>Porcentaje</td>
 		</tr>
-		"""),_display_(Seq[Any](/*72.4*/for(facultad <- docentesConAutoevaluacionPorFacultad) yield /*72.57*/{_display_(Seq[Any](format.raw/*72.58*/("""
+		"""),_display_(Seq[Any](/*74.4*/for(facultad <- docentesConAutoevaluacionPorFacultad) yield /*74.57*/{_display_(Seq[Any](format.raw/*74.58*/("""
 		 <tr>
-			<td>"""),_display_(Seq[Any](/*74.9*/facultad/*74.17*/.getNombre())),format.raw/*74.29*/("""</td>
-			<td>"""),_display_(Seq[Any](/*75.9*/facultad/*75.17*/.getParticipantes())),format.raw/*75.36*/("""</td>
-			<td>"""),_display_(Seq[Any](/*76.9*/facultad/*76.17*/.getTotal())),format.raw/*76.28*/("""</td>
-			<td>"""),_display_(Seq[Any](/*77.9*/formato/*77.16*/.format(facultad.getPorcentaje()))),format.raw/*77.49*/(""" %</td>
+			<td>"""),_display_(Seq[Any](/*76.9*/facultad/*76.17*/.getNombre())),format.raw/*76.29*/("""</td>
+			<td>"""),_display_(Seq[Any](/*77.9*/facultad/*77.17*/.getParticipantes())),format.raw/*77.36*/("""</td>
+			<td>"""),_display_(Seq[Any](/*78.9*/facultad/*78.17*/.getTotal())),format.raw/*78.28*/("""</td>
+			<td>"""),_display_(Seq[Any](/*79.9*/formato/*79.16*/.format(facultad.getPorcentaje()))),format.raw/*79.49*/(""" %</td>
 		</tr>
-		""")))})),format.raw/*79.4*/("""
+		""")))})),format.raw/*81.4*/("""
 		</tbody>
 	    </table>
 </div>
@@ -119,14 +121,14 @@ Seq[Any](format.raw/*5.67*/("""
 			<td>Número Total de Docentes</td>
 			<td>Porcentaje</td>
 		</tr>
-		"""),_display_(Seq[Any](/*93.4*/for(facultad <- directivosGestionEvaluadosPorFacultad) yield /*93.58*/{_display_(Seq[Any](format.raw/*93.59*/("""
+		"""),_display_(Seq[Any](/*95.4*/for(facultad <- directivosGestionEvaluadosPorFacultad) yield /*95.58*/{_display_(Seq[Any](format.raw/*95.59*/("""
 		 <tr>
-			<td>"""),_display_(Seq[Any](/*95.9*/facultad/*95.17*/.getNombre())),format.raw/*95.29*/("""</td>
-			<td>"""),_display_(Seq[Any](/*96.9*/facultad/*96.17*/.getParticipantes())),format.raw/*96.36*/("""</td>
-			<td>"""),_display_(Seq[Any](/*97.9*/facultad/*97.17*/.getTotal())),format.raw/*97.28*/("""</td>
-			<td>"""),_display_(Seq[Any](/*98.9*/formato/*98.16*/.format(facultad.getPorcentaje()))),format.raw/*98.49*/(""" %</td>
+			<td>"""),_display_(Seq[Any](/*97.9*/facultad/*97.17*/.getNombre())),format.raw/*97.29*/("""</td>
+			<td>"""),_display_(Seq[Any](/*98.9*/facultad/*98.17*/.getParticipantes())),format.raw/*98.36*/("""</td>
+			<td>"""),_display_(Seq[Any](/*99.9*/facultad/*99.17*/.getTotal())),format.raw/*99.28*/("""</td>
+			<td>"""),_display_(Seq[Any](/*100.9*/formato/*100.16*/.format(facultad.getPorcentaje()))),format.raw/*100.49*/(""" %</td>
 		</tr>
-		""")))})),format.raw/*100.4*/("""
+		""")))})),format.raw/*102.4*/("""
 		</tbody>
 	    </table>
 </div>
@@ -140,39 +142,39 @@ Seq[Any](format.raw/*5.67*/("""
 			<td>Número Total de Docentes</td>
 			<td>Porcentaje</td>
 		</tr>
-		"""),_display_(Seq[Any](/*114.4*/for(facultad <- directivosInvestigacionEvaluadosPorFacultad) yield /*114.64*/{_display_(Seq[Any](format.raw/*114.65*/("""
+		"""),_display_(Seq[Any](/*116.4*/for(facultad <- directivosInvestigacionEvaluadosPorFacultad) yield /*116.64*/{_display_(Seq[Any](format.raw/*116.65*/("""
 		 <tr>
-			<td>"""),_display_(Seq[Any](/*116.9*/facultad/*116.17*/.getNombre())),format.raw/*116.29*/("""</td>
-			<td>"""),_display_(Seq[Any](/*117.9*/facultad/*117.17*/.getParticipantes())),format.raw/*117.36*/("""</td>
-			<td>"""),_display_(Seq[Any](/*118.9*/facultad/*118.17*/.getTotal())),format.raw/*118.28*/("""</td>
-			<td>"""),_display_(Seq[Any](/*119.9*/formato/*119.16*/.format(facultad.getPorcentaje()))),format.raw/*119.49*/(""" %</td>
+			<td>"""),_display_(Seq[Any](/*118.9*/facultad/*118.17*/.getNombre())),format.raw/*118.29*/("""</td>
+			<td>"""),_display_(Seq[Any](/*119.9*/facultad/*119.17*/.getParticipantes())),format.raw/*119.36*/("""</td>
+			<td>"""),_display_(Seq[Any](/*120.9*/facultad/*120.17*/.getTotal())),format.raw/*120.28*/("""</td>
+			<td>"""),_display_(Seq[Any](/*121.9*/formato/*121.16*/.format(facultad.getPorcentaje()))),format.raw/*121.49*/(""" %</td>
 		</tr>
-		""")))})),format.raw/*121.4*/("""
+		""")))})),format.raw/*123.4*/("""
 		</tbody>
 	    </table>
 </div>
 </div> <!-- tabs -->
-""")))})),format.raw/*126.2*/("""
+""")))})),format.raw/*128.2*/("""
 </div>  <!-- div informe -->
 <script>
 $( ".tabs" ).tabs();
 </script>"""))}
     }
     
-    def render(estudiantesEvaluadosPorFacultad:List[Facultad],docentesEvaluadosPorEstudiantesPorFacultad:List[Facultad],docentesConAutoevaluacionPorFacultad:List[Facultad],directivosGestionEvaluadosPorFacultad:List[Facultad],directivosInvestigacionEvaluadosPorFacultad:List[Facultad]): play.api.templates.HtmlFormat.Appendable = apply(estudiantesEvaluadosPorFacultad,docentesEvaluadosPorEstudiantesPorFacultad,docentesConAutoevaluacionPorFacultad,directivosGestionEvaluadosPorFacultad,directivosInvestigacionEvaluadosPorFacultad)
+    def render(estudiantesEvaluadosPorFacultad:List[Facultad],docentesEvaluadosPorEstudiantesPorFacultad:List[Facultad],docentesConAutoevaluacionPorFacultad:List[Facultad],directivosGestionEvaluadosPorFacultad:List[Facultad],directivosInvestigacionEvaluadosPorFacultad:List[Facultad],semestre:String): play.api.templates.HtmlFormat.Appendable = apply(estudiantesEvaluadosPorFacultad,docentesEvaluadosPorEstudiantesPorFacultad,docentesConAutoevaluacionPorFacultad,directivosGestionEvaluadosPorFacultad,directivosInvestigacionEvaluadosPorFacultad,semestre)
     
-    def f:((List[Facultad],List[Facultad],List[Facultad],List[Facultad],List[Facultad]) => play.api.templates.HtmlFormat.Appendable) = (estudiantesEvaluadosPorFacultad,docentesEvaluadosPorEstudiantesPorFacultad,docentesConAutoevaluacionPorFacultad,directivosGestionEvaluadosPorFacultad,directivosInvestigacionEvaluadosPorFacultad) => apply(estudiantesEvaluadosPorFacultad,docentesEvaluadosPorEstudiantesPorFacultad,docentesConAutoevaluacionPorFacultad,directivosGestionEvaluadosPorFacultad,directivosInvestigacionEvaluadosPorFacultad)
+    def f:((List[Facultad],List[Facultad],List[Facultad],List[Facultad],List[Facultad],String) => play.api.templates.HtmlFormat.Appendable) = (estudiantesEvaluadosPorFacultad,docentesEvaluadosPorEstudiantesPorFacultad,docentesConAutoevaluacionPorFacultad,directivosGestionEvaluadosPorFacultad,directivosInvestigacionEvaluadosPorFacultad,semestre) => apply(estudiantesEvaluadosPorFacultad,docentesEvaluadosPorEstudiantesPorFacultad,docentesConAutoevaluacionPorFacultad,directivosGestionEvaluadosPorFacultad,directivosInvestigacionEvaluadosPorFacultad,semestre)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Apr 04 16:48:51 COT 2014
+                    DATE: Tue Apr 15 15:10:11 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/informes/informeparticipantes.scala.html
-                    HASH: 40100902e2a9696f7bc33e178423e0295c8fbae4
-                    MATRIX: 866->1|1314->303|1341->357|1396->378|1441->415|1488->425|2065->967|2129->1015|2168->1016|2220->1033|2237->1041|2271->1053|2320->1067|2337->1075|2378->1094|2427->1108|2444->1116|2477->1127|2526->1141|2542->1148|2597->1181|2647->1200|2967->1485|3042->1544|3081->1545|3133->1562|3150->1570|3184->1582|3233->1596|3250->1604|3291->1623|3340->1637|3357->1645|3390->1656|3439->1670|3455->1677|3510->1710|3560->1729|3906->2040|3975->2093|4014->2094|4066->2111|4083->2119|4117->2131|4166->2145|4183->2153|4224->2172|4273->2186|4290->2194|4323->2205|4372->2219|4388->2226|4443->2259|4493->2278|4825->2575|4895->2629|4934->2630|4986->2647|5003->2655|5037->2667|5086->2681|5103->2689|5144->2708|5193->2722|5210->2730|5243->2741|5292->2755|5308->2762|5363->2795|5414->2814|5740->3104|5817->3164|5857->3165|5910->3182|5928->3190|5963->3202|6013->3216|6031->3224|6073->3243|6123->3257|6141->3265|6175->3276|6225->3290|6242->3297|6298->3330|6349->3349|6436->3404
-                    LINES: 26->1|36->5|37->8|38->9|38->9|38->9|57->28|57->28|57->28|59->30|59->30|59->30|60->31|60->31|60->31|61->32|61->32|61->32|62->33|62->33|62->33|64->35|78->49|78->49|78->49|80->51|80->51|80->51|81->52|81->52|81->52|82->53|82->53|82->53|83->54|83->54|83->54|85->56|101->72|101->72|101->72|103->74|103->74|103->74|104->75|104->75|104->75|105->76|105->76|105->76|106->77|106->77|106->77|108->79|122->93|122->93|122->93|124->95|124->95|124->95|125->96|125->96|125->96|126->97|126->97|126->97|127->98|127->98|127->98|129->100|143->114|143->114|143->114|145->116|145->116|145->116|146->117|146->117|146->117|147->118|147->118|147->118|148->119|148->119|148->119|150->121|155->126
+                    HASH: b8e1c8ecc1091d72752f1aa4e5090e8d791415c5
+                    MATRIX: 873->1|1338->320|1365->374|1477->451|1506->459|1550->468|1596->505|1644->515|2221->1057|2285->1105|2324->1106|2376->1123|2393->1131|2427->1143|2476->1157|2493->1165|2534->1184|2583->1198|2600->1206|2633->1217|2682->1231|2698->1238|2753->1271|2803->1290|3123->1575|3198->1634|3237->1635|3289->1652|3306->1660|3340->1672|3389->1686|3406->1694|3447->1713|3496->1727|3513->1735|3546->1746|3595->1760|3611->1767|3666->1800|3716->1819|4062->2130|4131->2183|4170->2184|4222->2201|4239->2209|4273->2221|4322->2235|4339->2243|4380->2262|4429->2276|4446->2284|4479->2295|4528->2309|4544->2316|4599->2349|4649->2368|4981->2665|5051->2719|5090->2720|5142->2737|5159->2745|5193->2757|5242->2771|5259->2779|5300->2798|5349->2812|5366->2820|5399->2831|5449->2845|5466->2852|5522->2885|5573->2904|5899->3194|5976->3254|6016->3255|6069->3272|6087->3280|6122->3292|6172->3306|6190->3314|6232->3333|6282->3347|6300->3355|6334->3366|6384->3380|6401->3387|6457->3420|6508->3439|6595->3494
+                    LINES: 26->1|36->5|37->8|38->9|38->9|40->11|40->11|40->11|59->30|59->30|59->30|61->32|61->32|61->32|62->33|62->33|62->33|63->34|63->34|63->34|64->35|64->35|64->35|66->37|80->51|80->51|80->51|82->53|82->53|82->53|83->54|83->54|83->54|84->55|84->55|84->55|85->56|85->56|85->56|87->58|103->74|103->74|103->74|105->76|105->76|105->76|106->77|106->77|106->77|107->78|107->78|107->78|108->79|108->79|108->79|110->81|124->95|124->95|124->95|126->97|126->97|126->97|127->98|127->98|127->98|128->99|128->99|128->99|129->100|129->100|129->100|131->102|145->116|145->116|145->116|147->118|147->118|147->118|148->119|148->119|148->119|149->120|149->120|149->120|150->121|150->121|150->121|152->123|157->128
                     -- GENERATED --
                 */
             
