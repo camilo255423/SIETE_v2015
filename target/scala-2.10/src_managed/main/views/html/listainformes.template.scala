@@ -49,19 +49,11 @@ Seq[Any](format.raw/*2.1*/("""<select id='listainformes'>
 }
                 /*
                     -- GENERATED --
-<<<<<<< HEAD
-                    DATE: Fri Mar 28 10:07:47 COT 2014
+                    DATE: Sun Mar 30 16:04:02 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/listainformes.scala.html
-                    HASH: 1855e0a839e399094487d5e6400589d8ec0fa8e7
-                    MATRIX: 795->0
-                    LINES: 29->1
-=======
-                    DATE: Sun Mar 30 09:29:22 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/listainformes.scala.html
-                    HASH: 49b3e642072fc08840c4f9e54c2ce71bbc152718
-                    MATRIX: 863->1|975->79|1063->159|1101->160|1234->263|1270->265|1319->306|1357->307|1547->466
+                    HASH: 05720ba8b8321a13b3f5e0cb7594542acc02c5b9
+                    MATRIX: 795->1|907->79|995->159|1033->160|1166->263|1202->265|1251->306|1289->307|1479->466
                     LINES: 29->2|31->4|31->4|31->4|34->7|35->8|35->8|35->8|39->12
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
                     -- GENERATED --
                 */
             

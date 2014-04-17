@@ -20,10 +20,10 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object login extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template1[Form[Application.Login],play.api.templates.HtmlFormat.Appendable] {
+object login extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template1[Form[Application.Login],play.api.templates.Html] {
 
     /**/
-    def apply/*1.2*/(form: Form[Application.Login]):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*1.2*/(form: Form[Application.Login]):play.api.templates.Html = {
         _display_ {
 
 Seq[Any](format.raw/*1.33*/("""
@@ -66,19 +66,19 @@ Seq[Any](format.raw/*1.33*/("""
 """))}
     }
     
-    def render(form:Form[Application.Login]): play.api.templates.HtmlFormat.Appendable = apply(form)
+    def render(form:Form[Application.Login]): play.api.templates.Html = apply(form)
     
-    def f:((Form[Application.Login]) => play.api.templates.HtmlFormat.Appendable) = (form) => apply(form)
+    def f:((Form[Application.Login]) => play.api.templates.Html) = (form) => apply(form)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Sat Mar 29 17:05:46 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/login.scala.html
-                    HASH: 4312c39c0dd956e37a10f461cff73c789b9adcb8
-                    MATRIX: 791->1|916->32|952->34|987->61|1025->62|1173->175|1187->181|1244->217|1404->341|1419->347|1466->385|1506->387|1569->415|1602->439|1642->441|1714->477|1727->481|1769->501|1815->516|1932->597|1954->610|1982->616|2187->790|2246->818
+                    DATE: Sun Mar 30 16:04:01 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/login.scala.html
+                    HASH: fc647c1ed65309efff9d1e17e2b62b0b6cedf4dc
+                    MATRIX: 740->1|848->32|884->34|919->61|957->62|1105->175|1119->181|1176->217|1336->341|1351->347|1398->385|1438->387|1501->415|1534->439|1574->441|1646->477|1659->481|1701->501|1747->516|1864->597|1886->610|1914->616|2119->790|2178->818
                     LINES: 26->1|29->1|30->2|30->2|30->2|36->8|36->8|36->8|42->14|42->14|42->14|42->14|44->16|44->16|44->16|46->18|46->18|46->18|48->20|50->22|50->22|50->22|60->32|65->37
                     -- GENERATED --
                 */

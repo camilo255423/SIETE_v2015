@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 // @SOURCE:/home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/conf/routes
-// @HASH:88a42ac4e6440cd4e30deb770049c56d6a83eb5a
-// @DATE:Fri Mar 28 10:07:42 COT 2014
-=======
-// @SOURCE:/home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/conf/routes
-// @HASH:06dda837ab862330da4ebd9ab46fb165a9f469a9
-// @DATE:Sun Mar 30 12:36:26 COT 2014
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
+// @HASH:5bf696706dbe8c789f27ba37df0a3f16d54a3a40
+// @DATE:Sun Mar 30 16:03:56 COT 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -55,17 +49,13 @@ package controllers {
 class ReverseInforme5 {
     
 
-<<<<<<< HEAD
-// @LINE:16
+// @LINE:15
 def excel(documento:String, semestre:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "informe5/excel/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
 }
                                                 
 
-// @LINE:28
-=======
 // @LINE:31
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 def informePrograma(): Call = {
    Call("POST", _prefix + { _defaultPrefix } + "informeprograma")
 }
@@ -76,15 +66,6 @@ def pdf(documento:String, semestre:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "informe5/pdf/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
 }
                                                 
-<<<<<<< HEAD
-=======
-
-// @LINE:15
-def excel(documento:String, semestre:String): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "informe5/excel/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
-}
-                                                
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
     
 }
                           
@@ -108,15 +89,9 @@ def at(file:String): Call = {
 class ReverseInforme1 {
     
 
-<<<<<<< HEAD
-// @LINE:8
+// @LINE:7
 def excel(documento:String, semestre:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "informe1/excel/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
-=======
-// @LINE:27
-def informeProfesor(): Call = {
-   Call("POST", _prefix + { _defaultPrefix } + "informeprofesor")
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 }
                                                 
 
@@ -126,15 +101,9 @@ def pdf(documento:String, semestre:String): Call = {
 }
                                                 
 
-<<<<<<< HEAD
-// @LINE:24
+// @LINE:27
 def informeProfesor(): Call = {
    Call("POST", _prefix + { _defaultPrefix } + "informeprofesor")
-=======
-// @LINE:7
-def excel(documento:String, semestre:String): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "informe1/excel/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 }
                                                 
     
@@ -167,14 +136,9 @@ def index(): Call = {
 class ReverseInforme4 {
     
 
-// @LINE:14
-<<<<<<< HEAD
+// @LINE:13
 def excel(documento:String, semestre:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "informe4/excel/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
-=======
-def pdf(documento:String, semestre:String): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "informe4/pdf/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 }
                                                 
 
@@ -184,15 +148,9 @@ def informeFacultad(): Call = {
 }
                                                 
 
-<<<<<<< HEAD
-// @LINE:15
+// @LINE:14
 def pdf(documento:String, semestre:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "informe4/pdf/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
-=======
-// @LINE:13
-def excel(documento:String, semestre:String): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "informe4/excel/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 }
                                                 
     
@@ -211,22 +169,13 @@ def informeParticipantes(): Call = {
 }
                                                 
 
-// @LINE:18
-<<<<<<< HEAD
-=======
-def pdf(documento:String, semestre:String): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "informe6/pdf/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
-}
-                                                
-
 // @LINE:17
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 def excel(documento:String, semestre:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "informe6/excel/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
 }
                                                 
 
-// @LINE:19
+// @LINE:18
 def pdf(documento:String, semestre:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "informe6/pdf/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
 }
@@ -242,22 +191,19 @@ def pdf(documento:String, semestre:String): Call = {
 class ReverseInforme3 {
     
 
-<<<<<<< HEAD
-// @LINE:12
+// @LINE:11
 def excel(documento:String, semestre:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "informe3/excel/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
 }
                                                 
 
-// @LINE:13
+// @LINE:12
 def pdf(documento:String, semestre:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "informe3/pdf/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
 }
                                                 
 
-=======
 // @LINE:29
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 // @LINE:26
 def informeProfesor(): Call = {
    () match {
@@ -270,21 +216,6 @@ case () if true => Call("POST", _prefix + { _defaultPrefix } + "informefinal")
    }
 }
                                                 
-<<<<<<< HEAD
-=======
-
-// @LINE:12
-def pdf(documento:String, semestre:String): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "informe3/pdf/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
-}
-                                                
-
-// @LINE:11
-def excel(documento:String, semestre:String): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "informe3/excel/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
-}
-                                                
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
     
 }
                           
@@ -297,17 +228,9 @@ def excel(documento:String, semestre:String): Call = {
 class ReverseApplication {
     
 
-<<<<<<< HEAD
-// @LINE:30
-def cambioSemestre(): Call = {
-   Call("POST", _prefix + { _defaultPrefix } + "cambiosemestre")
-}
-                                                
-
-=======
-// @LINE:33
-def cambioSemestre(): Call = {
-   Call("POST", _prefix + { _defaultPrefix } + "cambiosemestre")
+// @LINE:22
+def login(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "login")
 }
                                                 
 
@@ -317,28 +240,21 @@ def logout(): Call = {
 }
                                                 
 
-// @LINE:24
-def authenticate(): Call = {
-   Call("POST", _prefix + { _defaultPrefix } + "login")
+// @LINE:33
+def cambioSemestre(): Call = {
+   Call("POST", _prefix + { _defaultPrefix } + "cambiosemestre")
 }
                                                 
 
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 // @LINE:6
 def index(): Call = {
    Call("GET", _prefix)
 }
                                                 
 
-<<<<<<< HEAD
-// @LINE:7
-def prueba(): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "prueba")
-=======
-// @LINE:22
-def login(): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "login")
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
+// @LINE:24
+def authenticate(): Call = {
+   Call("POST", _prefix + { _defaultPrefix } + "login")
 }
                                                 
     
@@ -352,22 +268,19 @@ def login(): Call = {
 class ReverseInforme2 {
     
 
-<<<<<<< HEAD
-// @LINE:10
+// @LINE:9
 def excel(documento:String, semestre:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "informe2/excel/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
 }
                                                 
 
-// @LINE:11
+// @LINE:10
 def pdf(documento:String, semestre:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "informe2/pdf/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
 }
                                                 
 
-=======
 // @LINE:28
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 // @LINE:25
 def informeProfesor(): Call = {
    () match {
@@ -380,21 +293,6 @@ case () if true => Call("POST", _prefix + { _defaultPrefix } + "heteroevaluacion
    }
 }
                                                 
-<<<<<<< HEAD
-=======
-
-// @LINE:10
-def pdf(documento:String, semestre:String): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "informe2/pdf/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
-}
-                                                
-
-// @LINE:9
-def excel(documento:String, semestre:String): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "informe2/excel/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)) + "/" + implicitly[PathBindable[String]].unbind("semestre", dynamicString(semestre)))
-}
-                                                
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
     
 }
                           
@@ -438,8 +336,7 @@ package controllers.javascript {
 class ReverseInforme5 {
     
 
-<<<<<<< HEAD
-// @LINE:16
+// @LINE:15
 def excel : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Informe5.excel",
    """
@@ -450,10 +347,7 @@ def excel : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:28
-=======
 // @LINE:31
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 def informePrograma : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Informe5.informePrograma",
    """
@@ -474,20 +368,6 @@ def pdf : JavascriptReverseRoute = JavascriptReverseRoute(
    """
 )
                         
-<<<<<<< HEAD
-=======
-
-// @LINE:15
-def excel : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Informe5.excel",
-   """
-      function(documento,semestre) {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "informe5/excel/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("documento", encodeURIComponent(documento)) + "/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("semestre", encodeURIComponent(semestre))})
-      }
-   """
-)
-                        
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
     
 }
               
@@ -516,15 +396,9 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 class ReverseInforme1 {
     
 
-<<<<<<< HEAD
-// @LINE:8
+// @LINE:7
 def excel : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Informe1.excel",
-=======
-// @LINE:27
-def informeProfesor : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Informe1.informeProfesor",
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
    """
       function(documento,semestre) {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "informe1/excel/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("documento", encodeURIComponent(documento)) + "/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("semestre", encodeURIComponent(semestre))})
@@ -544,15 +418,9 @@ def pdf : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-<<<<<<< HEAD
-// @LINE:24
+// @LINE:27
 def informeProfesor : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Informe1.informeProfesor",
-=======
-// @LINE:7
-def excel : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Informe1.excel",
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
    """
       function() {
       return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "informeprofesor"})
@@ -600,14 +468,9 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
 class ReverseInforme4 {
     
 
-// @LINE:14
-<<<<<<< HEAD
+// @LINE:13
 def excel : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Informe4.excel",
-=======
-def pdf : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Informe4.pdf",
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
    """
       function(documento,semestre) {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "informe4/excel/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("documento", encodeURIComponent(documento)) + "/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("semestre", encodeURIComponent(semestre))})
@@ -627,15 +490,9 @@ def informeFacultad : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-<<<<<<< HEAD
-// @LINE:15
+// @LINE:14
 def pdf : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Informe4.pdf",
-=======
-// @LINE:13
-def excel : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Informe4.excel",
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
    """
       function(documento,semestre) {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "informe4/pdf/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("documento", encodeURIComponent(documento)) + "/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("semestre", encodeURIComponent(semestre))})
@@ -664,14 +521,9 @@ def informeParticipantes : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:18
-<<<<<<< HEAD
+// @LINE:17
 def excel : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Informe6.excel",
-=======
-def pdf : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Informe6.pdf",
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
    """
       function(documento,semestre) {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "informe6/excel/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("documento", encodeURIComponent(documento)) + "/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("semestre", encodeURIComponent(semestre))})
@@ -680,15 +532,9 @@ def pdf : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-<<<<<<< HEAD
-// @LINE:19
+// @LINE:18
 def pdf : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Informe6.pdf",
-=======
-// @LINE:17
-def excel : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Informe6.excel",
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
    """
       function(documento,semestre) {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "informe6/pdf/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("documento", encodeURIComponent(documento)) + "/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("semestre", encodeURIComponent(semestre))})
@@ -707,16 +553,9 @@ def excel : JavascriptReverseRoute = JavascriptReverseRoute(
 class ReverseInforme3 {
     
 
-<<<<<<< HEAD
-// @LINE:12
+// @LINE:11
 def excel : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Informe3.excel",
-=======
-// @LINE:29
-// @LINE:26
-def informeProfesor : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Informe3.informeProfesor",
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
    """
       function(documento,semestre) {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "informe3/excel/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("documento", encodeURIComponent(documento)) + "/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("semestre", encodeURIComponent(semestre))})
@@ -736,16 +575,10 @@ def pdf : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-<<<<<<< HEAD
+// @LINE:29
 // @LINE:26
-// @LINE:23
 def informeProfesor : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Informe3.informeProfesor",
-=======
-// @LINE:11
-def excel : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Informe3.excel",
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
    """
       function() {
       if (true) {
@@ -770,11 +603,29 @@ def excel : JavascriptReverseRoute = JavascriptReverseRoute(
 class ReverseApplication {
     
 
-<<<<<<< HEAD
-// @LINE:30
-=======
+// @LINE:22
+def login : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.login",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "login"})
+      }
+   """
+)
+                        
+
+// @LINE:23
+def logout : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.logout",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "logout"})
+      }
+   """
+)
+                        
+
 // @LINE:33
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 def cambioSemestre : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.cambioSemestre",
    """
@@ -785,21 +636,12 @@ def cambioSemestre : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-<<<<<<< HEAD
 // @LINE:6
 def index : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.index",
    """
       function() {
       return _wA({method:"GET", url:"""" + _prefix + """"})
-=======
-// @LINE:23
-def logout : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.logout",
-   """
-      function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "logout"})
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
       }
    """
 )
@@ -815,28 +657,6 @@ def authenticate : JavascriptReverseRoute = JavascriptReverseRoute(
    """
 )
                         
-
-// @LINE:6
-def index : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.index",
-   """
-      function() {
-      return _wA({method:"GET", url:"""" + _prefix + """"})
-      }
-   """
-)
-                        
-
-// @LINE:22
-def login : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.login",
-   """
-      function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "login"})
-      }
-   """
-)
-                        
     
 }
               
@@ -848,16 +668,9 @@ def login : JavascriptReverseRoute = JavascriptReverseRoute(
 class ReverseInforme2 {
     
 
-<<<<<<< HEAD
-// @LINE:10
+// @LINE:9
 def excel : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Informe2.excel",
-=======
-// @LINE:28
-// @LINE:25
-def informeProfesor : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Informe2.informeProfesor",
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
    """
       function(documento,semestre) {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "informe2/excel/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("documento", encodeURIComponent(documento)) + "/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("semestre", encodeURIComponent(semestre))})
@@ -877,16 +690,10 @@ def pdf : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-<<<<<<< HEAD
+// @LINE:28
 // @LINE:25
-// @LINE:22
 def informeProfesor : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Informe2.informeProfesor",
-=======
-// @LINE:9
-def excel : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Informe2.excel",
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
    """
       function() {
       if (true) {
@@ -936,29 +743,19 @@ def excel : JavascriptReverseRoute = JavascriptReverseRoute(
 // @LINE:6
 package controllers.ref {
 
-<<<<<<< HEAD
-// @LINE:28
-// @LINE:17
-=======
-
 // @LINE:31
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 // @LINE:16
 // @LINE:15
 class ReverseInforme5 {
     
 
-<<<<<<< HEAD
-// @LINE:16
+// @LINE:15
 def excel(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Informe5.excel(documento, semestre), HandlerDef(this, "controllers.Informe5", "excel", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """informe5/excel/$documento<[^/]+>/$semestre<[^/]+>""")
 )
                       
 
-// @LINE:28
-=======
 // @LINE:31
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 def informePrograma(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Informe5.informePrograma(), HandlerDef(this, "controllers.Informe5", "informePrograma", Seq(), "POST", """""", _prefix + """informeprograma""")
 )
@@ -969,15 +766,6 @@ def pdf(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new pla
    controllers.Informe5.pdf(documento, semestre), HandlerDef(this, "controllers.Informe5", "pdf", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """informe5/pdf/$documento<[^/]+>/$semestre<[^/]+>""")
 )
                       
-<<<<<<< HEAD
-=======
-
-// @LINE:15
-def excel(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Informe5.excel(documento, semestre), HandlerDef(this, "controllers.Informe5", "excel", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """informe5/excel/$documento<[^/]+>/$semestre<[^/]+>""")
-)
-                      
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
     
 }
                           
@@ -1001,15 +789,9 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
 class ReverseInforme1 {
     
 
-<<<<<<< HEAD
-// @LINE:8
+// @LINE:7
 def excel(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Informe1.excel(documento, semestre), HandlerDef(this, "controllers.Informe1", "excel", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """informe1/excel/$documento<[^/]+>/$semestre<[^/]+>""")
-=======
-// @LINE:27
-def informeProfesor(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Informe1.informeProfesor(), HandlerDef(this, "controllers.Informe1", "informeProfesor", Seq(), "POST", """""", _prefix + """informeprofesor""")
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 )
                       
 
@@ -1019,15 +801,9 @@ def pdf(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new pla
 )
                       
 
-<<<<<<< HEAD
-// @LINE:24
+// @LINE:27
 def informeProfesor(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Informe1.informeProfesor(), HandlerDef(this, "controllers.Informe1", "informeProfesor", Seq(), "POST", """""", _prefix + """informeprofesor""")
-=======
-// @LINE:7
-def excel(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Informe1.excel(documento, semestre), HandlerDef(this, "controllers.Informe1", "excel", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """informe1/excel/$documento<[^/]+>/$semestre<[^/]+>""")
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 )
                       
     
@@ -1060,14 +836,9 @@ def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 class ReverseInforme4 {
     
 
-// @LINE:14
-<<<<<<< HEAD
+// @LINE:13
 def excel(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Informe4.excel(documento, semestre), HandlerDef(this, "controllers.Informe4", "excel", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """informe4/excel/$documento<[^/]+>/$semestre<[^/]+>""")
-=======
-def pdf(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Informe4.pdf(documento, semestre), HandlerDef(this, "controllers.Informe4", "pdf", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """informe4/pdf/$documento<[^/]+>/$semestre<[^/]+>""")
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 )
                       
 
@@ -1077,15 +848,9 @@ def informeFacultad(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-<<<<<<< HEAD
-// @LINE:15
+// @LINE:14
 def pdf(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Informe4.pdf(documento, semestre), HandlerDef(this, "controllers.Informe4", "pdf", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """informe4/pdf/$documento<[^/]+>/$semestre<[^/]+>""")
-=======
-// @LINE:13
-def excel(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Informe4.excel(documento, semestre), HandlerDef(this, "controllers.Informe4", "excel", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """informe4/excel/$documento<[^/]+>/$semestre<[^/]+>""")
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 )
                       
     
@@ -1104,22 +869,13 @@ def informeParticipantes(): play.api.mvc.HandlerRef[_] = new play.api.mvc.Handle
 )
                       
 
-// @LINE:18
-<<<<<<< HEAD
-=======
-def pdf(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Informe6.pdf(documento, semestre), HandlerDef(this, "controllers.Informe6", "pdf", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """informe6/pdf/$documento<[^/]+>/$semestre<[^/]+>""")
-)
-                      
-
 // @LINE:17
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 def excel(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Informe6.excel(documento, semestre), HandlerDef(this, "controllers.Informe6", "excel", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """informe6/excel/$documento<[^/]+>/$semestre<[^/]+>""")
 )
                       
 
-// @LINE:19
+// @LINE:18
 def pdf(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Informe6.pdf(documento, semestre), HandlerDef(this, "controllers.Informe6", "pdf", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """informe6/pdf/$documento<[^/]+>/$semestre<[^/]+>""")
 )
@@ -1135,15 +891,9 @@ def pdf(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new pla
 class ReverseInforme3 {
     
 
-<<<<<<< HEAD
-// @LINE:12
+// @LINE:11
 def excel(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Informe3.excel(documento, semestre), HandlerDef(this, "controllers.Informe3", "excel", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """informe3/excel/$documento<[^/]+>/$semestre<[^/]+>""")
-=======
-// @LINE:26
-def informeProfesor(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Informe3.informeProfesor(), HandlerDef(this, "controllers.Informe3", "informeProfesor", Seq(), "GET", """""", _prefix + """informe3""")
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 )
                       
 
@@ -1153,15 +903,9 @@ def pdf(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new pla
 )
                       
 
-<<<<<<< HEAD
-// @LINE:23
+// @LINE:26
 def informeProfesor(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Informe3.informeProfesor(), HandlerDef(this, "controllers.Informe3", "informeProfesor", Seq(), "GET", """""", _prefix + """informe3""")
-=======
-// @LINE:11
-def excel(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Informe3.excel(documento, semestre), HandlerDef(this, "controllers.Informe3", "excel", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """informe3/excel/$documento<[^/]+>/$semestre<[^/]+>""")
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 )
                       
     
@@ -1176,17 +920,9 @@ def excel(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new p
 class ReverseApplication {
     
 
-<<<<<<< HEAD
-// @LINE:30
-def cambioSemestre(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.cambioSemestre(), HandlerDef(this, "controllers.Application", "cambioSemestre", Seq(), "POST", """""", _prefix + """cambiosemestre""")
-)
-                      
-
-=======
-// @LINE:33
-def cambioSemestre(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.cambioSemestre(), HandlerDef(this, "controllers.Application", "cambioSemestre", Seq(), "POST", """""", _prefix + """cambiosemestre""")
+// @LINE:22
+def login(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.login(), HandlerDef(this, "controllers.Application", "login", Seq(), "GET", """""", _prefix + """login""")
 )
                       
 
@@ -1196,28 +932,21 @@ def logout(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:24
-def authenticate(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.authenticate(), HandlerDef(this, "controllers.Application", "authenticate", Seq(), "POST", """""", _prefix + """login""")
+// @LINE:33
+def cambioSemestre(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.cambioSemestre(), HandlerDef(this, "controllers.Application", "cambioSemestre", Seq(), "POST", """""", _prefix + """cambiosemestre""")
 )
                       
 
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 // @LINE:6
 def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.index(), HandlerDef(this, "controllers.Application", "index", Seq(), "GET", """ Home page""", _prefix + """""")
 )
                       
 
-<<<<<<< HEAD
-// @LINE:7
-def prueba(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.prueba(), HandlerDef(this, "controllers.Application", "prueba", Seq(), "GET", """""", _prefix + """prueba""")
-=======
-// @LINE:22
-def login(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.login(), HandlerDef(this, "controllers.Application", "login", Seq(), "GET", """""", _prefix + """login""")
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
+// @LINE:24
+def authenticate(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.authenticate(), HandlerDef(this, "controllers.Application", "authenticate", Seq(), "POST", """""", _prefix + """login""")
 )
                       
     
@@ -1231,15 +960,9 @@ def login(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 class ReverseInforme2 {
     
 
-<<<<<<< HEAD
-// @LINE:10
+// @LINE:9
 def excel(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Informe2.excel(documento, semestre), HandlerDef(this, "controllers.Informe2", "excel", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """informe2/excel/$documento<[^/]+>/$semestre<[^/]+>""")
-=======
-// @LINE:25
-def informeProfesor(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Informe2.informeProfesor(), HandlerDef(this, "controllers.Informe2", "informeProfesor", Seq(), "GET", """""", _prefix + """informe2""")
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 )
                       
 
@@ -1249,15 +972,9 @@ def pdf(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new pla
 )
                       
 
-<<<<<<< HEAD
-// @LINE:22
+// @LINE:25
 def informeProfesor(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Informe2.informeProfesor(), HandlerDef(this, "controllers.Informe2", "informeProfesor", Seq(), "GET", """""", _prefix + """informe2""")
-=======
-// @LINE:9
-def excel(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Informe2.excel(documento, semestre), HandlerDef(this, "controllers.Informe2", "excel", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """informe2/excel/$documento<[^/]+>/$semestre<[^/]+>""")
->>>>>>> cb77d0927cd8f261a2ae957c054b26b84cb8d3a1
 )
                       
     

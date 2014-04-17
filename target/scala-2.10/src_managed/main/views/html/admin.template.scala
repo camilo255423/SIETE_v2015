@@ -20,10 +20,10 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object admin extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template0[play.api.templates.HtmlFormat.Appendable] {
+object admin extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template0[play.api.templates.Html] {
 
     /**/
-    def apply():play.api.templates.HtmlFormat.Appendable = {
+    def apply():play.api.templates.Html = {
         _display_ {
 
 Seq[Any](_display_(Seq[Any](/*2.2*/main("")/*2.10*/{_display_(Seq[Any](format.raw/*2.11*/("""
@@ -39,19 +39,19 @@ $('input.autocomplete').each( function() """),format.raw/*6.42*/("""{"""),format
 </script>"""))}
     }
     
-    def render(): play.api.templates.HtmlFormat.Appendable = apply()
+    def render(): play.api.templates.Html = apply()
     
-    def f:(() => play.api.templates.HtmlFormat.Appendable) = () => apply()
+    def f:(() => play.api.templates.Html) = () => apply()
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Mar 30 12:37:34 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/admin.scala.html
-                    HASH: d98ea366ec250d1e394463e027177af504633758
-                    MATRIX: 864->2|880->10|918->11|1026->89|1104->140|1132->141|1247->229|1275->230|1320->248|1348->249|1378->252|1406->253
+                    DATE: Sun Mar 30 16:04:02 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/admin.scala.html
+                    HASH: a1bcc22badda884f551e1d983a6a77623bc29830
+                    MATRIX: 796->2|812->10|850->11|958->89|1036->140|1064->141|1179->229|1207->230|1252->248|1280->249|1310->252|1338->253
                     LINES: 29->2|29->2|29->2|31->4|33->6|33->6|36->9|36->9|36->9|36->9|37->10|37->10
                     -- GENERATED --
                 */
