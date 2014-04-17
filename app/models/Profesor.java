@@ -48,6 +48,34 @@ public class Profesor {
 		
 		return profesores;
 	}
+	public static List<Profesor> findAllBySemestreAndPrograma(String semestre, String codigoPrograma)
+	{
+     	Connection con = DB.getConnection();
+		List<Profesor> profesores = new ArrayList<Profesor>();
+		PreparedStatement p;
+		try {
+			p = con.prepareStatement(consultaProfesoresPrograma);
+			String fecha = Periodo.getFechaContrato(semestre);
+			p.setString(1, fecha);
+			p.setString(2, fecha);
+			p.setString(3, codigoPrograma);
+			System.out.println(fecha);
+			ResultSet rs=p.executeQuery();
+			while (rs.next()) {
+				profesores.add(new Profesor(rs.getString("documento"),
+						rs.getString("nombre"),rs.getString("primer_apellido")+" "+rs.getString("segundo_apellido")));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Excepcion : "+e.getMessage());
+			System.out.println(e.getLocalizedMessage());
+		}
+	
+		
+		
+		return profesores;
+	}
 	public static Profesor findByDocumento(String documento)
 	{
      	Connection con = DB.getConnection();
@@ -108,6 +136,12 @@ public class Profesor {
   "FROM   ICEBERG.EMPLEADO "+
  "WHERE to_date(?,'yyyy-mm-dd')>fecha_ingreso and "+ 
  "to_date(?,'yyyy-mm-dd')<FECHA_FIN_CONTRATO "+
+  "order by primer_apellido, segundo_apellido, nombre ";
+	private static final String consultaProfesoresPrograma ="SELECT  nit as documento, primer_apellido,segundo_apellido, nombre "+
+  "FROM   ICEBERG.EMPLEADO e inner join sai.art_programas on   e.centro_costo=sai.art_programas.igecodigo "+
+ "WHERE to_date(?,'yyyy-mm-dd')>fecha_ingreso and "+ 
+ "to_date(?,'yyyy-mm-dd')<FECHA_FIN_CONTRATO "+ 
+ "and sai.art_programas.pro_codprograma=? "+
   "order by primer_apellido, segundo_apellido, nombre ";
 	
 	private static final String consultaProfesor = "select cli_numdcto as documento, cli_nombres as nombres, cli_apellidos as apellidos "

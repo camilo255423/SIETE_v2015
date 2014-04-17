@@ -2,10 +2,12 @@
     			docentesEvaluadosPorEstudiantesPorFacultad:List[Facultad],
     			docentesConAutoevaluacionPorFacultad:List[Facultad],
     			directivosGestionEvaluadosPorFacultad:List[Facultad],
-    			directivosInvestigacionEvaluadosPorFacultad:List[Facultad])
+    			directivosInvestigacionEvaluadosPorFacultad:List[Facultad], semestre:String)
 @import models.Nivel
 @import java.text.DecimalFormat
 <div id="informe">
+<h2 style="text-align: center;">Informe de Participantes @semestre</h2>
+
  @defining(new DecimalFormat("##0.00")){formato=>
 <div class="tabs">
 		<ul>

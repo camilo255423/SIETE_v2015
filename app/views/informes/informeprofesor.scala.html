@@ -1,5 +1,6 @@
-@(evaluacionMateria:List[EvaluacionMateria], evaluacionGestion:EvaluacionGestion, autoEvaluacionGestion:EvaluacionGestion, evaluacionInvestigacion:EvaluacionInvestigacion,autoEvaluacionInvestigacion:EvaluacionInvestigacion)
+@(evaluacionMateria:List[EvaluacionMateria], evaluacionGestion:EvaluacionGestion, autoEvaluacionGestion:EvaluacionGestion, evaluacionInvestigacion:EvaluacionInvestigacion,autoEvaluacionInvestigacion:EvaluacionInvestigacion,profesor:Profesor,semestre:String)
 <div id="informe">
+<h2 style="text-align: center;">@profesor.getApellidos() @profesor.getNombres() - Informe Detallado @semestre</h2>
 <div class="tabs">
 		<ul>
 			<li><a href="#tabs-docencia">Docencia</a></li>
@@ -39,9 +40,9 @@ porcentaje @(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscrito
 	          }
 	    </tbody>
 	    </table>
-		   
+	}	   
 	</div>
-	}
+	
 	<div id="tabs-autoevaluacion">	
 	@defining(evaluacionMateria.indexOf(new EvaluacionMateria(EvaluacionMateria.AUTOEVALUACION,evaluacion.getMateria(),false))){indice=>
 		@if(indice>=0){

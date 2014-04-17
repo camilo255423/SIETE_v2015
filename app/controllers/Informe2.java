@@ -234,7 +234,7 @@ public class Informe2 extends Controller {
     	Profesor profesor = Profesor.findByDocumento(documento);
     	Evaluacion evaluacion = InformesDAO.getInformeHeteroEvaluacion(documento, semestre);
     	
-    	return ok(views.html.informes.informeheteroevaluacion.render(evaluacion.getEvaluacionDocencia(),evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion()));
+    	return ok(views.html.informes.informeheteroevaluacion.render(evaluacion.getEvaluacionDocencia(),evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),profesor,semestre ));
     	
  	
     }

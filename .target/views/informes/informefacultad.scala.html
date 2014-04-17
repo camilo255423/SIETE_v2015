@@ -1,18 +1,22 @@
-@(evaluacionDocencia:EvaluacionMateria, autoEvaluacionDocencia:EvaluacionMateria, evaluacionGestion:EvaluacionGestion, evaluacionInvestigacion:EvaluacionInvestigacion,autoEvaluacionGestion:EvaluacionGestion, autoEvaluacionInvestigacion:EvaluacionInvestigacion )
+@(evaluacionDocencia:EvaluacionMateria, autoEvaluacionDocencia:EvaluacionMateria, evaluacionGestion:EvaluacionGestion, evaluacionInvestigacion:EvaluacionInvestigacion,autoEvaluacionGestion:EvaluacionGestion, autoEvaluacionInvestigacion:EvaluacionInvestigacion, mejorPeor:List[SaberNivel], facultad:Facultad,semestre:String )
 @import models.Nivel
 @import java.text.DecimalFormat
 <div id="informe">
+<h2 style="text-align: center;">Informe Final @facultad.getNombre() - @semestre</h2>
 <div class="tabs">
 		<ul>
-			<li><a href="#tabs-docencia">Informe Final Facultad</a></li>
+			<li><a href="#tabs-docencia">Informe Final Facultad </a></li>
 		
 			
 		</ul>
  	<div id="tabs-docencia">       
 	
-	<div class="titulotabla">Informe Final Facultad</div>
+	<div class="titulotabla"></div>
 	  @defining(new DecimalFormat("##0.00")){formato=>
 	<h2>Campo de La Docencia</h2>
+	<h3>Mejor Saber: @mejorPeor.get(0).getSaber() Nivel: @Nivel.toString(mejorPeor.get(0).getNivel()) @formato.format(mejorPeor.get(0).getPromedio()) %  
+	 , Peor Saber: @mejorPeor.get(1).getSaber() Nivel: @Nivel.toString(mejorPeor.get(1).getNivel()) @formato.format(mejorPeor.get(1).getPromedio()) %</h3>
+	
 	<h3>Saber Pedagógico</h3>
 	<table>
 	<tbody>

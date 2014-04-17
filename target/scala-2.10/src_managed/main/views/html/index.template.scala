@@ -45,10 +45,17 @@ Seq[Any](format.raw/*1.19*/("""
 }
                 /*
                     -- GENERATED --
+<<<<<<< HEAD
                     DATE: Sun Mar 30 16:04:02 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/index.scala.html
                     HASH: a260f52f2583230aa4f2cca43f0eca83df3dabc0
                     MATRIX: 723->1|817->18|854->21|885->44|924->46|968->56|996->63|1033->70
+=======
+                    DATE: Fri Apr 04 16:48:45 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/index.scala.html
+                    HASH: 55819fc74474f80196e3bcfc1db2d837a215d1a1
+                    MATRIX: 774->1|885->18|922->21|953->44|992->46|1036->56|1064->63|1101->70
+>>>>>>> 4d44da7d489b48f84b12a1a6b3ad9e4d2caf1200
                     LINES: 26->1|29->1|31->3|31->3|31->3|33->5|33->5|35->7
                     -- GENERATED --
                 */

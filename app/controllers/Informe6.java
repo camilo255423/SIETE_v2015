@@ -50,7 +50,7 @@ public class Informe6 extends Controller {
     			numeroParticipantes.getDocentesEvaluadosPorEstudiantesPorFacultad(),
      			numeroParticipantes.getDocentesConAutoevaluacionPorFacultad(),
    			numeroParticipantes.getDirectivosGestionEvaluadosPorFacultad(),
-   			numeroParticipantes.getDirectivosInvestigacionEvaluadosPorFacultad()));
+   			numeroParticipantes.getDirectivosInvestigacionEvaluadosPorFacultad(),semestre));
     	
  	
     }

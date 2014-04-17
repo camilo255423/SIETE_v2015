@@ -46,10 +46,17 @@ Seq[Any](format.raw/*1.49*/("""
 }
                 /*
                     -- GENERATED --
+<<<<<<< HEAD
                     DATE: Sun Mar 30 16:04:01 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/listaprogramas.scala.html
                     HASH: 1a6e1603955d84c95a154d284c417abb891cdb17
                     MATRIX: 748->1|872->48|1041->183|1082->209|1120->210|1172->227|1188->235|1226->252|1264->255|1280->263|1318->280|1355->282|1371->290|1404->302|1445->313
+=======
+                    DATE: Fri Apr 04 16:48:44 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/listaprogramas.scala.html
+                    HASH: 7dae5c4e0844dc8012a230630fc49460101dbdd2
+                    MATRIX: 799->1|940->48|1109->183|1150->209|1188->210|1240->227|1256->235|1294->252|1332->255|1348->263|1386->280|1423->282|1439->290|1472->302|1513->313
+>>>>>>> 4d44da7d489b48f84b12a1a6b3ad9e4d2caf1200
                     LINES: 26->1|29->1|33->5|33->5|33->5|34->6|34->6|34->6|34->6|34->6|34->6|34->6|34->6|34->6|35->7
                     -- GENERATED --
                 */

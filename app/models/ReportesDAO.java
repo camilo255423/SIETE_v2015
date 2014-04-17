@@ -1102,6 +1102,61 @@ getInformePrograma(String codigoPrograma, String semestre)
 	
 	
 }
+public static ArrayList<SaberNivel> getMejorPeorCampoDocencia(List<EvaluacionMateria> evaluaciones)
+{
+	String saber []={"PEDAGOGICO","ESPECIFICO","RELACIONAL"};
+	ArrayList<SaberNivel> maximos = new ArrayList<SaberNivel>();
+	ArrayList<SaberNivel> mejorPeor = new ArrayList<SaberNivel>();
+	SaberNivel mejor, peor;
+	double resultado=0;
+	
+	for(int i=0;i<3;i++)
+	{
+		maximos.add(new SaberNivel(saber[i]));
+		for(int j=0;j<5;j++)
+		{	
+			resultado = evaluaciones.get(0).getPromedioRespuestas()[i][j] *0.8 + evaluaciones.get(1).getPromedioRespuestas()[i][j]*0.2;
+			if(resultado>maximos.get(i).promedio)
+			{	
+			 maximos.get(i).promedio = resultado;
+			 maximos.get(i).nivel=j;
+			 
+			}
+		}
+	}
+	mejor = maximos.get(0);
+	peor = maximos.get(0);
+	for(int i=1;i<3;i++)
+	{
+			if(maximos.get(i).nivel>mejor.nivel)
+			{
+				mejor = maximos.get(i);
+			}
+			else
+			{
+				if(maximos.get(i).nivel==mejor.nivel && maximos.get(i).promedio>mejor.promedio)
+				{
+					mejor = maximos.get(i);
+				}
+			}
+			if(maximos.get(i).nivel<peor.nivel)
+			{
+				peor = maximos.get(i);
+			}
+			else
+			{
+				if(maximos.get(i).nivel==peor.nivel && maximos.get(i).promedio<peor.promedio)
+				{
+					peor = maximos.get(i);
+				}
+			}
+			
+		
+	}
+	mejorPeor.add(mejor);
+	mejorPeor.add(peor);
+	return mejorPeor;
+}
 
 
 }

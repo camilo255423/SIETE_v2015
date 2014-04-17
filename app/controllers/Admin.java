@@ -5,14 +5,21 @@ import java.util.Collections;
 import java.util.List;
 import java.util.TimeZone;
 
+import models.AutocompleteValue;
+import models.Permiso;
+import models.Rol;
+import models.Usuario;
+
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 
 
+import play.data.Form;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.Security;
 
 public class Admin extends Controller{
 	public static List<String> locations() {
@@ -28,30 +35,59 @@ public class Admin extends Controller{
 		   Collections.sort(result);
 		   return result;
 	}
+	public static Result borrar()
+	{
+		String documento = Form.form().bindFromRequest().get("documento");
+		if(Permiso.delete(documento))
+		{	
+		return ok("ok");
+		}
+		return ok("error");
+	}
 	
-	public static int AUTOCOMPLETE_MAX = 10;
+	public static Result insertar()
+	{
+		String documento = Form.form().bindFromRequest().get("documento");
+		String idRol = Form.form().bindFromRequest().get("idRol");
+		String codigoPrograma = Form.form().bindFromRequest().get("codigoPrograma");
+		if(Permiso.save(documento,idRol,codigoPrograma))
+		{	
+		return ok("ok");
+		}
+		return ok("error");
+	}
+	
+	public static int AUTOCOMPLETE_MAX = 20;
+	
 
-
-	public static Result autocompleteLabel(final String term) {
-		   final List<String> response = new ArrayList<String>();
+	public static Result autocompleteLabel(final String termino) {
+		final List<AutocompleteValue> response = new ArrayList<AutocompleteValue>();
+		
 		   ObjectNode result = Json.newObject();
 		   int i=0;
-		   for (String label : locations()) {
-		      if (label.toLowerCase().startsWith(term.toLowerCase())) {
-		         response.add(label);
-		         result.put(i+"",label);
-		      }
+		   for (Usuario usuario : Usuario.findAllByNombre(termino.toUpperCase())) {
+			   ObjectNode nodo = Json.newObject();
+			   nodo.put("value", usuario.getDocumento());
+			   nodo.put("label", usuario.getNombre());
+		       result.put(i+"", nodo);
+		      
 		      if (response.size() == AUTOCOMPLETE_MAX) {
 		         break;
 		      }
+		      i++;
 		   }
+		   
 		   return ok(result);
 	}
+	@Security.Authenticated(Secured.class)
 	  public static Result index() {
-
-	    	
+		  if(!session("rol").equals(Rol.ADMINISTRADOR))
+		  {
+			  return ok("Acceso denegado para este rol");
+		  }
+	    	List<Permiso> permisos = Permiso.findAll();
 	    
-	    	return ok(views.html.admin.render());
+	    	return ok(views.html.admin.render(permisos));
 	    }
 
 }

@@ -55,10 +55,17 @@ Seq[Any](format.raw/*1.32*/("""
 }
                 /*
                     -- GENERATED --
+<<<<<<< HEAD
                     DATE: Sun Mar 30 16:04:02 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/encabezado.scala.html
                     HASH: b5e6818846ae3846cf6fe371ce98eaf6195eb300
                     MATRIX: 733->1|840->31|928->84|954->89|1015->115|1029->121|1077->148|1168->204|1182->210|1261->268|1356->327|1371->333|1425->365|1510->414|1525->420|1590->463|1696->533|1725->540
+=======
+                    DATE: Fri Apr 04 16:48:45 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/encabezado.scala.html
+                    HASH: f280299c038587c970c642650832a87b5b656b84
+                    MATRIX: 784->1|908->31|996->84|1022->89|1083->115|1097->121|1145->148|1236->204|1250->210|1329->268|1424->327|1439->333|1493->365|1578->414|1593->420|1658->463|1764->533|1793->540
+>>>>>>> 4d44da7d489b48f84b12a1a6b3ad9e4d2caf1200
                     LINES: 26->1|29->1|35->7|35->7|36->8|36->8|36->8|37->9|37->9|37->9|38->10|38->10|38->10|39->11|39->11|39->11|43->15|43->15
                     -- GENERATED --
                 */

@@ -1,6 +1,10 @@
     
-    <ul class="nav">
-          <li><a href="">Home</a></li>
+    	<ul class="nav">
+    	
+          <li><a href="/">Informes</a></li>
+          @if(session.get("rol")==Rol.ADMINISTRADOR){
+          <li><a href="/admin">Administración</a></li>
+          }
           <li class="active"><a href="/logout">Log out</a></li>
    
         </ul>

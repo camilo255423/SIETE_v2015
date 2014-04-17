@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -26,6 +27,7 @@ import models.Nivel;
 import models.Pregunta;
 import models.Profesor;
 import models.Programa;
+import models.SaberNivel;
 import models.ReportesDAO;
 import play.data.Form;
 import play.mvc.Controller;
@@ -39,16 +41,21 @@ public class Informe5 extends Controller {
     }
     public static Result informePrograma()
     {
+    	ArrayList<SaberNivel> mejorPeorSaberDocencia;
     	String codigoPrograma = Form.form().bindFromRequest().get("documento");
        	String semestre = Form.form().bindFromRequest().get("semestre");
-    
+        Programa programa = Programa.findById(codigoPrograma);
+ 		
     	Evaluacion evaluacion = ReportesDAO.getInformePrograma(codigoPrograma, semestre);
     	EvaluacionMateria evaluacionDocencia=null;
     	EvaluacionMateria autoEvaluacionDocencia=null;
+
     	if(evaluacion.getEvaluacionDocencia().size()>=1) evaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(0);
     	if(evaluacion.getEvaluacionDocencia().size()>=2) autoEvaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(1);
-
-    	return ok(views.html.informes.informeprograma.render(evaluacionDocencia,autoEvaluacionDocencia,evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),evaluacion.getAutoEvaluacionGestion(),evaluacion.getAutoEvaluacionInvestigacion()));
+    	mejorPeorSaberDocencia = ReportesDAO.getMejorPeorCampoDocencia(evaluacion.getEvaluacionDocencia());
+    	return ok(views.html.informes.informeprograma.render(evaluacionDocencia,autoEvaluacionDocencia,
+    			evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),evaluacion.getAutoEvaluacionGestion(),
+    			evaluacion.getAutoEvaluacionInvestigacion(),mejorPeorSaberDocencia,programa,semestre));
     	
  	
     }
@@ -69,12 +76,15 @@ public class Informe5 extends Controller {
  		    	}
  		    }
  		   Programa programa = Programa.findById(codigoPrograma);
+ 		  ArrayList<SaberNivel> mejorPeorSaberDocencia;
+ 	    	
  		  Evaluacion evaluacion = ReportesDAO.getInformePrograma(codigoPrograma, semestre);
  	    	EvaluacionMateria evaluacionDocencia=null;
  	    	EvaluacionMateria autoEvaluacionDocencia=null;
  	    	if(evaluacion.getEvaluacionDocencia().size()>=1) evaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(0);
  	    	if(evaluacion.getEvaluacionDocencia().size()>=2) autoEvaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(1);
-
+ 	    	mejorPeorSaberDocencia = ReportesDAO.getMejorPeorCampoDocencia(evaluacion.getEvaluacionDocencia());
+ 	    	
  			try {
  				file = new File("Programa "+programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".pdf");
  				PdfWriter writer = PdfWriter.getInstance(document,
@@ -84,7 +94,8 @@ public class Informe5 extends Controller {
  				
  				document.open();
  				//XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeheteroevaluacion.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), profesor, semestre, imagen).toString()));
- 				XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeprograma.render(evaluacionDocencia,autoEvaluacionDocencia,evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),evaluacion.getAutoEvaluacionGestion(),evaluacion.getAutoEvaluacionInvestigacion(), programa, semestre, imagen).toString()));
+ 				XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeprograma.render(evaluacionDocencia,autoEvaluacionDocencia,evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),evaluacion.getAutoEvaluacionGestion(),evaluacion.getAutoEvaluacionInvestigacion(),
+ 						mejorPeorSaberDocencia,programa, semestre, imagen).toString()));
  	        	
  			} catch (FileNotFoundException e) {
  				// TODO Auto-generated catch block
@@ -110,6 +121,8 @@ public class Informe5 extends Controller {
     {
     	Programa programa = Programa.findById(codigoPrograma);
     	Evaluacion evaluacion = ReportesDAO.getInformePrograma(codigoPrograma, semestre);
+    	ArrayList<SaberNivel>mejorPeor = ReportesDAO.getMejorPeorCampoDocencia(evaluacion.getEvaluacionDocencia());
+ 	    
    		HSSFWorkbook workbook = new HSSFWorkbook();
    		EvaluacionGestion eg = evaluacion.getEvaluacionGestion();
    		EvaluacionGestion aeg = evaluacion.getAutoEvaluacionGestion(); 
@@ -133,7 +146,7 @@ public class Informe5 extends Controller {
 		        }
 	    	}
 	    }
-	    double total=0;
+	    
 	    int fila=0;
    		int columna=0;
    		Row row = null;
@@ -142,11 +155,13 @@ public class Informe5 extends Controller {
    		EvaluacionMateria aev =  evaluacion.getEvaluacionDocencia().get(1);
    			columna=0;
    		 row = sheet.createRow(fila++);
-   		//Create a new cell in current row
-   		Cell cell = row.createCell(columna);
    		row = sheet.createRow(fila++);
-   		List<Pregunta> preguntas = Pregunta.getPreguntasEvaluacion(Pregunta.DOCENCIA);
    		String saberes[]={"Saber Pedagógico","Saber Específico","Saber Relacional"};
+   		row.createCell(columna++).setCellValue("Mejor Saber Docencia: "+mejorPeor.get(0).getSaber()+" Nivel: "+Nivel.toString(mejorPeor.get(0).getNivel()) +" "+ mejorPeor.get(0).getPromedio()+ "% "+  
+   			 ", Peor Saber Docencia: "+mejorPeor.get(1).getSaber()+" Nivel: "+Nivel.toString(mejorPeor.get(1).getNivel())+" "+mejorPeor.get(1).getPromedio()+"%");
+   		columna=0;
+  		 row = sheet.createRow(fila++);
+  		row = sheet.createRow(fila++);
    		for(int w=0;w<=2;w++)
    		{
    		

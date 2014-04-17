@@ -1,15 +1,16 @@
-@(evaluacionMateria:List[EvaluacionMateria], evaluacionGestion:EvaluacionGestion, evaluacionInvestigacion:EvaluacionInvestigacion)
+@(evaluacionMateria:List[EvaluacionMateria], evaluacionGestion:EvaluacionGestion, evaluacionInvestigacion:EvaluacionInvestigacion,profesor:Profesor,semestre:String)
 @import models.Nivel
 @import java.text.DecimalFormat
 <div id="informe">
+<h2 style="text-align: center;">@profesor.getApellidos() @profesor.getNombres() - Informe Heteroevaluación @semestre</h2>
 <div class="tabs">
 		<ul>
 			<li><a href="#tabs-docencia">Heteroevaluación</a></li>
-			<li><a href="#tabs-autoevaluacion">Autoevaluación</a></li>
+			
 		</ul>
  	<div id="tabs-docencia">       
 	
-	<div class="titulotabla">Heteroevaluación</div>
+	<div class="titulotabla"></div>
 	<h2>Saber Pedagógico</h2>
 	
 	<table>

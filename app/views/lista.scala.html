@@ -74,39 +74,6 @@ var documentoProfesor = $('#listaProfesores').val();
 }
 }
 
-function enlaceDescargas(documento, semestre)
-{
-var informe = "";
-if($('#listainformes').val()==1){
-informe="informe1";
-}
-if($('#listainformes').val()==2){
-informe="informe2";
-}
-if($('#listainformes').val()==3){
-informe="informe3";
-}
-if($('#listainformes').val()==4){
-informe="informe4";
-}
-if($('#listainformes').val()==5){
-informe="informe5";
-}
-if($('#listainformes').val()==6){
-informe="informe6";
-$("#descargas").show();
-}
 
-var enlace = '';
-var s =  '';
-	enlace=informe+'/pdf/'+documento+'/'+semestre;
-	s =  "<ul class='side'>";
-	s= s+ "<li><a href='"+enlace+"'>Descargar PDF</a></li>";
-	enlace = informe+'/excel/'+documento+'/'+semestre;
-	s = s +  "<li><a href='"+enlace+"'>Descargar Excel</a></li>";
-	s = s + "</ul>";
-
-$("#descargas").html(s);
-}
 </script>
 }

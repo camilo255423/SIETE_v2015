@@ -95,9 +95,9 @@ public class Informe1 extends Controller {
 	  
 	String documento = Form.form().bindFromRequest().get("documento");
    	String semestre = Form.form().bindFromRequest().get("semestre");
-   	Profesor profesor = new Profesor(documento,"","");
+   	Profesor profesor = Profesor.findByDocumento(documento);
    	Evaluacion evaluacion = profesor.getEvaluacion(semestre);
-   	return ok(views.html.informes.informeprofesor.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getAutoEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), evaluacion.getAutoEvaluacionInvestigacion()));
+   	return ok(views.html.informes.informeprofesor.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getAutoEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), evaluacion.getAutoEvaluacionInvestigacion(),profesor,semestre));
    	
 	
    }
