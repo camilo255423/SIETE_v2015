@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 // @SOURCE:/home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/conf/routes
-// @HASH:5bf696706dbe8c789f27ba37df0a3f16d54a3a40
-// @DATE:Sun Mar 30 16:03:56 COT 2014
-=======
-// @SOURCE:/home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/conf/routes
 // @HASH:235dabab0aedfb8c43e1605e8e29559815205b55
-// @DATE:Fri Apr 04 16:48:41 COT 2014
->>>>>>> 4d44da7d489b48f84b12a1a6b3ad9e4d2caf1200
+// @DATE:Thu Apr 17 11:31:00 COT 2014
 
 
 import play.core._
@@ -23,7 +17,7 @@ object Routes extends Router.Routes {
 private var _prefix = "/"
 
 def setPrefix(prefix: String) {
-  _prefix = prefix  
+  _prefix = prefix
   List[(String,Routes)]().foreach {
     case (p, router) => router.setPrefix(prefix + (if(prefix.endsWith("/")) "" else "/") + p)
   }
@@ -31,7 +25,7 @@ def setPrefix(prefix: String) {
 
 def prefix = _prefix
 
-lazy val defaultPrefix = { if(Routes.prefix.endsWith("/")) "" else "/" } 
+lazy val defaultPrefix = { if(Routes.prefix.endsWith("/")) "" else "/" }
 
 
 // @LINE:6
@@ -157,9 +151,9 @@ def documentation = List(("""GET""", prefix,"""controllers.Application.index()""
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]] 
 }}
-       
-    
-def routes:PartialFunction[RequestHeader,Handler] = {        
+      
+
+def routes:PartialFunction[RequestHeader,Handler] = {
 
 // @LINE:6
 case controllers_Application_index0(params) => {
@@ -401,6 +395,6 @@ case controllers_Assets_at29(params) => {
 }
         
 }
-    
+
 }
-        
+     

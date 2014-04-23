@@ -20,10 +20,10 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object main extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template2[String,Html,play.api.templates.Html] {
+object main extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template2[String,Html,play.api.templates.HtmlFormat.Appendable] {
 
     /**/
-    def apply/*1.2*/(title: String)(content: Html):play.api.templates.Html = {
+    def apply/*1.2*/(title: String)(content: Html):play.api.templates.HtmlFormat.Appendable = {
         _display_ {
 
 Seq[Any](format.raw/*1.32*/("""
@@ -49,26 +49,19 @@ Seq[Any](format.raw/*1.32*/("""
 """))}
     }
     
-    def render(title:String,content:Html): play.api.templates.Html = apply(title)(content)
+    def render(title:String,content:Html): play.api.templates.HtmlFormat.Appendable = apply(title)(content)
     
-    def f:((String) => (Html) => play.api.templates.Html) = (title) => (content) => apply(title)(content)
+    def f:((String) => (Html) => play.api.templates.HtmlFormat.Appendable) = (title) => (content) => apply(title)(content)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-<<<<<<< HEAD
-                    DATE: Sun Mar 30 16:04:01 COT 2014
+                    DATE: Thu Apr 17 11:31:01 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/main.scala.html
-                    HASH: fbfec3cbb45834d90ae5726fe4524a870ef436bc
-                    MATRIX: 727->1|834->31|871->34|901->56|939->57|1056->140|1087->150|1156->184|1170->190|1227->226|1413->377|1442->384|1517->428
-=======
-                    DATE: Fri Apr 04 16:48:44 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/main.scala.html
                     HASH: 2023409a40a7eeae7953ee7a06c24fcfaecfe825
                     MATRIX: 778->1|902->31|939->34|969->56|1007->57|1124->140|1155->150|1224->184|1238->190|1295->226|1481->377|1510->384|1585->428
->>>>>>> 4d44da7d489b48f84b12a1a6b3ad9e4d2caf1200
                     LINES: 26->1|29->1|31->3|31->3|31->3|35->7|35->7|37->9|37->9|37->9|44->16|44->16|48->20
                     -- GENERATED --
                 */

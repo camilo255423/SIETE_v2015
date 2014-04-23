@@ -1,0 +1,5 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/conf/logger.xml,/home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/logger.xml)[0m
+[0m[[0mdebug[0m] [0m	(/home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/conf/routes,/home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/conf/logger.xml~,/home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/logger.xml~)[0m
+[0m[[0mdebug[0m] [0m	(/home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/conf/application.conf,/home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/application.conf)[0m

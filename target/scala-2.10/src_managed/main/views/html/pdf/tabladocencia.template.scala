@@ -20,10 +20,10 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object tabladocencia extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template5[EvaluacionMateria,String,Int,Int,Int,play.api.templates.Html] {
+object tabladocencia extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template5[EvaluacionMateria,String,Int,Int,Int,play.api.templates.HtmlFormat.Appendable] {
 
     /**/
-    def apply/*1.2*/(evaluacionMateria:EvaluacionMateria, titulo:String, saber:Int, inicio:Int, fin:Int):play.api.templates.Html = {
+    def apply/*1.2*/(evaluacionMateria:EvaluacionMateria, titulo:String, saber:Int, inicio:Int, fin:Int):play.api.templates.HtmlFormat.Appendable = {
         _display_ {import models.Pregunta
 
 import models.Nivel
@@ -104,26 +104,19 @@ Seq[Any](format.raw/*1.86*/("""
 </table>"""))}
     }
     
-    def render(evaluacionMateria:EvaluacionMateria,titulo:String,saber:Int,inicio:Int,fin:Int): play.api.templates.Html = apply(evaluacionMateria,titulo,saber,inicio,fin)
+    def render(evaluacionMateria:EvaluacionMateria,titulo:String,saber:Int,inicio:Int,fin:Int): play.api.templates.HtmlFormat.Appendable = apply(evaluacionMateria,titulo,saber,inicio,fin)
     
-    def f:((EvaluacionMateria,String,Int,Int,Int) => play.api.templates.Html) = (evaluacionMateria,titulo,saber,inicio,fin) => apply(evaluacionMateria,titulo,saber,inicio,fin)
+    def f:((EvaluacionMateria,String,Int,Int,Int) => play.api.templates.HtmlFormat.Appendable) = (evaluacionMateria,titulo,saber,inicio,fin) => apply(evaluacionMateria,titulo,saber,inicio,fin)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-<<<<<<< HEAD
-                    DATE: Sun Mar 30 16:04:03 COT 2014
+                    DATE: Thu Apr 17 11:31:06 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/pdf/tabladocencia.scala.html
-                    HASH: 8360566861a82498500c7901991b3fbfc5b2967d
-                    MATRIX: 765->1|1002->85|1029->163|1090->189|1117->195|2195->1237|2241->1274|2289->1284|2337->1296|2406->1356|2456->1368|2505->1381|2542->1402|2582->1404|2631->1417|2735->1511|2783->1520|2832->1533|2854->1546|2893->1547|2943->1561|3006->1615|3055->1626|3162->1697|3179->1705|3216->1720|3305->1773|3322->1781|3358->1808|3396->1824|3485->1877|3501->1884|3579->1939|3666->1990|3683->1998|3719->2025|3753->2037|3842->2090|3858->2097|3932->2148|4022->2202|4039->2210|4075->2237|4110->2250|4199->2303|4215->2310|4290->2362|4380->2416|4397->2424|4433->2451|4467->2463|4556->2516|4572->2523|4646->2574|4736->2628|4753->2636|4789->2663|4827->2679|4916->2732|4932->2739|5010->2794|5083->2835|5143->2863|5189->2877|5240->2896|5380->3000|5396->3007|5492->3080|5556->3108|5572->3115|5668->3188|5733->3217|5749->3224|5840->3293|5904->3321|5920->3328|6011->3397|6076->3426|6092->3433|6185->3503|6249->3531|6265->3538|6358->3608|6423->3637|6439->3644|6530->3713|6594->3741|6610->3748|6701->3817|6766->3846|6782->3853|6878->3926|6942->3954|6958->3961|7054->4034|7127->4075|7179->4095
-=======
-                    DATE: Fri Apr 04 16:48:46 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/pdf/tabladocencia.scala.html
                     HASH: bd06cbd1330ea664551ff81cc25892afaf3bb008
                     MATRIX: 816->1|1070->85|1097->163|1158->189|1185->195|2263->1237|2309->1274|2357->1284|2405->1296|2474->1356|2524->1368|2573->1381|2610->1402|2650->1404|2699->1417|2803->1511|2851->1520|2900->1533|2922->1546|2961->1547|3011->1561|3074->1615|3123->1626|3230->1697|3247->1705|3284->1720|3373->1773|3390->1781|3426->1808|3464->1824|3553->1877|3569->1884|3647->1939|3734->1990|3751->1998|3787->2025|3821->2037|3910->2090|3926->2097|4000->2148|4090->2202|4107->2210|4143->2237|4178->2250|4267->2303|4283->2310|4358->2362|4448->2416|4465->2424|4501->2451|4535->2463|4624->2516|4640->2523|4714->2574|4804->2628|4821->2636|4857->2663|4895->2679|4984->2732|5000->2739|5078->2794|5151->2835|5211->2863|5257->2877|5308->2896|5448->3000|5464->3007|5560->3080|5624->3108|5640->3115|5736->3188|5801->3217|5817->3224|5908->3293|5972->3321|5988->3328|6079->3397|6144->3426|6160->3433|6253->3503|6317->3531|6333->3538|6426->3608|6491->3637|6507->3644|6598->3713|6662->3741|6678->3748|6769->3817|6834->3846|6850->3853|6946->3926|7010->3954|7026->3961|7122->4034|7195->4075|7247->4095
->>>>>>> 4d44da7d489b48f84b12a1a6b3ad9e4d2caf1200
                     LINES: 26->1|34->1|35->5|35->5|35->5|61->31|61->31|61->31|62->32|62->32|62->32|63->33|63->33|63->33|64->34|64->34|64->34|65->35|65->35|65->35|66->36|66->36|66->36|68->38|68->38|68->38|69->39|69->39|69->39|69->39|70->40|70->40|70->40|71->41|71->41|71->41|71->41|72->42|72->42|72->42|73->43|73->43|73->43|73->43|74->44|74->44|74->44|75->45|75->45|75->45|75->45|76->46|76->46|76->46|77->47|77->47|77->47|77->47|78->48|78->48|78->48|80->50|82->52|83->53|85->55|88->58|88->58|88->58|89->59|89->59|89->59|90->60|90->60|90->60|91->61|91->61|91->61|92->62|92->62|92->62|93->63|93->63|93->63|94->64|94->64|94->64|95->65|95->65|95->65|96->66|96->66|96->66|97->67|97->67|97->67|100->70|102->72
                     -- GENERATED --
                 */

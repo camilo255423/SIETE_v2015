@@ -20,10 +20,10 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object mainmenu extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template0[play.api.templates.Html] {
+object mainmenu extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template0[play.api.templates.HtmlFormat.Appendable] {
 
     /**/
-    def apply():play.api.templates.Html = {
+    def apply():play.api.templates.HtmlFormat.Appendable = {
         _display_ {
 
 Seq[Any](format.raw/*2.6*/("""<ul class="nav">
@@ -37,28 +37,20 @@ Seq[Any](format.raw/*2.6*/("""<ul class="nav">
         </ul>"""))}
     }
     
-    def render(): play.api.templates.Html = apply()
+    def render(): play.api.templates.HtmlFormat.Appendable = apply()
     
-    def f:(() => play.api.templates.Html) = () => apply()
+    def f:(() => play.api.templates.HtmlFormat.Appendable) = () => apply()
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-<<<<<<< HEAD
-                    DATE: Sun Mar 30 16:04:01 COT 2014
+                    DATE: Thu Apr 17 11:31:02 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/mainmenu.scala.html
-                    HASH: 3a791f233a9ebcdbce3fcbf568c402eb2f58b2a1
-                    MATRIX: 790->9
-                    LINES: 29->2
-=======
-                    DATE: Fri Apr 04 16:48:44 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/mainmenu.scala.html
                     HASH: 090e7f79e45ea4b99d885ccd987a2c473a53ce9d
                     MATRIX: 858->10|971->88|1020->129|1058->130|1156->197
                     LINES: 29->2|32->5|32->5|32->5|34->7
->>>>>>> 4d44da7d489b48f84b12a1a6b3ad9e4d2caf1200
                     -- GENERATED --
                 */
             

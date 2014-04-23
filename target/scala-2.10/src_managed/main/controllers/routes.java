@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 // @SOURCE:/home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/conf/routes
-// @HASH:5bf696706dbe8c789f27ba37df0a3f16d54a3a40
-// @DATE:Sun Mar 30 16:03:56 COT 2014
-=======
-// @SOURCE:/home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/conf/routes
 // @HASH:235dabab0aedfb8c43e1605e8e29559815205b55
-// @DATE:Fri Apr 04 16:48:41 COT 2014
->>>>>>> 4d44da7d489b48f84b12a1a6b3ad9e4d2caf1200
+// @DATE:Thu Apr 17 11:31:00 COT 2014
 
 package controllers;
 
@@ -29,8 +23,8 @@ public static final controllers.javascript.ReverseInforme4 Informe4 = new contro
 public static final controllers.javascript.ReverseInforme6 Informe6 = new controllers.javascript.ReverseInforme6();
 public static final controllers.javascript.ReverseInforme3 Informe3 = new controllers.javascript.ReverseInforme3();
 public static final controllers.javascript.ReverseApplication Application = new controllers.javascript.ReverseApplication();
-public static final controllers.javascript.ReverseInforme2 Informe2 = new controllers.javascript.ReverseInforme2();    
-}   
+public static final controllers.javascript.ReverseInforme2 Informe2 = new controllers.javascript.ReverseInforme2();
+}
 public static class ref {
 public static final controllers.ref.ReverseInforme5 Informe5 = new controllers.ref.ReverseInforme5();
 public static final controllers.ref.ReverseAssets Assets = new controllers.ref.ReverseAssets();
@@ -40,7 +34,7 @@ public static final controllers.ref.ReverseInforme4 Informe4 = new controllers.r
 public static final controllers.ref.ReverseInforme6 Informe6 = new controllers.ref.ReverseInforme6();
 public static final controllers.ref.ReverseInforme3 Informe3 = new controllers.ref.ReverseInforme3();
 public static final controllers.ref.ReverseApplication Application = new controllers.ref.ReverseApplication();
-public static final controllers.ref.ReverseInforme2 Informe2 = new controllers.ref.ReverseInforme2();    
-} 
+public static final controllers.ref.ReverseInforme2 Informe2 = new controllers.ref.ReverseInforme2();
 }
-              
+}
+          

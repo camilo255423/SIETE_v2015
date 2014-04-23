@@ -3,12 +3,16 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import static play.data.Form.*;
 
 import models.*;
 import play.data.Form;
 import play.mvc.*;
 
+/** Controlador principal. Procesa las acciones de Login, Logout y cuando el 
+ * usuario selecciona un semestre en el menú lateral.
+ *
+ */
 
 public class Application extends Controller {
 	public static class Login {
@@ -17,7 +21,11 @@ public class Application extends Controller {
         public String password;
         
         public String validate() {
+
         	String cedula="";
+        email="52348310";
+email=Form.form().bindFromRequest().get("email");
+	 cedula = email;
         	// 52348310 Johanna Ovalle
         	if(email.equals("13923305") || email.equals("79511724") || email.equals("52348310"))
         	{ 
@@ -30,8 +38,8 @@ public class Application extends Controller {
         	}
         // 13923305 EMILIO BARAJAS
         	
-           if (cedula!=null) {
-        	   Usuario usuario = Usuario.findByDocumento(cedula);
+            if (cedula!=null) {
+        	  Usuario usuario = Usuario.findByDocumento(cedula);
         	   if(usuario!=null)
         	   {   
         	   session().clear();
@@ -58,13 +66,15 @@ public class Application extends Controller {
         	   {
         		   return "El usuario no tiene permisos para ingresar";
         	   }
+		
               
             }
            else {
-        	   return "Usuario o contraseña incorrecta";
-           }
-        	   
+        	   return "Usuario o contraseña incorrecta"+email;
+           } 
+        	  
             return null;
+
         }
     }
 	@Security.Authenticated(Secured.class)
@@ -92,7 +102,8 @@ public class Application extends Controller {
     public static Result authenticate() {
         
             Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
-            if (loginForm.hasErrors()) {
+
+	     if (loginForm.hasErrors()) {
                 return badRequest(views.html.login.render(loginForm));
             } else {
               

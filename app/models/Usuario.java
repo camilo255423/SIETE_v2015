@@ -13,10 +13,8 @@ import play.db.DB;
 import play.db.ebean.*;
 import com.avaje.ebean.*;
 
-@Entity
 public class Usuario extends Model {
 
-    @Id
     public String email;
     public String nombre;
     public String password;

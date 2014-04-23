@@ -20,10 +20,10 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object sidebar extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template2[List[Profesor],List[String],play.api.templates.Html] {
+object sidebar extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template2[List[Profesor],List[String],play.api.templates.HtmlFormat.Appendable] {
 
     /**/
-    def apply/*1.2*/(profesores:List[Profesor], semestres:List[String]):play.api.templates.Html = {
+    def apply/*1.2*/(profesores:List[Profesor], semestres:List[String]):play.api.templates.HtmlFormat.Appendable = {
         _display_ {
 
 Seq[Any](format.raw/*1.53*/("""
@@ -48,28 +48,20 @@ Seq[Any](format.raw/*1.53*/("""
       </div>"""))}
     }
     
-    def render(profesores:List[Profesor],semestres:List[String]): play.api.templates.Html = apply(profesores,semestres)
+    def render(profesores:List[Profesor],semestres:List[String]): play.api.templates.HtmlFormat.Appendable = apply(profesores,semestres)
     
-    def f:((List[Profesor],List[String]) => play.api.templates.Html) = (profesores,semestres) => apply(profesores,semestres)
+    def f:((List[Profesor],List[String]) => play.api.templates.HtmlFormat.Appendable) = (profesores,semestres) => apply(profesores,semestres)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-<<<<<<< HEAD
-                    DATE: Sun Mar 30 16:04:02 COT 2014
+                    DATE: Thu Apr 17 11:31:03 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/sidebar.scala.html
-                    HASH: 4e35a227d434128f3d079fad663451de48297dbe
-                    MATRIX: 746->1|874->52|984->127|1030->152|1084->171|1120->186|1171->202|1259->282|1297->283|1347->298|1387->317|1434->333|1481->345|1569->425|1607->426|1710->497
-                    LINES: 26->1|29->1|32->4|32->4|33->5|33->5|34->6|34->6|34->6|35->7|35->7|36->8|37->9|37->9|37->9|41->13
-=======
-                    DATE: Mon Apr 07 16:23:53 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/sidebar.scala.html
                     HASH: 47907d986dc60b073151467b6ff65eb23415ffb0
                     MATRIX: 797->1|942->52|1052->127|1098->152|1152->171|1188->186|1239->202|1327->282|1365->283|1415->298|1455->317|1502->333
                     LINES: 26->1|29->1|32->4|32->4|33->5|33->5|34->6|34->6|34->6|35->7|35->7|36->8
->>>>>>> 4d44da7d489b48f84b12a1a6b3ad9e4d2caf1200
                     -- GENERATED --
                 */
             
