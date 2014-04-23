@@ -8,19 +8,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 import play.db.DB;
-
+/**
+ * Modelo que representa aun paciente
+ * @author Camilo Rodríguez
+ *
+ */
 public class Profesor {
-	
+	/**
+	 * Documento del profesor
+	 */
 	String documento;
+	/**
+	 * Nombres del profesor
+	 */
 	String nombres;
+	/**
+	 * Apellidos
+	 */
 	String apellidos;
-    
+    /**
+     * 
+     * @param documento
+     * @param nombres
+     * @param apellidos
+     */
 	public Profesor(String documento, String nombres, String apellidos) {
 		super();
 		this.documento = documento;
 		this.nombres = nombres;
 		this.apellidos = apellidos;
 	}
+	/**
+	 * Método que devuelve una lista de profesores contratados para un semestre dado
+	 * @param semestre String semestre en revisión. Ej. 20132
+	 * @return List<Profesor> 
+	 */
 	public static List<Profesor> findAllBySemestre(String semestre)
 	{
      	Connection con = DB.getConnection();
@@ -37,6 +59,7 @@ public class Profesor {
 				profesores.add(new Profesor(rs.getString("documento"),
 						rs.getString("nombres"),rs.getString("primer_apellido")+" "+rs.getString("segundo_apellido")));
 			}
+			con.close();	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,6 +71,12 @@ public class Profesor {
 		
 		return profesores;
 	}
+	/**
+	 * Método que devuelve una lista de profesores según semestre y programa
+	 * @param semestre String semestre a revisar
+	 * @param codigoPrograma String programa a revisar
+	 * @return List<Profesor> 
+	 */
 	public static List<Profesor> findAllBySemestreAndPrograma(String semestre, String codigoPrograma)
 	{
      	Connection con = DB.getConnection();
@@ -65,6 +94,7 @@ public class Profesor {
 				profesores.add(new Profesor(rs.getString("documento"),
 						rs.getString("nombre"),rs.getString("primer_apellido")+" "+rs.getString("segundo_apellido")));
 			}
+			con.close();	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -76,6 +106,11 @@ public class Profesor {
 		
 		return profesores;
 	}
+	/**
+	 * Método que encuentra un profesor por su documento
+	 * @param documento String documento el profesor
+	 * @return objeto de tipo Profesor o null en caso de que no se encuentre profesor asociado a ese documento
+	 */
 	public static Profesor findByDocumento(String documento)
 	{
      	Connection con = DB.getConnection();
@@ -91,6 +126,7 @@ public class Profesor {
 				profesor = new Profesor(rs.getString("documento"),
 						rs.getString("nombres"),rs.getString("apellidos"));
 			}
+			con.close();	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -102,24 +138,53 @@ public class Profesor {
 		
 		return profesor;
 	}
+	/**
+	 * 
+	 * @return String documento del profesor
+	 */
 	public String getDocumento() {
 		return documento;
 	}
+	/**
+	 * 
+	 * @param documento String documento del profesor
+	 */
 	public void setDocumento(String documento) {
 		this.documento = documento;
 	}
+	/**
+	 * 
+	 * @return String nombres del profesor
+	 */
 	public String getNombres() {
 		return nombres;
 	}
+	/**
+	 * 
+	 * @param nombres String nombres del profesor
+	 */
 	public void setNombres(String nombres) {
 		this.nombres = nombres;
 	}
+	/**
+	 * 
+	 * @return String apellidos del profesor
+	 */
 	public String getApellidos() {
 		return apellidos;
 	}
+	/**
+	 * 
+	 * @param apellidos String apellidos del profesor
+	 */
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
+	/**
+	 * Método que devuelve la evaluación detallada de un profesor para un semestre dado
+	 * @param semestre String semestre ej. 20132
+	 * @return objeto de tipo Evaluacion
+	 */
 	public Evaluacion getEvaluacion(String semestre) {
 
 		Evaluacion evaluacion = InformesDAO.getInformeDetalladoPorMateria(documento, semestre);
@@ -131,19 +196,26 @@ public class Profesor {
 		return "Profesor [documento=" + documento + ", nombres=" + nombres
 				+ ", apellidos=" + apellidos + "]";
 	}
-
+/**
+ * Consulta sql que devuelve todos los profesores para un semestre dado
+ */
 	private static final String consultaProfesores =" SELECT  distinct NIT as documento, nombre as nombres, primer_apellido,segundo_apellido "+
   "FROM   ICEBERG.EMPLEADO "+
  "WHERE to_date(?,'yyyy-mm-dd')>fecha_ingreso and "+ 
  "to_date(?,'yyyy-mm-dd')<FECHA_FIN_CONTRATO "+
   "order by primer_apellido, segundo_apellido, nombre ";
+	/**
+	 * Consulta sql que permite encontrar los docentes por programa y semestre
+	 */
 	private static final String consultaProfesoresPrograma ="SELECT  nit as documento, primer_apellido,segundo_apellido, nombre "+
   "FROM   ICEBERG.EMPLEADO e inner join sai.art_programas on   e.centro_costo=sai.art_programas.igecodigo "+
  "WHERE to_date(?,'yyyy-mm-dd')>fecha_ingreso and "+ 
  "to_date(?,'yyyy-mm-dd')<FECHA_FIN_CONTRATO "+ 
  "and sai.art_programas.pro_codprograma=? "+
   "order by primer_apellido, segundo_apellido, nombre ";
-	
+	/**
+	 * Consulta sql que encuentra un profesor por documento
+	 */
 	private static final String consultaProfesor = "select cli_numdcto as documento, cli_nombres as nombres, cli_apellidos as apellidos "
 			+"from sai.RCT_CLIENTES where  cli_numdcto = ?";
 	

@@ -8,14 +8,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import play.db.DB;
-
+/**
+ * Modelo que representa un programa
+ * @author Camilo Rodríguez
+ *
+ */
 public class Programa {
-	
+	/**
+	 * Codigo del programa
+	 */
 	String codPrograma;
+	/**
+	 * Nombre del programa
+	 */
 	String nombre;
 
     
-	
+	/**
+	 * 
+	 * @param codPrograma Codigo del programa
+	 * @param nombre Nombre del programa
+	 */
 
 	public Programa(String codPrograma, String nombre) {
 		super();
@@ -23,7 +36,10 @@ public class Programa {
 		this.nombre = nombre;
 	}
 
-
+/**
+ * Devuelve una lista con todos los programas almacenados en la base de datos
+ * @return List<Programa>
+ */
 	public static List<Programa> findAll()
 	{
      	Connection con = DB.getConnection();
@@ -38,6 +54,7 @@ public class Programa {
 				programas.add(new Programa(rs.getString("codprograma"),
 						rs.getString("nombre")));
 			}
+			con.close();	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -52,22 +69,34 @@ public class Programa {
 		
 	
 
-
+/**
+ * 
+ * @return String código del programa
+ */
 
 	public String getCodPrograma() {
 		return codPrograma;
 	}
-
+/**
+ * 
+ * @param codPrograma String código del programa
+ */
 
 	public void setCodPrograma(String codPrograma) {
 		this.codPrograma = codPrograma;
 	}
 
-
+/**
+ * 
+ * @return String nombre del programa
+ */
 	public String getNombre() {
 		return nombre;
 	}
-
+/**
+ * 
+ * @param nombre String nombre del programa
+ */
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -88,6 +117,7 @@ public class Programa {
 				programa = new Programa(rs.getString("codprograma"),
 						rs.getString("nombre"));
 			}
+			con.close();	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

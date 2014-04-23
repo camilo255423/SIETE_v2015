@@ -33,7 +33,14 @@ import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
-
+/**
+ * Este controlador se encarga de procesar las solicitudes del informe 4
+ * correspondiente al informe por Facultad.
+ * Genera la vista  html, pdf y  excel.
+ * @author Camilo Rodríguez
+ *
+ *
+ */
 public class Informe4 extends Controller {
 	@Security.Authenticated(Secured.class)
     public static Result index() {
@@ -57,6 +64,13 @@ public class Informe4 extends Controller {
     	
  	
     }
+	/**
+	 * Genera el respectivo pdf para el informe 4-informe por Facultad. 
+	 * @param documento Recibe de la vista el id de la facultad
+	 * @param semestre Recibe de la vista el semestre seleccionado por el usuario
+	 * @return devuelve el pdf generado
+	 */
+
 	@Security.Authenticated(Secured.class)
     public static Result pdf(String codigoFacultad, String semestre)
     {
@@ -113,7 +127,12 @@ public class Informe4 extends Controller {
  			return ok(file);
  	    
     }
-	
+	/**
+	 * Genera el archivo excel del informe 4-informe por Facultad
+	 * @param documento Recibe de la vista el id de la Facultad
+	 * @param semestre Recibe de la vista el semestre seleccionado por el usuario
+	 * @return devuelve el archivo de excel generado.
+	 */
 	@Security.Authenticated(Secured.class)
     public static Result excel(String codigoFacultad, String semestre)
     {

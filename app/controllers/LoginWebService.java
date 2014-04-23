@@ -13,13 +13,35 @@ import javax.xml.soap.SOAPElement;
 import javax.xml.soap.SOAPEnvelope;
 import javax.xml.soap.SOAPMessage;
 import javax.xml.soap.SOAPPart;
-
+/**
+ * Clase que contiene los métodos para validar el usuario
+ * mediante el web service de la Institución
+ * @author Camilo Rodríguez
+ *
+ */
 public class LoginWebService {
   
+	/**
+	 * Identificación de la aplicación
+	 */
     public static final String token ="123456";
+    /**
+	 * Dirección del servior
+	 */
     public static final String serverURI= "http://ws.seguridadpermanencia.com/";
+    /**
+     * URL
+     */
     public static final String url="http://oas1012.inpahu.edu.co/SeguridadPermanencia-war/GestionAccesoPermanencia?WSDL";
-	public static String autenticar(String usuario, String clave)
+	
+    /**
+     * Método encargado de autenticar el usuario mediante el webservice de la universidad
+     * @param usuario 
+     * @param clave
+     * @return returna la cédula del usuario autenticado , null en caso de que la autenticación
+     * haya fallado, o -1 en caso de que haya algún error de conexión con el web service de la institución.
+     */
+    public static String autenticar(String usuario, String clave)
 	{
 		SOAPMessage soapResponse=null;
 		String [] respuesta;
@@ -41,8 +63,12 @@ public class LoginWebService {
 		 {
 			 return respuesta[5]; // retorna la cédula del usuario
 		 }
-		 
-		 return null;
+		 else  if(LoginWebService.soapMessageToString(soapResponse).contains("FAILURE"))
+		 {
+			 return null;
+		 }		 
+		
+		 return "-1";
 	}
 	private static SOAPMessage createSOAPRequest(String usuario, String clave) throws Exception {
 

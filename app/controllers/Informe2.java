@@ -27,13 +27,26 @@ import models.Pregunta;
 import models.Profesor;
 import play.data.Form;
 import play.mvc.*;
-
+/**
+ * Este controlador se encarga de procesar las solicitudes del informe 2
+ * correspondiente al informe de Heteroevaluación.
+ * Genera la vista  html, pdf y  excel.
+ * @author Camilo Rodríguez
+ *
+ *
+ */
 public class Informe2 extends Controller {
 	@Security.Authenticated(Secured.class)
     public static Result index() {
     
     	return null;
     }
+	/**
+	 * Genera el respectivo pdf para el informe 2-Heteroevaluación. 
+	 * @param documento Recibe de la vista el documento seleccionado por el usuario
+	 * @param semestre Recibe de la vista el semestre seleccionado por el usuario
+	 * @return devuelve el pdf generado
+	 */
 	@Security.Authenticated(Secured.class)
     public static Result pdf(String documento, String semestre)
     {
@@ -85,6 +98,13 @@ public class Informe2 extends Controller {
  			return ok(file);
  	    
     }
+	/**
+	 * Genera el archivo excel del informe 2-Heteroevaluación
+	 * @param documento Recibe de la vista el documento seleccionado por el usuario
+	 * @param semestre Recibe de la vista el semestre seleccionado por el usuario
+	 * @return devuelve el archivo de excel generado.
+	 */
+	
 	@Security.Authenticated(Secured.class)
 	public static Result excel(String documento, String semestre)
     {
@@ -225,6 +245,11 @@ public class Informe2 extends Controller {
    		return ok(file);
 
     }
+	/**
+	 * Genera la página web del informe 2-Heteroevaluación. Recibe los parámetros documento y semestre desde
+	 * la vista por POST
+	 * @return Retorna la información hacia la vista: views.html.informes.informeprofesor
+	 */
 	@Security.Authenticated(Secured.class)
 	public static Result informeProfesor()
     {

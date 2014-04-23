@@ -8,12 +8,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import play.db.DB;
-
+/**
+ * Modelo que representa una asignatura-grupo
+ * @author Camilo Rodríguez
+ *
+ */
 public class Materia {
-	
+	/**
+	 * Código de la asingatura
+	 */
 	String codigoMateria;
+	/**
+	 * Nombre de la asignatura
+	 */
 	String nombre;
+	/**
+	 * Grupo 
+	 */
 	String grupo;
+	/**
+	 * Número de inscritos en este grupo
+	 */
 	int inscritos;
 	
 	
@@ -57,6 +72,7 @@ public class Materia {
 				materias.add(new Materia(rs.getString("codigo_materia"),
 						rs.getString("nombre_materia"),rs.getString("grupo"),rs.getInt("inscritos")));
 			}
+			con.close();		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
