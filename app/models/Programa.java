@@ -54,6 +54,7 @@ public class Programa {
 				programas.add(new Programa(rs.getString("codprograma"),
 						rs.getString("nombre")));
 			}
+			con.close();	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -116,6 +117,7 @@ public class Programa {
 				programa = new Programa(rs.getString("codprograma"),
 						rs.getString("nombre"));
 			}
+			con.close();	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

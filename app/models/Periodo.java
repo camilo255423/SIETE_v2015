@@ -94,6 +94,7 @@ public class Periodo {
 			while (rs.next()) {
 				semestres.add(rs.getString("semestre"));		
 			}
+			con.close();	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -88,7 +88,7 @@ public class Permiso {
 			p.setString(2, idRol);
 			p.setString(3, codigoPrograma);
 			numeroFilas = p.executeUpdate();
-			
+			con.close();	
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -118,7 +118,7 @@ public class Permiso {
 			p.setString(1, documento);
 			numeroFilas = p.executeUpdate();
 			
-			
+			con.close();	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -149,6 +149,7 @@ public class Permiso {
 						new Programa(rs.getString("CODIGO_PROGRAMA"),rs.getString("NOMBRE_PROGRAMA")));
 				permisos.add(permiso);
 			}
+			con.close();	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -179,6 +180,7 @@ public class Permiso {
 						new Programa(rs.getString("CODIGO_PROGRAMA"),rs.getString("NOMBRE_PROGRAMA")));
 				
 			}
+			con.close();	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -595,6 +595,7 @@ public class InformesDAO {
 					}
 				}
 				}
+				  con.close();		
 		 }catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -627,7 +628,7 @@ public class InformesDAO {
 			 }
 		 }
 		
-	
+	   
 		 return new Evaluacion(evaluacionMaterias, evaluacionGestion, evaluacionInvestigacion,autoEvaluacionGestion,autoEvaluacionInvestigacion);
 
 		
@@ -711,6 +712,7 @@ public class InformesDAO {
 				if(rs.getString("saber").equals("Inve"))
 					evaluacionInvestigacion.getPromedioRespuestas()[rs.getInt("valor")-1]=rs.getInt("suma");
 				}
+				con.close();		
 		 }catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -954,7 +956,7 @@ public class InformesDAO {
 				}
 			
 			}	//fin for materias
-			
+			con.close();		
 			} 
 			catch (SQLException e) {
 			// TODO Auto-generated catch block

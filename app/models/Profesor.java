@@ -59,6 +59,7 @@ public class Profesor {
 				profesores.add(new Profesor(rs.getString("documento"),
 						rs.getString("nombres"),rs.getString("primer_apellido")+" "+rs.getString("segundo_apellido")));
 			}
+			con.close();	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -93,6 +94,7 @@ public class Profesor {
 				profesores.add(new Profesor(rs.getString("documento"),
 						rs.getString("nombre"),rs.getString("primer_apellido")+" "+rs.getString("segundo_apellido")));
 			}
+			con.close();	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -124,6 +126,7 @@ public class Profesor {
 				profesor = new Profesor(rs.getString("documento"),
 						rs.getString("nombres"),rs.getString("apellidos"));
 			}
+			con.close();	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

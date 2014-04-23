@@ -72,6 +72,7 @@ public class Materia {
 				materias.add(new Materia(rs.getString("codigo_materia"),
 						rs.getString("nombre_materia"),rs.getString("grupo"),rs.getInt("inscritos")));
 			}
+			con.close();		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

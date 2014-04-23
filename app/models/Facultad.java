@@ -67,6 +67,7 @@ public class Facultad {
 				facultades.add(new Facultad(rs.getString("ID_DECAN"),
 						rs.getString("DESCRIP")));
 			}
+			  con.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -99,6 +100,7 @@ public class Facultad {
 				facultad = new Facultad(rs.getString("ID_DECAN"),
 						rs.getString("DESCRIP"));
 			}
+			con.close();	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

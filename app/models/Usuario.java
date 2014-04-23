@@ -11,7 +11,7 @@ import javax.persistence.*;
 
 import play.db.DB;
 import play.db.ebean.*;
-import com.avaje.ebean.*;
+
 
 @Entity
 public class Usuario extends Model {
@@ -24,24 +24,6 @@ public class Usuario extends Model {
     String rol;
   
     
-/*
-
-	public static Usuario authenticate(String email, String password) {
-        if (email.equals("123") && email.equals("123"))
-        {
-        	return new Usuario(email, email, password, "51832657", Rol.PROFESOR);
-        }
-        if (email.equals("456") && email.equals("456"))
-        {
-        	return new Usuario(email, email, password, "",Rol.COORDINADOR);
-        }
-        if (email.equals("789") && email.equals("789"))
-        {
-        	return new Usuario(email, email, password, "",Rol.ADMINISTRADOR);
-        }
-        return null;
-    }
-*/
 
 	public Usuario()
 	{
@@ -200,6 +182,7 @@ public class Usuario extends Model {
 				usuarios.add(new Usuario("",rs.getString("nombres"),""
 						,rs.getString("documento"),""));
 			}
+			con.close();	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -212,7 +195,7 @@ public class Usuario extends Model {
 		return usuarios;
 	}
 	/**
-	 * Búsca un usuario por su documento
+	 * Busca un usuario por su documento
 	 * @param documento String documento el usuario
 	 * @return objeto de tipo Usuario encontrado o null en caso de que no se encuentre un usuario con ese documento.
 	 */
@@ -232,6 +215,7 @@ public class Usuario extends Model {
 				new Usuario(rs.getString("nombre"), rs.getString("documento"),
 						rs.getString("id_rol"));
 			}
+			con.close();	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

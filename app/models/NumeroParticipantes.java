@@ -132,7 +132,7 @@ public class NumeroParticipantes {
 				p.setString(9, periodo[Periodo.FECHAINICIO]);
 				p.setString(10, periodo[Periodo.FECHAFIN]);
 				directivosInvestigacionEvaluadosPorFacultad = NumeroParticipantes.consultarParticipantes(p);
-				
+				con.close();		
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -159,6 +159,7 @@ public class NumeroParticipantes {
 						rs.getString("FACULTAD"),rs.getInt("PARTICIPANTES"),
 						rs.getInt("TOTAL"),rs.getDouble("PORCENTAJE")));
 			}
+				
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
