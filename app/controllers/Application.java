@@ -9,8 +9,21 @@ import models.*;
 import play.data.Form;
 import play.mvc.*;
 
-
+/**
+ * 
+ * Controlador principal. Procesa las acciones de Login, Logout y cuando el 
+ * usuario selecciona un semestre en el menú lateral.
+ * @author Camilo Rodriguez
+ *
+ */
 public class Application extends Controller {
+	/**
+	 * 
+	 * @author Camilo Rodríguez
+	 * Clase que representa login el usuario. Contiene los métodos para validar y realizar conexión
+	 * al web service de autenticación de usuarios.
+	 *
+	 */
 	public static class Login {
 
         public String email;
@@ -19,18 +32,23 @@ public class Application extends Controller {
         public String validate() {
         	String cedula="";
         	// 52348310 Johanna Ovalle
-        	if(email.equals("13923305") || email.equals("79511724") || email.equals("52348310"))
+        	if(email.equals("13923305") || email.equals("79511724") )
         	{ 
         		cedula = email;
         	}
         	else
         	{
         		cedula = LoginWebService.autenticar(email, password);
-        		System.out.println(cedula);
+        		
         	}
         // 13923305 EMILIO BARAJAS
         	
            if (cedula!=null) {
+        	   if(cedula.equals("-1"))
+        	   {
+        		   return "No se puede establecer conexión con el servicio de autenticación " +
+        		   		"de usuarios de la institución. Por favor contacte al administrador del sistema.";
+        	   }
         	   Usuario usuario = Usuario.findByDocumento(cedula);
         	   if(usuario!=null)
         	   {   
@@ -56,6 +74,8 @@ public class Application extends Controller {
         	   }
         	   else
         	   {
+        		  
+        			   
         		   return "El usuario no tiene permisos para ingresar";
         	   }
               

@@ -8,13 +8,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 import play.db.DB;
-
+/**
+ * Modelo que representa el número de participantes por cada Faculta en los 
+ * campos de la Docencia, la Gestión y la Investigación.
+ * @author Camilo Rodríguez
+ *
+ */
 public class NumeroParticipantes {
+	/**
+	 * Arreglo con Lista de facultades con el número de estudiantes
+	 * que evaluaron a los docentes.
+	 */
 	ArrayList<Facultad> estudiantesEvaluadosPorFacultad;
+	/**
+	 * Arreglo con Lista de facultades con el número de docentes evaluados
+	 */
 	ArrayList<Facultad> docentesEvaluadosPorEstudiantesPorFacultad;
+/**
+* Arreglo con Lista de facultades con el número de Docentes
+*  que realizaron la autoevaluación.
+*/
 	ArrayList<Facultad> docentesConAutoevaluacionPorFacultad;
+/**
+* Arreglo con Lista de facultades con el número de directivos
+* que evaluaron gestión.
+ */
 	ArrayList<Facultad> directivosGestionEvaluadosPorFacultad;
+	/**
+	* Arreglo con Lista de facultades con el número de directivos
+	* que evaluaron Investigación.
+	 */
 	ArrayList<Facultad> directivosInvestigacionEvaluadosPorFacultad;
+	/**
+	 * Constructos
+	 * @param estudiantesEvaluadosPorFacultad
+	 * @param docentesEvaluadosPorEstudiantesPorFacultad
+	 * @param docentesConAutoevaluacionPorFacultad
+	 * @param directivosGestionEvaluadosPorFacultad
+	 * @param directivosInvestigacionEvaluadosPorFacultad
+	 */
 	public NumeroParticipantes(
 			ArrayList<Facultad> estudiantesEvaluadosPorFacultad,
 			ArrayList<Facultad> docentesEvaluadosPorEstudiantesPorFacultad,
@@ -28,6 +60,12 @@ public class NumeroParticipantes {
 		this.directivosGestionEvaluadosPorFacultad = directivosGestionEvaluadosPorFacultad;
 		this.directivosInvestigacionEvaluadosPorFacultad = directivosInvestigacionEvaluadosPorFacultad;
 	}
+	/**
+	 * Método que devuelve un objeto NumeroParticipantes con los datos de participación 
+	 * según el semestre
+	 * @param semestre String
+	 * @return objeto NumeroParticipantes
+	 */
 	public static NumeroParticipantes findBySemestre(String semestre)
 	{
 		ArrayList<Facultad> estudiantesEvaluadosPorFacultad=null;
@@ -103,6 +141,12 @@ public class NumeroParticipantes {
 			
 		return new NumeroParticipantes(estudiantesEvaluadosPorFacultad, docentesEvaluadosPorEstudiantesPorFacultad, docentesConAutoevaluacionPorFacultad, directivosGestionEvaluadosPorFacultad, directivosInvestigacionEvaluadosPorFacultad);
 	}
+	/**
+	 * Método que genera el respectivo modelo de participantes:
+	 * estudiantes, docentes, gestión , investigación.
+	 * @param p PreparedStatment con la respectiva consulta
+	 * @return ArrayList<Facultad>  con el número de participantes
+	 */
 	private static ArrayList<Facultad> consultarParticipantes(PreparedStatement p)
 	{
 		
@@ -123,41 +167,81 @@ public class NumeroParticipantes {
 		}
 		return facultades;
 	}
+	/**
+	 * 
+	 * @return  ArrayList<Facultad> Estudiantes evaluados por facultad
+	 */
 	public ArrayList<Facultad> getEstudiantesEvaluadosPorFacultad() {
 		return estudiantesEvaluadosPorFacultad;
 	}
+	/**
+	 * 
+	 * @param estudiantesEvaluadosPorFacultad Estudiantes evaluados por facultad
+	 */
 	public void setEstudiantesEvaluadosPorFacultad(
 			ArrayList<Facultad> estudiantesEvaluadosPorFacultad) {
 		this.estudiantesEvaluadosPorFacultad = estudiantesEvaluadosPorFacultad;
 	}
+	/**
+	 * 
+	 * @return ArrayList<Facultad> Docentes evaluados por estudiantes por cada facultad
+	 */
 	public ArrayList<Facultad> getDocentesEvaluadosPorEstudiantesPorFacultad() {
 		return docentesEvaluadosPorEstudiantesPorFacultad;
 	}
+	/**
+	 * 
+	 * @param docentesEvaluadosPorEstudiantesPorFacultad Docentes evaluados por estudiantes por cada facultad
+	 */
 	public void setDocentesEvaluadosPorEstudiantesPorFacultad(
 			ArrayList<Facultad> docentesEvaluadosPorEstudiantesPorFacultad) {
 		this.docentesEvaluadosPorEstudiantesPorFacultad = docentesEvaluadosPorEstudiantesPorFacultad;
 	}
+	/**
+	 * 
+	 * @return ArrayList<Facultad> Docentes con autoevaluación por cada facultad.
+	 */
 	public ArrayList<Facultad> getDocentesConAutoevaluacionPorFacultad() {
 		return docentesConAutoevaluacionPorFacultad;
 	}
+	/**
+	 * 
+	 * @param docentesConAutoevaluacionPorFacultad Docentes con autoevaluación por cada facultad.
+	 */
 	public void setDocentesConAutoevaluacionPorFacultad(
 			ArrayList<Facultad> docentesConAutoevaluacionPorFacultad) {
 		this.docentesConAutoevaluacionPorFacultad = docentesConAutoevaluacionPorFacultad;
 	}
+	/**
+	 * 
+	 * @return ArrayList<Facultad> directivos que evaluaron gestión por cada facultad.
+	 */
 	public ArrayList<Facultad> getDirectivosGestionEvaluadosPorFacultad() {
 		return directivosGestionEvaluadosPorFacultad;
 	}
+	/**
+	 * 
+	 * @param directivosGestionEvaluadosPorFacultad directivos que evaluaron gestión por cada facultad.
+	 */
 	public void setDirectivosGestionEvaluadosPorFacultad(
 			ArrayList<Facultad> directivosGestionEvaluadosPorFacultad) {
 		this.directivosGestionEvaluadosPorFacultad = directivosGestionEvaluadosPorFacultad;
 	}
+	/**
+	 * 
+	 * @return ArrayList<Facultad> Directivos que evaluaron investigación por facultad.
+	 */
 	public ArrayList<Facultad> getDirectivosInvestigacionEvaluadosPorFacultad() {
 		return directivosInvestigacionEvaluadosPorFacultad;
 	}
+	
 	public void setDirectivosInvestigacionEvaluadosPorFacultad(
 			ArrayList<Facultad> directivosInvestigacionEvaluadosPorFacultad) {
 		this.directivosInvestigacionEvaluadosPorFacultad = directivosInvestigacionEvaluadosPorFacultad;
 	}
+	/**
+	 * Consulta de número de estudiantes que evaluaron por facultad
+	 */
 	private static final String consultaEstudiantesEvaluadosPorFacultad ="select a.id_facultad as idFacultad, a.facultad as facultad, inscritos as total, encuestados as participantes, 100*encuestados/inscritos as porcentaje from "+
 "(select id_facultad,facultad,count(*) as inscritos from ( "+
 "SELECT     distinct FAC.ID_DECAN as id_facultad, "+
@@ -213,6 +297,9 @@ public class NumeroParticipantes {
 ") b "+
 "where a.id_facultad=b.id_facultad "+ 
 "order by idFacultad"; 
+	/**
+	 * Consulta de número de docentes evaluados por estudiantes por facultad
+	 */
 	private static final String consultaDocentesEvaluadosPorEstudiantesPorFacultad=
 "select a.ID_DECAN as idFacultad,facultad,evaluados as participantes, inscritos as total, evaluados*100/inscritos as porcentaje "+
 "from "+
@@ -253,6 +340,9 @@ public class NumeroParticipantes {
 ") b "+
 "where a.ID_DECAN = b.ID_DECAN "+
 "order By IDFACULTAD ";	 
+	/**
+	 * Consulta de número de docentes que realizaron autoevaluación por facultad
+	 */
 private  static final String consultaDocentesConAutoevaluacionPorFacultad =
 "select a.ID_DECAN as idFacultad,facultad,evaluados as participantes, inscritos as total, evaluados*100/inscritos as porcentaje "+
 "from "+
@@ -310,6 +400,9 @@ private  static final String consultaDocentesConAutoevaluacionPorFacultad =
 " ) b "+
 " where a.ID_DECAN = b.ID_DECAN "+
 " order by idFacultad ";
+/**
+ * Consulta de número de directivos que evaluaron gestión por facultad
+ */
 public static final String consultaDirectivosGestionEvaluadosPorFacultad=
 "select a.ID_DECAN as idFacultad,facultad,encuestados as participantes, total, encuestados*100/total as porcentaje "+
 "from "+
@@ -363,6 +456,9 @@ public static final String consultaDirectivosGestionEvaluadosPorFacultad=
 ") b "+
 " where a.ID_DECAN = b.ID_DECAN "+
 "order by idFacultad"; 
+/**
+ * Consulta de número de directivos  que evaluaron investigación por facultad
+ */
 public static final String consultaDirectivosInvestigacionEvaluadosPorFacultad=
 "select a.ID_DECAN as idFacultad,facultad,encuestados as participantes, total, encuestados*100/total as porcentaje "+
 "from "+

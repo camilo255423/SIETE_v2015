@@ -6,7 +6,9 @@ import java.util.List;
 
 
 public class Pregunta {
-	
+	/**
+	 * Constantes que indentifican el tipo de saber
+	 */
 	public static final int PEDAGOGICO = 0;
 	public static final int ESPECIFICO = 1;
 	public static final int RELACIONAL = 2;
@@ -19,11 +21,25 @@ public class Pregunta {
 		"Relacional 10","Relacional 11","Relacional 12"};
 	public static final String preguntasTitulosGestion[]={"Gestión 1", "Gestión 2", "Gestión 3", "Gestión 4", "Gestión 5", "Gestión 6","Gestión 7"};
 	public static final String preguntasTitulosInvestigacion[]={"Investigativo 1", "Investigativo 2", "Investigativo 3", "Investigativo 4", "Investigativo 5", "Investigativo 6"};
-	
+	/**
+	 * Saber al que pertenece la pregunta
+	 */
 	int tipoPregunta;
+	/**
+	 * Título de la pregunta
+	 */
 	String titulo;
+	/**
+	 * Enunciado de la pregunta
+	 */
 	String enunciado;
+	/**
+	 * Número de respuestas por nivel para esta pregunta
+	 */
 	int numeroRespuestasNivel[] = new int[5];
+	/**
+	 * porcentaje de respuestas por nivel para esta pregunta
+	 */
 	double porecentajeNivel[] = new double[5];
 
 	

@@ -35,6 +35,15 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
 
+/**
+ * Este controlador se encarga de procesar las solicitudes del informe 6
+ * correspondiente al informe de participantes.
+ * Genera la vista  html, pdf y  excel.
+ * @author Camilo Rodríguez
+ *
+ *
+ */
+
 public class Informe6 extends Controller {
 	@Security.Authenticated(Secured.class)
     public static Result index() {
@@ -54,6 +63,12 @@ public class Informe6 extends Controller {
     	
  	
     }
+	/**
+	 * Genera el respectivo pdf para el informe 6-informe de participantes. 
+	 * @param documento Este parámetro no se utiliza
+	 * @param semestre Recibe de la vista el semestre seleccionado por el usuario
+	 * @return devuelve el pdf generado
+	 */
 	@Security.Authenticated(Secured.class)
     public static Result pdf(String Documento, String semestre)
     {
@@ -109,6 +124,12 @@ public class Informe6 extends Controller {
  			return ok(file);
  	    
     }
+	 /**
+		 * Genera el archivo excel del informe 6-informe de participantes
+		 * @param documento Este parámetro no se utiliza
+		 * @param semestre Recibe de la vista el semestre seleccionado por el usuario
+		 * @return devuelve el archivo de excel generado.
+		 */
 	@Security.Authenticated(Secured.class)
 	public static Result excel(String codigoPrograma, String semestre)
     {

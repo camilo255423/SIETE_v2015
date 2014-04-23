@@ -33,6 +33,15 @@ import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 
+/**
+ * Este controlador se encarga de procesar las solicitudes del informe 5
+ * correspondiente al informe por Programa.
+ * Genera la vista  html, pdf y  excel.
+ * @author Camilo Rodríguez
+ *
+ *
+ */
+
 public class Informe5 extends Controller {
 
     public static Result index() {
@@ -59,6 +68,12 @@ public class Informe5 extends Controller {
     	
  	
     }
+	/**
+	 * Genera el respectivo pdf para el informe 5-informe por Programa. 
+	 * @param documento Recibe de la vista el id del Programa
+	 * @param semestre Recibe de la vista el semestre seleccionado por el usuario
+	 * @return devuelve el pdf generado
+	 */
     public static Result pdf(String codigoPrograma, String semestre)
     {
  			Document document = new Document();
@@ -117,6 +132,12 @@ public class Informe5 extends Controller {
  			return ok(file);
  	    
     }
+    /**
+	 * Genera el archivo excel del informe 5-informe por Programa
+	 * @param documento Recibe de la vista el id del Programa
+	 * @param semestre Recibe de la vista el semestre seleccionado por el usuario
+	 * @return devuelve el archivo de excel generado.
+	 */
     public static Result excel(String codigoPrograma, String semestre)
     {
     	Programa programa = Programa.findById(codigoPrograma);

@@ -1,5 +1,9 @@
 package models;
-
+/**
+ * Clase que permite representar los valores de las listas autocompletables
+ * @author Camilo Rodríguez
+ *
+ */
 public class AutocompleteValue {
 
 	   private String value;

@@ -8,8 +8,17 @@ import java.util.ArrayList;
 import java.util.List;
 import models.Pregunta;
 import play.db.DB;
-
+/**
+ * Clase DAO que se encarga de hacer las consultas de los informes 1, 2 y 3(Detallado, Heteroevaluación, Final)
+ * Las constantes consultaInformeFinal, consultaEvaluacion, consultaHeteroEvaluacion contienen las consultas respectivas 
+ * a la base de datos.
+ * @author Camilo Rodríguez
+ *
+ */
 public class InformesDAO {
+	/**
+	 * Consulta informe final
+	 */
 	final static String consultaInformeFinal = "SELECT aa2.TIPO_CUESTIONARIO AS tipo_evaluacion, '', '', '',0,aa2.VALOR,sum(aa2.CONTEO) as suma,SUBSTR (aa2.PREGUNTA,1,4) as saber FROM "+ 
 "(SELECT AM.MAT_NOMBRE AS nombre_materia, "+
        "GRP.MAT_CODIGO AS codigo_materia, "+ 
@@ -188,6 +197,11 @@ public class InformesDAO {
 "             0, "+
 "             VALOR, "+
 "             SUBSTR (PRE.TITULO,1,4)";
+	
+	/**
+	 * Consulta Informe Detallado
+	 */
+	
 	final static String consultaEvaluacion = "SELECT aa2.TIPO_CUESTIONARIO AS tipo_evaluacion, aa1.NOMBRE_MATERIA, aa1.CODIGO_MATERIA, aa1.GRUPO,aa1.INSCRITOS,aa2.VALOR,aa2.CONTEO,aa2.PREGUNTA,aa2.ENUNCIADO " +
 			"FROM (SELECT AM.MAT_NOMBRE AS nombre_materia, GRP.MAT_CODIGO AS codigo_materia, GRP.GRU_CODIGO AS grupo," +
 			"GRP.GRU_CUPO_ASIGNADO AS inscritos "+
@@ -454,6 +468,12 @@ public class InformesDAO {
 "          RTA.VALOR, "+
 "          SUBSTR (PRE.TITULO,1,4)";
 	
+	/**
+	 * Método que devuelve un modelo con la Evaluación del profesor
+	 * @param documentoProfesor String documento del profesor
+	 * @param semestre String semestre
+	 * @return objeto Evaluacion con la evaluación final del profesor
+	 */
 	public static Evaluacion
 	getInformeFinal(String documentoProfesor, String semestre)
 	{
@@ -613,6 +633,12 @@ public class InformesDAO {
 		
 		
 	}
+	/**
+	 * Método que devuelve un modelo con la Heteroevaluación del profesor
+	 * @param documentoProfesor String documento del profesor
+	 * @param semestre String semestre
+	 * @return objeto Evaluacion con la heteroevaluación  del profesor
+	 */
 	public static Evaluacion
 	getInformeHeteroEvaluacion(String documentoProfesor, String semestre)
 	{
@@ -697,7 +723,12 @@ public class InformesDAO {
 		 return new Evaluacion(evaluacionMaterias, evaluacionGestion, evaluacionInvestigacion,null,null);
 		 
 	}
-	
+	/**
+	 * Método que devuelve un modelo con la Evaluación detallada del profesor
+	 * @param documentoProfesor String documento del profesor
+	 * @param semestre String semestre
+	 * @return objeto Evaluacion con la evaluación detallada final del profesor
+	 */
 	public static Evaluacion
 	getInformeDetalladoPorMateria(String documentoProfesor, String semestre)
 	{

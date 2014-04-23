@@ -8,8 +8,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import play.db.DB;
-
+/**
+ * Clase DAO que se encarga de hacer las consultas de los informes 4, 5 y 6(por facultad, por programa)
+ * Las constantes consultaPorFacultad, consultaPorPrograma contienen las consultas respectivas 
+ * a la base de datos.
+ * @author Camilo Rodríguez
+ *
+ */
 public class ReportesDAO {
+	/**
+	 *  sql consulta evaluación por facultad
+	 */
 	final static String consultaPorFacultad="select codigo_facultad, nombre_facultad, avg(porcentaje) as porcentaje, valor, saber,tipo_evaluacion "+
 "from "+
 "(SELECT  distinct "+ 
@@ -413,7 +422,9 @@ public class ReportesDAO {
 "group by "+
 "codigo_facultad, nombre_facultad,  valor, saber,tipo_evaluacion  "+
 "order by codigo_facultad, nombre_facultad, tipo_evaluacion, saber ";
-
+/**
+ * sql consulta evaluación por programa
+ */
 	final static String consultaPorPrograma="select codigo_programa, nombre_programa, avg(porcentaje) as porcentaje, valor, saber,tipo_evaluacion  "+
 "	from "+
 "	(SELECT  distinct "+ 
@@ -814,7 +825,12 @@ public class ReportesDAO {
 "	group by "+
 "	codigo_programa, nombre_programa,  valor, saber,tipo_evaluacion "+
 " order by codigo_programa, nombre_programa, tipo_evaluacion, saber";
-	
+	/**
+	 * Método que devuelve un modelo con el informe por facultad.
+	 * @param codigoFacultad String código de la facultad a revisar
+	 * @param semestre String semestre a revisar. Por ej. 20132.
+	 * @return objeto de tipo Evaluacion con el informe de la facultad.
+	 */
 	public static Evaluacion
 	getInformeFacultad(String codigoFacultad, String semestre)
 	{
@@ -958,7 +974,12 @@ public class ReportesDAO {
 		
 	}
 
-
+/**
+ * Método que devuelve un modelo con el informe por facultad. 
+ * @param codigoPrograma String código del programa a revisar.
+ * @param semestre String semestre a revisar. Por ej. 20132
+ * @return objeto de tipo Evaluación con el informe del programa.
+ */
 
 public static Evaluacion
 getInformePrograma(String codigoPrograma, String semestre)
@@ -1102,6 +1123,12 @@ getInformePrograma(String codigoPrograma, String semestre)
 	
 	
 }
+/**
+ * Método que devuelve un arreglo con el mejor y peor saber en el campo de la docencia en 
+ * la evaluación de un programa o facultad
+ * @param evaluaciones ArrayList con la evaluación en el campo de la docencia
+ * @return ArrayList de tipo SaberNivel con el peor y el mejor Saber.
+ */
 public static ArrayList<SaberNivel> getMejorPeorCampoDocencia(List<EvaluacionMateria> evaluaciones)
 {
 	String saber []={"PEDAGOGICO","ESPECIFICO","RELACIONAL"};
