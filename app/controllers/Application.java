@@ -49,6 +49,7 @@ public class Application extends Controller {
         		   return "No se puede establecer conexión con el servicio de autenticación " +
         		   		"de usuarios de la institución. Por favor contacte al administrador del sistema.";
         	   }
+        	   System.out.println(cedula);
         	   Usuario usuario = Usuario.findByDocumento(cedula);
         	   if(usuario!=null)
         	   {   
@@ -87,6 +88,7 @@ public class Application extends Controller {
             return null;
         }
     }
+
 	@Security.Authenticated(Secured.class)
 	public static Result logout() {
 	    session().clear();
