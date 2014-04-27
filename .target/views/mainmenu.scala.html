@@ -1,10 +1,10 @@
-    
-    	<ul class="nav">
     	
+    	<ul class="nav">
+    
           <li><a href=@routes.Application.index()>Informes</a></li>
           @if(session.get("rol")==Rol.ADMINISTRADOR){
           <li><a href=@routes.Admin.index()>Administración</a></li>
           }
           <li class="active"><a href=@routes.Application.logout()>Log out</a></li>
-   
+    
         </ul>
