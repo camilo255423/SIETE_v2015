@@ -130,6 +130,8 @@ position: fixed;
 	width: 250px;
 	height: 25px;
 	background: #DEEAFA;
+	border-bottom-right-radius:2em;
+	border-bottom-left-radius:2em;
 	
 }
 
