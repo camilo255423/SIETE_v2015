@@ -53,7 +53,7 @@ public class Application extends Controller {
         	}
         // 13923305 EMILIO BARAJAS
         	
-<<<<<<< HEAD
+
         	
             if (cedula!=null) {
          	   if(cedula.equals("-1"))
@@ -97,7 +97,6 @@ public class Application extends Controller {
              return null;
          }
      }
-=======
            if (cedula!=null) {
         	   if(cedula.equals("-1"))
         	   {
@@ -144,7 +143,6 @@ public class Application extends Controller {
         }
     }
 
->>>>>>> eaf36556eda7c7f9259c83b973e6c0d3ce443bb3
 	@Security.Authenticated(Secured.class)
 	public static Result logout() {
 	    session().clear();

@@ -9,13 +9,11 @@ import models.*;
 import play.data.Form;
 import play.mvc.*;
 
-<<<<<<< HEAD
 /** Controlador principal. Procesa las acciones de Login, Logout y cuando el 
  * usuario selecciona un semestre en el menú lateral.
  *
  */
 
-=======
 /**
  * 
  * Controlador principal. Procesa las acciones de Login, Logout y cuando el 
@@ -23,7 +21,7 @@ import play.mvc.*;
  * @author Camilo Rodriguez
  *
  */
->>>>>>> c6f3f0bc6d4fe7e4ba9b7b11bdd3a0f8bd195e04
+
 public class Application extends Controller {
 	/**
 	 * 
@@ -40,9 +38,9 @@ public class Application extends Controller {
         public String validate() {
 
         	String cedula="";
-        email="52348310";
-email=Form.form().bindFromRequest().get("email");
-	 cedula = email;
+        email=Form.form().bindFromRequest().get("email");
+        password=Form.form().bindFromRequest().get("password");
+        cedula = email;
         	// 52348310 Johanna Ovalle
         	if(email.equals("13923305") || email.equals("79511724") )
         	{ 
@@ -56,8 +54,49 @@ email=Form.form().bindFromRequest().get("email");
         // 13923305 EMILIO BARAJAS
         	
 <<<<<<< HEAD
+        	
             if (cedula!=null) {
-        	  Usuario usuario = Usuario.findByDocumento(cedula);
+         	   if(cedula.equals("-1"))
+         	   {
+         		   return "No se puede establecer conexión con el servicio de autenticación " +
+         		   		"de usuarios de la institución. Por favor contacte al administrador del sistema.";
+         	   }
+         	   Usuario usuario = Usuario.findByDocumento(cedula);
+         	   if(usuario!=null)
+         	   {   
+         	   session().clear();
+ 	        	   if(usuario.getRol()!=null)
+ 	        	   {
+ 	               session("rol", usuario.getRol());
+ 	               	if(usuario.getRol().equals(Rol.COORDINADOR))
+ 	               		{
+ 	               			Permiso permiso = Permiso.findByDocumento(cedula);
+ 	               			session("codigoPrograma",permiso.getPrograma().getCodPrograma());
+ 	               			session("nombrePrograma",permiso.getPrograma().getNombre()); 
+ 	               	
+ 	               		}
+ 	               		
+ 	        	   }
+ 	        	   else
+ 	        	   {
+ 	        	   session("rol", Rol.PROFESOR);	   
+ 	        	   }
+ 	               session("documento",cedula);
+ 	               session("nombre",usuario.getNombre());
+         	   }
+         	   else
+         	   {
+          		   return "El usuario no tiene permisos para ingresar";
+         	   }
+               
+             }
+            else {
+         	   return "Usuario o contraseña incorrecta";
+            }
+         	   
+             return null;
+         }
+     }
 =======
            if (cedula!=null) {
         	   if(cedula.equals("-1"))
@@ -65,8 +104,8 @@ email=Form.form().bindFromRequest().get("email");
         		   return "No se puede establecer conexión con el servicio de autenticación " +
         		   		"de usuarios de la institución. Por favor contacte al administrador del sistema.";
         	   }
+        	   System.out.println(cedula);
         	   Usuario usuario = Usuario.findByDocumento(cedula);
->>>>>>> c6f3f0bc6d4fe7e4ba9b7b11bdd3a0f8bd195e04
         	   if(usuario!=null)
         	   {   
         	   session().clear();
@@ -95,17 +134,17 @@ email=Form.form().bindFromRequest().get("email");
         			   
         		   return "El usuario no tiene permisos para ingresar";
         	   }
-		
               
             }
            else {
-        	   return "Usuario o contraseña incorrecta"+email;
-           } 
-        	  
+        	   return "Usuario o contraseña incorrecta";
+           }
+        	   
             return null;
-
         }
     }
+
+>>>>>>> eaf36556eda7c7f9259c83b973e6c0d3ce443bb3
 	@Security.Authenticated(Secured.class)
 	public static Result logout() {
 	    session().clear();
@@ -174,7 +213,7 @@ email=Form.form().bindFromRequest().get("email");
     		List<Programa> programas=null;
     		if(session("rol").equals(Rol.COORDINADOR))
         	{
-    			
+    			 
     			programas = new ArrayList<Programa>();
     			programas.add(Programa.findById(session("codigoPrograma")));
         	}
@@ -192,4 +231,5 @@ email=Form.form().bindFromRequest().get("email");
        	
     }
     
-}
+} //fin clase
+	
