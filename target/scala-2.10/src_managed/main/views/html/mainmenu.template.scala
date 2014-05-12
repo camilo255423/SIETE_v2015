@@ -28,7 +28,7 @@ object mainmenu extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendab
 
 Seq[Any](format.raw/*2.6*/("""<ul class="nav">
     	
-          <li><a href="/">Informes</a></li>
+          <li><a href="""),_display_(Seq[Any](/*4.24*/routes/*4.30*/.Application.index())),format.raw/*4.50*/(""">Informes</a></li>
           """),_display_(Seq[Any](/*5.12*/if(session.get("rol")==Rol.ADMINISTRADOR)/*5.53*/{_display_(Seq[Any](format.raw/*5.54*/("""
           <li><a href="""),_display_(Seq[Any](/*6.24*/routes/*6.30*/.Admin.index())),format.raw/*6.44*/(""">Administración</a></li>
           """)))})),format.raw/*7.12*/("""
@@ -46,19 +46,11 @@ Seq[Any](format.raw/*2.6*/("""<ul class="nav">
 }
                 /*
                     -- GENERATED --
-<<<<<<< HEAD
-                    DATE: Thu Apr 17 11:31:02 COT 2014
+                    DATE: Fri Apr 25 15:13:55 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/mainmenu.scala.html
-                    HASH: 090e7f79e45ea4b99d885ccd987a2c473a53ce9d
-                    MATRIX: 858->10|971->88|1020->129|1058->130|1156->197
-                    LINES: 29->2|32->5|32->5|32->5|34->7
-=======
-                    DATE: Wed Apr 23 15:42:35 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/mainmenu.scala.html
-                    HASH: ea846162b668a6ac74785de805f1b96d855d92a1
-                    MATRIX: 858->10|971->88|1020->129|1058->130|1117->154|1131->160|1166->174|1233->210|1307->249|1321->255|1363->276
-                    LINES: 29->2|32->5|32->5|32->5|33->6|33->6|33->6|34->7|35->8|35->8|35->8
->>>>>>> c6f3f0bc6d4fe7e4ba9b7b11bdd3a0f8bd195e04
+                    HASH: 4de22c0f493627600efc71ecc94bbbe395adb79a
+                    MATRIX: 858->10|939->56|953->62|994->82|1059->112|1108->153|1146->154|1205->178|1219->184|1254->198|1321->234|1395->273|1409->279|1451->300
+                    LINES: 29->2|31->4|31->4|31->4|32->5|32->5|32->5|33->6|33->6|33->6|34->7|35->8|35->8|35->8
                     -- GENERATED --
                 */
             
