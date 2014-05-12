@@ -332,6 +332,7 @@ public class NumeroParticipantes {
 "                     AND pre.idpreguntah = cpr.idpreguntah "+
 "                     AND cue.idcuestionarioh = enc.idcuestionarioh "+
 "                     and rta.VALOR like '%||%' "+
+"					  and cue.titulo like '%ESTUDIANTES%' "+
 "                     and not rta.VALOR like '%||%||%' "+
 "                     and   ENC.IDCUESTIONARIOH IN ((SELECT IDCUESTIONARIOH FROM SAI.TBL_H_CUESTIONARIOS "+
 "where fecha_inicia >  to_date(?,'yyyy-mm-dd')   "+

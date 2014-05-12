@@ -46,15 +46,16 @@
 var fila;
 var nuevaFila; 
 
+
 $('input.autocomplete-relation').each( function() {
    var $input = $(this);
 
-   // Create a hidden input with the same form control name to submit the value.
+   
    var controlName = $input.attr('name');
    var $hidden = $('<input type="hidden" id="nuevodocumento" />').attr('name', controlName);
    $input.after($hidden).attr('name', controlName + '_label');
 
-   // Set-up the autocomplete widget.
+   // autocomplete
    var serverUrl = $input.data('url');
    $(this).autocomplete({
       source: serverUrl,
@@ -160,7 +161,9 @@ $('#listaroles').on('change', function(){
 
 }
 );
-$('.eliminar').on("click",function(){
+$('.eliminar').on("click",eliminar);
+
+function eliminar(){
   var documento = $(this).attr('data-documento');
 	fila = $(this);
 
@@ -184,7 +187,6 @@ $('.eliminar').on("click",function(){
   
 
 }
-);
 
 function borrar(data)
 {
@@ -202,12 +204,22 @@ function adicionar(data)
 {
 if(data=="ok")
 {
-$("#tabla").append(nuevaFila);
+var $x=$(nuevaFila); 
+$("#tabla").append($x);
+$x.find("a").on("click",eliminar);
+}
+else if (data=="duplicado")
+{
+alert("El usuario ya tiene un permiso asignado. Por favor elimínelo antes de asignarle uno nuevo.");
 }
 else
 {
 alert("No se pudo insertar el registro en la base de datos. ");
 }
+$('#listaroles').val('1');
+$('#inputusuario').val('');
+$('#listaProfesores').val('1');
+$('#listaProfesores').hide();
 }
 
 $( ".tabs" ).tabs();

@@ -1,10 +1,13 @@
-    
-    	<ul class="nav">
     	
+<<<<<<< HEAD
+=======
+    	<ul class="nav">
+    
+>>>>>>> eaf36556eda7c7f9259c83b973e6c0d3ce443bb3
           <li><a href=@routes.Application.index()>Informes</a></li>
           @if(session.get("rol")==Rol.ADMINISTRADOR){
           <li><a href=@routes.Admin.index()>Administración</a></li>
           }
           <li class="active"><a href=@routes.Application.logout()>Log out</a></li>
-   
+    
         </ul>

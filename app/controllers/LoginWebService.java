@@ -61,7 +61,7 @@ public class LoginWebService {
 		 respuesta = LoginWebService.soapMessageToString(soapResponse).split("-");
 		 if(LoginWebService.soapMessageToString(soapResponse).contains("SUCCESSFUL"))
 		 {
-			 return respuesta[5]; // retorna la cédula del usuario
+			 return respuesta[9].split("<")[0]; // retorna la cédula del usuario
 		 }
 		 else  if(LoginWebService.soapMessageToString(soapResponse).contains("FAILURE"))
 		 {

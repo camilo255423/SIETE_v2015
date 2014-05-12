@@ -51,6 +51,7 @@ body {
 {
 	margin-left: 30px;
 	width: 240px;
+	height: 30px;
 }    
 a {
 	color:#cc6600;
@@ -86,10 +87,12 @@ position: fixed;
 	z-index: 100;
 	width:1500px;
 	height: 0px;
-	margin:-135px auto;
-	padding: 0px 0px 60px 90px;
-	background:  #ffffff;
-	border-bottom:15px solid #DEEAFA;
+	margin-top: -155px;
+	margin-left: -10px;
+	padding: 20px 0px 60px 10px;
+	background:  #FFFFFF;
+	border-bottom: 10px solid #DEEAFA;
+
 }
 .error
 {
@@ -100,16 +103,16 @@ position: fixed;
 	z-index: 100;
 	width:693px;
 	height: 0px;
-	margin:-45px -370px;
+	margin:-40px -280px;
 	padding:0px 0px 50px 250px;
-	background:  #ffffff;
+	background:  #FFFFFF;
 
 	}
 	
 #header h1{
 	width:320px;
 	margin:5px 0 0 0;
-	background:#ffffff;
+<!--	background:#ffffff; -->
 	padding:5px 0px 5px 5px;
 }
 
@@ -120,17 +123,21 @@ position: fixed;
 
 
 #header ul.nav {
-	margin-top:70px;
-	margin-bottom:300px;
-	margin-right:0px;
-	margin-left:50px;
-	padding:35px 0 0 0;
-	float:right;
+	position: absolute;
+	margin-top:110px;
+	margin-left:560px;
+	padding:0 0 0 0;
+	width: 250px;
+	height: 25px;
+	background: #DEEAFA;
+	border-bottom-right-radius:2em;
+	border-bottom-left-radius:2em;
+	
 }
 
 #header ul.nav li {
 	display:inline;
-	padding:25px 15px 5px 5px;
+	padding:25px 0px 5px 5px;
 }
 
 #header ul.nav li a{
@@ -233,6 +240,7 @@ div.titulotabla{
 
 #content table {
 	width:750px;
+	padding-left: 20px;
 	
 }
 

@@ -53,6 +53,7 @@ public class Application extends Controller {
         	}
         // 13923305 EMILIO BARAJAS
         	
+<<<<<<< HEAD
         	
             if (cedula!=null) {
          	   if(cedula.equals("-1"))
@@ -96,6 +97,54 @@ public class Application extends Controller {
              return null;
          }
      }
+=======
+           if (cedula!=null) {
+        	   if(cedula.equals("-1"))
+        	   {
+        		   return "No se puede establecer conexión con el servicio de autenticación " +
+        		   		"de usuarios de la institución. Por favor contacte al administrador del sistema.";
+        	   }
+        	   System.out.println(cedula);
+        	   Usuario usuario = Usuario.findByDocumento(cedula);
+        	   if(usuario!=null)
+        	   {   
+        	   session().clear();
+	        	   if(usuario.getRol()!=null)
+	        	   {
+	               session("rol", usuario.getRol());
+	               	if(usuario.getRol().equals(Rol.COORDINADOR))
+	               		{
+	               			Permiso permiso = Permiso.findByDocumento(cedula);
+	               			session("codigoPrograma",permiso.getPrograma().getCodPrograma());
+	               			session("nombrePrograma",permiso.getPrograma().getNombre()); 
+	               	
+	               		}
+	               		
+	        	   }
+	        	   else
+	        	   {
+	        	   session("rol", Rol.PROFESOR);	   
+	        	   }
+	               session("documento",cedula);
+	               session("nombre",usuario.getNombre());
+        	   }
+        	   else
+        	   {
+        		  
+        			   
+        		   return "El usuario no tiene permisos para ingresar";
+        	   }
+              
+            }
+           else {
+        	   return "Usuario o contraseña incorrecta";
+           }
+        	   
+            return null;
+        }
+    }
+
+>>>>>>> eaf36556eda7c7f9259c83b973e6c0d3ce443bb3
 	@Security.Authenticated(Secured.class)
 	public static Result logout() {
 	    session().clear();
