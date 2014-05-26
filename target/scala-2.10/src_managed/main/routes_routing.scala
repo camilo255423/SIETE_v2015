@@ -1,6 +1,6 @@
 // @SOURCE:/home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/conf/routes
-// @HASH:235dabab0aedfb8c43e1605e8e29559815205b55
-// @DATE:Fri Apr 04 16:48:41 COT 2014
+// @HASH:5c7ce7a604e2c399005b6a704e9d26b1c69e913c
+// @DATE:Tue May 20 18:33:43 COT 2014
 
 
 import play.core._
@@ -80,74 +80,78 @@ private[this] lazy val controllers_Informe6_excel11 = Route("GET", PathPattern(L
 private[this] lazy val controllers_Informe6_pdf12 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("informe6/pdf/"),DynamicPart("documento", """[^/]+""",true),StaticPart("/"),DynamicPart("semestre", """[^/]+""",true))))
         
 
-// @LINE:20
-private[this] lazy val controllers_Admin_autocompleteLabel13 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("autocompleteLabel"))))
+// @LINE:19
+private[this] lazy val controllers_Generador_index13 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("generador/"),DynamicPart("documento", """[^/]+""",true))))
         
 
 // @LINE:21
-private[this] lazy val controllers_Admin_index14 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("admin"))))
+private[this] lazy val controllers_Admin_autocompleteLabel14 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("autocompleteLabel"))))
         
 
 // @LINE:22
-private[this] lazy val controllers_Admin_borrar15 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("borrarpermiso"))))
+private[this] lazy val controllers_Admin_index15 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("admin"))))
         
 
 // @LINE:23
-private[this] lazy val controllers_Admin_insertar16 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("insertarpermiso"))))
+private[this] lazy val controllers_Admin_borrar16 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("borrarpermiso"))))
         
 
 // @LINE:24
-private[this] lazy val controllers_Application_login17 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("login"))))
+private[this] lazy val controllers_Admin_insertar17 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("insertarpermiso"))))
         
 
 // @LINE:25
-private[this] lazy val controllers_Application_logout18 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("logout"))))
+private[this] lazy val controllers_Application_login18 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("login"))))
         
 
 // @LINE:26
-private[this] lazy val controllers_Application_authenticate19 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("login"))))
+private[this] lazy val controllers_Application_logout19 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("logout"))))
         
 
 // @LINE:27
-private[this] lazy val controllers_Informe2_informeProfesor20 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("informe2"))))
+private[this] lazy val controllers_Application_authenticate20 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("login"))))
         
 
 // @LINE:28
-private[this] lazy val controllers_Informe3_informeProfesor21 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("informe3"))))
+private[this] lazy val controllers_Informe2_informeProfesor21 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("informe2"))))
         
 
 // @LINE:29
-private[this] lazy val controllers_Informe1_informeProfesor22 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("informeprofesor"))))
+private[this] lazy val controllers_Informe3_informeProfesor22 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("informe3"))))
         
 
 // @LINE:30
-private[this] lazy val controllers_Informe2_informeProfesor23 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("heteroevaluacion"))))
+private[this] lazy val controllers_Informe1_informeProfesor23 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("informeprofesor"))))
         
 
 // @LINE:31
-private[this] lazy val controllers_Informe3_informeProfesor24 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("informefinal"))))
+private[this] lazy val controllers_Informe2_informeProfesor24 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("heteroevaluacion"))))
         
 
 // @LINE:32
-private[this] lazy val controllers_Informe4_informeFacultad25 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("informefacultad"))))
+private[this] lazy val controllers_Informe3_informeProfesor25 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("informefinal"))))
         
 
 // @LINE:33
-private[this] lazy val controllers_Informe5_informePrograma26 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("informeprograma"))))
+private[this] lazy val controllers_Informe4_informeFacultad26 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("informefacultad"))))
         
 
 // @LINE:34
-private[this] lazy val controllers_Informe6_informeParticipantes27 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("informeparticipantes"))))
+private[this] lazy val controllers_Informe5_informePrograma27 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("informeprograma"))))
         
 
 // @LINE:35
-private[this] lazy val controllers_Application_cambioSemestre28 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("cambiosemestre"))))
+private[this] lazy val controllers_Informe6_informeParticipantes28 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("informeparticipantes"))))
         
 
-// @LINE:37
-private[this] lazy val controllers_Assets_at29 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
+// @LINE:36
+private[this] lazy val controllers_Application_cambioSemestre29 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("cambiosemestre"))))
         
-def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe1/excel/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe1.excel(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe1/pdf/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe1.pdf(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe2/excel/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe2.excel(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe2/pdf/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe2.pdf(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe3/excel/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe3.excel(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe3/pdf/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe3.pdf(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe4/excel/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe4.excel(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe4/pdf/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe4.pdf(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe5/excel/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe5.excel(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe5/pdf/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe5.pdf(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe6/excel/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe6.excel(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe6/pdf/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe6.pdf(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """autocompleteLabel""","""controllers.Admin.autocompleteLabel(term:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """admin""","""controllers.Admin.index()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """borrarpermiso""","""controllers.Admin.borrar()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """insertarpermiso""","""controllers.Admin.insertar()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login""","""controllers.Application.login()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """logout""","""controllers.Application.logout()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login""","""controllers.Application.authenticate()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe2""","""controllers.Informe2.informeProfesor()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe3""","""controllers.Informe3.informeProfesor()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informeprofesor""","""controllers.Informe1.informeProfesor()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """heteroevaluacion""","""controllers.Informe2.informeProfesor()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informefinal""","""controllers.Informe3.informeProfesor()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informefacultad""","""controllers.Informe4.informeFacultad()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informeprograma""","""controllers.Informe5.informePrograma()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informeparticipantes""","""controllers.Informe6.informeParticipantes()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """cambiosemestre""","""controllers.Application.cambioSemestre()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+
+// @LINE:38
+private[this] lazy val controllers_Assets_at30 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
+        
+def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe1/excel/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe1.excel(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe1/pdf/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe1.pdf(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe2/excel/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe2.excel(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe2/pdf/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe2.pdf(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe3/excel/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe3.excel(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe3/pdf/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe3.pdf(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe4/excel/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe4.excel(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe4/pdf/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe4.pdf(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe5/excel/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe5.excel(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe5/pdf/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe5.pdf(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe6/excel/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe6.excel(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe6/pdf/$documento<[^/]+>/$semestre<[^/]+>""","""controllers.Informe6.pdf(documento:String, semestre:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """generador/$documento<[^/]+>""","""controllers.Generador.index(documento:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """autocompleteLabel""","""controllers.Admin.autocompleteLabel(term:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """admin""","""controllers.Admin.index()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """borrarpermiso""","""controllers.Admin.borrar()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """insertarpermiso""","""controllers.Admin.insertar()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login""","""controllers.Application.login()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """logout""","""controllers.Application.logout()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login""","""controllers.Application.authenticate()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe2""","""controllers.Informe2.informeProfesor()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informe3""","""controllers.Informe3.informeProfesor()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informeprofesor""","""controllers.Informe1.informeProfesor()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """heteroevaluacion""","""controllers.Informe2.informeProfesor()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informefinal""","""controllers.Informe3.informeProfesor()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informefacultad""","""controllers.Informe4.informeFacultad()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informeprograma""","""controllers.Informe5.informePrograma()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """informeparticipantes""","""controllers.Informe6.informeParticipantes()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """cambiosemestre""","""controllers.Application.cambioSemestre()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]] 
 }}
@@ -259,136 +263,144 @@ case controllers_Informe6_pdf12(params) => {
 }
         
 
-// @LINE:20
-case controllers_Admin_autocompleteLabel13(params) => {
+// @LINE:19
+case controllers_Generador_index13(params) => {
+   call(params.fromPath[String]("documento", None)) { (documento) =>
+        invokeHandler(controllers.Generador.index(documento), HandlerDef(this, "controllers.Generador", "index", Seq(classOf[String]),"GET", """""", Routes.prefix + """generador/$documento<[^/]+>"""))
+   }
+}
+        
+
+// @LINE:21
+case controllers_Admin_autocompleteLabel14(params) => {
    call(params.fromQuery[String]("term", None)) { (term) =>
         invokeHandler(controllers.Admin.autocompleteLabel(term), HandlerDef(this, "controllers.Admin", "autocompleteLabel", Seq(classOf[String]),"GET", """""", Routes.prefix + """autocompleteLabel"""))
    }
 }
         
 
-// @LINE:21
-case controllers_Admin_index14(params) => {
+// @LINE:22
+case controllers_Admin_index15(params) => {
    call { 
         invokeHandler(controllers.Admin.index(), HandlerDef(this, "controllers.Admin", "index", Nil,"GET", """""", Routes.prefix + """admin"""))
    }
 }
         
 
-// @LINE:22
-case controllers_Admin_borrar15(params) => {
+// @LINE:23
+case controllers_Admin_borrar16(params) => {
    call { 
         invokeHandler(controllers.Admin.borrar(), HandlerDef(this, "controllers.Admin", "borrar", Nil,"POST", """""", Routes.prefix + """borrarpermiso"""))
    }
 }
         
 
-// @LINE:23
-case controllers_Admin_insertar16(params) => {
+// @LINE:24
+case controllers_Admin_insertar17(params) => {
    call { 
         invokeHandler(controllers.Admin.insertar(), HandlerDef(this, "controllers.Admin", "insertar", Nil,"POST", """""", Routes.prefix + """insertarpermiso"""))
    }
 }
         
 
-// @LINE:24
-case controllers_Application_login17(params) => {
+// @LINE:25
+case controllers_Application_login18(params) => {
    call { 
         invokeHandler(controllers.Application.login(), HandlerDef(this, "controllers.Application", "login", Nil,"GET", """""", Routes.prefix + """login"""))
    }
 }
         
 
-// @LINE:25
-case controllers_Application_logout18(params) => {
+// @LINE:26
+case controllers_Application_logout19(params) => {
    call { 
         invokeHandler(controllers.Application.logout(), HandlerDef(this, "controllers.Application", "logout", Nil,"GET", """""", Routes.prefix + """logout"""))
    }
 }
         
 
-// @LINE:26
-case controllers_Application_authenticate19(params) => {
+// @LINE:27
+case controllers_Application_authenticate20(params) => {
    call { 
         invokeHandler(controllers.Application.authenticate(), HandlerDef(this, "controllers.Application", "authenticate", Nil,"POST", """""", Routes.prefix + """login"""))
    }
 }
         
 
-// @LINE:27
-case controllers_Informe2_informeProfesor20(params) => {
+// @LINE:28
+case controllers_Informe2_informeProfesor21(params) => {
    call { 
         invokeHandler(controllers.Informe2.informeProfesor(), HandlerDef(this, "controllers.Informe2", "informeProfesor", Nil,"GET", """""", Routes.prefix + """informe2"""))
    }
 }
         
 
-// @LINE:28
-case controllers_Informe3_informeProfesor21(params) => {
+// @LINE:29
+case controllers_Informe3_informeProfesor22(params) => {
    call { 
         invokeHandler(controllers.Informe3.informeProfesor(), HandlerDef(this, "controllers.Informe3", "informeProfesor", Nil,"GET", """""", Routes.prefix + """informe3"""))
    }
 }
         
 
-// @LINE:29
-case controllers_Informe1_informeProfesor22(params) => {
+// @LINE:30
+case controllers_Informe1_informeProfesor23(params) => {
    call { 
         invokeHandler(controllers.Informe1.informeProfesor(), HandlerDef(this, "controllers.Informe1", "informeProfesor", Nil,"POST", """""", Routes.prefix + """informeprofesor"""))
    }
 }
         
 
-// @LINE:30
-case controllers_Informe2_informeProfesor23(params) => {
+// @LINE:31
+case controllers_Informe2_informeProfesor24(params) => {
    call { 
         invokeHandler(controllers.Informe2.informeProfesor(), HandlerDef(this, "controllers.Informe2", "informeProfesor", Nil,"POST", """""", Routes.prefix + """heteroevaluacion"""))
    }
 }
         
 
-// @LINE:31
-case controllers_Informe3_informeProfesor24(params) => {
+// @LINE:32
+case controllers_Informe3_informeProfesor25(params) => {
    call { 
         invokeHandler(controllers.Informe3.informeProfesor(), HandlerDef(this, "controllers.Informe3", "informeProfesor", Nil,"POST", """""", Routes.prefix + """informefinal"""))
    }
 }
         
 
-// @LINE:32
-case controllers_Informe4_informeFacultad25(params) => {
+// @LINE:33
+case controllers_Informe4_informeFacultad26(params) => {
    call { 
         invokeHandler(controllers.Informe4.informeFacultad(), HandlerDef(this, "controllers.Informe4", "informeFacultad", Nil,"POST", """""", Routes.prefix + """informefacultad"""))
    }
 }
         
 
-// @LINE:33
-case controllers_Informe5_informePrograma26(params) => {
+// @LINE:34
+case controllers_Informe5_informePrograma27(params) => {
    call { 
         invokeHandler(controllers.Informe5.informePrograma(), HandlerDef(this, "controllers.Informe5", "informePrograma", Nil,"POST", """""", Routes.prefix + """informeprograma"""))
    }
 }
         
 
-// @LINE:34
-case controllers_Informe6_informeParticipantes27(params) => {
+// @LINE:35
+case controllers_Informe6_informeParticipantes28(params) => {
    call { 
         invokeHandler(controllers.Informe6.informeParticipantes(), HandlerDef(this, "controllers.Informe6", "informeParticipantes", Nil,"POST", """""", Routes.prefix + """informeparticipantes"""))
    }
 }
         
 
-// @LINE:35
-case controllers_Application_cambioSemestre28(params) => {
+// @LINE:36
+case controllers_Application_cambioSemestre29(params) => {
    call { 
         invokeHandler(controllers.Application.cambioSemestre(), HandlerDef(this, "controllers.Application", "cambioSemestre", Nil,"POST", """""", Routes.prefix + """cambiosemestre"""))
    }
 }
         
 
-// @LINE:37
-case controllers_Assets_at29(params) => {
+// @LINE:38
+case controllers_Assets_at30(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
         invokeHandler(controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """assets/$file<.+>"""))
    }

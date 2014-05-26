@@ -66,7 +66,7 @@ public class Informe3 extends Controller {
 	 * @param semestre Recibe de la vista el semestre seleccionado por el usuario
 	 * @return devuelve el pdf generado
 	 */
-	@Security.Authenticated(Secured.class)
+//	@Security.Authenticated(Secured.class)
     public static Result pdf(String documento, String semestre)
     {
  			Document document = new Document();
@@ -95,7 +95,7 @@ public class Informe3 extends Controller {
  				PdfWriter writer = PdfWriter.getInstance(document,
  						
  				        new FileOutputStream(file));
- 				String imagen = routes.Assets.at("images/logo-inpahu2.png").absoluteURL(request());
+ 				String imagen = routes.Assets.at("images/logo-inpahu2.jpg").absoluteURL(request());
  				
  				document.open();
  				//XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeheteroevaluacion.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), profesor, semestre, imagen).toString()));

@@ -14,6 +14,8 @@
 	<div class="titulotabla"></div>
 	  @defining(new DecimalFormat("##0.00")){formato=>
 	<h2>Campo de La Docencia</h2>
+	<h4> Estudiantes encuestados: @evaluacionDocencia.getEvaluados() de @evaluacionDocencia.getMateria().getInscritos(), 
+porcentaje @(10000*evaluacionDocencia.getEvaluados()/evaluacionDocencia.getMateria().getInscritos()/100.0)% </h4>
 	<h3>Saber Pedagógico</h3>
 	<table>
 	<tbody>

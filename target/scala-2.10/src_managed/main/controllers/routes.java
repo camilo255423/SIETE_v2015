@@ -1,6 +1,6 @@
 // @SOURCE:/home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/conf/routes
-// @HASH:235dabab0aedfb8c43e1605e8e29559815205b55
-// @DATE:Fri Apr 04 16:48:41 COT 2014
+// @HASH:5c7ce7a604e2c399005b6a704e9d26b1c69e913c
+// @DATE:Tue May 20 18:33:43 COT 2014
 
 package controllers;
 
@@ -9,6 +9,7 @@ public static final controllers.ReverseInforme5 Informe5 = new controllers.Rever
 public static final controllers.ReverseAssets Assets = new controllers.ReverseAssets();
 public static final controllers.ReverseInforme1 Informe1 = new controllers.ReverseInforme1();
 public static final controllers.ReverseAdmin Admin = new controllers.ReverseAdmin();
+public static final controllers.ReverseGenerador Generador = new controllers.ReverseGenerador();
 public static final controllers.ReverseInforme4 Informe4 = new controllers.ReverseInforme4();
 public static final controllers.ReverseInforme6 Informe6 = new controllers.ReverseInforme6();
 public static final controllers.ReverseInforme3 Informe3 = new controllers.ReverseInforme3();
@@ -19,6 +20,7 @@ public static final controllers.javascript.ReverseInforme5 Informe5 = new contro
 public static final controllers.javascript.ReverseAssets Assets = new controllers.javascript.ReverseAssets();
 public static final controllers.javascript.ReverseInforme1 Informe1 = new controllers.javascript.ReverseInforme1();
 public static final controllers.javascript.ReverseAdmin Admin = new controllers.javascript.ReverseAdmin();
+public static final controllers.javascript.ReverseGenerador Generador = new controllers.javascript.ReverseGenerador();
 public static final controllers.javascript.ReverseInforme4 Informe4 = new controllers.javascript.ReverseInforme4();
 public static final controllers.javascript.ReverseInforme6 Informe6 = new controllers.javascript.ReverseInforme6();
 public static final controllers.javascript.ReverseInforme3 Informe3 = new controllers.javascript.ReverseInforme3();
@@ -30,6 +32,7 @@ public static final controllers.ref.ReverseInforme5 Informe5 = new controllers.r
 public static final controllers.ref.ReverseAssets Assets = new controllers.ref.ReverseAssets();
 public static final controllers.ref.ReverseInforme1 Informe1 = new controllers.ref.ReverseInforme1();
 public static final controllers.ref.ReverseAdmin Admin = new controllers.ref.ReverseAdmin();
+public static final controllers.ref.ReverseGenerador Generador = new controllers.ref.ReverseGenerador();
 public static final controllers.ref.ReverseInforme4 Informe4 = new controllers.ref.ReverseInforme4();
 public static final controllers.ref.ReverseInforme6 Informe6 = new controllers.ref.ReverseInforme6();
 public static final controllers.ref.ReverseInforme3 Informe3 = new controllers.ref.ReverseInforme3();

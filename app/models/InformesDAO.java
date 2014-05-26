@@ -19,50 +19,32 @@ public class InformesDAO {
 	/**
 	 * Consulta informe final
 	 */
-	final static String consultaInformeFinal = "SELECT aa2.TIPO_CUESTIONARIO AS tipo_evaluacion, '', '', '',0,aa2.VALOR,sum(aa2.CONTEO) as suma,SUBSTR (aa2.PREGUNTA,1,4) as saber FROM "+ 
-"(SELECT AM.MAT_NOMBRE AS nombre_materia, "+
-       "GRP.MAT_CODIGO AS codigo_materia, "+ 
-       "GRP.GRU_CODIGO AS grupo, "+
-       "GRP.GRU_CUPO_ASIGNADO AS inscritos "+
-       "FROM   SAI.ART_MATERIAS AM, "+
-       "(select GRU_SEMESTRE,GRU_CODIGO, MAT_CODIGO, GRU_CUPO_ASIGNADO, CLI_NDCTO_PROF,CLI_TIPODCTO,CLI_TDCTO_PROF from SAI.ART_HISTORIA_GRUPOS union select GRU_SEMESTRE, GRU_CODIGO,MAT_CODIGO, GRU_CUPO_ASIGNADO, CLI_NDCTO_PROF,CLI_TIPODCTO,CLI_TDCTO_PROF from SAI.ART_GRUPOS_VIGENTES) GRP "+
-       "WHERE       GRP.GRU_SEMESTRE = ? "+ // 1 semestre
-       "AND AM.MAT_SEMESTRE = GRP.GRU_SEMESTRE "+
-       "AND GRP.CLI_TIPODCTO <> 'OT' "+
-       "AND GRP.CLI_TDCTO_PROF <> 'OT' "+
-       "AND AM.MAT_CODIGO = GRP.MAT_CODIGO "+
-       "AND GRP.CLI_NDCTO_PROF = ?) aa1 left join "+  // 2 documento
-"(select MATERIA,VALOR, CONTEO,f.TITULO as pregunta,  G.TITULO AS TIPO_CUESTIONARIO, "+ 
-"SUBSTR (MATERIA, 1, INSTR (MATERIA, '|') - 1) as codigo_materia,  "+
-"SUBSTR (MATERIA, INSTR (MATERIA, '|',2) + 2, INSTR (MATERIA, '|',3) - 4) as grupo "+
-"from "+
-"(select IDCUESTIONARIOH,IDPREGUNTAH,materia, valor, count(*) as conteo from "+
-"(SELECT * "+
-"from (select * "+
-"from sai.tbl_resultados) c, "+
-"(select a.IDRESULTADOS as z, a.valor as profesor , b.valor as materia from "+
-"(select * "+
-"from sai.tbl_resultados) a, "+
-"(select distinct IDRESULTADOS, valor "+
-"from sai.tbl_resultados "+
-"where valor like ?) b "+ // 3 %semestre%
-"where a.IDRESULTADOS =b.IDRESULTADOS "+
-"and a.valor like '%||%' and a.valor not like ?) d "+ // 4 %semestre%
-"where c.IDRESULTADOS =d.z "+
-") h  "+
-"where profesor like ? "+ //5 %documento%
-"and valor not like '%||%' "+
-"group by materia, IDCUESTIONARIOH,  IDPREGUNTAH, valor) w, "+
-"sai.TBL_H_PREGUNTAS f, "+
-"sai.TBL_H_CUESTIONARIOS g "+
-"where "+
-"w.IDPREGUNTAH= f.IDPREGUNTAH "+
-"and w.IDCUESTIONARIOH=g.IDCUESTIONARIOH "+
-"order by materia,pregunta "+
-") aa2 "+
-"on aa1.codigo_materia=aa2.codigo_materia and aa1.grupo = aa2.grupo "+
-"where SUBSTR (aa2.PREGUNTA,1,4)='Rela' or SUBSTR (aa2.PREGUNTA,1,4) ='Peda' or SUBSTR (aa2.PREGUNTA,1,4)='Espe' "+
-"group by aa2.TIPO_CUESTIONARIO,aa2.VALOR,SUBSTR (aa2.PREGUNTA,1,4) "+
+	final static String consultaInformeFinal = "SELECT 'inscritos' as tipo_evaluacion,'','','',sum(GRP.GRU_CUPO_ASIGNADO) as inscritos ,'' as valor,0 as conteo, 'inscritos' as saber "+  
+		     "  FROM   SAI.ART_MATERIAS AM, "+ 
+		     "  (select GRU_SEMESTRE,GRU_CODIGO, MAT_CODIGO, GRU_CUPO_ASIGNADO, CLI_NDCTO_PROF,CLI_TIPODCTO,CLI_TDCTO_PROF from SAI.ART_HISTORIA_GRUPOS union select GRU_SEMESTRE, GRU_CODIGO,MAT_CODIGO, GRU_CUPO_ASIGNADO, CLI_NDCTO_PROF,CLI_TIPODCTO,CLI_TDCTO_PROF from SAI.ART_GRUPOS_VIGENTES) GRP "+ 
+		     "  WHERE       GRP.GRU_SEMESTRE = ? "+ // 1. semestre
+		     "  AND AM.MAT_SEMESTRE = GRP.GRU_SEMESTRE "+ 
+		     "  AND GRP.CLI_TIPODCTO <> 'OT'  "+
+		     "  AND GRP.CLI_TDCTO_PROF <> 'OT' "+ 
+		     "  AND AM.MAT_CODIGO = GRP.MAT_CODIGO "+ 
+		     "  AND GRP.CLI_NDCTO_PROF = ? "+ // 2.documento
+"		union "+
+"		select ch.titulo AS tipo_evaluacion,'','','',0,c.valor, count(*) as conteo, SUBSTR (p.titulo,1,4) as saber  from "+
+"		( "+
+"		select * from sai.tbl_resultados where valor like ? "+ // 3. %semestre%
+"		)a, "+
+"		( "+
+"		select * from sai.tbl_resultados where valor like ? "+ // 4. %documento%
+"		)b, "+
+"		(select * from sai.tbl_resultados)c, "+
+"		sai.tbl_h_cuestionarios ch, SAI.TBL_H_PREGUNTAS p "+
+"		where a.idresultados=b.idresultados and "+
+"		b.idresultados=c.idresultados "+
+"		and ch.idcuestionarioh=b.idcuestionarioh "+
+"		and c.idpreguntah=p.idpreguntah "+
+"		and ch.titulo like '%ESTU%' "+
+"		and (SUBSTR (p.titulo,1,4)='Espe' or SUBSTR (p.titulo,1,4)='Peda' or SUBSTR (p.titulo,1,4)='Rela') "+
+"		group by ch.titulo,c.valor,SUBSTR (p.titulo,1,4) "+
 "union "+
 "SELECT    "+
  "         HCU.TITULO, "+
@@ -501,23 +483,27 @@ public class InformesDAO {
 		String grupo;
 		String tituloPregunta;
 		int numeroRespuestas;
-		String materiaAnterior="";
+		String materiaAnterior="-0-0-";
 		 try {
 				p = con.prepareStatement(consultaInformeFinal);
 				p.setString(1, semestre);
 				p.setString(2, documentoProfesor);
 				p.setString(3, "%%"+semestre+"%%");
-				p.setString(4, "%%"+semestre+"%%");
-				p.setString(5, "%%"+documentoProfesor+"%%");
-				p.setString(6, periodo[Periodo.FECHAINICIO]);
-				p.setString(7, periodo[Periodo.FECHAFIN]);
-				p.setString(8, periodo[Periodo.FECHAINICIO]);
-				p.setString(9, documentoProfesor);
+				p.setString(4, "%%"+documentoProfesor+"%%");
+				p.setString(5, semestre);
+				p.setString(6, documentoProfesor);
+				p.setString(7, "%%"+semestre+"%%");
+				p.setString(8, "%%"+semestre+"%%");			
+				p.setString(9, "%%"+documentoProfesor+"%%");
 				p.setString(10, periodo[Periodo.FECHAINICIO]);
-				p.setString(11, periodo[Periodo.FECHAINICIO]);
-				p.setString(12, periodo[Periodo.FECHAFIN]);
-				p.setString(13, periodo[Periodo.FECHAINICIO]);
-				p.setString(14, documentoProfesor);
+				p.setString(11, periodo[Periodo.FECHAFIN]);
+				p.setString(12, periodo[Periodo.FECHAINICIO]);
+				p.setString(13, documentoProfesor);
+				p.setString(14, periodo[Periodo.FECHAINICIO]);
+				p.setString(15, periodo[Periodo.FECHAINICIO]);
+				p.setString(16, periodo[Periodo.FECHAFIN]);
+				p.setString(17, periodo[Periodo.FECHAINICIO]);
+				p.setString(18, documentoProfesor);
 				
 				
 				ResultSet rs=p.executeQuery();
@@ -528,18 +514,19 @@ public class InformesDAO {
 				if(rs.getString("tipo_evaluacion").contains("ESTUDIANTES") || rs.getString("tipo_evaluacion").contains("AUTOEVALUACION DE LA DOCENCIA"))
 				{	
 					
-					if(!(rs.getString("tipo_evaluacion")).equals(materiaAnterior))
+					if(!(rs.getString("tipo_evaluacion")).contains(materiaAnterior))
 					{
 						
 						tipoEvaluacion = EvaluacionMateria.EVALUACION;
 						if(rs.getString("tipo_evaluacion").contains("AUTOEVALUACION")) 
 							{
 							tipoEvaluacion = EvaluacionMateria.AUTOEVALUACION;
-						
+						   
 							}
 						
 				
-						ev = new EvaluacionMateria(tipoEvaluacion,new Materia("",rs.getString("tipo_evaluacion"),"", 0),false);
+						ev = new EvaluacionMateria(tipoEvaluacion,new Materia("",rs.getString("tipo_evaluacion"),"", rs.getInt("inscritos")),false);
+						
 						materiaAnterior=rs.getString("tipo_evaluacion");
 						evaluacionMaterias.add(ev);
 				
@@ -560,6 +547,11 @@ public class InformesDAO {
 						}
 						else
 						{
+							if(saber==0)
+							{
+								System.out.println("total doc"+totalDocencia[saber]);
+								System.out.println("valor"+rs.getInt("suma"));
+							}
 							totalDocencia[saber]=totalDocencia[saber]+rs.getInt("suma");
 						}
 					}
@@ -623,10 +615,15 @@ public class InformesDAO {
 		 {	 
 			 for(int j=0;j<=2;j++)
 			 {
+				 if(j==0){
+				 System.out.println(evaluacionMaterias.get(0).getPromedioRespuestas()[j][i]);
+				 System.out.println(totalDocencia[j]);
+				 }
 				 if(totalDocencia[j]>0) evaluacionMaterias.get(0).getPromedioRespuestas()[j][i] =  100.0*evaluacionMaterias.get(0).getPromedioRespuestas()[j][i]/totalDocencia[j];
 				 if(totalAutoEvalDocencia[j]>0) evaluacionMaterias.get(1).getPromedioRespuestas()[j][i] =  100.0*evaluacionMaterias.get(1).getPromedioRespuestas()[j][i]/totalAutoEvalDocencia[j];
 			 }
 		 }
+		 evaluacionMaterias.get(0).setEvaluados((int)totalDocencia[0]/6);
 		
 	   
 		 return new Evaluacion(evaluacionMaterias, evaluacionGestion, evaluacionInvestigacion,autoEvaluacionGestion,autoEvaluacionInvestigacion);

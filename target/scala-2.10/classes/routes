@@ -16,6 +16,7 @@ GET		/informe5/excel/:documento/:semestre					controllers.Informe5.excel(documen
 GET		/informe5/pdf/:documento/:semestre						controllers.Informe5.pdf(documento:String, semestre:String)
 GET		/informe6/excel/:documento/:semestre					controllers.Informe6.excel(documento:String, semestre:String)
 GET		/informe6/pdf/:documento/:semestre						controllers.Informe6.pdf(documento:String, semestre:String)
+GET     /generador/:documento												controllers.Generador.index(documento:String)
 
 GET    /autocompleteLabel         	controllers.Admin.autocompleteLabel(term:String)
 GET    /admin						controllers.Admin.index()
