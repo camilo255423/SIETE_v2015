@@ -91,8 +91,12 @@ public class NumeroParticipantes {
 				p.setString(2, fechaContrato);
 				p.setString(3, fechaContrato);
 				p.setString(4, fechaContrato);
-				p.setString(5, periodo[Periodo.FECHAINICIO]);
-				p.setString(6, periodo[Periodo.FECHAFIN]);
+				p.setString(5, fechaContrato);
+				p.setString(6, fechaContrato);
+				p.setString(7, fechaContrato);
+				p.setString(8, fechaContrato);
+				p.setString(9, periodo[Periodo.FECHAINICIO]);
+				p.setString(10, periodo[Periodo.FECHAFIN]);
 				docentesEvaluadosPorEstudiantesPorFacultad = NumeroParticipantes.consultarParticipantes(p);
 				
 				p = con.prepareStatement(NumeroParticipantes.consultaDocentesConAutoevaluacionPorFacultad);
@@ -302,24 +306,46 @@ public class NumeroParticipantes {
 	 * Consulta de número de docentes evaluados por estudiantes por facultad
 	 */
 	private static final String consultaDocentesEvaluadosPorEstudiantesPorFacultad=
-"select a.ID_DECAN as idFacultad,facultad,evaluados as participantes, inscritos as total, evaluados*100/inscritos as porcentaje "+
+"select aa.ID_DECAN as idFacultad,aa.facultad,evaluados as participantes, inscritos as total, evaluados*100/inscritos as porcentaje "+
 "from "+
 "( "+
-"SELECT   count(distinct NIT) as inscritos, facultad_centro_costo.ID_DECAN as id_decan, facultad_centro_costo.nombre as facultad "+
-"  FROM   ICEBERG.EMPLEADO E, ICEBERG.CENTRO_COSTO CC, facultad_centro_costo "+
-" WHERE    E.CENTRO_COSTO = CC.CENTRO_COSTO "+
-"  and to_date(?,'yyyy-mm-dd')>fecha_ingreso and "+ 
-" to_date(?,'yyyy-mm-dd')<E.FECHA_FIN_CONTRATO "+
-" and CC.CENTRO_COSTO_PREDECESOR=facultad_centro_costo.centro_costo "+
-" group by facultad_centro_costo.ID_DECAN,facultad_centro_costo.nombre "+
-" ) a, "+
-"(SELECT   count(distinct NIT) as evaluados, facultad_centro_costo.ID_DECAN as id_decan "+
-"  FROM   ICEBERG.EMPLEADO E, ICEBERG.CENTRO_COSTO CC, facultad_centro_costo "+
-" WHERE    E.CENTRO_COSTO = CC.CENTRO_COSTO "+
-"  and to_date(?,'yyyy-mm-dd')>fecha_ingreso and "+ 
-" to_date(?,'yyyy-mm-dd')<E.FECHA_FIN_CONTRATO "+
-" and CC.CENTRO_COSTO_PREDECESOR=facultad_centro_costo.centro_costo "+
-" and nit in  "+
+"select count(distinct NIT) as inscritos, id_facultad as id_decan, nombre_facultad as facultad "+
+"from( "+
+"SELECT a.*, b.*,f.nombre as nombre_facultad, f.ID_DECAN as id_facultad "+
+"FROM v1_empleado a,interfaz.v_centro_costo b,cc_predecesor_facultad c,facultad_centro_costo f "+
+"where  "+
+"FECHA_INGRESO<to_date(?,'yyyy-mm-dd') AND (FECHA_FIN_CONTRATO>to_date(?,'yyyy-mm-dd') or FECHA_FIN_CONTRATO is null) " +
+//1 fecha contrato 2. fecha contrato
+"AND a.EMPRESA IN ('CAT', 'DOC') AND a.NOMBRE_CARGO LIKE  'CAT%' AND b.centro_costo = a.centro_costo AND c.cc_predecesor=b.CENTRO_COSTO_PREDECESOR "+
+"and c.centro_costo= f.centro_costo "+
+"UNION ALL "+
+"SELECT a.*, b.*,f.nombre as nombre_facultad, f.ID_DECAN as id_facultad "+
+"FROM v1_empleado a,interfaz.v_centro_costo b,cc_predecesor_facultad c,FACULTAD_CENTRO_COSTO F "+
+"where "+
+"FECHA_INGRESO<to_date(?,'yyyy-mm-dd') AND (FECHA_FIN_CONTRATO>to_date(?,'yyyy-mm-dd') or FECHA_FIN_CONTRATO is null) "+
+// 3. fecha contrato 4.fecha contrato
+"AND a.EMPRESA IN ('CAT', 'DOC') AND a.NOMBRE_CARGO LIKE  'DOC%' AND b.centro_costo = a.centro_costo AND c.cc_predecesor=b.CENTRO_COSTO_PREDECESOR "+
+"and c.centro_costo= f.centro_costo ) group by id_facultad, nombre_facultad "+
+" ) aa, "+
+"( "+
+"select count(distinct NIT) as evaluados, id_facultad as id_decan "+
+"from( "+
+"SELECT a.*, b.*,f.nombre as nombre_facultad, f.ID_DECAN as id_facultad "+
+"FROM v1_empleado a,interfaz.v_centro_costo b,cc_predecesor_facultad c,facultad_centro_costo f "+
+"where  "+
+"FECHA_INGRESO<to_date(?,'yyyy-mm-dd') AND (FECHA_FIN_CONTRATO>to_date(?,'yyyy-mm-dd') or FECHA_FIN_CONTRATO is null) " +
+// 5. fecha contrato 6. fecha contrato
+"AND a.EMPRESA IN ('CAT', 'DOC') AND a.NOMBRE_CARGO LIKE  'CAT%' AND b.centro_costo = a.centro_costo AND c.cc_predecesor=b.CENTRO_COSTO_PREDECESOR "+
+"and c.centro_costo= f.centro_costo "+
+"UNION ALL "+
+"SELECT a.*, b.*,f.nombre as nombre_facultad, f.ID_DECAN as id_facultad "+
+"FROM v1_empleado a,interfaz.v_centro_costo b,cc_predecesor_facultad c,FACULTAD_CENTRO_COSTO F "+
+"where "+
+"FECHA_INGRESO<to_date(?,'yyyy-mm-dd') AND (FECHA_FIN_CONTRATO>to_date(?,'yyyy-mm-dd') or FECHA_FIN_CONTRATO is null) "+
+// 7. fecha contrato 8. fecha contrato
+"AND a.EMPRESA IN ('CAT', 'DOC') AND a.NOMBRE_CARGO LIKE  'DOC%' AND b.centro_costo = a.centro_costo AND c.cc_predecesor=b.CENTRO_COSTO_PREDECESOR "+
+"and c.centro_costo= f.centro_costo) "+
+" where nit in  "+
 " ( "+
 "select distinct(SUBSTR (rta.VALOR, 1, INSTR (rta.VALOR, '|') - 1) ) "+
 "from sai.tbl_encuestado enc,    sai.tbl_resultados rta, "+
@@ -338,9 +364,9 @@ public class NumeroParticipantes {
 "where fecha_inicia >  to_date(?,'yyyy-mm-dd')   "+
 "and fecha_inicia < to_date(?,'yyyy-mm-dd'))) "+
 ") "+
-"group by facultad_centro_costo.ID_DECAN "+
-") b "+
-"where a.ID_DECAN = b.ID_DECAN "+
+"group by id_facultad "+
+") bb "+
+"where aa.id_decan= bb.id_decan "+
 "order By IDFACULTAD ";	 
 	/**
 	 * Consulta de número de docentes que realizaron autoevaluación por facultad

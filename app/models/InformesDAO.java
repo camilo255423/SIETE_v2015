@@ -19,7 +19,7 @@ public class InformesDAO {
 	/**
 	 * Consulta informe final
 	 */
-	final static String consultaInformeFinal = "SELECT 'inscritos' as tipo_evaluacion,'','','',sum(GRP.GRU_CUPO_ASIGNADO) as inscritos ,'' as valor,0 as conteo, 'inscritos' as saber "+  
+	final static String consultaInformeFinal = "SELECT 'inscritos' as tipo_evaluacion,'','','',sum(GRP.GRU_CUPO_ASIGNADO) as inscritos ,'' as valor,0 as suma, 'inscritos' as saber "+  
 		     "  FROM   SAI.ART_MATERIAS AM, "+ 
 		     "  (select GRU_SEMESTRE,GRU_CODIGO, MAT_CODIGO, GRU_CUPO_ASIGNADO, CLI_NDCTO_PROF,CLI_TIPODCTO,CLI_TDCTO_PROF from SAI.ART_HISTORIA_GRUPOS union select GRU_SEMESTRE, GRU_CODIGO,MAT_CODIGO, GRU_CUPO_ASIGNADO, CLI_NDCTO_PROF,CLI_TIPODCTO,CLI_TDCTO_PROF from SAI.ART_GRUPOS_VIGENTES) GRP "+ 
 		     "  WHERE       GRP.GRU_SEMESTRE = ? "+ // 1. semestre
@@ -29,7 +29,7 @@ public class InformesDAO {
 		     "  AND AM.MAT_CODIGO = GRP.MAT_CODIGO "+ 
 		     "  AND GRP.CLI_NDCTO_PROF = ? "+ // 2.documento
 "		union "+
-"		select ch.titulo AS tipo_evaluacion,'','','',0,c.valor, count(*) as conteo, SUBSTR (p.titulo,1,4) as saber  from "+
+"		select ch.titulo AS tipo_evaluacion,'','','',0,c.valor, count(*) as suma, SUBSTR (p.titulo,1,4) as saber  from "+
 "		( "+
 "		select * from sai.tbl_resultados where valor like ? "+ // 3. %semestre%
 "		)a, "+
@@ -42,7 +42,6 @@ public class InformesDAO {
 "		b.idresultados=c.idresultados "+
 "		and ch.idcuestionarioh=b.idcuestionarioh "+
 "		and c.idpreguntah=p.idpreguntah "+
-"		and ch.titulo like '%ESTU%' "+
 "		and (SUBSTR (p.titulo,1,4)='Espe' or SUBSTR (p.titulo,1,4)='Peda' or SUBSTR (p.titulo,1,4)='Rela') "+
 "		group by ch.titulo,c.valor,SUBSTR (p.titulo,1,4) "+
 "union "+
@@ -483,6 +482,7 @@ public class InformesDAO {
 		String grupo;
 		String tituloPregunta;
 		int numeroRespuestas;
+		int inscritos=0;
 		String materiaAnterior="-0-0-";
 		 try {
 				p = con.prepareStatement(consultaInformeFinal);
@@ -490,20 +490,15 @@ public class InformesDAO {
 				p.setString(2, documentoProfesor);
 				p.setString(3, "%%"+semestre+"%%");
 				p.setString(4, "%%"+documentoProfesor+"%%");
-				p.setString(5, semestre);
-				p.setString(6, documentoProfesor);
-				p.setString(7, "%%"+semestre+"%%");
-				p.setString(8, "%%"+semestre+"%%");			
-				p.setString(9, "%%"+documentoProfesor+"%%");
+				p.setString(5, periodo[Periodo.FECHAINICIO]);
+				p.setString(6, periodo[Periodo.FECHAFIN]);
+				p.setString(7, periodo[Periodo.FECHAINICIO]);
+				p.setString(8, documentoProfesor);
+				p.setString(9, periodo[Periodo.FECHAINICIO]);
 				p.setString(10, periodo[Periodo.FECHAINICIO]);
 				p.setString(11, periodo[Periodo.FECHAFIN]);
 				p.setString(12, periodo[Periodo.FECHAINICIO]);
 				p.setString(13, documentoProfesor);
-				p.setString(14, periodo[Periodo.FECHAINICIO]);
-				p.setString(15, periodo[Periodo.FECHAINICIO]);
-				p.setString(16, periodo[Periodo.FECHAFIN]);
-				p.setString(17, periodo[Periodo.FECHAINICIO]);
-				p.setString(18, documentoProfesor);
 				
 				
 				ResultSet rs=p.executeQuery();
@@ -539,6 +534,9 @@ public class InformesDAO {
 					
 					if(saber<3)
 					{	
+					int ss=rs.getInt("valor");
+					//int sss=rs.getInt("suma");
+					
 					
 					ev.getPromedioRespuestas()[saber][rs.getInt("valor")-1]=rs.getInt("suma");
 						if (tipoEvaluacion == EvaluacionMateria.AUTOEVALUACION)
@@ -547,11 +545,7 @@ public class InformesDAO {
 						}
 						else
 						{
-							if(saber==0)
-							{
-								System.out.println("total doc"+totalDocencia[saber]);
-								System.out.println("valor"+rs.getInt("suma"));
-							}
+						
 							totalDocencia[saber]=totalDocencia[saber]+rs.getInt("suma");
 						}
 					}
@@ -585,6 +579,13 @@ public class InformesDAO {
 					evaluacionInvestigacion.getPromedioRespuestas()[rs.getInt("valor")-1]=rs.getInt("suma");
 					totalInvestigacion = totalInvestigacion + rs.getInt("suma"); 
 					}
+				
+				
+				}
+				if(rs.getString("saber").equals("inscritos"))
+				{	
+					
+					inscritos=rs.getInt("inscritos");	
 				}
 				}
 				  con.close();		
@@ -615,14 +616,12 @@ public class InformesDAO {
 		 {	 
 			 for(int j=0;j<=2;j++)
 			 {
-				 if(j==0){
-				 System.out.println(evaluacionMaterias.get(0).getPromedioRespuestas()[j][i]);
-				 System.out.println(totalDocencia[j]);
-				 }
+			
 				 if(totalDocencia[j]>0) evaluacionMaterias.get(0).getPromedioRespuestas()[j][i] =  100.0*evaluacionMaterias.get(0).getPromedioRespuestas()[j][i]/totalDocencia[j];
 				 if(totalAutoEvalDocencia[j]>0) evaluacionMaterias.get(1).getPromedioRespuestas()[j][i] =  100.0*evaluacionMaterias.get(1).getPromedioRespuestas()[j][i]/totalAutoEvalDocencia[j];
 			 }
 		 }
+		 evaluacionMaterias.get(0).getMateria().setInscritos(inscritos);
 		 evaluacionMaterias.get(0).setEvaluados((int)totalDocencia[0]/6);
 		
 	   
