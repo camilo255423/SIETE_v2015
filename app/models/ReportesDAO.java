@@ -218,6 +218,7 @@ public class ReportesDAO {
 "           AND HCU.IDCUESTIONARIOH = THCP.IDCUESTIONARIOH "+
 "           AND PRE.IDPREGUNTAH = THCP.IDPREGUNTAH "+
 "           AND ENC.FECHA >= TO_DATE (?, 'yyyy/mm/dd') "+ // 11 fecha inicio
+" and (HCU.TITULO like '%AUTO%GEST%' or HCU.TITULO like '%AUTO%INV%') "+ 
 " and (PRE.TITULO like '%Gest%' or PRE.TITULO like '%Inves%' ) "+
 " group by  "+
 "   HCU.TITULO, "+
@@ -621,6 +622,7 @@ public class ReportesDAO {
 "	           AND HCU.IDCUESTIONARIOH = THCP.IDCUESTIONARIOH "+
 "	           AND PRE.IDPREGUNTAH = THCP.IDPREGUNTAH "+
 "	           AND ENC.FECHA >= TO_DATE (?, 'yyyy/mm/dd') "+ // 11. fecha inicio
+" and (HCU.TITULO like '%AUTO%GEST%' or HCU.TITULO like '%AUTO%INV%') "+ 
 "	 and (PRE.TITULO like '%Gest%' or PRE.TITULO like '%Inves%' ) "+
 "	 group by "+ 
 "	   HCU.TITULO, "+
