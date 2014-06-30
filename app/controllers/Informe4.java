@@ -77,17 +77,7 @@ public class Informe4 extends Controller {
  			Document document = new Document();
  		    document.open();
  		    File file=null; 
- 		    File folder = new File(".");
- 		    final File[] files = folder.listFiles();
- 		    for ( final File f : files ) {
- 		    	
- 		    	if(f.getName().contains(".pdf"))
- 		    	{	
- 			        if ( !f.delete() ) {
- 			            System.err.println( "Can't remove " + f.getAbsolutePath() );
- 			        }
- 		    	}
- 		    }
+ 	
  		   Facultad facultad = Facultad.findById(codigoFacultad);
  		   Evaluacion evaluacion = ReportesDAO.getInformeFacultad(codigoFacultad, semestre);
  	    	EvaluacionMateria evaluacionDocencia=null;
@@ -96,18 +86,23 @@ public class Informe4 extends Controller {
  	    	if(evaluacion.getEvaluacionDocencia().size()>=2) autoEvaluacionDocencia =  evaluacion.getEvaluacionDocencia().get(1);
  	    	 ArrayList<SaberNivel> mejorPeorSaberDocencia;
  	    	mejorPeorSaberDocencia = ReportesDAO.getMejorPeorCampoDocencia(evaluacion.getEvaluacionDocencia());
- 	    	
+ 	    	System.out.println(mejorPeorSaberDocencia);
  			try {
  				file = new File("Facultad "+facultad.getNombre()+" "+semestre+".pdf");
  				PdfWriter writer = PdfWriter.getInstance(document,
  						
  				        new FileOutputStream(file));
- 				String imagen = routes.Assets.at("images/favicon.png").absoluteURL(request());
+ 				String imagen = routes.Assets.at(Application.LOGO_INPAHU).absoluteURL(request());
  				
  				
  				document.open();
  				XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informefacultad.render(evaluacionDocencia,autoEvaluacionDocencia,evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),evaluacion.getAutoEvaluacionGestion(),evaluacion.getAutoEvaluacionInvestigacion(), mejorPeorSaberDocencia, facultad, semestre, imagen).toString()));
- 	        	
+ 				response().setContentType("application/x-download");  
+ 	 	  		response().setHeader("Content-disposition","attachment; filename='"+"Facultad "+facultad.getNombre()+" "+semestre+".pdf'");
+ 	 	   	
+
+ 	 		    document.close();
+ 	 			return ok(file);
  			} catch (FileNotFoundException e) {
  				// TODO Auto-generated catch block
  				e.printStackTrace();
@@ -118,14 +113,14 @@ public class Informe4 extends Controller {
  				// TODO Auto-generated catch block
  				e.printStackTrace();
  			}
+ 			finally {
+ 		        file.delete();
+ 		    }
+
+ 			return ok("");
 
  		
- 			response().setContentType("application/x-download");  
- 	  		response().setHeader("Content-disposition","attachment; filename="+"Facultad "+facultad.getNombre()+" "+semestre+".pdf");
- 	   	
-
- 		    document.close();
- 			return ok(file);
+ 			
  	    
     }
 	/**
@@ -151,18 +146,7 @@ public class Informe4 extends Controller {
    		double porcentajeGestion=0.6;
    		double porcentajeGestionAutoevaluacion=0.2;
    		
-   		//Create a new row in current sheet
-   	 File folder = new File(".");
-	    final File[] files = folder.listFiles();
-	    for ( final File f : files ) {
-	    	
-	    	if(f.getName().contains(".xls"))
-	    	{	
-		        if ( !f.delete() ) {
-		            System.err.println( "Can't remove " + f.getAbsolutePath() );
-		        }
-	    	}
-	    }
+   	
 	    int fila=0;
    		int columna=0;
    		Row row = null;
@@ -309,18 +293,23 @@ public class Informe4 extends Controller {
    		            new FileOutputStream(file);
    		    workbook.write(out);
    		    out.close();
-   		    
+   			response().setContentType("application/x-download");  
+   		  	response().setHeader("Content-disposition","attachment; filename='"+"Facultad "+facultad.getNombre()+" "+semestre+".xls'");
+   		   	
+   	   		return ok(file); 
    		    
    		} catch (FileNotFoundException e) {
    		    e.printStackTrace();
    		} catch (IOException e) {
    		    e.printStackTrace();
    		}
+   		finally {
+	        file.delete();
+	    }
 
-   		response().setContentType("application/x-download");  
-	  	response().setHeader("Content-disposition","attachment; filename="+"Facultad "+facultad.getNombre()+" "+semestre+".xls");
-	   	
-   		return ok(file);
+		return ok("");
+
+   	
 
     }
 

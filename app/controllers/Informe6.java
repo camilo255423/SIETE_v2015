@@ -75,17 +75,7 @@ public class Informe6 extends Controller {
  			Document document = new Document();
  		    document.open();
  		    File file=null; 
- 		    File folder = new File(".");
- 		    final File[] files = folder.listFiles();
- 		    for ( final File f : files ) {
- 		    	
- 		    	if(f.getName().contains(".pdf"))
- 		    	{	
- 			        if ( !f.delete() ) {
- 			            System.err.println( "Can't remove " + f.getAbsolutePath() );
- 			        }
- 		    	}
- 		    }
+ 	
  		   NumeroParticipantes numeroParticipantes = NumeroParticipantes.findBySemestre(semestre);
  	    	
  			try {
@@ -93,7 +83,7 @@ public class Informe6 extends Controller {
  				PdfWriter writer = PdfWriter.getInstance(document,
  						
  				        new FileOutputStream(file));
- 				String imagen = routes.Assets.at("images/logo-inpahu2.png").absoluteURL(request());
+ 				String imagen = routes.Assets.at(Application.LOGO_INPAHU).absoluteURL(request());
  				
  				document.open();
  				//XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeheteroevaluacion.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), profesor, semestre, imagen).toString()));
@@ -103,7 +93,15 @@ public class Informe6 extends Controller {
  				     			numeroParticipantes.getDocentesConAutoevaluacionPorFacultad(),
  				   			numeroParticipantes.getDirectivosGestionEvaluadosPorFacultad(),
  				   			numeroParticipantes.getDirectivosInvestigacionEvaluadosPorFacultad(), semestre, imagen).toString()));
- 	        	
+ 	        
+
+ 	 			response().setContentType("application/x-download");  
+ 	 	  		response().setHeader("Content-disposition","attachment; filename="+"Participantes Evaluación Docente "+semestre+".pdf");
+ 	 	   	
+ 	 		    
+
+ 	 		    document.close();
+ 	 			return ok(file);
  			} catch (FileNotFoundException e) {
  				// TODO Auto-generated catch block
  				e.printStackTrace();
@@ -114,14 +112,12 @@ public class Informe6 extends Controller {
  				// TODO Auto-generated catch block
  				e.printStackTrace();
  			}
+ 			finally {
+ 		        file.delete();
+ 		    }
 
- 			response().setContentType("application/x-download");  
- 	  		response().setHeader("Content-disposition","attachment; filename="+"Participantes Evaluación Docente "+semestre+".pdf");
- 	   	
- 		    
+ 			return ok("");
 
- 		    document.close();
- 			return ok(file);
  	    
     }
 	 /**
@@ -143,18 +139,7 @@ public class Informe6 extends Controller {
         	HSSFSheet sheet = workbook.createSheet("Número de participantes "+semestre);
    		
    		
-   		//Create a new row in current sheet
-   	 File folder = new File(".");
-	    final File[] files = folder.listFiles();
-	    for ( final File f : files ) {
-	    	
-	    	if(f.getName().contains(".xls"))
-	    	{	
-		        if ( !f.delete() ) {
-		            System.err.println( "Can't remove " + f.getAbsolutePath() );
-		        }
-	    	}
-	    }
+   		
 	    double total=0;
 	    int fila=0;
    		int columna=0;
@@ -187,7 +172,7 @@ public class Informe6 extends Controller {
    		columna=0;	
    		row = sheet.createRow(fila++);
    		row.createCell(columna++).setCellValue("Facultad");
-   		row.createCell(columna++).setCellValue("No de Estudiantes Participantes");
+   		row.createCell(columna++).setCellValue("No de Docentes");
    		row.createCell(columna++).setCellValue("Total Estudiantes");
    		row.createCell(columna++).setCellValue("Porcentaje");
    		for(Facultad facultad:docentesEvaluadosPorEstudiantesPorFacultad)
@@ -207,7 +192,7 @@ public class Informe6 extends Controller {
    		columna=0;	
    		row = sheet.createRow(fila++);
    		row.createCell(columna++).setCellValue("Facultad");
-   		row.createCell(columna++).setCellValue("No de Estudiantes Participantes");
+   		row.createCell(columna++).setCellValue("No de Docentes");
    		row.createCell(columna++).setCellValue("Total Estudiantes");
    		row.createCell(columna++).setCellValue("Porcentaje");
    		for(Facultad facultad:docentesConAutoevaluacionPorFacultad)
@@ -227,7 +212,7 @@ public class Informe6 extends Controller {
    		columna=0;	
    		row = sheet.createRow(fila++);
    		row.createCell(columna++).setCellValue("Facultad");
-   		row.createCell(columna++).setCellValue("No de Estudiantes Participantes");
+   		row.createCell(columna++).setCellValue("No de Directivos");
    		row.createCell(columna++).setCellValue("Total Estudiantes");
    		row.createCell(columna++).setCellValue("Porcentaje");
    		for(Facultad facultad:directivosGestionEvaluadosPorFacultad)
@@ -243,7 +228,7 @@ public class Informe6 extends Controller {
    		columna=0;
    		row = sheet.createRow(fila++);
    		row = sheet.createRow(fila++);
-   		row.createCell(columna).setCellValue("Número de directivos que evaluaron investigación");
+   		row.createCell(columna).setCellValue("Número de directivos");
    		columna=0;	
    		row = sheet.createRow(fila++);
    		row.createCell(columna++).setCellValue("Facultad");
@@ -268,18 +253,23 @@ public class Informe6 extends Controller {
    		            new FileOutputStream(file);
    		    workbook.write(out);
    		    out.close();
-   		    
+   			response().setContentType("application/x-download");  
+   		  	response().setHeader("Content-disposition","attachment; filename="+"Participantes Evaluación Docente "+semestre+".xls");
+   		   	
+   	   		return ok(file);
+	    
    		    
    		} catch (FileNotFoundException e) {
    		    e.printStackTrace();
    		} catch (IOException e) {
    		    e.printStackTrace();
    		}
-   		response().setContentType("application/x-download");  
-	  	response().setHeader("Content-disposition","attachment; filename="+"Participantes Evaluación Docente "+semestre+".xls");
-	   	
-   		return ok(file);
+   		finally {
+	        file.delete();
+	    }
 
+		return ok("");
+   	
     }
 
 

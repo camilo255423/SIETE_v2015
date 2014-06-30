@@ -12,8 +12,10 @@
   	</tr>
   	
 	</table>
-	<div style="text-align:center"><h4>Docente: @profesor.getApellidos() @profesor.getNombres(), Periodo: @semestre</h4></div>
-	<div style="text-align:center"><h4>Asignatura:@evaluacion.getMateria().getNombre(), grupo @evaluacion.getMateria().getGrupo()</h4></div>
+	
+	<div style="text-align:center"><p><b>Oficina de Aseguramiento de la Calidad</b></p></div>
+	<div style="text-align:center"><p><b>Docente: @profesor.getApellidos() @profesor.getNombres(), Periodo: @semestre</b></p></div>
+	<div style="text-align:center"><p><b>Asignatura:@evaluacion.getMateria().getNombre(), Grupo @evaluacion.getMateria().getGrupo()</b></p></div>
 	<div class="tabs">
 	
 	<div id="tabs-estudiantes" style='page-break-after:always;'>	
@@ -26,7 +28,6 @@ porcentaje @(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscrito
 	@tabladocencia(evaluacion,"Saber Específico",Pregunta.ESPECIFICO,6,8)
 	
 	@tabladocencia(evaluacion,"Saber Relacional",Pregunta.RELACIONAL,9,11)
-		@if(session.get("rol")==Rol.COORDINADOR || session.get("rol")==Rol.ADMINISTRADOR){
 	<div class="titulotabla">Observaciones</div>
 		<table border='1'>
 		<tbody>
@@ -40,7 +41,7 @@ porcentaje @(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscrito
 	          }
 	    </tbody>
 	    </table>
-		   }
+
 	</div>
 	<div id="tabs-autoevaluacion" style='page-break-after:always;'>	
    	<table width='704'>
@@ -50,8 +51,9 @@ porcentaje @(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscrito
   	</tr>
   	
 	</table>
-	<div style="text-align:center"><h4>Docente: @profesor.getApellidos() @profesor.getNombres() Periodo: @semestre</h4></div>
-	<div style="text-align:center"><h4>Autoevaluación Asignatura:@evaluacion.getMateria().getNombre(), grupo @evaluacion.getMateria().getGrupo()</h4></div>
+	<div style="text-align:center"><p><b>Oficina de Aseguramiento de la Calidad</b></p></div>
+	<div style="text-align:center"><p><b>Docente: @profesor.getApellidos() @profesor.getNombres() Periodo: @semestre</b></p></div>
+	<div style="text-align:center"><p><b>Autoevaluación Asignatura:@evaluacion.getMateria().getNombre(), Grupo @evaluacion.getMateria().getGrupo()</b></p></div>
 	@defining(evaluacionMateria.indexOf(new EvaluacionMateria(EvaluacionMateria.AUTOEVALUACION,evaluacion.getMateria(),false))){indice=>
 		@if(indice>=0){
 		@defining(evaluacionMateria.get(indice)){autoevaluacion=>
@@ -63,7 +65,7 @@ porcentaje @(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscrito
 		}
 		
 	}else{
-	<h2>sin autoevaluación </h2>
+	Sin autoevaluación 
 	}
 	
 	}
@@ -86,8 +88,9 @@ porcentaje @(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscrito
   	</tr>
   	
 	</table>
+	<div style="text-align:center"><p><b>Oficina de Aseguramiento de la Calidad</b></p></div>	
 	<div style="text-align:center"><h4>Docente: @profesor.getApellidos() @profesor.getNombres() Periodo: @semestre</h4></div>
-	@tablagestion(evaluacionGestion,"Gestión",Pregunta.GESTION, 0,6)	
+	@tablagestion(evaluacionGestion,"Evaluación Gestión",Pregunta.GESTION, 0,6)	
 	</div>
 	<div id="tabs-autoevalgestion" style='page-break-after:always;'>
 	<table width='704'>
@@ -97,6 +100,7 @@ porcentaje @(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscrito
   	</tr>
   	
 	</table>	
+	<div style="text-align:center"><p><b>Oficina de Aseguramiento de la Calidad</b></p></div>
 	<div style="text-align:center"><h4>Docente: @profesor.getApellidos() @profesor.getNombres() Periodo: @semestre</h4></div>	
 	@tablagestion(autoEvaluacionGestion,"Autoevaluación Gestión",Pregunta.GESTION, 0,6)
 	</div>
@@ -114,9 +118,9 @@ porcentaje @(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscrito
   	</tr>
   	
 	</table>
-	
-	<div style="text-align:center"><h4>Docente: @profesor.getApellidos() @profesor.getNombres() Periodo: @semestre</h4></div>
-	@tablainvestigacion(evaluacionInvestigacion,"Investigación",Pregunta.INVESTIGACION, 0,5)	
+	<div style="text-align:center"><p><b>Oficina de Aseguramiento de la Calidad</b></p></div>
+	<div style="text-align:center"><p><b>Docente: @profesor.getApellidos() @profesor.getNombres() Periodo: @semestre</b></p></div>
+	@tablainvestigacion(evaluacionInvestigacion,"Evaluación Investigación",Pregunta.INVESTIGACION, 0,5)	
 	</div>
 	<div id="tabs-autoevalinvestigacion" style='page-break-after:always;'>	
 	<table width='704'>
@@ -126,7 +130,7 @@ porcentaje @(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscrito
   	</tr>
   	
 	</table>
-	
+	<div style="text-align:center"><p><b>Oficina de Aseguramiento de la Calidad</b></p></div>
 	<div style="text-align:center"><h4>Docente: @profesor.getApellidos() @profesor.getNombres() Periodo: @semestre</h4></div>
 	@tablainvestigacion(autoEvaluacionInvestigacion,"Autoevaluación Investigación",Pregunta.INVESTIGACION, 0,5)
 	</div>

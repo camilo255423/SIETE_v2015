@@ -50,24 +50,13 @@ public class Informe1 extends Controller {
 	 * @param semestre Recibe de la vista el semestre seleccionado por el usuario
 	 * @return devuelve el pdf generado
 	 */
-	@Security.Authenticated(Secured.class)
+//	@Security.Authenticated(Secured.class)
    public static Result pdf(String documento, String semestre)
    {
 			Document document = new Document();
 		    document.open();
 		    File file=null; 
-		    File folder = new File(".");
-		    final File[] files = folder.listFiles();
-		    for ( final File f : files ) {
-		    	
-		    	if(f.getName().contains(".pdf"))
-		    	{	
-			        if ( !f.delete() ) {
-			            System.err.println( "Can't remove " + f.getAbsolutePath() );
-			        }
-		    	}
-		    }
-			
+
 	    	Profesor profesor = Profesor.findByDocumento(documento);
 	    	Evaluacion evaluacion = profesor.getEvaluacion(semestre);
 	    	
@@ -76,10 +65,16 @@ public class Informe1 extends Controller {
 				PdfWriter writer = PdfWriter.getInstance(document,
 						
 				        new FileOutputStream(file));
-				String imagen = routes.Assets.at("images/logo-inpahu2.png").absoluteURL(request());
+				String imagen = routes.Assets.at(Application.LOGO_INPAHU).absoluteURL(request());
 				    document.open();
 			
 		 XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeprofesor.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getAutoEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), evaluacion.getAutoEvaluacionInvestigacion(), profesor, semestre, imagen).toString()));
+			response().setContentType("application/x-download");  
+	  		response().setHeader("Content-disposition","attachment; filename="+"Detallado "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".pdf");
+	   		    
+
+		    document.close();
+			return ok(file);
 	        	
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -91,14 +86,14 @@ public class Informe1 extends Controller {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			  finally {
+			        file.delete();
+			    }
+
+	 			return ok("");
 
 		
-			response().setContentType("application/x-download");  
-	  		response().setHeader("Content-disposition","attachment; filename="+"Detallado "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".pdf");
-	   		    
-
-		    document.close();
-			return ok(file);
+		
 	    
    }
 	/**
@@ -133,18 +128,7 @@ public class Informe1 extends Controller {
     	Evaluacion evaluacion = profesor.getEvaluacion(semestre);
    		HSSFWorkbook workbook = new HSSFWorkbook();
    		HSSFSheet sheet = workbook.createSheet("Docencia");
-   		//Create a new row in current sheet
-   	 File folder = new File(".");
-	    final File[] files = folder.listFiles();
-	    for ( final File f : files ) {
-	    	
-	    	if(f.getName().contains(".xls"))
-	    	{	
-		        if ( !f.delete() ) {
-		            System.err.println( "Can't remove " + f.getAbsolutePath() );
-		        }
-	    	}
-	    }
+   
    		int fila=0;
    		int columna=0;
    		//DOCENCIA
@@ -524,17 +508,23 @@ public class Informe1 extends Controller {
    		            new FileOutputStream(file);
    		    workbook.write(out);
    		    out.close();
-   		    
+
+   	   		response().setContentType("application/x-download");  
+   	  		response().setHeader("Content-disposition","attachment; filename="+"Detallado "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
+   	   		
+   	   		return ok(file);
    		    
    		} catch (FileNotFoundException e) {
    		    e.printStackTrace();
    		} catch (IOException e) {
    		    e.printStackTrace();
    		}
-   		response().setContentType("application/x-download");  
-  		response().setHeader("Content-disposition","attachment; filename="+"Detallado "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
-   		
-   		return ok(file);
+   	  finally {
+	        file.delete();
+	    }
+
+		return ok("");
+
           
        
    }

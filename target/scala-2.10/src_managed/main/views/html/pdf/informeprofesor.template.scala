@@ -40,68 +40,70 @@ Seq[Any](format.raw/*1.275*/("""
   	</tr>
   	
 	</table>
-	<div style="text-align:center"><h4>Docente: """),_display_(Seq[Any](/*15.47*/profesor/*15.55*/.getApellidos())),format.raw/*15.70*/(""" """),_display_(Seq[Any](/*15.72*/profesor/*15.80*/.getNombres())),format.raw/*15.93*/(""", Periodo: """),_display_(Seq[Any](/*15.105*/semestre)),format.raw/*15.113*/("""</h4></div>
-	<div style="text-align:center"><h4>Asignatura:"""),_display_(Seq[Any](/*16.49*/evaluacion/*16.59*/.getMateria().getNombre())),format.raw/*16.84*/(""", grupo """),_display_(Seq[Any](/*16.93*/evaluacion/*16.103*/.getMateria().getGrupo())),format.raw/*16.127*/("""</h4></div>
+	
+	<div style="text-align:center"><p><b>Oficina de Aseguramiento de la Calidad</b></p></div>
+	<div style="text-align:center"><p><b>Docente: """),_display_(Seq[Any](/*17.49*/profesor/*17.57*/.getApellidos())),format.raw/*17.72*/(""" """),_display_(Seq[Any](/*17.74*/profesor/*17.82*/.getNombres())),format.raw/*17.95*/(""", Periodo: """),_display_(Seq[Any](/*17.107*/semestre)),format.raw/*17.115*/("""</b></p></div>
+	<div style="text-align:center"><p><b>Asignatura:"""),_display_(Seq[Any](/*18.51*/evaluacion/*18.61*/.getMateria().getNombre())),format.raw/*18.86*/(""", Grupo """),_display_(Seq[Any](/*18.95*/evaluacion/*18.105*/.getMateria().getGrupo())),format.raw/*18.129*/("""</b></p></div>
 	<div class="tabs">
 	
 	<div id="tabs-estudiantes" style='page-break-after:always;'>	
 
-	<h4> Encuestados: """),_display_(Seq[Any](/*21.21*/evaluacion/*21.31*/.getEvaluados())),format.raw/*21.46*/(""" de """),_display_(Seq[Any](/*21.51*/evaluacion/*21.61*/.getMateria().getInscritos())),format.raw/*21.89*/(""", 
-porcentaje """),_display_(Seq[Any](/*22.13*/(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscritos()/100.0))),format.raw/*22.91*/("""% </h4>
+	<h4> Encuestados: """),_display_(Seq[Any](/*23.21*/evaluacion/*23.31*/.getEvaluados())),format.raw/*23.46*/(""" de """),_display_(Seq[Any](/*23.51*/evaluacion/*23.61*/.getMateria().getInscritos())),format.raw/*23.89*/(""", 
+porcentaje """),_display_(Seq[Any](/*24.13*/(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscritos()/100.0))),format.raw/*24.91*/("""% </h4>
 	
-	"""),_display_(Seq[Any](/*24.3*/tabladocencia(evaluacion,"Saber Pedagógico",Pregunta.PEDAGOGICO, 0,5))),format.raw/*24.72*/("""
+	"""),_display_(Seq[Any](/*26.3*/tabladocencia(evaluacion,"Saber Pedagógico",Pregunta.PEDAGOGICO, 0,5))),format.raw/*26.72*/("""
 	
-	"""),_display_(Seq[Any](/*26.3*/tabladocencia(evaluacion,"Saber Específico",Pregunta.ESPECIFICO,6,8))),format.raw/*26.71*/("""
+	"""),_display_(Seq[Any](/*28.3*/tabladocencia(evaluacion,"Saber Específico",Pregunta.ESPECIFICO,6,8))),format.raw/*28.71*/("""
 	
-	"""),_display_(Seq[Any](/*28.3*/tabladocencia(evaluacion,"Saber Relacional",Pregunta.RELACIONAL,9,11))),format.raw/*28.72*/("""
-		"""),_display_(Seq[Any](/*29.4*/if(session.get("rol")==Rol.COORDINADOR || session.get("rol")==Rol.ADMINISTRADOR)/*29.84*/{_display_(Seq[Any](format.raw/*29.85*/("""
+	"""),_display_(Seq[Any](/*30.3*/tabladocencia(evaluacion,"Saber Relacional",Pregunta.RELACIONAL,9,11))),format.raw/*30.72*/("""
 	<div class="titulotabla">Observaciones</div>
 		<table border='1'>
 		<tbody>
 	 			<tr>
 	           <td width='650' style="font-size: 8pt;">OBSERVACIONES</td>  
 	          </tr>
-		     """),_display_(Seq[Any](/*36.9*/for(observaciones <- evaluacion.getObservaciones()) yield /*36.60*/{_display_(Seq[Any](format.raw/*36.61*/("""
+		     """),_display_(Seq[Any](/*37.9*/for(observaciones <- evaluacion.getObservaciones()) yield /*37.60*/{_display_(Seq[Any](format.raw/*37.61*/("""
 		     <tr>
-	           <td width='650' style="font-size: 8pt;">- """),_display_(Seq[Any](/*38.56*/observaciones)),format.raw/*38.69*/("""</td>  
+	           <td width='650' style="font-size: 8pt;">- """),_display_(Seq[Any](/*39.56*/observaciones)),format.raw/*39.69*/("""</td>  
 	          </tr>
-	          """)))})),format.raw/*40.13*/("""
+	          """)))})),format.raw/*41.13*/("""
 	    </tbody>
 	    </table>
-		   """)))})),format.raw/*43.7*/("""
+
 	</div>
 	<div id="tabs-autoevaluacion" style='page-break-after:always;'>	
    	<table width='704'>
   	 <tr style="font-size: 8pt;">
     <td width='222'>&nbsp;</td>
-    <td width='466'><img width='219' height='63' src='"""),_display_(Seq[Any](/*49.56*/imagen)),format.raw/*49.62*/("""' alt='Logo title='Logo'  align='left' hspace='12' /></td>
+    <td width='466'><img width='219' height='63' src='"""),_display_(Seq[Any](/*50.56*/imagen)),format.raw/*50.62*/("""' alt='Logo title='Logo'  align='left' hspace='12' /></td>
   	</tr>
   	
 	</table>
-	<div style="text-align:center"><h4>Docente: """),_display_(Seq[Any](/*53.47*/profesor/*53.55*/.getApellidos())),format.raw/*53.70*/(""" """),_display_(Seq[Any](/*53.72*/profesor/*53.80*/.getNombres())),format.raw/*53.93*/(""" Periodo: """),_display_(Seq[Any](/*53.104*/semestre)),format.raw/*53.112*/("""</h4></div>
-	<div style="text-align:center"><h4>Autoevaluación Asignatura:"""),_display_(Seq[Any](/*54.64*/evaluacion/*54.74*/.getMateria().getNombre())),format.raw/*54.99*/(""", grupo """),_display_(Seq[Any](/*54.108*/evaluacion/*54.118*/.getMateria().getGrupo())),format.raw/*54.142*/("""</h4></div>
-	"""),_display_(Seq[Any](/*55.3*/defining(evaluacionMateria.indexOf(new EvaluacionMateria(EvaluacionMateria.AUTOEVALUACION,evaluacion.getMateria(),false)))/*55.125*/{indice=>_display_(Seq[Any](format.raw/*55.134*/("""
-		"""),_display_(Seq[Any](/*56.4*/if(indice>=0)/*56.17*/{_display_(Seq[Any](format.raw/*56.18*/("""
-		"""),_display_(Seq[Any](/*57.4*/defining(evaluacionMateria.get(indice))/*57.43*/{autoevaluacion=>_display_(Seq[Any](format.raw/*57.60*/("""
-		"""),_display_(Seq[Any](/*58.4*/tabladocencia(autoevaluacion,"Saber Pedagógico",Pregunta.PEDAGOGICO, 0,5))),format.raw/*58.77*/("""
+	<div style="text-align:center"><p><b>Oficina de Aseguramiento de la Calidad</b></p></div>
+	<div style="text-align:center"><p><b>Docente: """),_display_(Seq[Any](/*55.49*/profesor/*55.57*/.getApellidos())),format.raw/*55.72*/(""" """),_display_(Seq[Any](/*55.74*/profesor/*55.82*/.getNombres())),format.raw/*55.95*/(""" Periodo: """),_display_(Seq[Any](/*55.106*/semestre)),format.raw/*55.114*/("""</b></p></div>
+	<div style="text-align:center"><p><b>Autoevaluación Asignatura:"""),_display_(Seq[Any](/*56.66*/evaluacion/*56.76*/.getMateria().getNombre())),format.raw/*56.101*/(""", Grupo """),_display_(Seq[Any](/*56.110*/evaluacion/*56.120*/.getMateria().getGrupo())),format.raw/*56.144*/("""</b></p></div>
+	"""),_display_(Seq[Any](/*57.3*/defining(evaluacionMateria.indexOf(new EvaluacionMateria(EvaluacionMateria.AUTOEVALUACION,evaluacion.getMateria(),false)))/*57.125*/{indice=>_display_(Seq[Any](format.raw/*57.134*/("""
+		"""),_display_(Seq[Any](/*58.4*/if(indice>=0)/*58.17*/{_display_(Seq[Any](format.raw/*58.18*/("""
+		"""),_display_(Seq[Any](/*59.4*/defining(evaluacionMateria.get(indice))/*59.43*/{autoevaluacion=>_display_(Seq[Any](format.raw/*59.60*/("""
+		"""),_display_(Seq[Any](/*60.4*/tabladocencia(autoevaluacion,"Saber Pedagógico",Pregunta.PEDAGOGICO, 0,5))),format.raw/*60.77*/("""
 		
-		"""),_display_(Seq[Any](/*60.4*/tabladocencia(autoevaluacion,"Saber Específico",Pregunta.ESPECIFICO,6,8))),format.raw/*60.76*/("""
+		"""),_display_(Seq[Any](/*62.4*/tabladocencia(autoevaluacion,"Saber Específico",Pregunta.ESPECIFICO,6,8))),format.raw/*62.76*/("""
 		
-		"""),_display_(Seq[Any](/*62.4*/tabladocencia(autoevaluacion,"Saber Relacional",Pregunta.RELACIONAL,9,11))),format.raw/*62.77*/("""
-		""")))})),format.raw/*63.4*/("""
+		"""),_display_(Seq[Any](/*64.4*/tabladocencia(autoevaluacion,"Saber Relacional",Pregunta.RELACIONAL,9,11))),format.raw/*64.77*/("""
+		""")))})),format.raw/*65.4*/("""
 		
-	""")))}/*65.3*/else/*65.7*/{_display_(Seq[Any](format.raw/*65.8*/("""
-	<h2>sin autoevaluación </h2>
-	""")))})),format.raw/*67.3*/("""
-	
+	""")))}/*67.3*/else/*67.7*/{_display_(Seq[Any](format.raw/*67.8*/("""
+	Sin autoevaluación 
 	""")))})),format.raw/*69.3*/("""
+	
+	""")))})),format.raw/*71.3*/("""
 	</div> <!-- div autoevaluacion -->
 
 	</div> <!-- div tabs -->
 
 	
-""")))})),format.raw/*75.2*/(""" 
-""")))})),format.raw/*76.2*/("""
+""")))})),format.raw/*77.2*/(""" 
+""")))})),format.raw/*78.2*/("""
 	</div> <!--  docencia -->
 <div id="tabs-gestion">
 <div class="tabs">
@@ -110,23 +112,25 @@ porcentaje """),_display_(Seq[Any](/*22.13*/(10000*evaluacion.getEvaluados()/eva
    	<table width='704'>
   	 <tr style="font-size: 8pt;">
     <td width='222'>&nbsp;</td>
-    <td width='466'><img width='219' height='63' src='"""),_display_(Seq[Any](/*85.56*/imagen)),format.raw/*85.62*/("""' alt='Logo title='Logo'  align='left' hspace='12' /></td>
+    <td width='466'><img width='219' height='63' src='"""),_display_(Seq[Any](/*87.56*/imagen)),format.raw/*87.62*/("""' alt='Logo title='Logo'  align='left' hspace='12' /></td>
   	</tr>
   	
 	</table>
-	<div style="text-align:center"><h4>Docente: """),_display_(Seq[Any](/*89.47*/profesor/*89.55*/.getApellidos())),format.raw/*89.70*/(""" """),_display_(Seq[Any](/*89.72*/profesor/*89.80*/.getNombres())),format.raw/*89.93*/(""" Periodo: """),_display_(Seq[Any](/*89.104*/semestre)),format.raw/*89.112*/("""</h4></div>
-	"""),_display_(Seq[Any](/*90.3*/tablagestion(evaluacionGestion,"Gestión",Pregunta.GESTION, 0,6))),format.raw/*90.66*/("""	
+	<div style="text-align:center"><p><b>Oficina de Aseguramiento de la Calidad</b></p></div>	
+	<div style="text-align:center"><h4>Docente: """),_display_(Seq[Any](/*92.47*/profesor/*92.55*/.getApellidos())),format.raw/*92.70*/(""" """),_display_(Seq[Any](/*92.72*/profesor/*92.80*/.getNombres())),format.raw/*92.93*/(""" Periodo: """),_display_(Seq[Any](/*92.104*/semestre)),format.raw/*92.112*/("""</h4></div>
+	"""),_display_(Seq[Any](/*93.3*/tablagestion(evaluacionGestion,"Evaluación Gestión",Pregunta.GESTION, 0,6))),format.raw/*93.77*/("""	
 	</div>
 	<div id="tabs-autoevalgestion" style='page-break-after:always;'>
 	<table width='704'>
   	 <tr style="font-size: 8pt;">
     <td width='222'>&nbsp;</td>
-    <td width='466'><img width='219' height='63' src='"""),_display_(Seq[Any](/*96.56*/imagen)),format.raw/*96.62*/("""' alt='Logo title='Logo'  align='left' hspace='12' /></td>
+    <td width='466'><img width='219' height='63' src='"""),_display_(Seq[Any](/*99.56*/imagen)),format.raw/*99.62*/("""' alt='Logo title='Logo'  align='left' hspace='12' /></td>
   	</tr>
   	
 	</table>	
-	<div style="text-align:center"><h4>Docente: """),_display_(Seq[Any](/*100.47*/profesor/*100.55*/.getApellidos())),format.raw/*100.70*/(""" """),_display_(Seq[Any](/*100.72*/profesor/*100.80*/.getNombres())),format.raw/*100.93*/(""" Periodo: """),_display_(Seq[Any](/*100.104*/semestre)),format.raw/*100.112*/("""</h4></div>	
-	"""),_display_(Seq[Any](/*101.3*/tablagestion(autoEvaluacionGestion,"Autoevaluación Gestión",Pregunta.GESTION, 0,6))),format.raw/*101.85*/("""
+	<div style="text-align:center"><p><b>Oficina de Aseguramiento de la Calidad</b></p></div>
+	<div style="text-align:center"><h4>Docente: """),_display_(Seq[Any](/*104.47*/profesor/*104.55*/.getApellidos())),format.raw/*104.70*/(""" """),_display_(Seq[Any](/*104.72*/profesor/*104.80*/.getNombres())),format.raw/*104.93*/(""" Periodo: """),_display_(Seq[Any](/*104.104*/semestre)),format.raw/*104.112*/("""</h4></div>	
+	"""),_display_(Seq[Any](/*105.3*/tablagestion(autoEvaluacionGestion,"Autoevaluación Gestión",Pregunta.GESTION, 0,6))),format.raw/*105.85*/("""
 	</div>
 </div>
 </div>
@@ -138,25 +142,25 @@ porcentaje """),_display_(Seq[Any](/*22.13*/(10000*evaluacion.getEvaluados()/eva
 	<table width='704'>
   	 <tr style="font-size: 8pt;">
     <td width='222'>&nbsp;</td>
-    <td width='466'><img width='219' height='63' src='"""),_display_(Seq[Any](/*113.56*/imagen)),format.raw/*113.62*/("""' alt='Logo title='Logo'  align='left' hspace='12' /></td>
+    <td width='466'><img width='219' height='63' src='"""),_display_(Seq[Any](/*117.56*/imagen)),format.raw/*117.62*/("""' alt='Logo title='Logo'  align='left' hspace='12' /></td>
   	</tr>
   	
 	</table>
-	
-	<div style="text-align:center"><h4>Docente: """),_display_(Seq[Any](/*118.47*/profesor/*118.55*/.getApellidos())),format.raw/*118.70*/(""" """),_display_(Seq[Any](/*118.72*/profesor/*118.80*/.getNombres())),format.raw/*118.93*/(""" Periodo: """),_display_(Seq[Any](/*118.104*/semestre)),format.raw/*118.112*/("""</h4></div>
-	"""),_display_(Seq[Any](/*119.3*/tablainvestigacion(evaluacionInvestigacion,"Investigación",Pregunta.INVESTIGACION, 0,5))),format.raw/*119.90*/("""	
+	<div style="text-align:center"><p><b>Oficina de Aseguramiento de la Calidad</b></p></div>
+	<div style="text-align:center"><p><b>Docente: """),_display_(Seq[Any](/*122.49*/profesor/*122.57*/.getApellidos())),format.raw/*122.72*/(""" """),_display_(Seq[Any](/*122.74*/profesor/*122.82*/.getNombres())),format.raw/*122.95*/(""" Periodo: """),_display_(Seq[Any](/*122.106*/semestre)),format.raw/*122.114*/("""</b></p></div>
+	"""),_display_(Seq[Any](/*123.3*/tablainvestigacion(evaluacionInvestigacion,"Evaluación Investigación",Pregunta.INVESTIGACION, 0,5))),format.raw/*123.101*/("""	
 	</div>
 	<div id="tabs-autoevalinvestigacion" style='page-break-after:always;'>	
 	<table width='704'>
   	 <tr style="font-size: 8pt;">
     <td width='222'>&nbsp;</td>
-    <td width='466'><img width='219' height='63' src='"""),_display_(Seq[Any](/*125.56*/imagen)),format.raw/*125.62*/("""' alt='Logo title='Logo'  align='left' hspace='12' /></td>
+    <td width='466'><img width='219' height='63' src='"""),_display_(Seq[Any](/*129.56*/imagen)),format.raw/*129.62*/("""' alt='Logo title='Logo'  align='left' hspace='12' /></td>
   	</tr>
   	
 	</table>
-	
-	<div style="text-align:center"><h4>Docente: """),_display_(Seq[Any](/*130.47*/profesor/*130.55*/.getApellidos())),format.raw/*130.70*/(""" """),_display_(Seq[Any](/*130.72*/profesor/*130.80*/.getNombres())),format.raw/*130.93*/(""" Periodo: """),_display_(Seq[Any](/*130.104*/semestre)),format.raw/*130.112*/("""</h4></div>
-	"""),_display_(Seq[Any](/*131.3*/tablainvestigacion(autoEvaluacionInvestigacion,"Autoevaluación Investigación",Pregunta.INVESTIGACION, 0,5))),format.raw/*131.109*/("""
+	<div style="text-align:center"><p><b>Oficina de Aseguramiento de la Calidad</b></p></div>
+	<div style="text-align:center"><h4>Docente: """),_display_(Seq[Any](/*134.47*/profesor/*134.55*/.getApellidos())),format.raw/*134.70*/(""" """),_display_(Seq[Any](/*134.72*/profesor/*134.80*/.getNombres())),format.raw/*134.93*/(""" Periodo: """),_display_(Seq[Any](/*134.104*/semestre)),format.raw/*134.112*/("""</h4></div>
+	"""),_display_(Seq[Any](/*135.3*/tablainvestigacion(autoEvaluacionInvestigacion,"Autoevaluación Investigación",Pregunta.INVESTIGACION, 0,5))),format.raw/*135.109*/("""
 	</div>
 </div>
 </div>
@@ -174,11 +178,11 @@ porcentaje """),_display_(Seq[Any](/*22.13*/(10000*evaluacion.getEvaluados()/eva
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Apr 07 16:12:50 COT 2014
+                    DATE: Tue Jun 03 17:41:10 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/pdf/informeprofesor.scala.html
-                    HASH: 1f10993b5a2483db0b3bbea6dd95afcbf55ffbfe
-                    MATRIX: 912->1|1280->274|1391->351|1442->387|1480->388|1517->391|1589->455|1627->456|1808->601|1836->607|2000->735|2017->743|2054->758|2092->760|2109->768|2144->781|2193->793|2224->801|2320->861|2339->871|2386->896|2431->905|2451->915|2498->939|2652->1057|2671->1067|2708->1082|2749->1087|2768->1097|2818->1125|2869->1140|2969->1218|3016->1230|3107->1299|3147->1304|3237->1372|3277->1377|3368->1446|3407->1450|3496->1530|3535->1531|3756->1717|3823->1768|3862->1769|3966->1837|4001->1850|4070->1887|4136->1922|4391->2141|4419->2147|4583->2275|4600->2283|4637->2298|4675->2300|4692->2308|4727->2321|4775->2332|4806->2340|4917->2415|4936->2425|4983->2450|5029->2459|5049->2469|5096->2493|5145->2507|5277->2629|5325->2638|5364->2642|5386->2655|5425->2656|5464->2660|5512->2699|5567->2716|5606->2720|5701->2793|5743->2800|5837->2872|5879->2879|5974->2952|6009->2956|6033->2962|6045->2966|6083->2967|6147->3000|6183->3005|6282->3073|6316->3076|6631->3355|6659->3361|6823->3489|6840->3497|6877->3512|6915->3514|6932->3522|6967->3535|7015->3546|7046->3554|7095->3568|7180->3631|7433->3848|7461->3854|7627->3983|7645->3991|7683->4006|7722->4008|7740->4016|7776->4029|7825->4040|7857->4048|7908->4063|8013->4145|8368->4463|8397->4469|8564->4599|8582->4607|8620->4622|8659->4624|8677->4632|8713->4645|8762->4656|8794->4664|8844->4678|8954->4765|9215->4989|9244->4995|9411->5125|9429->5133|9467->5148|9506->5150|9524->5158|9560->5171|9609->5182|9641->5190|9691->5204|9821->5310
-                    LINES: 26->1|29->1|34->6|34->6|34->6|35->7|35->7|35->7|39->11|39->11|43->15|43->15|43->15|43->15|43->15|43->15|43->15|43->15|44->16|44->16|44->16|44->16|44->16|44->16|49->21|49->21|49->21|49->21|49->21|49->21|50->22|50->22|52->24|52->24|54->26|54->26|56->28|56->28|57->29|57->29|57->29|64->36|64->36|64->36|66->38|66->38|68->40|71->43|77->49|77->49|81->53|81->53|81->53|81->53|81->53|81->53|81->53|81->53|82->54|82->54|82->54|82->54|82->54|82->54|83->55|83->55|83->55|84->56|84->56|84->56|85->57|85->57|85->57|86->58|86->58|88->60|88->60|90->62|90->62|91->63|93->65|93->65|93->65|95->67|97->69|103->75|104->76|113->85|113->85|117->89|117->89|117->89|117->89|117->89|117->89|117->89|117->89|118->90|118->90|124->96|124->96|128->100|128->100|128->100|128->100|128->100|128->100|128->100|128->100|129->101|129->101|141->113|141->113|146->118|146->118|146->118|146->118|146->118|146->118|146->118|146->118|147->119|147->119|153->125|153->125|158->130|158->130|158->130|158->130|158->130|158->130|158->130|158->130|159->131|159->131
+                    HASH: 29d2b5808bc1d82d2aec15268651b327df47e491
+                    MATRIX: 912->1|1280->274|1391->351|1442->387|1480->388|1517->391|1589->455|1627->456|1808->601|1836->607|2095->830|2112->838|2149->853|2187->855|2204->863|2239->876|2288->888|2319->896|2420->961|2439->971|2486->996|2531->1005|2551->1015|2598->1039|2755->1160|2774->1170|2811->1185|2852->1190|2871->1200|2921->1228|2972->1243|3072->1321|3119->1333|3210->1402|3250->1407|3340->1475|3380->1480|3471->1549|3692->1735|3759->1786|3798->1787|3902->1855|3937->1868|4006->1905|4290->2153|4318->2159|4575->2380|4592->2388|4629->2403|4667->2405|4684->2413|4719->2426|4767->2437|4798->2445|4914->2525|4933->2535|4981->2560|5027->2569|5047->2579|5094->2603|5146->2620|5278->2742|5326->2751|5365->2755|5387->2768|5426->2769|5465->2773|5513->2812|5568->2829|5607->2833|5702->2906|5744->2913|5838->2985|5880->2992|5975->3065|6010->3069|6034->3075|6046->3079|6084->3080|6139->3104|6175->3109|6274->3177|6308->3180|6623->3459|6651->3465|6907->3685|6924->3693|6961->3708|6999->3710|7016->3718|7051->3731|7099->3742|7130->3750|7179->3764|7275->3838|7528->4055|7556->4061|7813->4281|7831->4289|7869->4304|7908->4306|7926->4314|7962->4327|8011->4338|8043->4346|8094->4361|8199->4443|8554->4761|8583->4767|8841->4988|8859->4996|8897->5011|8936->5013|8954->5021|8990->5034|9039->5045|9071->5053|9124->5070|9246->5168|9507->5392|9536->5398|9792->5617|9810->5625|9848->5640|9887->5642|9905->5650|9941->5663|9990->5674|10022->5682|10072->5696|10202->5802
+                    LINES: 26->1|29->1|34->6|34->6|34->6|35->7|35->7|35->7|39->11|39->11|45->17|45->17|45->17|45->17|45->17|45->17|45->17|45->17|46->18|46->18|46->18|46->18|46->18|46->18|51->23|51->23|51->23|51->23|51->23|51->23|52->24|52->24|54->26|54->26|56->28|56->28|58->30|58->30|65->37|65->37|65->37|67->39|67->39|69->41|78->50|78->50|83->55|83->55|83->55|83->55|83->55|83->55|83->55|83->55|84->56|84->56|84->56|84->56|84->56|84->56|85->57|85->57|85->57|86->58|86->58|86->58|87->59|87->59|87->59|88->60|88->60|90->62|90->62|92->64|92->64|93->65|95->67|95->67|95->67|97->69|99->71|105->77|106->78|115->87|115->87|120->92|120->92|120->92|120->92|120->92|120->92|120->92|120->92|121->93|121->93|127->99|127->99|132->104|132->104|132->104|132->104|132->104|132->104|132->104|132->104|133->105|133->105|145->117|145->117|150->122|150->122|150->122|150->122|150->122|150->122|150->122|150->122|151->123|151->123|157->129|157->129|162->134|162->134|162->134|162->134|162->134|162->134|162->134|162->134|163->135|163->135
                     -- GENERATED --
                 */
             

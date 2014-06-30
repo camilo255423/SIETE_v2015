@@ -85,7 +85,7 @@ public class NumeroParticipantes {
 				p.setString(3, periodo[Periodo.FECHAINICIO]);
 				p.setString(4, periodo[Periodo.FECHAFIN]);
 				estudiantesEvaluadosPorFacultad = NumeroParticipantes.consultarParticipantes(p); 
-				
+				System.out.println("estudiantes");
 				p = con.prepareStatement(NumeroParticipantes.consultaDocentesEvaluadosPorEstudiantesPorFacultad);
 				p.setString(1, fechaContrato);
 				p.setString(2, fechaContrato);
@@ -98,7 +98,7 @@ public class NumeroParticipantes {
 				p.setString(9, periodo[Periodo.FECHAINICIO]);
 				p.setString(10, periodo[Periodo.FECHAFIN]);
 				docentesEvaluadosPorEstudiantesPorFacultad = NumeroParticipantes.consultarParticipantes(p);
-				
+				System.out.println("docentes evaluados");
 				p = con.prepareStatement(NumeroParticipantes.consultaDocentesConAutoevaluacionPorFacultad);
 				p.setString(1, fechaContrato);
 				p.setString(2, fechaContrato);
@@ -113,18 +113,19 @@ public class NumeroParticipantes {
 				p.setString(11, semestre);
 				p.setString(12, periodo[Periodo.FECHAINICIO]);
 				docentesConAutoevaluacionPorFacultad = NumeroParticipantes.consultarParticipantes(p);
-
 				
 				p = con.prepareStatement(NumeroParticipantes.consultaDirectivosGestionEvaluadosPorFacultad);
 			
-				p.setString(1, periodo[Periodo.FECHAINICIO]);
-				p.setString(2, periodo[Periodo.FECHAFIN]);
+				p.setString(1, semestre);
+				p.setString(2, periodo[Periodo.FECHAINICIO]);
+				p.setString(3, periodo[Periodo.FECHAFIN]);
 				directivosGestionEvaluadosPorFacultad = NumeroParticipantes.consultarParticipantes(p);
 				
 				p = con.prepareStatement(NumeroParticipantes.consultaDirectivosInvestigacionEvaluadosPorFacultad);
 				p.setString(1, periodo[Periodo.FECHAINICIO]);
 				p.setString(2, periodo[Periodo.FECHAFIN]);
 				directivosInvestigacionEvaluadosPorFacultad = NumeroParticipantes.consultarParticipantes(p);
+				
 				con.close();		
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -446,14 +447,14 @@ public static final String consultaDirectivosGestionEvaluadosPorFacultad=
 "from "+
 "("+
 "select count(distinct cli_numdcto) as total, facultad_centro_costo.ID_DECAN as id_decan, facultad_centro_costo.nombre as facultad "+ 
-" from sai.tbl_docente_rol, facultad_centro_costo  "+ 
-" where estado='ACT' and cargo='DI' and facultad_centro_costo.id_decan = sai.tbl_docente_rol.id_decan  "+ 
+" from eva_view_docente_rol, facultad_centro_costo  "+ 
+" where periodo=? and estado='ACT' and cargo='DI' and facultad_centro_costo.id_decan = eva_view_docente_rol.id_decan  "+ 
 "group by facultad_centro_costo.ID_DECAN,facultad_centro_costo.nombre  "+ 
 ") a, "+  
 "(  "+ 
 "select count(distinct cli_numdcto) as encuestados, facultad_centro_costo.ID_DECAN as id_decan "+  
-" from sai.tbl_docente_rol, facultad_centro_costo   "+ 
-" where estado='ACT' and cargo='DI' and facultad_centro_costo.id_decan = sai.tbl_docente_rol.id_decan "+  
+" from eva_view_docente_rol, facultad_centro_costo   "+ 
+" where estado='ACT' and cargo='DI' and facultad_centro_costo.id_decan = eva_view_docente_rol.id_decan "+  
 "and cli_numdcto in  "+ 
 "(  "+ 
 "select distinct(CEDULA) "+  
@@ -484,14 +485,14 @@ public static final String consultaDirectivosInvestigacionEvaluadosPorFacultad=
 "from "+
 "("+
 "select count(distinct cli_numdcto) as total, facultad_centro_costo.ID_DECAN as id_decan, facultad_centro_costo.nombre as facultad "+ 
-" from sai.tbl_docente_rol, facultad_centro_costo  "+ 
-" where estado='ACT' and cargo='CI' and facultad_centro_costo.id_decan = sai.tbl_docente_rol.id_decan  "+ 
+" from eva_view_docente_rol, facultad_centro_costo  "+ 
+" where estado='ACT' and cargo='CI' and facultad_centro_costo.id_decan = eva_view_docente_rol.id_decan  "+ 
 "group by facultad_centro_costo.ID_DECAN,facultad_centro_costo.nombre  "+ 
 ") a, "+  
 "(  "+ 
 "select count(distinct cli_numdcto) as encuestados, facultad_centro_costo.ID_DECAN as id_decan "+  
-" from sai.tbl_docente_rol, facultad_centro_costo   "+ 
-" where estado='ACT' and cargo='CI' and facultad_centro_costo.id_decan = sai.tbl_docente_rol.id_decan "+  
+" from eva_view_docente_rol, facultad_centro_costo   "+ 
+" where estado='ACT' and cargo='CI' and facultad_centro_costo.id_decan = eva_view_docente_rol.id_decan "+  
 "and cli_numdcto in  "+ 
 "(  "+ 
 "select distinct(CEDULA) "+  

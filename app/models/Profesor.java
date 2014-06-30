@@ -53,8 +53,8 @@ public class Profesor {
 			String fecha = Periodo.getFechaContrato(semestre);
 			p.setString(1, fecha);
 			p.setString(2, fecha);
-		//	p.setString(3, fecha);
-		//	p.setString(4, fecha);
+			p.setString(3, fecha);
+			p.setString(4, fecha);
 
 			ResultSet rs=p.executeQuery();
 			while (rs.next()) {
@@ -202,14 +202,9 @@ public class Profesor {
  * Consulta sql que devuelve todos los profesores para un semestre dado
  */
 	
-	private static final String consultaProfesores =" SELECT  distinct NIT as documento, nombre as nombres, primer_apellido,segundo_apellido "+
-  "FROM   ICEBERG.EMPLEADO "+
- "WHERE to_date(?,'yyyy-mm-dd')>fecha_ingreso and "+ 
- "to_date(?,'yyyy-mm-dd')<FECHA_FIN_CONTRATO "+
-  "order by primer_apellido, segundo_apellido, nombre ";
-  
-		/*	
-	private static final String consultaProfesores ="select nit as documento, nombre_empleado as nombres,  ' ' as primer_apellido, ' ' as segundo_apellido "+ 
+	private static final String consultaProfesores ="SELECT  distinct NIT as documento, nombre_empleado as nombres, ' ' as primer_apellido,' ' as segundo_apellido "+
+"from ( "+
+"SELECT  * "+
 "FROM v1_empleado "+   
 "where  "+
 "EMPRESA IN ('CAT', 'DOC') "+
@@ -218,15 +213,18 @@ public class Profesor {
 "AND (FECHA_FIN_CONTRATO>to_date(?,'yyyy-mm-dd') "+
 "or FECHA_FIN_CONTRATO is null) "+
 "UNION ALL "+
-"select nit as documento, nombre_empleado as nombre,  ' ' as primer_apellido, ' ' as segundo_apellido  "+
-"FROM v1_empleado   "+ 
+"SELECT  * "+
+"FROM v1_empleado "+   
 "where  "+
-"EMPRESA IN ('CAT', 'DOC') "+
+" EMPRESA IN ('CAT', 'DOC') "+
 "AND NOMBRE_CARGO LIKE  'DOC%' "+
 "AND FECHA_INGRESO<to_date(?,'yyyy-mm-dd') "+
 "AND (FECHA_FIN_CONTRATO>to_date(?,'yyyy-mm-dd') "+
-"or FECHA_FIN_CONTRATO is null) order by nombres ";
-	*/		
+"or FECHA_FIN_CONTRATO is null) "+
+") "+
+"order by nombres";
+  
+		
 	/**
 	 * Consulta sql que permite encontrar los docentes por programa y semestre
 	 */

@@ -194,10 +194,10 @@ public class InformesDAO {
 			"AND GRP.CLI_TDCTO_PROF <> 'OT' "+
 			"AND AM.MAT_CODIGO = GRP.MAT_CODIGO "+
 			"AND GRP.CLI_NDCTO_PROF = ?) aa1 left join "+ // 2 CEDULA
-			"(select MATERIA,VALOR, CONTEO,f.TITULO as pregunta, ENUNCIADO, G.TITULO AS TIPO_CUESTIONARIO, "+ 
+			"(select MATERIA,VALOR, sum(CONTEOd) as conteo,f.TITULO as pregunta, ENUNCIADO, G.TITULO AS TIPO_CUESTIONARIO, "+ 
 			"SUBSTR (MATERIA, 1, INSTR (MATERIA, '|') - 1) as codigo_materia, "+ 
 			"SUBSTR (MATERIA, INSTR (MATERIA, '|',2) + 2, INSTR (MATERIA, '|',3) - 4) as grupo "+
-			"from (select IDCUESTIONARIOH,IDPREGUNTAH,materia, valor, count(*) as conteo from "+
+			"from (select IDCUESTIONARIOH,IDPREGUNTAH,materia, valor, count(*) as conteod from "+
 			"(SELECT * from (select * from sai.tbl_resultados) c, "+
 			"(select a.IDRESULTADOS as z, a.valor as profesor , b.valor as materia from "+
 			"(select * 	from sai.tbl_resultados) a, "+
@@ -214,6 +214,7 @@ public class InformesDAO {
 			"sai.TBL_H_CUESTIONARIOS g "+
 			"where w.IDPREGUNTAH= f.IDPREGUNTAH "+
 			"and w.IDCUESTIONARIOH=g.IDCUESTIONARIOH "+
+			"group by MATERIA,VALOR, f.TITULO, ENUNCIADO, G.TITULO "+
 			"order by materia,pregunta ) aa2 "+
 			"on aa1.codigo_materia=aa2.codigo_materia and aa1.grupo = aa2.grupo "+
 			"union	SELECT HCU.TITULO, CLI.CLI_TIPODCTO, CEDULA, CLI.CLI_NOMBRES,0,VALOR,1,PRE.TITULO AS CONSECUTIVO,ENUNCIADO "+
@@ -822,7 +823,15 @@ public class InformesDAO {
 						nivel = Integer.parseInt(rs.getString("valor")) -1;
 						Pregunta pregunta = ev.getPreguntas().get(indicePregunta);
 						pregunta.setEnunciado(rs.getString("enunciado"));
-					
+						
+						if(rs.getString("tipo_evaluacion").contains("AUTOEVALUACION DE LA DOCENCIA"))
+						{
+							int respnivel=0; 
+							int nNivel[]=pregunta.getNumeroRespuestasNivel();
+							respnivel=nNivel[0]+nNivel[1]+nNivel[2]+nNivel[3]+nNivel[4];
+							if(respnivel==0) pregunta.getNumeroRespuestasNivel()[nivel]=1;
+						}
+						else
 						pregunta.getNumeroRespuestasNivel()[nivel]=numeroRespuestas;
 						
 						}
