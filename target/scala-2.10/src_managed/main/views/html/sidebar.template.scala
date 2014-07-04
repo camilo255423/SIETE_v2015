@@ -33,7 +33,22 @@ Seq[Any](format.raw/*1.53*/("""
           <p>"""),_display_(Seq[Any](/*5.15*/listainformes())),format.raw/*5.30*/("""</p>
           """),_display_(Seq[Any](/*6.12*/if(session.get("rol")==Rol.COORDINADOR || session.get("rol")==Rol.ADMINISTRADOR)/*6.92*/{_display_(Seq[Any](format.raw/*6.93*/("""
           <p>"""),_display_(Seq[Any](/*7.15*/lista(profesores,1))),format.raw/*7.34*/("""</p>
-          """)))})),format.raw/*8.12*/("""
+          """)))}/*8.12*/else/*8.16*/{_display_(Seq[Any](format.raw/*8.17*/("""
+          <script>
+          $(
+			function()
+			"""),format.raw/*12.4*/("""{"""),format.raw/*12.5*/("""
+			$('#listainformes').on("change", cambioInforme);
+			"""),format.raw/*14.4*/("""}"""),format.raw/*14.5*/("""
+			);
+          function cambioInforme()
+			"""),format.raw/*17.4*/("""{"""),format.raw/*17.5*/("""
+			
+			cambioSemestre();
+
+			"""),format.raw/*21.4*/("""}"""),format.raw/*21.5*/("""
+		  </script>
+          """)))})),format.raw/*23.12*/("""
           
           <div id='descargas'>
           
@@ -57,11 +72,11 @@ Seq[Any](format.raw/*1.53*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Apr 07 16:23:53 COT 2014
+                    DATE: Tue Jul 01 10:58:25 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/sidebar.scala.html
-                    HASH: 47907d986dc60b073151467b6ff65eb23415ffb0
-                    MATRIX: 797->1|942->52|1052->127|1098->152|1152->171|1188->186|1239->202|1327->282|1365->283|1415->298|1455->317|1502->333
-                    LINES: 26->1|29->1|32->4|32->4|33->5|33->5|34->6|34->6|34->6|35->7|35->7|36->8
+                    HASH: 76440ad5df9b696af33ea0b912616d2c1a665298
+                    MATRIX: 797->1|942->52|1052->127|1098->152|1152->171|1188->186|1239->202|1327->282|1365->283|1415->298|1455->317|1489->333|1501->337|1539->338|1616->388|1644->389|1727->445|1755->446|1827->491|1855->492|1912->522|1940->523|1998->549
+                    LINES: 26->1|29->1|32->4|32->4|33->5|33->5|34->6|34->6|34->6|35->7|35->7|36->8|36->8|36->8|40->12|40->12|42->14|42->14|45->17|45->17|49->21|49->21|51->23
                     -- GENERATED --
                 */
             

@@ -66,7 +66,7 @@ public class Informe3 extends Controller {
 	 * @param semestre Recibe de la vista el semestre seleccionado por el usuario
 	 * @return devuelve el pdf generado
 	 */
-//	@Security.Authenticated(Secured.class)
+	@Security.Authenticated(Secured.class)
     public static Result pdf(String documento, String semestre)
     {
  			Document document = new Document();

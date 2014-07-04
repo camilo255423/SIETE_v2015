@@ -28,6 +28,8 @@ porcentaje @(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscrito
 	@tabladocencia(evaluacion,"Saber Específico",Pregunta.ESPECIFICO,6,8)
 	
 	@tabladocencia(evaluacion,"Saber Relacional",Pregunta.RELACIONAL,9,11)
+	@if(session.get("rol")==Rol.COORDINADOR || session.get("rol")==Rol.ADMINISTRADOR){
+	
 	<div class="titulotabla">Observaciones</div>
 		<table border='1'>
 		<tbody>
@@ -41,7 +43,7 @@ porcentaje @(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscrito
 	          }
 	    </tbody>
 	    </table>
-
+	}
 	</div>
 	<div id="tabs-autoevaluacion" style='page-break-after:always;'>	
    	<table width='704'>

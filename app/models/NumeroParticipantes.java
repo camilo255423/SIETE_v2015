@@ -450,7 +450,7 @@ public static final String consultaDirectivosGestionEvaluadosPorFacultad=
 " from eva_view_docente_rol, facultad_centro_costo  "+ 
 " where periodo=? and estado='ACT' and cargo='DI' and facultad_centro_costo.id_decan = eva_view_docente_rol.id_decan  "+ 
 "group by facultad_centro_costo.ID_DECAN,facultad_centro_costo.nombre  "+ 
-") a, "+  
+") a left join "+  
 "(  "+ 
 "select count(distinct cli_numdcto) as encuestados, facultad_centro_costo.ID_DECAN as id_decan "+  
 " from eva_view_docente_rol, facultad_centro_costo   "+ 
@@ -474,7 +474,7 @@ public static final String consultaDirectivosGestionEvaluadosPorFacultad=
 ")  "+ 
 "group by facultad_centro_costo.ID_DECAN "+  
 ") b  "+ 
-" where a.ID_DECAN = b.ID_DECAN "+  
+" on a.ID_DECAN = b.ID_DECAN "+  
 " order by idFacultad  ";
 
 /**
@@ -488,7 +488,7 @@ public static final String consultaDirectivosInvestigacionEvaluadosPorFacultad=
 " from eva_view_docente_rol, facultad_centro_costo  "+ 
 " where estado='ACT' and cargo='CI' and facultad_centro_costo.id_decan = eva_view_docente_rol.id_decan  "+ 
 "group by facultad_centro_costo.ID_DECAN,facultad_centro_costo.nombre  "+ 
-") a, "+  
+") a left join "+  
 "(  "+ 
 "select count(distinct cli_numdcto) as encuestados, facultad_centro_costo.ID_DECAN as id_decan "+  
 " from eva_view_docente_rol, facultad_centro_costo   "+ 
@@ -512,7 +512,7 @@ public static final String consultaDirectivosInvestigacionEvaluadosPorFacultad=
 ")  "+ 
 "group by facultad_centro_costo.ID_DECAN "+  
 ") b  "+ 
-" where a.ID_DECAN = b.ID_DECAN "+  
+" on a.ID_DECAN = b.ID_DECAN "+  
 " order by idFacultad  ";
 
 }

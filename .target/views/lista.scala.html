@@ -12,14 +12,6 @@
 $(
 function()
 {
-var availableTags = [
-      "azul",
-      "blanco",
-      "rojo",
-      "verde"];
-$( "#tags" ).autocomplete({
-      source: availableTags
-    })
 
 $('#listaProfesores').on("change", cambioProfesor);
 $('#listainformes').on("change", cambioInforme);
@@ -28,7 +20,6 @@ $('#listainformes').on("change", cambioInforme);
 );
 function cambioInforme()
 {
-
 cambioSemestre();
 cambioProfesor();
 }

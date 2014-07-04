@@ -20,13 +20,17 @@ function cambioSemestre()
 
 @if(session.get("rol")==Rol.PROFESOR){
 var documentoProfesor = '@session.get("documento")';
+
     if($('#listasemestres').val()!=-1)
     {
 	$("#informe").html("<div id='progressbar'>Cargando, por favor espere...</div>");
 	$("#progressbar").progressbar({
 	value:false
 	});
-	$.post("informeprofesor",{documento: documentoProfesor, semestre: $('#listasemestres').val()},mostrar);
+	if($('#listainformes').val()==1) $.post("informeprofesor",{documento: documentoProfesor, semestre: $('#listasemestres').val()},mostrar);
+	if($('#listainformes').val()==2) $.post("heteroevaluacion",{documento: documentoProfesor, semestre: $('#listasemestres').val()},mostrar);
+	if($('#listainformes').val()==3) $.post("informefinal",{documento: documentoProfesor, semestre: $('#listasemestres').val()},mostrar);
+	
 	enlaceDescargas(documentoProfesor,$('#listasemestres').val());
 	}
 

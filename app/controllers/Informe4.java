@@ -144,7 +144,9 @@ public class Informe4 extends Controller {
    		double porcentajeDocenciaEstudiantes=0.8;
    		double porcentajeDocenciaAutoevaluacion=0.2;
    		double porcentajeGestion=0.6;
-   		double porcentajeGestionAutoevaluacion=0.2;
+   		double porcentajeGestionAutoevaluacion=0.4;
+   		double porcentajeInvestigacion=0.6;
+   		double porcentajeInvestigacionAutoevaluacion=0.4;
    		
    	
 	    int fila=0;
@@ -259,30 +261,36 @@ public class Informe4 extends Controller {
    		row.createCell(columna++).setCellValue("Inferior");
    		row.createCell(columna++).setCellValue(ei.getPromedioRespuestas()[Nivel.INFERIOR]);	
    		row.createCell(columna++).setCellValue(aei.getPromedioRespuestas()[Nivel.INFERIOR]);	
+   		row.createCell(columna++).setCellValue(porcentajeInvestigacion*ei.getPromedioRespuestas()[Nivel.INFERIOR]+porcentajeInvestigacionAutoevaluacion*aei.getPromedioRespuestas()[Nivel.INFERIOR]);
    		
    		row = sheet.createRow(fila++);
    		columna=0;
    		row.createCell(columna++).setCellValue("Bajo");
    		row.createCell(columna++).setCellValue(ei.getPromedioRespuestas()[Nivel.BAJO]);	
    		row.createCell(columna++).setCellValue(aei.getPromedioRespuestas()[Nivel.BAJO]);	
+   		row.createCell(columna++).setCellValue(porcentajeInvestigacion*ei.getPromedioRespuestas()[Nivel.BAJO]+porcentajeInvestigacionAutoevaluacion*aei.getPromedioRespuestas()[Nivel.BAJO]);
    		
    		row = sheet.createRow(fila++);
    		columna=0;
    		row.createCell(columna++).setCellValue("Medio");
    		row.createCell(columna++).setCellValue(ei.getPromedioRespuestas()[Nivel.MEDIO]);	
    		row.createCell(columna++).setCellValue(aei.getPromedioRespuestas()[Nivel.MEDIO]);	
+   		row.createCell(columna++).setCellValue(porcentajeInvestigacion*ei.getPromedioRespuestas()[Nivel.MEDIO]+porcentajeInvestigacionAutoevaluacion*aei.getPromedioRespuestas()[Nivel.MEDIO]);
    		
    		row = sheet.createRow(fila++);
    		columna=0;
    		row.createCell(columna++).setCellValue("Alto");
    		row.createCell(columna++).setCellValue(ei.getPromedioRespuestas()[Nivel.ALTO]);	
    		row.createCell(columna++).setCellValue(aei.getPromedioRespuestas()[Nivel.ALTO]);	
+   		row.createCell(columna++).setCellValue(porcentajeInvestigacion*ei.getPromedioRespuestas()[Nivel.ALTO]+porcentajeInvestigacionAutoevaluacion*aei.getPromedioRespuestas()[Nivel.ALTO]);
+   		
 		
    		row = sheet.createRow(fila++);
    		columna=0;
    		row.createCell(columna++).setCellValue("Superior");
    		row.createCell(columna++).setCellValue(ei.getPromedioRespuestas()[Nivel.SUPERIOR]);	
    		row.createCell(columna++).setCellValue(aei.getPromedioRespuestas()[Nivel.SUPERIOR]);	
+   		row.createCell(columna++).setCellValue(porcentajeInvestigacion*ei.getPromedioRespuestas()[Nivel.SUPERIOR]+porcentajeInvestigacionAutoevaluacion*aei.getPromedioRespuestas()[Nivel.SUPERIOR]);
    		
    		//Set value to new value
    		 FileOutputStream out;
