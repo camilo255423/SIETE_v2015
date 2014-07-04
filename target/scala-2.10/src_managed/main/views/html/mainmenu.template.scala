@@ -45,11 +45,19 @@ Seq[Any](format.raw/*2.6*/("""<ul class="nav">
 }
                 /*
                     -- GENERATED --
+<<<<<<< HEAD
                     DATE: Mon May 12 13:05:37 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/mainmenu.scala.html
                     HASH: 5b5e8ccc492bd345efc21b301c0b60a9ae1d78f0
                     MATRIX: 858->11|933->51|947->57|988->77|1053->107|1102->148|1140->149|1199->173|1213->179|1248->193|1315->229|1389->268|1403->274|1445->295
                     LINES: 29->2|30->3|30->3|30->3|31->4|31->4|31->4|32->5|32->5|32->5|33->6|34->7|34->7|34->7
+=======
+                    DATE: Fri Jul 04 16:10:05 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/mainmenu.scala.html
+                    HASH: ead12252e02f642db613a8211642f40ad487e77a
+                    MATRIX: 858->11|938->56|952->62|993->82|1058->112|1107->153|1145->154|1204->178|1218->184|1253->198|1320->234|1394->273|1408->279|1450->300
+                    LINES: 29->2|31->4|31->4|31->4|32->5|32->5|32->5|33->6|33->6|33->6|34->7|35->8|35->8|35->8
+>>>>>>> 372fc1744ef1390cc0f6719f5a95e33da34749d9
                     -- GENERATED --
                 */
             

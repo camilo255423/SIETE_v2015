@@ -46,8 +46,13 @@ Seq[Any](format.raw/*1.50*/("""
 }
                 /*
                     -- GENERATED --
+<<<<<<< HEAD
                     DATE: Mon May 12 13:05:38 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/listafacultades.scala.html
+=======
+                    DATE: Fri Jul 04 16:10:06 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/listafacultades.scala.html
+>>>>>>> 372fc1744ef1390cc0f6719f5a95e33da34749d9
                     HASH: c4dade4afbbffd5290a4ff60a772ad696ac1900d
                     MATRIX: 800->1|942->49|1112->185|1154->212|1192->213|1244->230|1260->238|1298->255|1336->258|1352->266|1385->278|1426->289
                     LINES: 26->1|29->1|33->5|33->5|33->5|34->6|34->6|34->6|34->6|34->6|34->6|35->7

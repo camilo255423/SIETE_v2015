@@ -73,6 +73,7 @@ Seq[Any](format.raw/*1.53*/("""
                 /*
                     -- GENERATED --
 <<<<<<< HEAD
+<<<<<<< HEAD
                     DATE: Mon May 12 13:05:38 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/sidebar.scala.html
                     HASH: 47907d986dc60b073151467b6ff65eb23415ffb0
@@ -80,6 +81,9 @@ Seq[Any](format.raw/*1.53*/("""
                     LINES: 26->1|29->1|32->4|32->4|33->5|33->5|34->6|34->6|34->6|35->7|35->7|36->8
 =======
                     DATE: Tue Jul 01 10:58:25 COT 2014
+=======
+                    DATE: Fri Jul 04 16:10:06 COT 2014
+>>>>>>> 372fc1744ef1390cc0f6719f5a95e33da34749d9
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/sidebar.scala.html
                     HASH: 76440ad5df9b696af33ea0b912616d2c1a665298
                     MATRIX: 797->1|942->52|1052->127|1098->152|1152->171|1188->186|1239->202|1327->282|1365->283|1415->298|1455->317|1489->333|1501->337|1539->338|1616->388|1644->389|1727->445|1755->446|1827->491|1855->492|1912->522|1940->523|1998->549

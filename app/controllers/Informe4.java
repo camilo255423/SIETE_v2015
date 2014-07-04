@@ -92,7 +92,7 @@ public class Informe4 extends Controller {
  				PdfWriter writer = PdfWriter.getInstance(document,
  						
  				        new FileOutputStream(file));
- 				String imagen = routes.Assets.at(Application.LOGO_INPAHU).absoluteURL(request());
+ 				String imagen = Application.LOGO_INPAHU;
  				
  				
  				document.open();

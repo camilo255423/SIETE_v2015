@@ -50,8 +50,13 @@ Seq[Any](format.raw/*1.95*/("""
 }
                 /*
                     -- GENERATED --
+<<<<<<< HEAD
                     DATE: Mon May 12 13:05:46 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/informes/informedocencia.scala.html
+=======
+                    DATE: Fri Jul 04 16:10:10 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/informes/informedocencia.scala.html
+>>>>>>> 372fc1744ef1390cc0f6719f5a95e33da34749d9
                     HASH: ceaae20854a50d4ce397ee02c1d2eff314c32fc7
                     MATRIX: 838->1|1048->94|1075->119|1112->122|1136->138|1174->139|1243->173|1294->202|1329->206
                     LINES: 26->1|30->1|31->3|33->5|33->5|33->5|38->10|38->10|40->12

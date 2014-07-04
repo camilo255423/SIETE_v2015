@@ -55,8 +55,13 @@ Seq[Any](format.raw/*1.32*/("""
 }
                 /*
                     -- GENERATED --
+<<<<<<< HEAD
                     DATE: Mon May 12 13:05:38 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/encabezado.scala.html
+=======
+                    DATE: Fri Jul 04 16:10:06 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/encabezado.scala.html
+>>>>>>> 372fc1744ef1390cc0f6719f5a95e33da34749d9
                     HASH: f280299c038587c970c642650832a87b5b656b84
                     MATRIX: 784->1|908->31|996->84|1022->89|1083->115|1097->121|1145->148|1236->204|1250->210|1329->268|1424->327|1439->333|1493->365|1578->414|1593->420|1658->463|1764->533|1793->540
                     LINES: 26->1|29->1|35->7|35->7|36->8|36->8|36->8|37->9|37->9|37->9|38->10|38->10|38->10|39->11|39->11|39->11|43->15|43->15
