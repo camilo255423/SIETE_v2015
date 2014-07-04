@@ -53,18 +53,6 @@ public class Informe2 extends Controller {
  			Document document = new Document();
  		    document.open();
  		    File file=null; 
- 		    File folder = new File(".");
- 		    final File[] files = folder.listFiles();
- 		    for ( final File f : files ) {
- 		    	
- 		    	if(f.getName().contains(".pdf"))
- 		    	{	
- 			        if ( !f.delete() ) {
- 			            System.err.println( "Can't remove " + f.getAbsolutePath() );
- 			        }
- 		    	}
- 		    }
- 			
  		    Profesor profesor = Profesor.findByDocumento(documento);
  	    	Evaluacion evaluacion = InformesDAO.getInformeHeteroEvaluacion(documento, semestre);
  	    	
@@ -73,11 +61,16 @@ public class Informe2 extends Controller {
  				PdfWriter writer = PdfWriter.getInstance(document,
  						
  				        new FileOutputStream(file));
- 				String imagen = routes.Assets.at("images/logo-inpahu2.png").absoluteURL(request());
+ 				String imagen = routes.Assets.at(Application.LOGO_INPAHU).absoluteURL(request());
  				
  				document.open();
  				XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeheteroevaluacion.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), profesor, semestre, imagen).toString()));
- 	        	
+ 				response().setContentType("application/x-download");  
+ 	 	  		response().setHeader("Content-disposition","attachment; filename="+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".pdf");
+ 	 	   	    
+
+ 	 		    document.close();
+ 	 			return ok(file);
  			} catch (FileNotFoundException e) {
  				// TODO Auto-generated catch block
  				e.printStackTrace();
@@ -88,14 +81,15 @@ public class Informe2 extends Controller {
  				// TODO Auto-generated catch block
  				e.printStackTrace();
  			}
+ 			  finally {
+			        file.delete();
+			    }
+
+	 			return ok("");
+
 
  		
- 			response().setContentType("application/x-download");  
- 	  		response().setHeader("Content-disposition","attachment; filename="+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".pdf");
- 	   	    
-
- 		    document.close();
- 			return ok(file);
+ 			
  	    
     }
 	/**
@@ -115,18 +109,7 @@ public class Informe2 extends Controller {
    		EvaluacionInvestigacion ei = evaluacion.getEvaluacionInvestigacion();
    		HSSFSheet sheet = workbook.createSheet("Heteroevaluación");
    		//Create a new row in current sheet
-   	 File folder = new File(".");
-	    final File[] files = folder.listFiles();
-	    for ( final File f : files ) {
-	    	
-	    	if(f.getName().contains(".xls"))
-	    	{	
-		        if ( !f.delete() ) {
-		            System.err.println( "Can't remove " + f.getAbsolutePath() );
-		        }
-	    	}
-	    }
-	    double total=0;
+   	    double total=0;
 	    int fila=0;
    		int columna=0;
    		Row row = null;
@@ -139,7 +122,6 @@ public class Informe2 extends Controller {
    		Cell cell = row.createCell(columna);
    		cell.setCellValue(ev.getMateria().getNombre());
    		row = sheet.createRow(fila++);
-   		List<Pregunta> preguntas = Pregunta.getPreguntasEvaluacion(Pregunta.DOCENCIA);
    		String saberes[]={"Saber Pedagógico","Saber Específico","Saber Relacional"};
    		for(int w=0;w<=2;w++)
    		{
@@ -232,6 +214,10 @@ public class Informe2 extends Controller {
    		            new FileOutputStream(file);
    		    workbook.write(out);
    		    out.close();
+   		 response().setContentType("application/x-download");  
+   		response().setHeader("Content-disposition","attachment; filename="+"Heteroevaluación "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
+    	
+    		return ok(file);
    		    
    		    
    		} catch (FileNotFoundException e) {
@@ -239,11 +225,12 @@ public class Informe2 extends Controller {
    		} catch (IOException e) {
    		    e.printStackTrace();
    		}
-   		response().setContentType("application/x-download");  
-  		response().setHeader("Content-disposition","attachment; filename="+"Heteroevaluación "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
-   	
-   		return ok(file);
+   
+   		finally {
+	        file.delete();
+	    }
 
+		return ok("");
     }
 	/**
 	 * Genera la página web del informe 2-Heteroevaluación. Recibe los parámetros documento y semestre desde

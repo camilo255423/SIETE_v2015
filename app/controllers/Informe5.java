@@ -32,6 +32,7 @@ import models.ReportesDAO;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.Security;
 
 /**
  * Este controlador se encarga de procesar las solicitudes del informe 5
@@ -43,11 +44,12 @@ import play.mvc.Result;
  */
 
 public class Informe5 extends Controller {
-
+	@Security.Authenticated(Secured.class)
     public static Result index() {
     
     	return null;
     }
+	@Security.Authenticated(Secured.class)
     public static Result informePrograma()
     {
     	ArrayList<SaberNivel> mejorPeorSaberDocencia;
@@ -74,22 +76,14 @@ public class Informe5 extends Controller {
 	 * @param semestre Recibe de la vista el semestre seleccionado por el usuario
 	 * @return devuelve el pdf generado
 	 */
+	@Security.Authenticated(Secured.class)
     public static Result pdf(String codigoPrograma, String semestre)
     {
  			Document document = new Document();
  		    document.open();
  		    File file=null; 
- 		    File folder = new File(".");
- 		    final File[] files = folder.listFiles();
- 		    for ( final File f : files ) {
- 		    	
- 		    	if(f.getName().contains(".pdf"))
- 		    	{	
- 			        if ( !f.delete() ) {
- 			            System.err.println( "Can't remove " + f.getAbsolutePath() );
- 			        }
- 		    	}
- 		    }
+ 		  
+ 	
  		   Programa programa = Programa.findById(codigoPrograma);
  		  ArrayList<SaberNivel> mejorPeorSaberDocencia;
  	    	
@@ -105,13 +99,18 @@ public class Informe5 extends Controller {
  				PdfWriter writer = PdfWriter.getInstance(document,
  						
  				        new FileOutputStream(file));
- 				String imagen = routes.Assets.at("images/logo-inpahu2.png").absoluteURL(request());
+ 				String imagen = routes.Assets.at(Application.LOGO_INPAHU).absoluteURL(request());
  				
  				document.open();
  				//XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeheteroevaluacion.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), profesor, semestre, imagen).toString()));
  				XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeprograma.render(evaluacionDocencia,autoEvaluacionDocencia,evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),evaluacion.getAutoEvaluacionGestion(),evaluacion.getAutoEvaluacionInvestigacion(),
  						mejorPeorSaberDocencia,programa, semestre, imagen).toString()));
- 	        	
+ 				 
+ 	 			response().setContentType("application/x-download");  
+ 	 	  		response().setHeader("Content-disposition","attachment; filename="+"Programa "+programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".pdf");
+ 	 	   	
+ 	 		    document.close();
+ 	 			return ok(file); 	
  			} catch (FileNotFoundException e) {
  				// TODO Auto-generated catch block
  				e.printStackTrace();
@@ -122,14 +121,15 @@ public class Informe5 extends Controller {
  				// TODO Auto-generated catch block
  				e.printStackTrace();
  			}
+ 	   		finally {
+ 		        file.delete();
+ 		    }
+
+ 			return ok("");
+
 
  		
- 		    
- 			response().setContentType("application/x-download");  
- 	  		response().setHeader("Content-disposition","attachment; filename="+"Programa "+programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".pdf");
- 	   	
- 		    document.close();
- 			return ok(file);
+ 		   
  	    
     }
     /**
@@ -138,6 +138,7 @@ public class Informe5 extends Controller {
 	 * @param semestre Recibe de la vista el semestre seleccionado por el usuario
 	 * @return devuelve el archivo de excel generado.
 	 */
+	@Security.Authenticated(Secured.class)
     public static Result excel(String codigoPrograma, String semestre)
     {
     	Programa programa = Programa.findById(codigoPrograma);
@@ -153,21 +154,10 @@ public class Informe5 extends Controller {
    		double porcentajeDocenciaEstudiantes=0.8;
    		double porcentajeDocenciaAutoevaluacion=0.2;
    		double porcentajeGestion=0.6;
-   		double porcentajeGestionAutoevaluacion=0.2;
+   		double porcentajeGestionAutoevaluacion=0.4;
+   		double porcentajeInvestigacion=0.6;
+   		double porcentajeInvestigacionAutoevaluacion=0.4;
    		
-   		//Create a new row in current sheet
-   	 File folder = new File(".");
-	    final File[] files = folder.listFiles();
-	    for ( final File f : files ) {
-	    	
-	    	if(f.getName().contains(".xls"))
-	    	{	
-		        if ( !f.delete() ) {
-		            System.err.println( "Can't remove " + f.getAbsolutePath() );
-		        }
-	    	}
-	    }
-	    
 	    int fila=0;
    		int columna=0;
    		Row row = null;
@@ -206,21 +196,21 @@ public class Informe5 extends Controller {
    		row.createCell(columna++).setCellValue(ev.getPromedioRespuestas()[w][Nivel.BAJO]);
    		row.createCell(columna++).setCellValue(aev.getPromedioRespuestas()[w][Nivel.BAJO]);
    		row.createCell(columna++).setCellValue(porcentajeDocenciaEstudiantes*ev.getPromedioRespuestas()[w][Nivel.BAJO]+porcentajeDocenciaAutoevaluacion*aev.getPromedioRespuestas()[w][Nivel.BAJO]);
-   		
+ 		   		
    		columna=0;
    		row = sheet.createRow(fila++);
    		row.createCell(columna++).setCellValue("Nivel Medio");
    		row.createCell(columna++).setCellValue(ev.getPromedioRespuestas()[w][Nivel.MEDIO]);
    		row.createCell(columna++).setCellValue(aev.getPromedioRespuestas()[w][Nivel.MEDIO]);
    		row.createCell(columna++).setCellValue(porcentajeDocenciaEstudiantes*ev.getPromedioRespuestas()[w][Nivel.MEDIO]+porcentajeDocenciaAutoevaluacion*aev.getPromedioRespuestas()[w][Nivel.MEDIO]);
-   		
+ 		  
    		columna=0;
    		row = sheet.createRow(fila++);
    		row.createCell(columna++).setCellValue("Nivel Alto");
    		row.createCell(columna++).setCellValue(ev.getPromedioRespuestas()[w][Nivel.ALTO]);
    		row.createCell(columna++).setCellValue(aev.getPromedioRespuestas()[w][Nivel.ALTO]);
    		row.createCell(columna++).setCellValue(porcentajeDocenciaEstudiantes*ev.getPromedioRespuestas()[w][Nivel.ALTO]+porcentajeDocenciaAutoevaluacion*aev.getPromedioRespuestas()[w][Nivel.ALTO]);
-   		
+ 		  
    		columna=0;
    		row = sheet.createRow(fila++);
    		row.createCell(columna++).setCellValue("Nivel Superior");
@@ -279,31 +269,37 @@ public class Informe5 extends Controller {
    		row.createCell(columna++).setCellValue("Inferior");
    		row.createCell(columna++).setCellValue(ei.getPromedioRespuestas()[Nivel.INFERIOR]);	
    		row.createCell(columna++).setCellValue(aei.getPromedioRespuestas()[Nivel.INFERIOR]);	
+ 		row.createCell(columna++).setCellValue(porcentajeInvestigacion*ei.getPromedioRespuestas()[Nivel.INFERIOR]+porcentajeInvestigacionAutoevaluacion*aei.getPromedioRespuestas()[Nivel.INFERIOR]);
+ 		  
    		
    		row = sheet.createRow(fila++);
    		columna=0;
    		row.createCell(columna++).setCellValue("Bajo");
    		row.createCell(columna++).setCellValue(ei.getPromedioRespuestas()[Nivel.BAJO]);	
    		row.createCell(columna++).setCellValue(aei.getPromedioRespuestas()[Nivel.BAJO]);	
-   		
+ 		row.createCell(columna++).setCellValue(porcentajeInvestigacion*ei.getPromedioRespuestas()[Nivel.BAJO]+porcentajeInvestigacionAutoevaluacion*aei.getPromedioRespuestas()[Nivel.BAJO]);
+ 		  
    		row = sheet.createRow(fila++);
    		columna=0;
    		row.createCell(columna++).setCellValue("Medio");
    		row.createCell(columna++).setCellValue(ei.getPromedioRespuestas()[Nivel.MEDIO]);	
    		row.createCell(columna++).setCellValue(aei.getPromedioRespuestas()[Nivel.MEDIO]);	
-   		
+ 		row.createCell(columna++).setCellValue(porcentajeInvestigacion*ei.getPromedioRespuestas()[Nivel.MEDIO]+porcentajeInvestigacionAutoevaluacion*aei.getPromedioRespuestas()[Nivel.MEDIO]);
+ 		  
    		row = sheet.createRow(fila++);
    		columna=0;
    		row.createCell(columna++).setCellValue("Alto");
    		row.createCell(columna++).setCellValue(ei.getPromedioRespuestas()[Nivel.ALTO]);	
    		row.createCell(columna++).setCellValue(aei.getPromedioRespuestas()[Nivel.ALTO]);	
-		
+ 		row.createCell(columna++).setCellValue(porcentajeInvestigacion*ei.getPromedioRespuestas()[Nivel.ALTO]+porcentajeInvestigacionAutoevaluacion*aei.getPromedioRespuestas()[Nivel.ALTO]);
+ 		  
    		row = sheet.createRow(fila++);
    		columna=0;
    		row.createCell(columna++).setCellValue("Superior");
    		row.createCell(columna++).setCellValue(ei.getPromedioRespuestas()[Nivel.SUPERIOR]);	
    		row.createCell(columna++).setCellValue(aei.getPromedioRespuestas()[Nivel.SUPERIOR]);	
-   		
+ 		row.createCell(columna++).setCellValue(porcentajeInvestigacion*ei.getPromedioRespuestas()[Nivel.SUPERIOR]+porcentajeInvestigacionAutoevaluacion*aei.getPromedioRespuestas()[Nivel.SUPERIOR]);
+ 		  
    		//Set value to new value
    		 FileOutputStream out;
    		 File file = new File("Programa "+programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".xls");
@@ -313,17 +309,23 @@ public class Informe5 extends Controller {
    		            new FileOutputStream(file);
    		    workbook.write(out);
    		    out.close();
-   		    
+   			response().setContentType("application/x-download");  
+   		  	response().setHeader("Content-disposition","attachment; filename="+"Programa "+programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".xls");
+   		   		
+   	   		return ok(file);  
    		    
    		} catch (FileNotFoundException e) {
    		    e.printStackTrace();
    		} catch (IOException e) {
    		    e.printStackTrace();
    		}
-   		response().setContentType("application/x-download");  
-	  	response().setHeader("Content-disposition","attachment; filename="+"Programa "+programa.getCodPrograma()+" "+programa.getNombre()+" "+semestre+".xls");
-	   		
-   		return ok(file);
+   		finally {
+	        file.delete();
+	    }
+
+		return ok("");
+
+   	
 
     }
 

@@ -33,11 +33,12 @@ import java.text.DecimalFormat
 
 Seq[Any](format.raw/*1.86*/("""
 """),format.raw/*5.1*/("""<div class="titulotabla">"""),_display_(Seq[Any](/*5.27*/titulo)),format.raw/*5.33*/("""</div>
-	
+"""),_display_(Seq[Any](/*6.2*/if(!evaluacionGestion.getPreguntas().get(0).getEnunciado().equals(""))/*6.72*/{_display_(Seq[Any](format.raw/*6.73*/("""
+          
 <table border='1'>
 <tbody>
         <tr>
-        <td class="row_headers" rowspan='2' style="font-size: 8pt; width='4cm'">Enunciado</td>
+        <td class="row_headers" rowspan='2' style="font-size: 8pt;" width='7cm'>Enunciado</td>
 		<td class="row_headers" colspan='2' style="font-size: 8pt;">No Cumple</td>
 		<td class="row_headers" colspan='2' style="font-size: 8pt;">Cumple Parcialmente</td>
 		<td class="row_headers" colspan='2' style="font-size: 8pt;">Cumple Totalmente</td>
@@ -57,45 +58,48 @@ Seq[Any](format.raw/*1.86*/("""
               
              
           </tr>
-     	  """),_display_(Seq[Any](/*30.10*/defining(new DecimalFormat("##0.00"))/*30.47*/{formato=>_display_(Seq[Any](format.raw/*30.57*/("""
-          """),_display_(Seq[Any](/*31.12*/defining(Pregunta.getPreguntasEvaluacion(Pregunta.GESTION))/*31.71*/{preguntas=>_display_(Seq[Any](format.raw/*31.83*/("""
-	          """),_display_(Seq[Any](/*32.13*/for(i<-inicio to fin) yield /*32.34*/ {_display_(Seq[Any](format.raw/*32.36*/("""
-	          """),_display_(Seq[Any](/*33.13*/defining(evaluacionGestion.getPreguntas().get(evaluacionGestion.getPreguntas().indexOf(new Pregunta(preguntas.get(i).getTitulo()))))/*33.145*/{pregunta=>_display_(Seq[Any](format.raw/*33.156*/("""
+          
+     	  """),_display_(Seq[Any](/*32.10*/defining(new DecimalFormat("##0.00"))/*32.47*/{formato=>_display_(Seq[Any](format.raw/*32.57*/("""
+          """),_display_(Seq[Any](/*33.12*/defining(Pregunta.getPreguntasEvaluacion(Pregunta.GESTION))/*33.71*/{preguntas=>_display_(Seq[Any](format.raw/*33.83*/("""
+	          """),_display_(Seq[Any](/*34.13*/for(i<-inicio to fin) yield /*34.34*/ {_display_(Seq[Any](format.raw/*34.36*/("""
+	          """),_display_(Seq[Any](/*35.13*/defining(evaluacionGestion.getPreguntas().get(evaluacionGestion.getPreguntas().indexOf(new Pregunta(preguntas.get(i).getTitulo()))))/*35.145*/{pregunta=>_display_(Seq[Any](format.raw/*35.156*/("""
 	       	        <tr>
-	       	        <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*35.47*/pregunta/*35.55*/.getEnunciado())),format.raw/*35.70*/("""</td>
-	       	        <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*36.47*/pregunta/*36.55*/.getNumeroRespuestasNivel()/*36.82*/(Nivel.INFERIOR))),format.raw/*36.98*/("""</td>
-	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*37.47*/formato/*37.54*/.format(pregunta.getPorecentajeNivel()(Nivel.INFERIOR)))),format.raw/*37.109*/("""%</td>
-	            	<td style="font-size: 8pt;">"""),_display_(Seq[Any](/*38.44*/pregunta/*38.52*/.getNumeroRespuestasNivel()/*38.79*/(Nivel.BAJO))),format.raw/*38.91*/("""</td>
-	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*39.47*/formato/*39.54*/.format(pregunta.getPorecentajeNivel()(Nivel.BAJO)))),format.raw/*39.105*/("""%</td>
-	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*40.47*/pregunta/*40.55*/.getNumeroRespuestasNivel()/*40.82*/(Nivel.MEDIO))),format.raw/*40.95*/("""</td>
-	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*41.47*/formato/*41.54*/.format(pregunta.getPorecentajeNivel()(Nivel.MEDIO)))),format.raw/*41.106*/("""%</td>
-	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*42.47*/pregunta/*42.55*/.getNumeroRespuestasNivel()/*42.82*/(Nivel.ALTO))),format.raw/*42.94*/("""</td>
-	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*43.47*/formato/*43.54*/.format(pregunta.getPorecentajeNivel()(Nivel.ALTO)))),format.raw/*43.105*/("""%</td>
+	       	        <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*37.47*/pregunta/*37.55*/.getEnunciado())),format.raw/*37.70*/("""</td>
+	       	        <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*38.47*/pregunta/*38.55*/.getNumeroRespuestasNivel()/*38.82*/(Nivel.INFERIOR))),format.raw/*38.98*/("""</td>
+	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*39.47*/formato/*39.54*/.format(pregunta.getPorecentajeNivel()(Nivel.INFERIOR)))),format.raw/*39.109*/("""%</td>
+	            	<td style="font-size: 8pt;">"""),_display_(Seq[Any](/*40.44*/pregunta/*40.52*/.getNumeroRespuestasNivel()/*40.79*/(Nivel.BAJO))),format.raw/*40.91*/("""</td>
+	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*41.47*/formato/*41.54*/.format(pregunta.getPorecentajeNivel()(Nivel.BAJO)))),format.raw/*41.105*/("""%</td>
+	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*42.47*/pregunta/*42.55*/.getNumeroRespuestasNivel()/*42.82*/(Nivel.MEDIO))),format.raw/*42.95*/("""</td>
+	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*43.47*/formato/*43.54*/.format(pregunta.getPorecentajeNivel()(Nivel.MEDIO)))),format.raw/*43.106*/("""%</td>
+	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*44.47*/pregunta/*44.55*/.getNumeroRespuestasNivel()/*44.82*/(Nivel.ALTO))),format.raw/*44.94*/("""</td>
+	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*45.47*/formato/*45.54*/.format(pregunta.getPorecentajeNivel()(Nivel.ALTO)))),format.raw/*45.105*/("""%</td>
 	             
 	                </tr>
-	    			""")))})),format.raw/*46.10*/("""
-	           """)))})),format.raw/*47.14*/("""
+	    			""")))})),format.raw/*48.10*/("""
+	           """)))})),format.raw/*49.14*/("""
 		
-	        """)))})),format.raw/*49.11*/("""
+	        """)))})),format.raw/*51.11*/("""
 	        
        
         <tr>
 	       	        <td style="font-size: 8pt;">Promedio</td>
-	       	        <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*54.47*/formato/*54.54*/.format(evaluacionGestion.getPromedioRespuestas()(Nivel.INFERIOR)))),format.raw/*54.120*/("""</td>
-	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*55.47*/formato/*55.54*/.format(evaluacionGestion.getPromedioPorcentaje()(Nivel.INFERIOR)))),format.raw/*55.120*/("""%</td>
-	               	<td style="font-size: 8pt;">"""),_display_(Seq[Any](/*56.47*/formato/*56.54*/.format(evaluacionGestion.getPromedioRespuestas()(Nivel.BAJO)))),format.raw/*56.116*/("""</td>
-	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*57.47*/formato/*57.54*/.format(evaluacionGestion.getPromedioPorcentaje()(Nivel.BAJO)))),format.raw/*57.116*/("""%</td>
-	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*58.47*/formato/*58.54*/.format(evaluacionGestion.getPromedioRespuestas()(Nivel.MEDIO)))),format.raw/*58.117*/("""</td>
-	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*59.47*/formato/*59.54*/.format(evaluacionGestion.getPromedioPorcentaje()(Nivel.MEDIO)))),format.raw/*59.117*/("""%</td>
-	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*60.47*/formato/*60.54*/.format(evaluacionGestion.getPromedioRespuestas()(Nivel.ALTO)))),format.raw/*60.116*/("""</td>
-	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*61.47*/formato/*61.54*/.format(evaluacionGestion.getPromedioPorcentaje()(Nivel.ALTO)))),format.raw/*61.116*/("""%</td>
+	       	        <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*56.47*/formato/*56.54*/.format(evaluacionGestion.getPromedioRespuestas()(Nivel.INFERIOR)))),format.raw/*56.120*/("""</td>
+	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*57.47*/formato/*57.54*/.format(evaluacionGestion.getPromedioPorcentaje()(Nivel.INFERIOR)))),format.raw/*57.120*/("""%</td>
+	               	<td style="font-size: 8pt;">"""),_display_(Seq[Any](/*58.47*/formato/*58.54*/.format(evaluacionGestion.getPromedioRespuestas()(Nivel.BAJO)))),format.raw/*58.116*/("""</td>
+	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*59.47*/formato/*59.54*/.format(evaluacionGestion.getPromedioPorcentaje()(Nivel.BAJO)))),format.raw/*59.116*/("""%</td>
+	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*60.47*/formato/*60.54*/.format(evaluacionGestion.getPromedioRespuestas()(Nivel.MEDIO)))),format.raw/*60.117*/("""</td>
+	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*61.47*/formato/*61.54*/.format(evaluacionGestion.getPromedioPorcentaje()(Nivel.MEDIO)))),format.raw/*61.117*/("""%</td>
+	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*62.47*/formato/*62.54*/.format(evaluacionGestion.getPromedioRespuestas()(Nivel.ALTO)))),format.raw/*62.116*/("""</td>
+	                <td style="font-size: 8pt;">"""),_display_(Seq[Any](/*63.47*/formato/*63.54*/.format(evaluacionGestion.getPromedioPorcentaje()(Nivel.ALTO)))),format.raw/*63.116*/("""%</td>
 	   
 
 	                </tr>
-	         """)))})),format.raw/*65.12*/("""        
+	         """)))})),format.raw/*67.12*/("""        
             </tbody>
 </table>
-"""))}
+""")))}/*70.2*/else/*70.6*/{_display_(Seq[Any](format.raw/*70.7*/("""
+Sin Evaluación 
+""")))})))}
     }
     
     def render(evaluacionGestion:EvaluacionGestion,titulo:String,saber:Int,inicio:Int,fin:Int): play.api.templates.HtmlFormat.Appendable = apply(evaluacionGestion,titulo,saber,inicio,fin)
@@ -107,11 +111,19 @@ Seq[Any](format.raw/*1.86*/("""
 }
                 /*
                     -- GENERATED --
+<<<<<<< HEAD
                     DATE: Mon May 12 13:05:45 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/pdf/tablagestion.scala.html
                     HASH: 556fac22aba60fd73e0e9f864527a10f8c354c28
                     MATRIX: 815->1|1069->85|1096->163|1157->189|1184->195|2357->1332|2403->1369|2451->1379|2499->1391|2567->1450|2617->1462|2666->1475|2703->1496|2743->1498|2792->1511|2934->1643|2984->1654|3089->1723|3106->1731|3143->1746|3231->1798|3248->1806|3284->1833|3322->1849|3410->1901|3426->1908|3504->1963|3590->2013|3607->2021|3643->2048|3677->2060|3765->2112|3781->2119|3855->2170|3944->2223|3961->2231|3997->2258|4032->2271|4120->2323|4136->2330|4211->2382|4300->2435|4317->2443|4353->2470|4387->2482|4475->2534|4491->2541|4565->2592|4651->2646|4697->2660|4743->2674|4916->2811|4932->2818|5021->2884|5109->2936|5125->2943|5214->3009|5303->3062|5319->3069|5404->3131|5492->3183|5508->3190|5593->3252|5682->3305|5698->3312|5784->3375|5872->3427|5888->3434|5974->3497|6063->3550|6079->3557|6164->3619|6252->3671|6268->3678|6353->3740|6432->3787
                     LINES: 26->1|34->1|35->5|35->5|35->5|60->30|60->30|60->30|61->31|61->31|61->31|62->32|62->32|62->32|63->33|63->33|63->33|65->35|65->35|65->35|66->36|66->36|66->36|66->36|67->37|67->37|67->37|68->38|68->38|68->38|68->38|69->39|69->39|69->39|70->40|70->40|70->40|70->40|71->41|71->41|71->41|72->42|72->42|72->42|72->42|73->43|73->43|73->43|76->46|77->47|79->49|84->54|84->54|84->54|85->55|85->55|85->55|86->56|86->56|86->56|87->57|87->57|87->57|88->58|88->58|88->58|89->59|89->59|89->59|90->60|90->60|90->60|91->61|91->61|91->61|95->65
+=======
+                    DATE: Tue Jun 03 16:22:54 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/pdf/tablagestion.scala.html
+                    HASH: a5b12623ad8041a0308471893f9c591dc28b02e0
+                    MATRIX: 815->1|1069->85|1096->163|1157->189|1184->195|1226->203|1304->273|1342->274|2529->1425|2575->1462|2623->1472|2671->1484|2739->1543|2789->1555|2838->1568|2875->1589|2915->1591|2964->1604|3106->1736|3156->1747|3261->1816|3278->1824|3315->1839|3403->1891|3420->1899|3456->1926|3494->1942|3582->1994|3598->2001|3676->2056|3762->2106|3779->2114|3815->2141|3849->2153|3937->2205|3953->2212|4027->2263|4116->2316|4133->2324|4169->2351|4204->2364|4292->2416|4308->2423|4383->2475|4472->2528|4489->2536|4525->2563|4559->2575|4647->2627|4663->2634|4737->2685|4823->2739|4869->2753|4915->2767|5088->2904|5104->2911|5193->2977|5281->3029|5297->3036|5386->3102|5475->3155|5491->3162|5576->3224|5664->3276|5680->3283|5765->3345|5854->3398|5870->3405|5956->3468|6044->3520|6060->3527|6146->3590|6235->3643|6251->3650|6336->3712|6424->3764|6440->3771|6525->3833|6604->3880|6662->3920|6674->3924|6712->3925
+                    LINES: 26->1|34->1|35->5|35->5|35->5|36->6|36->6|36->6|62->32|62->32|62->32|63->33|63->33|63->33|64->34|64->34|64->34|65->35|65->35|65->35|67->37|67->37|67->37|68->38|68->38|68->38|68->38|69->39|69->39|69->39|70->40|70->40|70->40|70->40|71->41|71->41|71->41|72->42|72->42|72->42|72->42|73->43|73->43|73->43|74->44|74->44|74->44|74->44|75->45|75->45|75->45|78->48|79->49|81->51|86->56|86->56|86->56|87->57|87->57|87->57|88->58|88->58|88->58|89->59|89->59|89->59|90->60|90->60|90->60|91->61|91->61|91->61|92->62|92->62|92->62|93->63|93->63|93->63|97->67|100->70|100->70|100->70
+>>>>>>> 93429d7fbc474b9d33705b1aa2e201ce50fe2153
                     -- GENERATED --
                 */
             

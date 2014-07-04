@@ -117,17 +117,8 @@ public class Informe3 extends Controller {
  			Document document = new Document();
  		    document.open();
  		    File file=null; 
- 		    File folder = new File(".");
- 		    final File[] files = folder.listFiles();
- 		    for ( final File f : files ) {
- 		    	
- 		    	if(f.getName().contains(".pdf"))
- 		    	{	
- 			        if ( !f.delete() ) {
- 			            System.err.println( "Can't remove " + f.getAbsolutePath() );
- 			        }
- 		    	}
- 		    }
+ 
+ 		
  		   Profesor profesor = Profesor.findByDocumento(documento);
  		   Evaluacion evaluacion = InformesDAO.getInformeFinal(documento, semestre);
  	    	EvaluacionMateria evaluacionDocencia=null;
@@ -140,12 +131,15 @@ public class Informe3 extends Controller {
  				PdfWriter writer = PdfWriter.getInstance(document,
  						
  				        new FileOutputStream(file));
- 				String imagen = routes.Assets.at("images/logo-inpahu2.png").absoluteURL(request());
+ 				String imagen = routes.Assets.at(Application.LOGO_INPAHU).absoluteURL(request());
  				
  				document.open();
  				//XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeheteroevaluacion.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), profesor, semestre, imagen).toString()));
  				XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informefinal.render(evaluacionDocencia,autoEvaluacionDocencia,evaluacion.getEvaluacionGestion(),evaluacion.getEvaluacionInvestigacion(),evaluacion.getAutoEvaluacionGestion(),evaluacion.getAutoEvaluacionInvestigacion(), profesor, semestre, imagen).toString()));
- 	        	
+ 				response().setContentType("application/x-download");  
+ 	 	  		response().setHeader("Content-disposition","attachment; filename="+"Final "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".pdf");
+ 	 		    document.close();
+ 	 			return ok(file);
  			} catch (FileNotFoundException e) {
  				// TODO Auto-generated catch block
  				e.printStackTrace();
@@ -156,14 +150,11 @@ public class Informe3 extends Controller {
  				// TODO Auto-generated catch block
  				e.printStackTrace();
  			}
+		     finally {
+		        file.delete();
+		    }
 
- 			response().setContentType("application/x-download");  
- 	  		response().setHeader("Content-disposition","attachment; filename="+"Final "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".pdf");
- 	   	
- 		    
-
- 		    document.close();
- 			return ok(file);
+ 			return ok("");
  	    
     }
 	/**
@@ -188,18 +179,7 @@ public class Informe3 extends Controller {
    		double porcentajeGestion=0.6;
    		double porcentajeGestionAutoevaluacion=0.2;
    		
-   		//Create a new row in current sheet
-   	 File folder = new File(".");
-	    final File[] files = folder.listFiles();
-	    for ( final File f : files ) {
-	    	
-	    	if(f.getName().contains(".xls"))
-	    	{	
-		        if ( !f.delete() ) {
-		            System.err.println( "Can't remove " + f.getAbsolutePath() );
-		        }
-	    	}
-	    }
+   		
 	    double total=0;
 	    int fila=0;
    		int columna=0;
@@ -344,18 +324,23 @@ public class Informe3 extends Controller {
    		            new FileOutputStream(file);
    		    workbook.write(out);
    		    out.close();
-   		    
+   		 response().setContentType("application/x-download");  
+   		response().setHeader("Content-disposition","attachment; filename="+"Final "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
+    	
+    		return ok(file);
    		    
    		} catch (FileNotFoundException e) {
    		    e.printStackTrace();
    		} catch (IOException e) {
    		    e.printStackTrace();
    		}
+   		finally {
+	        file.delete();
+	    }
+
+		return ok("");
    		
-   		response().setContentType("application/x-download");  
-  		response().setHeader("Content-disposition","attachment; filename="+"Final "+profesor.getApellidos()+" "+profesor.getNombres()+" "+semestre+".xls");
-   	
-   		return ok(file);
+   		
 
     }
 

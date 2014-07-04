@@ -28,19 +28,18 @@ object listainformes extends BaseScalaTemplate[play.api.templates.HtmlFormat.App
 
 Seq[Any](format.raw/*2.1*/("""<select id='listainformes'>
 <option value='1'>Informe 1 - Detallado</option>
-"""),_display_(Seq[Any](/*4.2*/if(session.get("rol")==Rol.COORDINADOR || session.get("rol")==Rol.ADMINISTRADOR)/*4.82*/{_display_(Seq[Any](format.raw/*4.83*/("""
 <option value='2'>Informe 2 - Heteroevaluación</option>
 <option value='3'>Informe 3 - Final</option>
-""")))})),format.raw/*7.2*/("""
-"""),_display_(Seq[Any](/*8.2*/if(session.get("rol")==Rol.ADMINISTRADOR)/*8.43*/{_display_(Seq[Any](format.raw/*8.44*/("""
+
+"""),_display_(Seq[Any](/*7.2*/if(session.get("rol")==Rol.ADMINISTRADOR)/*7.43*/{_display_(Seq[Any](format.raw/*7.44*/("""
 <option value='4'>Informe 4 - por Facultad</option>
-""")))})),format.raw/*10.2*/("""
-"""),_display_(Seq[Any](/*11.2*/if(session.get("rol")==Rol.COORDINADOR || session.get("rol")==Rol.ADMINISTRADOR)/*11.82*/{_display_(Seq[Any](format.raw/*11.83*/("""
+""")))})),format.raw/*9.2*/("""
+"""),_display_(Seq[Any](/*10.2*/if(session.get("rol")==Rol.COORDINADOR || session.get("rol")==Rol.ADMINISTRADOR)/*10.82*/{_display_(Seq[Any](format.raw/*10.83*/("""
 <option value='5'>Informe 5 - por Programa</option>
-""")))})),format.raw/*13.2*/("""
-"""),_display_(Seq[Any](/*14.2*/if(session.get("rol")==Rol.ADMINISTRADOR)/*14.43*/{_display_(Seq[Any](format.raw/*14.44*/("""
+""")))})),format.raw/*12.2*/("""
+"""),_display_(Seq[Any](/*13.2*/if(session.get("rol")==Rol.ADMINISTRADOR)/*13.43*/{_display_(Seq[Any](format.raw/*13.44*/("""
 <option value='6'>Informe 6 - Participantes</option>
-""")))})),format.raw/*16.2*/("""
+""")))})),format.raw/*15.2*/("""
 </select>"""))}
     }
     
@@ -53,11 +52,19 @@ Seq[Any](format.raw/*2.1*/("""<select id='listainformes'>
 }
                 /*
                     -- GENERATED --
+<<<<<<< HEAD
                     DATE: Mon May 12 13:05:38 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/listainformes.scala.html
                     HASH: 68a8b787e88beafb4c44787574dde760e25857cd
                     MATRIX: 863->1|975->79|1063->159|1101->160|1234->263|1270->265|1319->306|1357->307|1442->361|1479->363|1568->443|1607->444|1692->498|1729->500|1779->541|1818->542|1904->597
                     LINES: 29->2|31->4|31->4|31->4|34->7|35->8|35->8|35->8|37->10|38->11|38->11|38->11|40->13|41->14|41->14|41->14|43->16
+=======
+                    DATE: Tue Jul 01 10:24:03 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/listainformes.scala.html
+                    HASH: 0f3aab1f87ff6471e36e5d5dc46032402e94d03e
+                    MATRIX: 863->1|1077->181|1126->222|1164->223|1248->277|1285->279|1374->359|1413->360|1498->414|1535->416|1585->457|1624->458|1710->513
+                    LINES: 29->2|34->7|34->7|34->7|36->9|37->10|37->10|37->10|39->12|40->13|40->13|40->13|42->15
+>>>>>>> 93429d7fbc474b9d33705b1aa2e201ce50fe2153
                     -- GENERATED --
                 */
             

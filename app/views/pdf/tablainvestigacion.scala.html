@@ -3,7 +3,7 @@
 @import models.Nivel
 @import java.text.DecimalFormat
 <div class="titulotabla">@titulo</div>
-	
+@if(!evaluacionInvestigacion.getPreguntas().get(0).getEnunciado().equals("")){	
 <table border='1'>
 <tbody>
    <tr style="font-size: 8pt;">
@@ -69,3 +69,6 @@
 	        }        
             </tbody>
 </table>
+}else{
+Sin Evaluación 
+}

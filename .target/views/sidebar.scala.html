@@ -5,6 +5,21 @@
           <p>@listainformes()</p>
           @if(session.get("rol")==Rol.COORDINADOR || session.get("rol")==Rol.ADMINISTRADOR){
           <p>@lista(profesores,1)</p>
+          }else{
+          <script>
+          $(
+			function()
+			{
+			$('#listainformes').on("change", cambioInforme);
+			}
+			);
+          function cambioInforme()
+			{
+			
+			cambioSemestre();
+
+			}
+		  </script>
           }
           
           <div id='descargas'>

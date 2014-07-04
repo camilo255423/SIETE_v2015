@@ -65,12 +65,12 @@ public class Periodo {
 		System.out.println("semestre"+semestre);
 		if(semestre=='1')
 		{	
-			fecha=ano+"-"+"03"+"-"+"03";
+			fecha=ano+"-"+"05"+"-"+"03";
 			
 		}	
 		else
 		{	
-			fecha=ano+"-"+"10"+"-"+"10";
+			fecha=ano+"-"+"11"+"-"+"03";
 			
 		}			
 		

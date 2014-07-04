@@ -14,15 +14,20 @@
   	</tr>
   	
 	</table>
-	<div style="text-align:center"><p><b>Evaluación del Desempeño Docente @semestre</b></p></div>
-	<div style="text-align:center"><p><b>Informe Final</b></p></div>
+	<div style="text-align:center"><p><b>Oficina de Aseguramiento de la Calidad</b></p></div>
+	<div style="text-align:center"><p><b>Informe Final Evaluación del Desempeño Docente @semestre</b></p></div>
     <div style="text-align:center"><p><b>@profesor.getApellidos() @profesor.getNombres()</b></p></div>
   
 	  @defining(new DecimalFormat("##0.00")){formato=>
 <h4>Campo de la Docencia</h4>
+<h4> Estudiantes encuestados: @evaluacionDocencia.getEvaluados() de @evaluacionDocencia.getMateria().getInscritos(),
+@if(evaluacionDocencia.getMateria().getInscritos()>0){ 
+porcentaje @(10000*evaluacionDocencia.getEvaluados()/evaluacionDocencia.getMateria().getInscritos()/100.0)% 
+	}
+	</h4>
 	<table border='1'>
 	<tbody>
-         <tr style="font-size: 8pt;">
+        <tr style="font-size: 8pt;">
         <td class="row_headers" align="center" valign="middle"><b>Saber Evaluado</b></td>
         <td class="row_headers" align="center" valign="middle"><b>Nivel de Desempeño</b></td>
 		<td class="row_headers" align="center" valign="middle" width='5cm'><b>Porcentaje de Respuestas Estudiantes, ponderación 80%</b></td>
@@ -59,7 +64,19 @@
                 <td class="row_headers" align="center" valign="middle">@formato.format(evaluacionDocencia.getPromedioRespuestas()(0)(Nivel.SUPERIOR)) %</td>
                 <td class="row_headers" align="center" valign="middle">@formato.format(autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.SUPERIOR)) %</td>
                 <td class="row_headers" align="center" valign="middle">@formato.format((evaluacionDocencia.getPromedioRespuestas()(0)(Nivel.SUPERIOR)*0.8 + autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.SUPERIOR)*0.2)) %</td>
-                </tr>    
+                </tr>   
+                </tbody>
+                </table>
+                <br></br>
+                <table border='1'>
+                <tbody>
+                 <tr style="font-size: 8pt;">
+        <td class="row_headers" align="center" valign="middle"><b>Saber Evaluado</b></td>
+        <td class="row_headers" align="center" valign="middle"><b>Nivel de Desempeño</b></td>
+		<td class="row_headers" align="center" valign="middle" width='5cm'><b>Porcentaje de Respuestas Estudiantes, ponderación 80%</b></td>
+		<td class="row_headers" align="center" valign="middle" width='5cm'><b>Porcentaje de Respuestas Autoevaluación, ponderación 20%</b></td>
+		<td class="row_headers" align="center" valign="middle" width='2cm'><b>Evaluación Resultante</b></td>
+	     </tr>
        			 <tr style="font-size: 8pt;">
 				<td class="row_headers" rowspan='5'>Saber Específico</td>
 				<td class="row_headers" align="center" valign="middle">Inferior</td>
@@ -90,9 +107,19 @@
                 <td class="row_headers" align="center" valign="middle">@formato.format(evaluacionDocencia.getPromedioRespuestas()(1)(Nivel.SUPERIOR)) %</td>
                 <td class="row_headers" align="center" valign="middle">@formato.format(autoEvaluacionDocencia.getPromedioRespuestas()(1)(Nivel.SUPERIOR)) %</td>
                 <td class="row_headers" align="center" valign="middle">@formato.format((evaluacionDocencia.getPromedioRespuestas()(1)(Nivel.SUPERIOR)*0.8 + autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.SUPERIOR)*0.2)) %</td>
-                </tr>    
-          
-   
+                </tr>  
+                </tbody>  
+          </table>
+          <br></br>
+  <table border='1'>
+   <tbody>
+    <tr style="font-size: 8pt;">
+        <td class="row_headers" align="center" valign="middle"><b>Saber Evaluado</b></td>
+        <td class="row_headers" align="center" valign="middle"><b>Nivel de Desempeño</b></td>
+		<td class="row_headers" align="center" valign="middle" width='5cm'><b>Porcentaje de Respuestas Estudiantes, ponderación 80%</b></td>
+		<td class="row_headers" align="center" valign="middle" width='5cm'><b>Porcentaje de Respuestas Autoevaluación, ponderación 20%</b></td>
+		<td class="row_headers" align="center" valign="middle" width='2cm'><b>Evaluación Resultante</b></td>
+	     </tr>
 	 			 <tr style="font-size: 8pt;">
 				<td class="row_headers" rowspan='5'>Saber Relacional</td>
      			<td class="row_headers" align="center" valign="middle">Inferior</td>
@@ -124,13 +151,12 @@
                 <td class="row_headers" align="center" valign="middle">@formato.format(autoEvaluacionDocencia.getPromedioRespuestas()(2)(Nivel.SUPERIOR)) %</td>
                 <td class="row_headers" align="center" valign="middle">@formato.format((evaluacionDocencia.getPromedioRespuestas()(2)(Nivel.SUPERIOR)*0.8 + autoEvaluacionDocencia.getPromedioRespuestas()(0)(Nivel.SUPERIOR)*0.2)) %</td>
                 </tr>    
-              
+          </tbody>
+              </table>
              
       
         
-          
-          </tbody>
-          </table>
+    
               <h4>Campo de la Gestión</h4>
 	<table border='1'>
 	<tbody>

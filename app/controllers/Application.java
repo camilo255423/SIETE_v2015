@@ -1,6 +1,9 @@
 package controllers;
 
 
+
+
+
 import java.util.ArrayList;
 import java.util.List;
 import static play.data.Form.*;
@@ -30,6 +33,9 @@ public class Application extends Controller {
 	 * al web service de autenticación de usuarios.
 	 *
 	 */
+	
+	public static final String LOGO_INPAHU = "http://192.168.1.215/imagenes/v1/apps/ulises/logoEafit.gif";
+	//public static final String LOGO_INPAHU = "images/logo-inpahu2.jpg";
 	public static class Login {
 
         public String email;
@@ -51,7 +57,6 @@ public class Application extends Controller {
         		cedula = LoginWebService.autenticar(email, password);
         		
         	}
-        // 13923305 EMILIO BARAJAS
         	
 
         	

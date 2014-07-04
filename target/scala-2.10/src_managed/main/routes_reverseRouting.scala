@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 // @SOURCE:/home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/conf/routes
 // @HASH:8e5298809b4edad6ce986d042e17fd887b824817
 // @DATE:Fri Jun 20 09:24:39 COT 2014
+=======
+// @SOURCE:/home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/conf/routes
+// @HASH:5c7ce7a604e2c399005b6a704e9d26b1c69e913c
+// @DATE:Tue May 20 18:33:43 COT 2014
+>>>>>>> 93429d7fbc474b9d33705b1aa2e201ce50fe2153
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -47,7 +53,10 @@ import Router.queryString
 package controllers {
 
 // @LINE:34
+<<<<<<< HEAD
 // @LINE:17
+=======
+>>>>>>> 93429d7fbc474b9d33705b1aa2e201ce50fe2153
 // @LINE:16
 class ReverseInforme5 {
     
@@ -147,8 +156,25 @@ def index(): Call = {
 }
                           
 
+<<<<<<< HEAD
 // @LINE:33
 // @LINE:15
+=======
+// @LINE:19
+class ReverseGenerador {
+    
+
+// @LINE:19
+def index(documento:String): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "generador/" + implicitly[PathBindable[String]].unbind("documento", dynamicString(documento)))
+}
+                                                
+    
+}
+                          
+
+// @LINE:33
+>>>>>>> 93429d7fbc474b9d33705b1aa2e201ce50fe2153
 // @LINE:14
 class ReverseInforme4 {
     
@@ -175,7 +201,10 @@ def excel(documento:String, semestre:String): Call = {
                           
 
 // @LINE:35
+<<<<<<< HEAD
 // @LINE:19
+=======
+>>>>>>> 93429d7fbc474b9d33705b1aa2e201ce50fe2153
 // @LINE:18
 class ReverseInforme6 {
     
@@ -203,7 +232,10 @@ def excel(documento:String, semestre:String): Call = {
 
 // @LINE:32
 // @LINE:29
+<<<<<<< HEAD
 // @LINE:13
+=======
+>>>>>>> 93429d7fbc474b9d33705b1aa2e201ce50fe2153
 // @LINE:12
 // @LINE:11
 class ReverseInforme3 {
@@ -358,7 +390,10 @@ def excel(documento:String, semestre:String): Call = {
 package controllers.javascript {
 
 // @LINE:34
+<<<<<<< HEAD
 // @LINE:17
+=======
+>>>>>>> 93429d7fbc474b9d33705b1aa2e201ce50fe2153
 // @LINE:16
 class ReverseInforme5 {
     
@@ -513,8 +548,30 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+<<<<<<< HEAD
 // @LINE:33
 // @LINE:15
+=======
+// @LINE:19
+class ReverseGenerador {
+    
+
+// @LINE:19
+def index : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Generador.index",
+   """
+      function(documento) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "generador/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("documento", encodeURIComponent(documento))})
+      }
+   """
+)
+                        
+    
+}
+              
+
+// @LINE:33
+>>>>>>> 93429d7fbc474b9d33705b1aa2e201ce50fe2153
 // @LINE:14
 class ReverseInforme4 {
     
@@ -556,7 +613,10 @@ def excel : JavascriptReverseRoute = JavascriptReverseRoute(
               
 
 // @LINE:35
+<<<<<<< HEAD
 // @LINE:19
+=======
+>>>>>>> 93429d7fbc474b9d33705b1aa2e201ce50fe2153
 // @LINE:18
 class ReverseInforme6 {
     
@@ -599,7 +659,10 @@ def excel : JavascriptReverseRoute = JavascriptReverseRoute(
 
 // @LINE:32
 // @LINE:29
+<<<<<<< HEAD
 // @LINE:13
+=======
+>>>>>>> 93429d7fbc474b9d33705b1aa2e201ce50fe2153
 // @LINE:12
 // @LINE:11
 class ReverseInforme3 {
@@ -811,7 +874,10 @@ package controllers.ref {
 
 
 // @LINE:34
+<<<<<<< HEAD
 // @LINE:17
+=======
+>>>>>>> 93429d7fbc474b9d33705b1aa2e201ce50fe2153
 // @LINE:16
 class ReverseInforme5 {
     
@@ -911,8 +977,25 @@ def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
+<<<<<<< HEAD
 // @LINE:33
 // @LINE:15
+=======
+// @LINE:19
+class ReverseGenerador {
+    
+
+// @LINE:19
+def index(documento:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Generador.index(documento), HandlerDef(this, "controllers.Generador", "index", Seq(classOf[String]), "GET", """""", _prefix + """generador/$documento<[^/]+>""")
+)
+                      
+    
+}
+                          
+
+// @LINE:33
+>>>>>>> 93429d7fbc474b9d33705b1aa2e201ce50fe2153
 // @LINE:14
 class ReverseInforme4 {
     
@@ -939,7 +1022,10 @@ def excel(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new p
                           
 
 // @LINE:35
+<<<<<<< HEAD
 // @LINE:19
+=======
+>>>>>>> 93429d7fbc474b9d33705b1aa2e201ce50fe2153
 // @LINE:18
 class ReverseInforme6 {
     
@@ -967,7 +1053,10 @@ def excel(documento:String, semestre:String): play.api.mvc.HandlerRef[_] = new p
 
 // @LINE:32
 // @LINE:29
+<<<<<<< HEAD
 // @LINE:13
+=======
+>>>>>>> 93429d7fbc474b9d33705b1aa2e201ce50fe2153
 // @LINE:12
 // @LINE:11
 class ReverseInforme3 {
