@@ -96,6 +96,8 @@
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/views/html/main$.html[0m
 [0m[[0mdebug[0m] [0m	views/html/sidebar$.html[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/views/html/sidebar$.html[0m
+[0m[[0mdebug[0m] [0m	controllers/ref/ReverseGenerador.html[0m
+[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/controllers/ref/ReverseGenerador.html[0m
 [0m[[0mdebug[0m] [0m	controllers/routes.html[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/controllers/routes.html[0m
 [0m[[0mdebug[0m] [0m	lib/type.png[0m
@@ -168,6 +170,8 @@
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/models/package.html[0m
 [0m[[0mdebug[0m] [0m	controllers/ref/ReverseInforme5.html[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/controllers/ref/ReverseInforme5.html[0m
+[0m[[0mdebug[0m] [0m	models/DirectivoSemestre.html[0m
+[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/models/DirectivoSemestre.html[0m
 [0m[[0mdebug[0m] [0m	views/html/listasemestres$.html[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/views/html/listasemestres$.html[0m
 [0m[[0mdebug[0m] [0m	controllers/ref/package.html[0m
@@ -210,6 +214,8 @@
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/lib/conversionbg.gif[0m
 [0m[[0mdebug[0m] [0m	models/EvaluacionMateria.html[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/models/EvaluacionMateria.html[0m
+[0m[[0mdebug[0m] [0m	controllers/javascript/ReverseGenerador.html[0m
+[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/controllers/javascript/ReverseGenerador.html[0m
 [0m[[0mdebug[0m] [0m	models/Pregunta.html[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/models/Pregunta.html[0m
 [0m[[0mdebug[0m] [0m	views/html/error$.html[0m
@@ -342,8 +348,12 @@
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/index.js[0m
 [0m[[0mdebug[0m] [0m	controllers/javascript/ReverseInforme4.html[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/controllers/javascript/ReverseInforme4.html[0m
+[0m[[0mdebug[0m] [0m	controllers/ReverseGenerador.html[0m
+[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/controllers/ReverseGenerador.html[0m
 [0m[[0mdebug[0m] [0m	controllers/javascript[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/controllers/javascript[0m
+[0m[[0mdebug[0m] [0m	controllers/Generador.html[0m
+[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/controllers/Generador.html[0m
 [0m[[0mdebug[0m] [0m	index/index-b.html[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/index/index-b.html[0m
 [0m[[0mdebug[0m] [0m	views/html/admin$.html[0m
@@ -396,6 +406,8 @@
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/controllers/javascript/ReverseInforme1.html[0m
 [0m[[0mdebug[0m] [0m	views/html/package.html[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/views/html/package.html[0m
+[0m[[0mdebug[0m] [0m	controllers/Directivos.html[0m
+[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/controllers/Directivos.html[0m
 [0m[[0mdebug[0m] [0m	views/html/pdf/prueba$.html[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/api/views/html/pdf/prueba$.html[0m
 [0m[[0mdebug[0m] [0m	lib/remove.png[0m

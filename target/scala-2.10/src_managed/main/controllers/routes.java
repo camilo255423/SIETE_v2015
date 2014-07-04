@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 // @SOURCE:/home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/conf/routes
-// @HASH:8e5298809b4edad6ce986d042e17fd887b824817
-// @DATE:Fri Jun 20 09:24:39 COT 2014
-=======
-// @SOURCE:/home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/conf/routes
-// @HASH:5c7ce7a604e2c399005b6a704e9d26b1c69e913c
-// @DATE:Tue May 20 18:33:43 COT 2014
->>>>>>> 93429d7fbc474b9d33705b1aa2e201ce50fe2153
+// @HASH:3b37217133cdf87415adf68c931cd39fe73f4024
+// @DATE:Fri Jul 04 14:05:13 COT 2014
 
 package controllers;
 

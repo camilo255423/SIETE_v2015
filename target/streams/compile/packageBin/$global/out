@@ -10,6 +10,8 @@
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/views/html/informes/informefinal$$anonfun$f$1.class[0m
 [0m[[0mdebug[0m] [0m	views/html/pdf/tabladocencia$$anonfun$f$1.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/views/html/pdf/tabladocencia$$anonfun$f$1.class[0m
+[0m[[0mdebug[0m] [0m	controllers/Generador.class[0m
+[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/controllers/Generador.class[0m
 [0m[[0mdebug[0m] [0m	views/html/pdf/tablainvestigacion$$anonfun$apply$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$apply$4.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/views/html/pdf/tablainvestigacion$$anonfun$apply$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$apply$4.class[0m
 [0m[[0mdebug[0m] [0m	models/Nivel.class[0m
@@ -32,6 +34,8 @@
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/public/javascripts[0m
 [0m[[0mdebug[0m] [0m	views/html/pdf/informedocencia.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/views/html/pdf/informedocencia.class[0m
+[0m[[0mdebug[0m] [0m	public/images/logo-inpahu.xcf[0m
+[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/public/images/logo-inpahu.xcf[0m
 [0m[[0mdebug[0m] [0m	public/images/top_group_bg.gif[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/public/images/top_group_bg.gif[0m
 [0m[[0mdebug[0m] [0m	views/html/informes/tablainvestigacion$$anonfun$apply$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$apply$4.class[0m
@@ -40,6 +44,8 @@
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/views/html/pdf/tablagestion$$anonfun$apply$1.class[0m
 [0m[[0mdebug[0m] [0m	controllers/ReverseAdmin.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/controllers/ReverseAdmin.class[0m
+[0m[[0mdebug[0m] [0m	Routes$$anonfun$routes$1$$anonfun$applyOrElse$32$$anonfun$apply$32.class[0m
+[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/Routes$$anonfun$routes$1$$anonfun$applyOrElse$32$$anonfun$apply$32.class[0m
 [0m[[0mdebug[0m] [0m	controllers/ref/ReverseInforme5$$anonfun$pdf$1.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/controllers/ref/ReverseInforme5$$anonfun$pdf$1.class[0m
 [0m[[0mdebug[0m] [0m	views/html/login$$anonfun$apply$1.class[0m
@@ -100,6 +106,8 @@
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/views/html/encabezado$.class[0m
 [0m[[0mdebug[0m] [0m	public/css/custom-theme/images/ui-icons_222222_256x240.png[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/public/css/custom-theme/images/ui-icons_222222_256x240.png[0m
+[0m[[0mdebug[0m] [0m	controllers/ref/ReverseGenerador$$anonfun$index$2.class[0m
+[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/controllers/ref/ReverseGenerador$$anonfun$index$2.class[0m
 [0m[[0mdebug[0m] [0m	controllers/ref/ReverseInforme3.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/controllers/ref/ReverseInforme3.class[0m
 [0m[[0mdebug[0m] [0m	views/html/lista.class[0m
@@ -148,6 +156,8 @@
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/controllers/ref/ReverseInforme4$$anonfun$informeFacultad$1.class[0m
 [0m[[0mdebug[0m] [0m	models/AutocompleteValue.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/models/AutocompleteValue.class[0m
+[0m[[0mdebug[0m] [0m	controllers/Directivos.class[0m
+[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/controllers/Directivos.class[0m
 [0m[[0mdebug[0m] [0m	views/html/pdf/informefacultad.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/views/html/pdf/informefacultad.class[0m
 [0m[[0mdebug[0m] [0m	public/images/inpahu2.png[0m
@@ -258,6 +268,8 @@
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/views/html/admin$$anonfun$apply$1.class[0m
 [0m[[0mdebug[0m] [0m	views/html/pdf/informeprograma$$anonfun$f$1.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/views/html/pdf/informeprograma$$anonfun$f$1.class[0m
+[0m[[0mdebug[0m] [0m	controllers/ref/ReverseApplication$$anonfun$index$4.class[0m
+[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/controllers/ref/ReverseApplication$$anonfun$index$4.class[0m
 [0m[[0mdebug[0m] [0m	models/SaberNivel.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/models/SaberNivel.class[0m
 [0m[[0mdebug[0m] [0m	Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.class[0m
@@ -304,6 +316,8 @@
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/views/html/pdf/informeparticipantes$.class[0m
 [0m[[0mdebug[0m] [0m	models[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/models[0m
+[0m[[0mdebug[0m] [0m	Routes$$anonfun$routes$1$$anonfun$applyOrElse$32.class[0m
+[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/Routes$$anonfun$routes$1$$anonfun$applyOrElse$32.class[0m
 [0m[[0mdebug[0m] [0m	Routes$$anonfun$routes$1$$anonfun$applyOrElse$27.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/Routes$$anonfun$routes$1$$anonfun$applyOrElse$27.class[0m
 [0m[[0mdebug[0m] [0m	views/html/mainmenu$$anonfun$f$1.class[0m
@@ -376,6 +390,8 @@
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/views/html/encabezado$$anonfun$f$1$$anonfun$apply$1.class[0m
 [0m[[0mdebug[0m] [0m	controllers/ref/ReverseAssets$$anonfun$at$1.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/controllers/ref/ReverseAssets$$anonfun$at$1.class[0m
+[0m[[0mdebug[0m] [0m	public/images/logo-inpahu2.jpg[0m
+[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/public/images/logo-inpahu2.jpg[0m
 [0m[[0mdebug[0m] [0m	views/html/mainmenu.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/views/html/mainmenu.class[0m
 [0m[[0mdebug[0m] [0m	Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$13.class[0m
@@ -418,8 +434,6 @@
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/public/images/bg-sidebar.gif[0m
 [0m[[0mdebug[0m] [0m	views/html/informes/informeheteroevaluacion$$anonfun$apply$7$$anonfun$apply$8.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/views/html/informes/informeheteroevaluacion$$anonfun$apply$7$$anonfun$apply$8.class[0m
-[0m[[0mdebug[0m] [0m	controllers/ref/ReverseApplication$$anonfun$index$3.class[0m
-[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/controllers/ref/ReverseApplication$$anonfun$index$3.class[0m
 [0m[[0mdebug[0m] [0m	views/html/pdf/informeprofesor$$anonfun$apply$1$$anonfun$apply$3$$anonfun$apply$4.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/views/html/pdf/informeprofesor$$anonfun$apply$1$$anonfun$apply$3$$anonfun$apply$4.class[0m
 [0m[[0mdebug[0m] [0m	views/html/informes/informeprofesor$.class[0m
@@ -624,6 +638,8 @@
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/controllers/ref/ReverseApplication.class[0m
 [0m[[0mdebug[0m] [0m	Routes$$anonfun$routes$1$$anonfun$applyOrElse$22.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/Routes$$anonfun$routes$1$$anonfun$applyOrElse$22.class[0m
+[0m[[0mdebug[0m] [0m	controllers/ref/ReverseInforme3$$anonfun$index$3.class[0m
+[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/controllers/ref/ReverseInforme3$$anonfun$index$3.class[0m
 [0m[[0mdebug[0m] [0m	views/html/informes/informeparticipantes$$anonfun$apply$1$$anonfun$apply$3.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/views/html/informes/informeparticipantes$$anonfun$apply$1$$anonfun$apply$3.class[0m
 [0m[[0mdebug[0m] [0m	public/js/combobox.js[0m
@@ -646,6 +662,8 @@
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/Routes$$anonfun$routes$1$$anonfun$applyOrElse$7$$anonfun$apply$7.class[0m
 [0m[[0mdebug[0m] [0m	Routes$$anonfun$routes$1$$anonfun$applyOrElse$15$$anonfun$apply$15.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/Routes$$anonfun$routes$1$$anonfun$applyOrElse$15$$anonfun$apply$15.class[0m
+[0m[[0mdebug[0m] [0m	controllers/javascript/ReverseGenerador.class[0m
+[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/controllers/javascript/ReverseGenerador.class[0m
 [0m[[0mdebug[0m] [0m	public/css/custom-theme/images/ui-bg_highlight-soft_100_ffffff_1x100.png[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/public/css/custom-theme/images/ui-bg_highlight-soft_100_ffffff_1x100.png[0m
 [0m[[0mdebug[0m] [0m	models/Evaluacion.class[0m
@@ -666,6 +684,8 @@
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/public/css[0m
 [0m[[0mdebug[0m] [0m	Routes$$anonfun$routes$1$$anonfun$applyOrElse$23.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/Routes$$anonfun$routes$1$$anonfun$applyOrElse$23.class[0m
+[0m[[0mdebug[0m] [0m	controllers/ref/ReverseGenerador.class[0m
+[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/controllers/ref/ReverseGenerador.class[0m
 [0m[[0mdebug[0m] [0m	views/html/informes/informeparticipantes$$anonfun$apply$1.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/views/html/informes/informeparticipantes$$anonfun$apply$1.class[0m
 [0m[[0mdebug[0m] [0m	models/Periodo.class[0m
@@ -674,6 +694,8 @@
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/public/css/custom-theme/images/ui-bg_flat_10_000000_40x100.png[0m
 [0m[[0mdebug[0m] [0m	views/html/informes/tablagestion$$anonfun$apply$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$apply$4.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/views/html/informes/tablagestion$$anonfun$apply$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$apply$4.class[0m
+[0m[[0mdebug[0m] [0m	controllers/ReverseGenerador.class[0m
+[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/controllers/ReverseGenerador.class[0m
 [0m[[0mdebug[0m] [0m	views/html/informes/tablagestion$$anonfun$apply$1$$anonfun$apply$2.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/views/html/informes/tablagestion$$anonfun$apply$1$$anonfun$apply$2.class[0m
 [0m[[0mdebug[0m] [0m	Routes$$anonfun$routes$1$$anonfun$applyOrElse$17$$anonfun$apply$17.class[0m
@@ -782,8 +804,8 @@
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/Routes$$anonfun$routes$1$$anonfun$applyOrElse$24.class[0m
 [0m[[0mdebug[0m] [0m	public/images/logoNIT.gif[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/public/images/logoNIT.gif[0m
-[0m[[0mdebug[0m] [0m	controllers/ref/ReverseInforme3$$anonfun$index$2.class[0m
-[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/controllers/ref/ReverseInforme3$$anonfun$index$2.class[0m
+[0m[[0mdebug[0m] [0m	models/DirectivoSemestre.class[0m
+[0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/models/DirectivoSemestre.class[0m
 [0m[[0mdebug[0m] [0m	Routes$.class[0m
 [0m[[0mdebug[0m] [0m	  /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/classes/Routes$.class[0m
 [0m[[0mdebug[0m] [0m	views/html/login.class[0m
