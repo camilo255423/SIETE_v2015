@@ -27,16 +27,11 @@ object mainmenu extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendab
         _display_ {
 
 Seq[Any](format.raw/*2.6*/("""<ul class="nav">
-<<<<<<< HEAD
-    	
-=======
-    
->>>>>>> eaf36556eda7c7f9259c83b973e6c0d3ce443bb3
-          <li><a href="""),_display_(Seq[Any](/*4.24*/routes/*4.30*/.Application.index())),format.raw/*4.50*/(""">Informes</a></li>
-          """),_display_(Seq[Any](/*5.12*/if(session.get("rol")==Rol.ADMINISTRADOR)/*5.53*/{_display_(Seq[Any](format.raw/*5.54*/("""
-          <li><a href="""),_display_(Seq[Any](/*6.24*/routes/*6.30*/.Admin.index())),format.raw/*6.44*/(""">Administración</a></li>
-          """)))})),format.raw/*7.12*/("""
-          <li class="active"><a href="""),_display_(Seq[Any](/*8.39*/routes/*8.45*/.Application.logout())),format.raw/*8.66*/(""">Log out</a></li>
+          <li><a href="""),_display_(Seq[Any](/*3.24*/routes/*3.30*/.Application.index())),format.raw/*3.50*/(""">Informes</a></li>
+          """),_display_(Seq[Any](/*4.12*/if(session.get("rol")==Rol.ADMINISTRADOR)/*4.53*/{_display_(Seq[Any](format.raw/*4.54*/("""
+          <li><a href="""),_display_(Seq[Any](/*5.24*/routes/*5.30*/.Admin.index())),format.raw/*5.44*/(""">Administración</a></li>
+          """)))})),format.raw/*6.12*/("""
+          <li class="active"><a href="""),_display_(Seq[Any](/*7.39*/routes/*7.45*/.Application.logout())),format.raw/*7.66*/(""">Log out</a></li>
     
         </ul>"""))}
     }
@@ -50,18 +45,11 @@ Seq[Any](format.raw/*2.6*/("""<ul class="nav">
 }
                 /*
                     -- GENERATED --
-<<<<<<< HEAD
-                    DATE: Fri Apr 25 15:13:55 COT 2014
+                    DATE: Mon May 12 13:05:37 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/mainmenu.scala.html
-                    HASH: 4de22c0f493627600efc71ecc94bbbe395adb79a
-                    MATRIX: 858->10|939->56|953->62|994->82|1059->112|1108->153|1146->154|1205->178|1219->184|1254->198|1321->234|1395->273|1409->279|1451->300
-=======
-                    DATE: Sat Apr 26 18:42:24 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/mainmenu.scala.html
-                    HASH: ead12252e02f642db613a8211642f40ad487e77a
-                    MATRIX: 858->11|938->56|952->62|993->82|1058->112|1107->153|1145->154|1204->178|1218->184|1253->198|1320->234|1394->273|1408->279|1450->300
->>>>>>> eaf36556eda7c7f9259c83b973e6c0d3ce443bb3
-                    LINES: 29->2|31->4|31->4|31->4|32->5|32->5|32->5|33->6|33->6|33->6|34->7|35->8|35->8|35->8
+                    HASH: 5b5e8ccc492bd345efc21b301c0b60a9ae1d78f0
+                    MATRIX: 858->11|933->51|947->57|988->77|1053->107|1102->148|1140->149|1199->173|1213->179|1248->193|1315->229|1389->268|1403->274|1445->295
+                    LINES: 29->2|30->3|30->3|30->3|31->4|31->4|31->4|32->5|32->5|32->5|33->6|34->7|34->7|34->7
                     -- GENERATED --
                 */
             

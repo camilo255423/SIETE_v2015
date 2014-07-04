@@ -58,13 +58,8 @@ Seq[Any](format.raw/*1.32*/("""
 }
                 /*
                     -- GENERATED --
-<<<<<<< HEAD
-                    DATE: Thu Apr 17 11:31:01 COT 2014
+                    DATE: Mon May 12 13:05:37 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/main.scala.html
-=======
-                    DATE: Sat Apr 26 18:13:10 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/main.scala.html
->>>>>>> eaf36556eda7c7f9259c83b973e6c0d3ce443bb3
                     HASH: 2023409a40a7eeae7953ee7a06c24fcfaecfe825
                     MATRIX: 778->1|902->31|939->34|969->56|1007->57|1124->140|1155->150|1224->184|1238->190|1295->226|1481->377|1510->384|1585->428
                     LINES: 26->1|29->1|31->3|31->3|31->3|35->7|35->7|37->9|37->9|37->9|44->16|44->16|48->20
