@@ -75,7 +75,7 @@ Seq[Any](format.raw/*1.33*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Apr 04 16:48:44 COT 2014
+                    DATE: Fri Jul 04 16:10:05 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/login.scala.html
                     HASH: bda96f85354821ff50d77abc70d21395ef24c8d9
                     MATRIX: 791->1|916->32|952->34|987->61|1025->62|1173->175|1187->181|1244->217|1403->340|1418->346|1465->384|1505->386|1568->414|1601->438|1641->440|1713->476|1726->480|1768->500|1814->515|1933->598|1955->611|1983->617|2226->829|2285->857

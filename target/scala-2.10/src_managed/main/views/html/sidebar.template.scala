@@ -72,7 +72,7 @@ Seq[Any](format.raw/*1.53*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Jul 01 10:58:25 COT 2014
+                    DATE: Fri Jul 04 16:10:06 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/sidebar.scala.html
                     HASH: 76440ad5df9b696af33ea0b912616d2c1a665298
                     MATRIX: 797->1|942->52|1052->127|1098->152|1152->171|1188->186|1239->202|1327->282|1365->283|1415->298|1455->317|1489->333|1501->337|1539->338|1616->388|1644->389|1727->445|1755->446|1827->491|1855->492|1912->522|1940->523|1998->549

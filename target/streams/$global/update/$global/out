@@ -7,7 +7,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT->org.scala-lang#scala-library;2.10.2 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.10.2 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@193cd9ef[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@102ccb33[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.2[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: org.scala-lang#scala-library;2.10.2[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.10.2 in sbt-chain[0m
@@ -5100,7 +5100,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.10.2!scala-compiler.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.2!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 8111ms :: artifacts dl 204ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 10357ms :: artifacts dl 191ms[0m
 [0m[[0mdebug[0m] [0m	report for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT compile produced in /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT runtime produced in /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT test produced in /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-test.xml[0m
@@ -5114,5 +5114,5 @@
 [0m[[0mdebug[0m] [0m	report for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT docs produced in /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-docs.xml[0m
 [0m[[0mdebug[0m] [0m	report for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT pom produced in /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT scala-tool produced in /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (8111ms resolve - 204ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (10357ms resolve - 191ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m

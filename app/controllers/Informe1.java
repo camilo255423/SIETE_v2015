@@ -65,7 +65,7 @@ public class Informe1 extends Controller {
 				PdfWriter writer = PdfWriter.getInstance(document,
 						
 				        new FileOutputStream(file));
-				String imagen = routes.Assets.at(Application.LOGO_INPAHU).absoluteURL(request());
+				String imagen = Application.LOGO_INPAHU;
 				    document.open();
 			
 		 XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeprofesor.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getAutoEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), evaluacion.getAutoEvaluacionInvestigacion(), profesor, semestre, imagen).toString()));
