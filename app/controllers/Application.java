@@ -64,9 +64,9 @@ public class Application extends Controller {
 	               session("rol", usuario.getRol());
 	               	if(usuario.getRol().equals(Rol.COORDINADOR))
 	               		{
-	               			Permiso permiso = Permiso.findByDocumento(cedula);
-	               			session("codigoPrograma",permiso.getPrograma().getCodPrograma());
-	               			session("nombrePrograma",permiso.getPrograma().getNombre()); 
+	               		//	Permiso permiso = Permiso.findByDocumento(cedula);
+	               			session("documento",cedula);
+	       
 	               	
 	               		}
 	               		
@@ -108,7 +108,14 @@ public class Application extends Controller {
     	
     	List<Profesor> profesores = new ArrayList<Profesor>();
     	List<String> semestres = Periodo.findAll();
-    	return ok(views.html.informes.informedocencia.render(null,profesores,semestres));
+    	List<Programa> programas = null;
+    	
+     	if(session("rol").equals(Rol.COORDINADOR))
+     	{
+     		programas = Programa.findProgramasByDirector(session("documento"));
+     		System.out.println(programas.get(0));
+     	}
+    	return ok(views.html.informes.informedocencia.render(null,profesores,semestres,programas));
     }
   public static Result login() {
         return ok(
@@ -141,7 +148,10 @@ public class Application extends Controller {
     	List<Profesor> profesores = null;
     	if(session("rol").equals(Rol.COORDINADOR))
     	{
-    		profesores= Profesor.findAllBySemestreAndPrograma(semestre, session("codigoPrograma"));		
+    		String codigoPrograma = Form.form().bindFromRequest().get("codigoPrograma");
+    		
+    		profesores= Profesor.findAllBySemestreAndPrograma(semestre, codigoPrograma);	
+  
     	
     	}
     	else

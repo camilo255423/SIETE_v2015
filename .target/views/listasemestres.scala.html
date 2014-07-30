@@ -36,6 +36,7 @@ var documentoProfesor = '@session.get("documento")';
 
 }else{
 	var entidad;
+	var codigoPrograma=-1;
 	if($('#listasemestres').val()!=-1)
     {
 	$("#informe").html("<div id='progressbar'>Cargando, por favor espere...</div>");
@@ -44,13 +45,30 @@ var documentoProfesor = '@session.get("documento")';
 	$("#progressbar").progressbar({
 	value:false
 	});
+	@if(session.get("rol")==Rol.COORDINADOR){
+	codigoPrograma=$('#listaProgramas').val();
+	}
 	if($('#listainformes').val()==1 || $('#listainformes').val()==2 || $('#listainformes').val()==3 ) entidad="profesores";
 	if($('#listainformes').val()==4) entidad="facultades";
-	if($('#listainformes').val()==5) entidad="programas";
-	if($('#listainformes').val()==6) entidad="participantes";
-	$.post("cambiosemestre",{semestre: $('#listasemestres').val(), valor: entidad},mostrarProfesores); // 0 profesores 1 facultades 2 programas
-	$("#descargas").hide();
+	if($('#listainformes').val()==5) { entidad="programas"; 
+	@if(session.get("rol")==Rol.COORDINADOR){
+	$.post("informeprograma",{documento: codigoPrograma, semestre: $('#listasemestres').val()},mostrar);
 	}
+	 }
+	if($('#listainformes').val()==6) entidad="participantes";
+
+	@if(session.get("rol")==Rol.COORDINADOR){
+		if($('#listainformes').val()!=5)
+		{	
+		$.post("cambiosemestre",{semestre: $('#listasemestres').val(), valor: entidad, codigoPrograma: codigoPrograma},mostrarProfesores); // valor:0 profesores 1 facultades 2 programas
+		$("#descargas").hide();
+		}
+	}else{
+		$.post("cambiosemestre",{semestre: $('#listasemestres').val(), valor: entidad, codigoPrograma: codigoPrograma},mostrarProfesores); // valor:0 profesores 1 facultades 2 programas
+		$("#descargas").hide();
+			
+		}
+	}	
 	}
 	function mostrarProfesores(data)
 	{

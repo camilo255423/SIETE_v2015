@@ -1,9 +1,12 @@
-@(profesores:List[Profesor], semestres:List[String])
+@(profesores:List[Profesor], semestres:List[String], programas:List[Programa]=Nil)
       <div id="sidebar">
           <h3> Menú</h3>
           <p>Semestre: @listasemestres(semestres)</p>
           <p>@listainformes()</p>
           @if(session.get("rol")==Rol.COORDINADOR || session.get("rol")==Rol.ADMINISTRADOR){
+            @if(session.get("rol")==Rol.COORDINADOR) {
+            <p>@listaprogramas(programas,1)</p>
+            }
           <p>@lista(profesores,1)</p>
           }else{
           <script>

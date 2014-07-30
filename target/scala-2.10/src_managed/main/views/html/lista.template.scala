@@ -43,55 +43,96 @@ function()
 
 $('#listaProfesores').on("change", cambioProfesor);
 $('#listainformes').on("change", cambioInforme);
+$('#listaProgramas').on("change", cambioPrograma);
 
-"""),format.raw/*19.1*/("""}"""),format.raw/*19.2*/("""
+"""),format.raw/*20.1*/("""}"""),format.raw/*20.2*/("""
 );
 function cambioInforme()
-"""),format.raw/*22.1*/("""{"""),format.raw/*22.2*/("""
+"""),format.raw/*23.1*/("""{"""),format.raw/*23.2*/("""
+	if($('#listainformes').val()==5)"""),format.raw/*24.34*/("""{"""),format.raw/*24.35*/("""
+			  $('#listaProfesores').hide();
+			   cambioSemestre();
+			  cambioProfesor();
+			  """),format.raw/*28.6*/("""}"""),format.raw/*28.7*/("""
+			  else
+			  """),format.raw/*30.6*/("""{"""),format.raw/*30.7*/("""
+			  $('#listaProfesores').show();
+			  cambioSemestre();
+			  cambioProfesor();
+		      $("#informe").html("<div></div>");
+			  """),format.raw/*35.6*/("""}"""),format.raw/*35.7*/("""
+
+
+"""),format.raw/*38.1*/("""}"""),format.raw/*38.2*/("""
+function cambioPrograma()
+"""),format.raw/*40.1*/("""{"""),format.raw/*40.2*/("""
 cambioSemestre();
 cambioProfesor();
-"""),format.raw/*25.1*/("""}"""),format.raw/*25.2*/("""
+"""),format.raw/*43.1*/("""}"""),format.raw/*43.2*/("""
 function cambioProfesor()
-"""),format.raw/*27.1*/("""{"""),format.raw/*27.2*/("""
+"""),format.raw/*45.1*/("""{"""),format.raw/*45.2*/("""
+
 if($('#listasemestres').val()!=-1)
-"""),format.raw/*29.1*/("""{"""),format.raw/*29.2*/("""
+"""),format.raw/*48.1*/("""{"""),format.raw/*48.2*/("""
 var documentoProfesor = $('#listaProfesores').val();
 	$("#informe").html("<div id='progressbar'>Cargando, por favor espere...</div>");
-			$("#progressbar").progressbar("""),format.raw/*32.34*/("""{"""),format.raw/*32.35*/("""
+			$("#progressbar").progressbar("""),format.raw/*51.34*/("""{"""),format.raw/*51.35*/("""
 			value:false
-			"""),format.raw/*34.4*/("""}"""),format.raw/*34.5*/(""");
+			"""),format.raw/*53.4*/("""}"""),format.raw/*53.5*/(""");
 	if(documentoProfesor!=-1 && documentoProfesor)
-	"""),format.raw/*36.2*/("""{"""),format.raw/*36.3*/("""
+	"""),format.raw/*55.2*/("""{"""),format.raw/*55.3*/("""
 	
 		
 			enlaceDescargas($('#listaProfesores').val(),$('#listasemestres').val());
-			if($('#listainformes').val()==1)"""),format.raw/*40.36*/("""{"""),format.raw/*40.37*/("""
-			$.post("informeprofesor","""),format.raw/*41.29*/("""{"""),format.raw/*41.30*/("""documento: documentoProfesor, semestre: $('#listasemestres').val()"""),format.raw/*41.96*/("""}"""),format.raw/*41.97*/(""",mostrar);
-			"""),format.raw/*42.4*/("""}"""),format.raw/*42.5*/("""
-			if($('#listainformes').val()==2)"""),format.raw/*43.36*/("""{"""),format.raw/*43.37*/("""
-			$.post("heteroevaluacion","""),format.raw/*44.30*/("""{"""),format.raw/*44.31*/("""documento: documentoProfesor, semestre: $('#listasemestres').val()"""),format.raw/*44.97*/("""}"""),format.raw/*44.98*/(""",mostrar);
-			"""),format.raw/*45.4*/("""}"""),format.raw/*45.5*/("""
-			if($('#listainformes').val()==3)"""),format.raw/*46.36*/("""{"""),format.raw/*46.37*/("""
-			$.post("informefinal","""),format.raw/*47.26*/("""{"""),format.raw/*47.27*/("""documento: documentoProfesor, semestre: $('#listasemestres').val()"""),format.raw/*47.93*/("""}"""),format.raw/*47.94*/(""",mostrar);
-			"""),format.raw/*48.4*/("""}"""),format.raw/*48.5*/("""
-			if($('#listainformes').val()==4)"""),format.raw/*49.36*/("""{"""),format.raw/*49.37*/("""
-			$.post("informefacultad","""),format.raw/*50.29*/("""{"""),format.raw/*50.30*/("""documento: documentoProfesor, semestre: $('#listasemestres').val()"""),format.raw/*50.96*/("""}"""),format.raw/*50.97*/(""",mostrar);
-			"""),format.raw/*51.4*/("""}"""),format.raw/*51.5*/("""
-				if($('#listainformes').val()==5)"""),format.raw/*52.37*/("""{"""),format.raw/*52.38*/("""
-			$.post("informeprograma","""),format.raw/*53.29*/("""{"""),format.raw/*53.30*/("""documento: documentoProfesor, semestre: $('#listasemestres').val()"""),format.raw/*53.96*/("""}"""),format.raw/*53.97*/(""",mostrar);
-			"""),format.raw/*54.4*/("""}"""),format.raw/*54.5*/("""
-			if($('#listainformes').val()==6)"""),format.raw/*55.36*/("""{"""),format.raw/*55.37*/("""
-			$.post("informeparticipantes","""),format.raw/*56.34*/("""{"""),format.raw/*56.35*/("""semestre: $('#listasemestres').val()"""),format.raw/*56.71*/("""}"""),format.raw/*56.72*/(""",mostrar);
-			"""),format.raw/*57.4*/("""}"""),format.raw/*57.5*/("""
+			if($('#listainformes').val()==1)"""),format.raw/*59.36*/("""{"""),format.raw/*59.37*/("""
+			$.post("informeprofesor","""),format.raw/*60.29*/("""{"""),format.raw/*60.30*/("""documento: documentoProfesor, semestre: $('#listasemestres').val()"""),format.raw/*60.96*/("""}"""),format.raw/*60.97*/(""",mostrar);
+			"""),format.raw/*61.4*/("""}"""),format.raw/*61.5*/("""
+			if($('#listainformes').val()==2)"""),format.raw/*62.36*/("""{"""),format.raw/*62.37*/("""
+			$.post("heteroevaluacion","""),format.raw/*63.30*/("""{"""),format.raw/*63.31*/("""documento: documentoProfesor, semestre: $('#listasemestres').val()"""),format.raw/*63.97*/("""}"""),format.raw/*63.98*/(""",mostrar);
+			"""),format.raw/*64.4*/("""}"""),format.raw/*64.5*/("""
+			if($('#listainformes').val()==3)"""),format.raw/*65.36*/("""{"""),format.raw/*65.37*/("""
+			$.post("informefinal","""),format.raw/*66.26*/("""{"""),format.raw/*66.27*/("""documento: documentoProfesor, semestre: $('#listasemestres').val()"""),format.raw/*66.93*/("""}"""),format.raw/*66.94*/(""",mostrar);
+			"""),format.raw/*67.4*/("""}"""),format.raw/*67.5*/("""
+			if($('#listainformes').val()==4)"""),format.raw/*68.36*/("""{"""),format.raw/*68.37*/("""
+			$.post("informefacultad","""),format.raw/*69.29*/("""{"""),format.raw/*69.30*/("""documento: documentoProfesor, semestre: $('#listasemestres').val()"""),format.raw/*69.96*/("""}"""),format.raw/*69.97*/(""",mostrar);
+			"""),format.raw/*70.4*/("""}"""),format.raw/*70.5*/("""
+	
+			if($('#listainformes').val()==5)"""),format.raw/*72.36*/("""{"""),format.raw/*72.37*/("""
+			 	"""),_display_(Seq[Any](/*73.7*/if(session.get("rol")==Rol.COORDINADOR)/*73.46*/{_display_(Seq[Any](format.raw/*73.47*/("""
+			codigoPrograma=$('#listaProgramas').val();
+			""")))}/*75.5*/else/*75.9*/{_display_(Seq[Any](format.raw/*75.10*/("""
+			codigoPrograma = documentoProfesor;
+			""")))})),format.raw/*77.5*/("""
+			$.post("informeprograma","""),format.raw/*78.29*/("""{"""),format.raw/*78.30*/("""documento: codigoPrograma, semestre: $('#listasemestres').val()"""),format.raw/*78.93*/("""}"""),format.raw/*78.94*/(""",mostrar);
+			"""),format.raw/*79.4*/("""}"""),format.raw/*79.5*/("""
+			
+			if($('#listainformes').val()==6)"""),format.raw/*81.36*/("""{"""),format.raw/*81.37*/("""
+			$.post("informeparticipantes","""),format.raw/*82.34*/("""{"""),format.raw/*82.35*/("""semestre: $('#listasemestres').val()"""),format.raw/*82.71*/("""}"""),format.raw/*82.72*/(""",mostrar);
+			"""),format.raw/*83.4*/("""}"""),format.raw/*83.5*/("""
 			$("#descargas").show();
-	"""),format.raw/*59.2*/("""}"""),format.raw/*59.3*/("""
+	"""),format.raw/*85.2*/("""}"""),format.raw/*85.3*/("""
 	else
-	"""),format.raw/*61.2*/("""{"""),format.raw/*61.3*/("""
+	"""),format.raw/*87.2*/("""{"""),format.raw/*87.3*/("""
+	"""),_display_(Seq[Any](/*88.3*/if(session.get("rol")==Rol.COORDINADOR)/*88.42*/{_display_(Seq[Any](format.raw/*88.43*/("""
+	documentoProfesor = $('#listaProgramas').val();
+			if($('#listainformes').val()==5 && documentoProfesor!=-1 )"""),format.raw/*90.62*/("""{"""),format.raw/*90.63*/("""
+				 $.post("informeprograma","""),format.raw/*91.31*/("""{"""),format.raw/*91.32*/("""documento: documentoProfesor, semestre: $('#listasemestres').val()"""),format.raw/*91.98*/("""}"""),format.raw/*91.99*/(""",mostrar);
+				$("#descargas").show();
+				enlaceDescargas(documentoProfesor,$('#listasemestres').val());
+	            $('#listaProfesores').hide();
+			
+			"""),format.raw/*96.4*/("""}"""),format.raw/*96.5*/("""else"""),format.raw/*96.9*/("""{"""),format.raw/*96.10*/("""			 			 
+			$("#descargas").hide();
+			$("#informe").html("<div></div>");
+			"""),format.raw/*99.4*/("""}"""),format.raw/*99.5*/("""
+	""")))}/*100.3*/else/*100.7*/{_display_(Seq[Any](format.raw/*100.8*/("""			 			 
 	$("#descargas").hide();
 	$("#informe").html("<div></div>");
-	"""),format.raw/*64.2*/("""}"""),format.raw/*64.3*/("""
-"""),format.raw/*65.1*/("""}"""),format.raw/*65.2*/("""
-"""),format.raw/*66.1*/("""}"""),format.raw/*66.2*/("""
+	""")))})),format.raw/*103.3*/("""
+	
+	"""),format.raw/*105.2*/("""}"""),format.raw/*105.3*/("""
+"""),format.raw/*106.1*/("""}"""),format.raw/*106.2*/("""
+"""),format.raw/*107.1*/("""}"""),format.raw/*107.2*/("""
 
 
 </script>
@@ -107,11 +148,11 @@ var documentoProfesor = $('#listaProfesores').val();
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Jul 04 16:10:06 COT 2014
+                    DATE: Wed Jul 30 12:28:05 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/lista.scala.html
-                    HASH: 605538d68a461a7ed837cfd0a07507bdd29f0074
-                    MATRIX: 790->1|932->49|1100->183|1142->210|1180->211|1232->228|1248->236|1284->251|1322->254|1338->262|1374->277|1411->279|1427->287|1461->300|1502->311|1550->324|1575->340|1614->341|1665->365|1693->366|1824->470|1852->471|1908->500|1936->501|2000->538|2028->539|2082->566|2110->567|2173->603|2201->604|2398->773|2427->774|2473->793|2501->794|2580->846|2608->847|2753->964|2782->965|2839->994|2868->995|2962->1061|2991->1062|3032->1076|3060->1077|3124->1113|3153->1114|3211->1144|3240->1145|3334->1211|3363->1212|3404->1226|3432->1227|3496->1263|3525->1264|3579->1290|3608->1291|3702->1357|3731->1358|3772->1372|3800->1373|3864->1409|3893->1410|3950->1439|3979->1440|4073->1506|4102->1507|4143->1521|4171->1522|4236->1559|4265->1560|4322->1589|4351->1590|4445->1656|4474->1657|4515->1671|4543->1672|4607->1708|4636->1709|4698->1743|4727->1744|4791->1780|4820->1781|4861->1795|4889->1796|4945->1825|4973->1826|5008->1834|5036->1835|5126->1898|5154->1899|5182->1900|5210->1901|5238->1902|5266->1903
-                    LINES: 26->1|29->1|33->5|33->5|33->5|34->6|34->6|34->6|34->6|34->6|34->6|34->6|34->6|34->6|35->7|38->10|38->10|38->10|42->14|42->14|47->19|47->19|50->22|50->22|53->25|53->25|55->27|55->27|57->29|57->29|60->32|60->32|62->34|62->34|64->36|64->36|68->40|68->40|69->41|69->41|69->41|69->41|70->42|70->42|71->43|71->43|72->44|72->44|72->44|72->44|73->45|73->45|74->46|74->46|75->47|75->47|75->47|75->47|76->48|76->48|77->49|77->49|78->50|78->50|78->50|78->50|79->51|79->51|80->52|80->52|81->53|81->53|81->53|81->53|82->54|82->54|83->55|83->55|84->56|84->56|84->56|84->56|85->57|85->57|87->59|87->59|89->61|89->61|92->64|92->64|93->65|93->65|94->66|94->66
+                    HASH: f5f8753261fc938f03dc64f5014d09bb6efd5161
+                    MATRIX: 790->1|932->49|1100->183|1142->210|1180->211|1232->228|1248->236|1284->251|1322->254|1338->262|1374->277|1411->279|1427->287|1461->300|1502->311|1550->324|1575->340|1614->341|1665->365|1693->366|1875->521|1903->522|1959->551|1987->552|2049->586|2078->587|2193->675|2221->676|2264->692|2292->693|2449->823|2477->824|2507->827|2535->828|2589->855|2617->856|2681->893|2709->894|2763->921|2791->922|2855->959|2883->960|3080->1129|3109->1130|3155->1149|3183->1150|3262->1202|3290->1203|3435->1320|3464->1321|3521->1350|3550->1351|3644->1417|3673->1418|3714->1432|3742->1433|3806->1469|3835->1470|3893->1500|3922->1501|4016->1567|4045->1568|4086->1582|4114->1583|4178->1619|4207->1620|4261->1646|4290->1647|4384->1713|4413->1714|4454->1728|4482->1729|4546->1765|4575->1766|4632->1795|4661->1796|4755->1862|4784->1863|4825->1877|4853->1878|4919->1916|4948->1917|4990->1924|5038->1963|5077->1964|5146->2015|5158->2019|5197->2020|5272->2064|5329->2093|5358->2094|5449->2157|5478->2158|5519->2172|5547->2173|5615->2213|5644->2214|5706->2248|5735->2249|5799->2285|5828->2286|5869->2300|5897->2301|5953->2330|5981->2331|6016->2339|6044->2340|6082->2343|6130->2382|6169->2383|6308->2494|6337->2495|6396->2526|6425->2527|6519->2593|6548->2594|6731->2750|6759->2751|6790->2755|6819->2756|6923->2833|6951->2834|6973->2837|6986->2841|7025->2842|7129->2914|7161->2918|7190->2919|7219->2920|7248->2921|7277->2922|7306->2923
+                    LINES: 26->1|29->1|33->5|33->5|33->5|34->6|34->6|34->6|34->6|34->6|34->6|34->6|34->6|34->6|35->7|38->10|38->10|38->10|42->14|42->14|48->20|48->20|51->23|51->23|52->24|52->24|56->28|56->28|58->30|58->30|63->35|63->35|66->38|66->38|68->40|68->40|71->43|71->43|73->45|73->45|76->48|76->48|79->51|79->51|81->53|81->53|83->55|83->55|87->59|87->59|88->60|88->60|88->60|88->60|89->61|89->61|90->62|90->62|91->63|91->63|91->63|91->63|92->64|92->64|93->65|93->65|94->66|94->66|94->66|94->66|95->67|95->67|96->68|96->68|97->69|97->69|97->69|97->69|98->70|98->70|100->72|100->72|101->73|101->73|101->73|103->75|103->75|103->75|105->77|106->78|106->78|106->78|106->78|107->79|107->79|109->81|109->81|110->82|110->82|110->82|110->82|111->83|111->83|113->85|113->85|115->87|115->87|116->88|116->88|116->88|118->90|118->90|119->91|119->91|119->91|119->91|124->96|124->96|124->96|124->96|127->99|127->99|128->100|128->100|128->100|131->103|133->105|133->105|134->106|134->106|135->107|135->107
                     -- GENERATED --
                 */
             

@@ -15,16 +15,35 @@ function()
 
 $('#listaProfesores').on("change", cambioProfesor);
 $('#listainformes').on("change", cambioInforme);
+$('#listaProgramas').on("change", cambioPrograma);
 
 }
 );
 function cambioInforme()
+{
+	if($('#listainformes').val()==5){
+			  $('#listaProfesores').hide();
+			   cambioSemestre();
+			  cambioProfesor();
+			  }
+			  else
+			  {
+			  $('#listaProfesores').show();
+			  cambioSemestre();
+			  cambioProfesor();
+		      $("#informe").html("<div></div>");
+			  }
+
+
+}
+function cambioPrograma()
 {
 cambioSemestre();
 cambioProfesor();
 }
 function cambioProfesor()
 {
+
 if($('#listasemestres').val()!=-1)
 {
 var documentoProfesor = $('#listaProfesores').val();
@@ -49,9 +68,16 @@ var documentoProfesor = $('#listaProfesores').val();
 			if($('#listainformes').val()==4){
 			$.post("informefacultad",{documento: documentoProfesor, semestre: $('#listasemestres').val()},mostrar);
 			}
-				if($('#listainformes').val()==5){
-			$.post("informeprograma",{documento: documentoProfesor, semestre: $('#listasemestres').val()},mostrar);
+	
+			if($('#listainformes').val()==5){
+			 	@if(session.get("rol")==Rol.COORDINADOR){
+			codigoPrograma=$('#listaProgramas').val();
+			}else{
+			codigoPrograma = documentoProfesor;
 			}
+			$.post("informeprograma",{documento: codigoPrograma, semestre: $('#listasemestres').val()},mostrar);
+			}
+			
 			if($('#listainformes').val()==6){
 			$.post("informeparticipantes",{semestre: $('#listasemestres').val()},mostrar);
 			}
@@ -59,8 +85,23 @@ var documentoProfesor = $('#listaProfesores').val();
 	}
 	else
 	{
+	@if(session.get("rol")==Rol.COORDINADOR){
+	documentoProfesor = $('#listaProgramas').val();
+			if($('#listainformes').val()==5 && documentoProfesor!=-1 ){
+				 $.post("informeprograma",{documento: documentoProfesor, semestre: $('#listasemestres').val()},mostrar);
+				$("#descargas").show();
+				enlaceDescargas(documentoProfesor,$('#listasemestres').val());
+	            $('#listaProfesores').hide();
+			
+			}else{			 			 
+			$("#descargas").hide();
+			$("#informe").html("<div></div>");
+			}
+	}else{			 			 
 	$("#descargas").hide();
 	$("#informe").html("<div></div>");
+	}
+	
 	}
 }
 }

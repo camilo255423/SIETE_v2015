@@ -106,7 +106,7 @@ public class Permiso {
 	 * @param documento String documento del usuario
 	 * @return
 	 */
-	public static boolean delete(String documento)
+	public static boolean delete(String documento, String codPrograma)
 	{
 		Connection con = DB.getConnection();
 		PreparedStatement p;
@@ -116,6 +116,8 @@ public class Permiso {
 			p = con.prepareStatement(sqlBorrar);
 			
 			p.setString(1, documento);
+			p.setString(2, codPrograma);
+			System.out.println("intentando borrar "+documento+"-"+codPrograma);
 			numeroFilas = p.executeUpdate();
 			
 			con.close();	
@@ -203,7 +205,8 @@ public class Permiso {
 	"from rol r inner join permiso p "+  
 	"on r.id_rol=p.id_rol inner join sai.rct_clientes c on p.cedula = c.cli_numdcto "+ 
 	"left join sai.art_programas a "+
-	"on a.pro_codprograma=p.centro_costo_programa ";
+	"on a.pro_codprograma=p.centro_costo_programa "+
+	" order by NOMBRE ";
 	/**
 	 * Consulta de permiso por documento
 	 */
@@ -218,7 +221,7 @@ public class Permiso {
 	/** 
 	 * sql que borra un registro
 	 */
-	private static final String sqlBorrar = "delete from permiso where CEDULA=?";
+	private static final String sqlBorrar = "delete from permiso where CEDULA=? and CENTRO_COSTO_PROGRAMA=?";
 	/**
 	 * sql que inserta un registro
 	 */
