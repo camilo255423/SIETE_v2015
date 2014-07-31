@@ -51,7 +51,10 @@ public class Admin extends Controller{
 		String documento = Form.form().bindFromRequest().get("documento");
 		String idRol = Form.form().bindFromRequest().get("idRol");
 		String codigoPrograma = Form.form().bindFromRequest().get("codigoPrograma");
-	System.out.println(documento+" "+idRol+" "+codigoPrograma);
+		if(Permiso.existePermiso(documento, idRol, codigoPrograma))
+		{
+			return ok("duplicado");
+		}
 		
 		if(Permiso.save(documento,idRol,codigoPrograma))
 		{	

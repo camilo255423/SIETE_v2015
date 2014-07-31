@@ -54,7 +54,7 @@ public class Application extends Controller {
         		   return "No se puede establecer conexión con el servicio de autenticación " +
         		   		"de usuarios de la institución. Por favor contacte al administrador del sistema.";
         	   }
-        	   System.out.println(cedula);
+        	 
         	   Usuario usuario = Usuario.findByDocumento(cedula);
         	   if(usuario!=null)
         	   {   
@@ -104,10 +104,15 @@ public class Application extends Controller {
 	}
 	@Security.Authenticated(Secured.class)
     public static Result index() {
-
-    	
+		String semestreMinimo="20132"; // Semestre mínimo en el cual se puede revisar en la base de datos
+		
+		if(session("rol").equals(Rol.ADMINISTRADOR))
+		{
+			semestreMinimo="20111";
+		}
+		 	
     	List<Profesor> profesores = new ArrayList<Profesor>();
-    	List<String> semestres = Periodo.findAll();
+    	List<String> semestres = Periodo.findAll(semestreMinimo);
     	List<Programa> programas = null;
     	
      	if(session("rol").equals(Rol.COORDINADOR))

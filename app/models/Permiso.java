@@ -33,6 +33,7 @@ public class Permiso {
 		this.usuario = usuario;
 		this.programa = programa;
 	}
+	
 
 /**
  * 
@@ -194,6 +195,41 @@ public class Permiso {
 		
 		return permiso;
 	}
+	/**
+	 * Determina si un permiso ya existe en la base de datos
+	 * @param documento
+	 * @param idRol
+	 * @param codigoPrograma
+	 * @return  boolean
+	 */
+	public static boolean  existePermiso(String documento, String idRol, String codigoPrograma)
+	{
+		Connection con = DB.getConnection();
+		PreparedStatement p;
+		boolean existe=false;
+		try {
+			p = con.prepareStatement(consultaPermiso);
+			p.setString(1, documento);
+			p.setString(2, idRol);
+			p.setString(3, codigoPrograma);
+			ResultSet rs=p.executeQuery();
+			if (rs.next()) {
+				existe= true;
+				
+			}
+			
+			con.close();	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Excepcion : "+e.getMessage());
+			System.out.println(e.getLocalizedMessage());
+		}
+	
+		
+		
+		return existe;
+	}
 	
 /**
  * Consulta de todos los permisos
@@ -226,6 +262,8 @@ public class Permiso {
 	 * sql que inserta un registro
 	 */
 	private static final String sqlInsertar = "INSERT INTO PERMISO VALUES (?,?,?)";
+	
+	private static final String consultaPermiso = "select * from permiso where cedula=? and id_rol=? and centro_costo_programa=?";
 	 
 
 }

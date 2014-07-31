@@ -22,7 +22,7 @@ public class Periodo {
 	public static final int FECHAINICIO = 0;
 	public static final int FECHAFIN = 1;
 	public static final String consultaSemestres = "select distinct gru_semestre as semestre " +
-			"from sai.art_grupos_vigentes order by gru_semestre desc";
+			"from sai.art_grupos_vigentes where gru_semestre>=? order by gru_semestre desc";
 	/**
 	 * Devuelve un arreglos de 2 String que contiene la fecha de inicio y la fecha de finalización
 	 * del semestre para un semestre dado
@@ -83,13 +83,14 @@ public class Periodo {
 	 * @return lista de Strings con los semestres registrados en la base
 	 * de datos.
 	 */
-	public static List<String> findAll()
+	public static List<String> findAll(String semestreMinimo)
 	{
 		List<String> semestres = new ArrayList<String>();
 		try {
 			Connection con = DB.getConnection();
 			PreparedStatement p;
 			p = con.prepareStatement(consultaSemestres);
+			p.setString(1, semestreMinimo);
 			ResultSet rs=p.executeQuery();	
 			while (rs.next()) {
 				semestres.add(rs.getString("semestre"));		

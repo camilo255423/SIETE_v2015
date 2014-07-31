@@ -200,6 +200,7 @@ if(data=="ok")
 {
 fila.parent().parent().remove();
 }
+
 else
 {
 alert("No se pudo eliminar el registro de la base de datos. ");
@@ -213,6 +214,10 @@ if(data=="ok")
 var $x=$(nuevaFila); 
 $("#tabla").append($x);
 $x.find("a").on("click",eliminar);
+}
+else if (data=="duplicado")
+{
+alert("El usuario ya tiene un permiso asignado para este programa o ya está como administrador del sistema. ");
 }
 else
 {
