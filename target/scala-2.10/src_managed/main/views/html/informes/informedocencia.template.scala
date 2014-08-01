@@ -20,14 +20,14 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object informedocencia extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template3[List[EvaluacionMateria],List[Profesor],List[String],play.api.templates.HtmlFormat.Appendable] {
+object informedocencia extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template4[List[EvaluacionMateria],List[Profesor],List[String],List[Programa],play.api.templates.HtmlFormat.Appendable] {
 
     /**/
-    def apply/*1.2*/(evaluacionMateria:List[EvaluacionMateria], profesores:List[Profesor],semestres:List[String]):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*1.2*/(evaluacionMateria:List[EvaluacionMateria], profesores:List[Profesor],semestres:List[String],programas:List[Programa]=Nil):play.api.templates.HtmlFormat.Appendable = {
         _display_ {import models.Pregunta
 
 
-Seq[Any](format.raw/*1.95*/("""
+Seq[Any](format.raw/*1.124*/("""
 """),format.raw/*3.1*/("""
 
 """),_display_(Seq[Any](/*5.2*/main("informes")/*5.18*/{_display_(Seq[Any](format.raw/*5.19*/("""
@@ -35,21 +35,22 @@ Seq[Any](format.raw/*1.95*/("""
 	<div id="informe">
 	
 	</div>
-	"""),_display_(Seq[Any](/*10.3*/sidebar(profesores,semestres))),format.raw/*10.32*/("""
+	"""),_display_(Seq[Any](/*10.3*/sidebar(profesores,semestres,programas))),format.raw/*10.42*/("""
 	
 """)))})),format.raw/*12.2*/("""
 """))}
     }
     
-    def render(evaluacionMateria:List[EvaluacionMateria],profesores:List[Profesor],semestres:List[String]): play.api.templates.HtmlFormat.Appendable = apply(evaluacionMateria,profesores,semestres)
+    def render(evaluacionMateria:List[EvaluacionMateria],profesores:List[Profesor],semestres:List[String],programas:List[Programa]): play.api.templates.HtmlFormat.Appendable = apply(evaluacionMateria,profesores,semestres,programas)
     
-    def f:((List[EvaluacionMateria],List[Profesor],List[String]) => play.api.templates.HtmlFormat.Appendable) = (evaluacionMateria,profesores,semestres) => apply(evaluacionMateria,profesores,semestres)
+    def f:((List[EvaluacionMateria],List[Profesor],List[String],List[Programa]) => play.api.templates.HtmlFormat.Appendable) = (evaluacionMateria,profesores,semestres,programas) => apply(evaluacionMateria,profesores,semestres,programas)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
+<<<<<<< HEAD
 <<<<<<< HEAD
                     DATE: Mon May 12 13:05:46 COT 2014
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/informes/informedocencia.scala.html
@@ -59,6 +60,12 @@ Seq[Any](format.raw/*1.95*/("""
 >>>>>>> 372fc1744ef1390cc0f6719f5a95e33da34749d9
                     HASH: ceaae20854a50d4ce397ee02c1d2eff314c32fc7
                     MATRIX: 838->1|1048->94|1075->119|1112->122|1136->138|1174->139|1243->173|1294->202|1329->206
+=======
+                    DATE: Sun Jul 27 17:10:53 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/informes/informedocencia.scala.html
+                    HASH: 4839d8f48c1ec69d0cdc916afe590b7b5590419a
+                    MATRIX: 853->1|1093->123|1120->148|1157->151|1181->167|1219->168|1288->202|1349->241|1384->245
+>>>>>>> 83ea5cc9add5bfe76dd8df164a8931789e2d0402
                     LINES: 26->1|30->1|31->3|33->5|33->5|33->5|38->10|38->10|40->12
                     -- GENERATED --
                 */

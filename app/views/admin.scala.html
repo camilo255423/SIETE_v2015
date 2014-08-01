@@ -24,11 +24,16 @@
 <tr>
 	<td>@permiso.getUsuario().getNombre()</td>
 	<td>@permiso.getUsuario().getNombreRol()</td>
-	<td>@if(permiso.getPrograma()!=null){
+	<td>@if(permiso.getPrograma().getCodPrograma()!=null){
 	@permiso.getPrograma().getCodPrograma() @permiso.getPrograma().getNombre()
 	}
 	</td>
 	<td><a href="javascript: void(0)" data-documento='@permiso.getUsuario().getDocumento()'
+	@if(permiso.getPrograma().getCodPrograma()!=null){
+	 data-codigoPrograma='@permiso.getPrograma().getCodPrograma()'
+	 }else{
+	 	 data-codigoPrograma='0'
+	 }
 	 class="eliminar"
 	 >Eliminar</a></td>
 </tr>
@@ -99,10 +104,10 @@ var error=0;
 	if($('#nuevodocumento').val()!='-1')
 	{
 	documento=$('#nuevodocumento').val();
-		if($('#listaProfesores').css('display')!='none')
+		if($('#listaProgramas').css('display')!='none')
 		{
 			
-			if($('#listaProfesores').val()=='-1')
+			if($('#listaProgramas').val()=='-1')
 			{
 		
 		    $("#errorDialog").dialog({
@@ -119,8 +124,8 @@ var error=0;
 			}
 			else
 			{
-			codigoPrograma = $('#listaProfesores').val();
-			nombrePrograma = $('#listaProfesores option:selected').text();
+			codigoPrograma = $('#listaProgramas').val();
+			nombrePrograma = $('#listaProgramas option:selected').text();
 			}
 		}
 	}
@@ -141,22 +146,22 @@ var error=0;
 	if(error==0)
 	{
 	nuevaFila = "<tr><td>"+usuario+"</td><td>"+nombreRol+"</td><td>"+nombrePrograma+"</td><td>"+
-	"<a href='javascript: void(0)' data-documento='"+documento+"' class='eliminar'"+
+	"<a href='javascript: void(0)' data-documento='"+documento+"' data-codigoPrograma='"+codigoPrograma+"' class='eliminar'"+
 	 ">Eliminar</a></td>";
 	$.post("insertarpermiso",{documento: documento, idRol: idRol, codigoPrograma: codigoPrograma}, adicionar);
 	}
 }
 );
-$('#listaProfesores').hide();
+$('#listaProgramas').hide();
 $('#nuevodocumento').val('-1');
 $('#listaroles').on('change', function(){
 	if($('#listaroles').val()==1)
 	{
-	$('#listaProfesores').hide();
+	$('#listaProgramas').hide();
 	}
 	else
 	{
-	$('#listaProfesores').show();
+	$('#listaProgramas').show();
 	}
 
 }
@@ -165,6 +170,7 @@ $('.eliminar').on("click",eliminar);
 
 function eliminar(){
   var documento = $(this).attr('data-documento');
+  var codPrograma = $(this).attr('data-codigoPrograma');
 	fila = $(this);
 
 
@@ -175,7 +181,7 @@ function eliminar(){
       buttons: {
         Eliminar: function() {
         
-        $.post("borrarpermiso",{documento: documento}, borrar); 
+        $.post("borrarpermiso",{documento: documento, codPrograma: codPrograma}, borrar); 
           $( this ).dialog( "close" );
         },
         Cancelar: function() {
@@ -194,6 +200,7 @@ if(data=="ok")
 {
 fila.parent().parent().remove();
 }
+
 else
 {
 alert("No se pudo eliminar el registro de la base de datos. ");
@@ -210,7 +217,7 @@ $x.find("a").on("click",eliminar);
 }
 else if (data=="duplicado")
 {
-alert("El usuario ya tiene un permiso asignado. Por favor elimínelo antes de asignarle uno nuevo.");
+alert("El usuario ya tiene un permiso asignado para este programa o ya está como administrador del sistema. ");
 }
 else
 {
@@ -218,8 +225,8 @@ alert("No se pudo insertar el registro en la base de datos. ");
 }
 $('#listaroles').val('1');
 $('#inputusuario').val('');
-$('#listaProfesores').val('1');
-$('#listaProfesores').hide();
+$('#listaProgramas').val('1');
+$('#listaProgramas').hide();
 }
 
 $( ".tabs" ).tabs();

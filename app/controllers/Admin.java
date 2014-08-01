@@ -38,7 +38,8 @@ public class Admin extends Controller{
 	public static Result borrar()
 	{
 		String documento = Form.form().bindFromRequest().get("documento");
-		if(Permiso.delete(documento))
+		String codPrograma = Form.form().bindFromRequest().get("codPrograma");
+		if(Permiso.delete(documento,codPrograma))
 		{	
 		return ok("ok");
 		}
@@ -50,7 +51,7 @@ public class Admin extends Controller{
 		String documento = Form.form().bindFromRequest().get("documento");
 		String idRol = Form.form().bindFromRequest().get("idRol");
 		String codigoPrograma = Form.form().bindFromRequest().get("codigoPrograma");
-		if(Permiso.findByDocumento(documento)!=null)
+		if(Permiso.existePermiso(documento, idRol, codigoPrograma))
 		{
 			return ok("duplicado");
 		}

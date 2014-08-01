@@ -21,20 +21,25 @@ public class ReportesDAO {
 	 */
 	final static String consultaPorFacultad="select codigo_facultad, nombre_facultad, avg(porcentaje) as porcentaje, valor, saber,tipo_evaluacion "+
 "from "+
-"(SELECT  distinct "+ 
-"          FAC.ID_DECAN as codigo_facultad,   "+
-"           FAC.DESCRIP as nombre_facultad,  "+
-"           GRP.CLI_NDCTO_PROF as codprof  "+
-"    FROM   (select GRU_SEMESTRE,GRU_CODIGO, MAT_CODIGO, GRU_CUPO_ASIGNADO, CLI_NDCTO_PROF,CLI_TIPODCTO,CLI_TDCTO_PROF from SAI.ART_HISTORIA_GRUPOS union select GRU_SEMESTRE, GRU_CODIGO,MAT_CODIGO, GRU_CUPO_ASIGNADO, CLI_NDCTO_PROF,CLI_TIPODCTO,CLI_TDCTO_PROF from SAI.ART_GRUPOS_VIGENTES) GRP , "+
-"           ART_DPTOAC DPT,  "+
-"           SCT_DECAN FAC,  "+
-"           RCT_CLIENTES CLI  "+
-"   WHERE       SUBSTR (GRP.MAT_CODIGO, 1, 2) = DPT.CODDPTOAC  "+
-"           AND DPT.ID_DECAN = FAC.ID_DECAN  "+
-"           AND GRP.GRU_SEMESTRE = ?  "+ // 1 semestre
-"           AND GRP.CLI_TDCTO_PROF = CLI.CLI_TIPODCTO  "+
-"           AND GRP.CLI_NDCTO_PROF = CLI.CLI_NUMDCTO  "+
-"           AND GRP.CLI_NDCTO_PROF <> '000000000000')  facultades,  "+
+"( "+
+"select distinct NIT codprof, id_facultad as codigo_facultad, nombre_facultad as nombre_facultad "+
+"from( "+
+"SELECT a.*, b.*,f.nombre as nombre_facultad, f.ID_DECAN as id_facultad "+
+"FROM v1_empleado a,interfaz.v_centro_costo b,cc_predecesor_facultad c,facultad_centro_costo f "+
+"where  "+
+"FECHA_INGRESO<to_date(?,'yyyy-mm-dd') AND (FECHA_FIN_CONTRATO>to_date(?,'yyyy-mm-dd') or FECHA_FIN_CONTRATO is null) " +
+//1.1 fecha contrato 1.2. fecha contrato
+"AND a.EMPRESA IN ('CAT', 'DOC') AND a.NOMBRE_CARGO LIKE  'CAT%' AND b.centro_costo = a.centro_costo AND c.cc_predecesor=b.CENTRO_COSTO_PREDECESOR "+
+"and c.centro_costo= f.centro_costo "+
+"UNION ALL "+
+"SELECT a.*, b.*,f.nombre as nombre_facultad, f.ID_DECAN as id_facultad "+
+"FROM v1_empleado a,interfaz.v_centro_costo b,cc_predecesor_facultad c,FACULTAD_CENTRO_COSTO F "+
+"where "+
+"FECHA_INGRESO<to_date(?,'yyyy-mm-dd') AND (FECHA_FIN_CONTRATO>to_date(?,'yyyy-mm-dd') or FECHA_FIN_CONTRATO is null) "+
+// 1.3. fecha contrato 1.4.fecha contrato
+"AND a.EMPRESA IN ('CAT', 'DOC') AND a.NOMBRE_CARGO LIKE  'DOC%' AND b.centro_costo = a.centro_costo AND c.cc_predecesor=b.CENTRO_COSTO_PREDECESOR "+
+"and c.centro_costo= f.centro_costo )  "+
+" )  facultades,  "+
 "(select parcial.tipo_evaluacion as tipo_evaluacion, parcial.cedula as cedula, valor, 100*conteo/total.total as porcentaje  "+
 ", parcial.saber as saber from  "+
 "(  "+
@@ -862,30 +867,35 @@ public class ReportesDAO {
 		String tituloPregunta;
 		int numeroRespuestas;
 		String materiaAnterior="";
+		String fechaContrato = Periodo.getFechaContrato(semestre);
+		
 		 try {
 				p = con.prepareStatement(consultaPorFacultad);
-				p.setString(1, semestre);
-				p.setString(2, semestre);
-				p.setString(3, "%%"+semestre+"%%");
-				p.setString(4, "%%"+semestre+"%%");
-				p.setString(5, periodo[Periodo.FECHAINICIO]);
-				p.setString(6, periodo[Periodo.FECHAFIN]);
-				p.setString(7, periodo[Periodo.FECHAINICIO]);
+				p.setString(1, fechaContrato);
+				p.setString(2, fechaContrato);
+				p.setString(3, fechaContrato);
+				p.setString(4, fechaContrato);
+				p.setString(5, semestre);
+				p.setString(6, "%%"+semestre+"%%");
+				p.setString(7, "%%"+semestre+"%%");
 				p.setString(8, periodo[Periodo.FECHAINICIO]);
-				p.setString(9, periodo[Periodo.FECHAINICIO]);
-				p.setString(10, periodo[Periodo.FECHAFIN]);
+				p.setString(9, periodo[Periodo.FECHAFIN]);
+				p.setString(10, periodo[Periodo.FECHAINICIO]);
 				p.setString(11, periodo[Periodo.FECHAINICIO]);
-				p.setString(12, semestre);
-				p.setString(13, "%%"+semestre+"%%");
-				p.setString(14, "%%"+semestre+"%%");
-				p.setString(15, periodo[Periodo.FECHAINICIO]);
-				p.setString(16, periodo[Periodo.FECHAFIN]);
-				p.setString(17, periodo[Periodo.FECHAINICIO]);
+				p.setString(12, periodo[Periodo.FECHAINICIO]);
+				p.setString(13, periodo[Periodo.FECHAFIN]);
+				p.setString(14, periodo[Periodo.FECHAINICIO]);
+				p.setString(15, semestre);
+				p.setString(16, "%%"+semestre+"%%");
+				p.setString(17, "%%"+semestre+"%%");
 				p.setString(18, periodo[Periodo.FECHAINICIO]);
-				p.setString(19, periodo[Periodo.FECHAINICIO]);
-				p.setString(20, periodo[Periodo.FECHAFIN]);
+				p.setString(19, periodo[Periodo.FECHAFIN]);
+				p.setString(20, periodo[Periodo.FECHAINICIO]);
 				p.setString(21, periodo[Periodo.FECHAINICIO]);
-				p.setString(22, codigoFacultad);
+				p.setString(22, periodo[Periodo.FECHAINICIO]);
+				p.setString(23, periodo[Periodo.FECHAFIN]);
+				p.setString(24, periodo[Periodo.FECHAINICIO]);
+				p.setString(25, codigoFacultad);
 				
 				ResultSet rs=p.executeQuery();
 				int saber = 0;

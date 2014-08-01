@@ -1,4 +1,4 @@
-@(evaluacionMateria:List[EvaluacionMateria], profesores:List[Profesor],semestres:List[String])
+@(evaluacionMateria:List[EvaluacionMateria], profesores:List[Profesor],semestres:List[String],programas:List[Programa]=Nil)
 @import models.Pregunta
 
 
@@ -7,6 +7,6 @@
 	<div id="informe">
 	
 	</div>
-	@sidebar(profesores,semestres)
+	@sidebar(profesores,semestres,programas)
 	
 }

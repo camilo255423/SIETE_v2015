@@ -89,9 +89,7 @@ public class Profesor {
 			String fecha = Periodo.getFechaContrato(semestre);
 			p.setString(1, fecha);
 			p.setString(2, fecha);
-			p.setString(3, fecha);
-			p.setString(4, fecha);
-			p.setString(5, codigoPrograma);
+			p.setString(3, codigoPrograma);
 			System.out.println(fecha);
 			ResultSet rs=p.executeQuery();
 			while (rs.next()) {
@@ -256,9 +254,9 @@ public class Profesor {
 			*/
 	private static final String consultaProfesoresPrograma ="SELECT  nit as documento, primer_apellido,segundo_apellido, nombre "+
 			  "FROM   ICEBERG.EMPLEADO e inner join sai.art_programas on   e.centro_costo=sai.art_programas.igecodigo "+
-			 "WHERE to_date(?,'yyyy-mm-dd')>fecha_ingreso and "+ 
-			 "to_date(?,'yyyy-mm-dd')<FECHA_FIN_CONTRATO "+ 
-			 "and sai.art_programas.pro_codprograma=? "+
+			 "WHERE to_date(?,'yyyy-mm-dd')>fecha_ingreso and "+  //1. fecha contrato
+			 "to_date(?,'yyyy-mm-dd')<FECHA_FIN_CONTRATO "+  //2. fecha contrato
+			 "and sai.art_programas.pro_codprograma=? "+    //3. codigo programa
 			  "order by primer_apellido, segundo_apellido, nombre ";
 	/**
 	 * Consulta sql que encuentra un profesor por documento

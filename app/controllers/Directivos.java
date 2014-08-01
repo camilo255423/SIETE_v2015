@@ -34,14 +34,14 @@ public class Directivos extends Controller{
 	/**
 	 * Borra un registro de la tabla de directivos_semestre 
 	 * recibe por POST
-	 * documento y semestre
+	 * documento y código del programa
 	 * @return
 	 */
 	public static Result borrar()
 	{
 		String documento = Form.form().bindFromRequest().get("documento");
-		String Documento = Form.form().bindFromRequest().get("documento");
-		if(Permiso.delete(documento))
+		String codPrograma = Form.form().bindFromRequest().get("codPrograma");
+		if(Permiso.delete(documento,codPrograma))
 		{	
 		return ok("ok");
 		}

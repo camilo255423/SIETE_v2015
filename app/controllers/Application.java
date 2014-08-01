@@ -58,6 +58,54 @@ public class Application extends Controller {
         		
         	}
         	
+<<<<<<< HEAD
+=======
+           if (cedula!=null) {
+        	   if(cedula.equals("-1"))
+        	   {
+        		   return "No se puede establecer conexión con el servicio de autenticación " +
+        		   		"de usuarios de la institución. Por favor contacte al administrador del sistema.";
+        	   }
+        	 
+        	   Usuario usuario = Usuario.findByDocumento(cedula);
+        	   if(usuario!=null)
+        	   {   
+        	   session().clear();
+	        	   if(usuario.getRol()!=null)
+	        	   {
+	               session("rol", usuario.getRol());
+	               	if(usuario.getRol().equals(Rol.COORDINADOR))
+	               		{
+	               		//	Permiso permiso = Permiso.findByDocumento(cedula);
+	               			session("documento",cedula);
+	       
+	               	
+	               		}
+	               		
+	        	   }
+	        	   else
+	        	   {
+	        	   session("rol", Rol.PROFESOR);	   
+	        	   }
+	               session("documento",cedula);
+	               session("nombre",usuario.getNombre());
+        	   }
+        	   else
+        	   {
+        		  
+        			   
+        		   return "El usuario no tiene permisos para ingresar";
+        	   }
+              
+            }
+           else {
+        	   return "Usuario o contraseña incorrecta";
+           }
+        	   
+            return null;
+        }
+    }
+>>>>>>> 83ea5cc9add5bfe76dd8df164a8931789e2d0402
 
         	
             if (cedula!=null) {
@@ -114,11 +162,23 @@ public class Application extends Controller {
 	}
 	@Security.Authenticated(Secured.class)
     public static Result index() {
-
-    	
+		String semestreMinimo="20132"; // Semestre mínimo en el cual se puede revisar en la base de datos
+		
+		if(session("rol").equals(Rol.ADMINISTRADOR))
+		{
+			semestreMinimo="20111";
+		}
+		 	
     	List<Profesor> profesores = new ArrayList<Profesor>();
-    	List<String> semestres = Periodo.findAll();
-    	return ok(views.html.informes.informedocencia.render(null,profesores,semestres));
+    	List<String> semestres = Periodo.findAll(semestreMinimo);
+    	List<Programa> programas = null;
+    	
+     	if(session("rol").equals(Rol.COORDINADOR))
+     	{
+     		programas = Programa.findProgramasByDirector(session("documento"));
+     		System.out.println(programas.get(0));
+     	}
+    	return ok(views.html.informes.informedocencia.render(null,profesores,semestres,programas));
     }
   public static Result login() {
         return ok(
@@ -152,7 +212,10 @@ public class Application extends Controller {
     	List<Profesor> profesores = null;
     	if(session("rol").equals(Rol.COORDINADOR))
     	{
-    		profesores= Profesor.findAllBySemestreAndPrograma(semestre, session("codigoPrograma"));		
+    		String codigoPrograma = Form.form().bindFromRequest().get("codigoPrograma");
+    		
+    		profesores= Profesor.findAllBySemestreAndPrograma(semestre, codigoPrograma);	
+  
     	
     	}
     	else
