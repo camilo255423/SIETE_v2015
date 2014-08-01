@@ -7,11 +7,7 @@
 		revision="1"
 		conf="scala-tool"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-<<<<<<< HEAD:target/resolution-cache/reports/evadoc-evadoc_2.10-scala-tool.xml
-		date="20140512130528"/>
-=======
-		date="20140704160921"/>
->>>>>>> 372fc1744ef1390cc0f6719f5a95e33da34749d9:target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-scala-tool.xml
+		date="20140724223533"/>
 	<dependencies>
 		<module organisation="org.scala-lang" name="scala-compiler">
 			<revision name="2.10.2" status="release" pubdate="20130606110625" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="default, optional, compile, runtime, optional(default), master" position="0">

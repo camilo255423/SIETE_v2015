@@ -1,4 +1,4 @@
-[0m[[0minfo[0m] [0mUpdating {file:/home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/}evadoc...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/}evadoc...[0m
 [0m[[0mdebug[0m] [0m:: resolving dependencies :: evadoc#evadoc_2.10;1[0m
 [0m[[0mdebug[0m] [0m	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool][0m
 [0m[[0mdebug[0m] [0m	validate = true[0m
@@ -7,11 +7,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for evadoc#evadoc_2.10;1 [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies evadoc#evadoc_2.10;1->org.scala-lang#scala-library;2.10.2 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.10.2 ...[0m
-<<<<<<< HEAD
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@15728e12[0m
-=======
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@102ccb33[0m
->>>>>>> 372fc1744ef1390cc0f6719f5a95e33da34749d9
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3c77b229[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.2[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: org.scala-lang#scala-library;2.10.2[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.10.2 in sbt-chain[0m
@@ -518,7 +514,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play_2.10;2.2.0->org.scala-lang#scala-reflect;2.10.2 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies evadoc#evadoc_2.10;1->com.typesafe.play#play-java_2.10;2.2.0 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving com.typesafe.play#play-java_2.10;2.2.0 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@27ca2da[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@5a97f432[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.typesafe.play#play-java_2.10;2.2.0[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: com.typesafe.play#play-java_2.10;2.2.0[0m
 [0m[[0mdebug[0m] [0m	found com.typesafe.play#play-java_2.10;2.2.0 in sbt-chain[0m
@@ -5027,7 +5023,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies evadoc#evadoc_2.10;1->org.scala-lang#scala-library;2.10.2 [scala-tool->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies evadoc#evadoc_2.10;1->org.scala-lang#scala-library;2.10.2 [scala-tool->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies evadoc#evadoc_2.10;1->org.scala-lang#scala-library;2.10.2 [scala-tool->optional(default)][0m
-[0m[[0mdebug[0m] [0m	resolved ivy file produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/resolution-cache/evadoc/evadoc_2.10/1/resolved.xml.xml[0m
+[0m[[0mdebug[0m] [0m	resolved ivy file produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/target/resolution-cache/evadoc/evadoc_2.10/1/resolved.xml.xml[0m
 [0m[[0mdebug[0m] [0m:: downloading artifacts ::[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-library;2.10.2!scala-library.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play_2.10;2.2.0!play_2.10.jar[0m
@@ -5155,37 +5151,19 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.10.2!scala-compiler.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.2!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-<<<<<<< HEAD
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 27650ms :: artifacts dl 4116ms[0m
-[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 compile produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/resolution-cache/reports/evadoc-evadoc_2.10-compile.xml[0m
-[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 runtime produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/resolution-cache/reports/evadoc-evadoc_2.10-runtime.xml[0m
-[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 test produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/resolution-cache/reports/evadoc-evadoc_2.10-test.xml[0m
-[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 provided produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/resolution-cache/reports/evadoc-evadoc_2.10-provided.xml[0m
-[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 optional produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/resolution-cache/reports/evadoc-evadoc_2.10-optional.xml[0m
-[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 compile-internal produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/resolution-cache/reports/evadoc-evadoc_2.10-compile-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 runtime-internal produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/resolution-cache/reports/evadoc-evadoc_2.10-runtime-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 test-internal produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/resolution-cache/reports/evadoc-evadoc_2.10-test-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 plugin produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/resolution-cache/reports/evadoc-evadoc_2.10-plugin.xml[0m
-[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 sources produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/resolution-cache/reports/evadoc-evadoc_2.10-sources.xml[0m
-[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 docs produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/resolution-cache/reports/evadoc-evadoc_2.10-docs.xml[0m
-[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 pom produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/resolution-cache/reports/evadoc-evadoc_2.10-pom.xml[0m
-[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 scala-tool produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/resolution-cache/reports/evadoc-evadoc_2.10-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (27650ms resolve - 4116ms download)[0m
-=======
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 10357ms :: artifacts dl 191ms[0m
-[0m[[0mdebug[0m] [0m	report for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT compile produced in /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-compile.xml[0m
-[0m[[0mdebug[0m] [0m	report for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT runtime produced in /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-runtime.xml[0m
-[0m[[0mdebug[0m] [0m	report for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT test produced in /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-test.xml[0m
-[0m[[0mdebug[0m] [0m	report for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT provided produced in /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-provided.xml[0m
-[0m[[0mdebug[0m] [0m	report for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT optional produced in /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-optional.xml[0m
-[0m[[0mdebug[0m] [0m	report for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT compile-internal produced in /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-compile-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT runtime-internal produced in /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-runtime-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT test-internal produced in /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-test-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT plugin produced in /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-plugin.xml[0m
-[0m[[0mdebug[0m] [0m	report for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT sources produced in /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-sources.xml[0m
-[0m[[0mdebug[0m] [0m	report for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT docs produced in /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-docs.xml[0m
-[0m[[0mdebug[0m] [0m	report for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT pom produced in /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-pom.xml[0m
-[0m[[0mdebug[0m] [0m	report for moduloinformes#moduloinformes_2.10;1.0-SNAPSHOT scala-tool produced in /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (10357ms resolve - 191ms download)[0m
->>>>>>> 372fc1744ef1390cc0f6719f5a95e33da34749d9
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 8186ms :: artifacts dl 336ms[0m
+[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 compile produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/target/resolution-cache/reports/evadoc-evadoc_2.10-compile.xml[0m
+[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 runtime produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/target/resolution-cache/reports/evadoc-evadoc_2.10-runtime.xml[0m
+[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 test produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/target/resolution-cache/reports/evadoc-evadoc_2.10-test.xml[0m
+[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 provided produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/target/resolution-cache/reports/evadoc-evadoc_2.10-provided.xml[0m
+[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 optional produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/target/resolution-cache/reports/evadoc-evadoc_2.10-optional.xml[0m
+[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 compile-internal produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/target/resolution-cache/reports/evadoc-evadoc_2.10-compile-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 runtime-internal produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/target/resolution-cache/reports/evadoc-evadoc_2.10-runtime-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 test-internal produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/target/resolution-cache/reports/evadoc-evadoc_2.10-test-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 plugin produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/target/resolution-cache/reports/evadoc-evadoc_2.10-plugin.xml[0m
+[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 sources produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/target/resolution-cache/reports/evadoc-evadoc_2.10-sources.xml[0m
+[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 docs produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/target/resolution-cache/reports/evadoc-evadoc_2.10-docs.xml[0m
+[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 pom produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/target/resolution-cache/reports/evadoc-evadoc_2.10-pom.xml[0m
+[0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 scala-tool produced in /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/target/resolution-cache/reports/evadoc-evadoc_2.10-scala-tool.xml[0m
+[0m[[0mdebug[0m] [0m	resolve done (8186ms resolve - 336ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m

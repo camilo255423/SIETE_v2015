@@ -1,6 +1,6 @@
 [0m[[0minfo[0m] [0mBuild WAR package for servlet container: 3.1[0m
 [0m[[0mdebug[0m] [0mplay2-war-core-common found in dependencies![0m
-[0m[[0minfo[0m] [0mPackaging /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/evadoc-1.war ...[0m
+[0m[[0minfo[0m] [0mPackaging /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/target/evadoc-1.war ...[0m
 [0m[[0mdebug[0m] [0mIgnoring dependency javax.servlet -> servlet-api[0m
 [0m[[0mdebug[0m] [0mIgnoring dependency javax.servlet -> javax.servlet-api[0m
 [0m[[0mdebug[0m] [0mIgnoring dependency com.google.guava -> guava[0m
@@ -67,12 +67,12 @@
 [0m[[0mdebug[0m] [0mEmbedding file /home/camilo/play-2.2.0/framework/../repository/cache/com.github.play2war/play2-war-core-servlet30_2.10/jars/play2-war-core-servlet30_2.10-1.2-beta4.jar -> WEB-INF/lib/com.github.play2war.play2-war-core-servlet30_2.10-1.2-beta4.jar[0m
 [0m[[0mdebug[0m] [0mEmbedding file /home/camilo/play-2.2.0/framework/../repository/cache/org.scala-lang/scala-library/jars/scala-library-2.10.3.jar -> WEB-INF/lib/org.scala-lang.scala-library-2.10.3.jar[0m
 [0m[[0mdebug[0m] [0mEmbedding file /home/camilo/play-2.2.0/framework/../repository/cache/com.github.play2war/play2-war-core-common_2.10/jars/play2-war-core-common_2.10-1.2-beta4.jar -> WEB-INF/lib/com.github.play2war.play2-war-core-common_2.10-1.2-beta4.jar[0m
-[0m[[0mdebug[0m] [0mEmbedding file /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/target/scala-2.10/evadoc_2.10-1.jar -> WEB-INF/lib/evadoc.evadoc-1.jar[0m
-[0m[[0mdebug[0m] [0mEmbedding file /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/lib/itextpdf-5.4.5.jar -> WEB-INF/lib/itextpdf-5.4.5.jar[0m
-[0m[[0mdebug[0m] [0mEmbedding file /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/lib/xmlworker-5.4.5.jar -> WEB-INF/lib/xmlworker-5.4.5.jar[0m
-[0m[[0mdebug[0m] [0mEmbedding file /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/lib/poi-3.9-20121203.jar -> WEB-INF/lib/poi-3.9-20121203.jar[0m
-[0m[[0mdebug[0m] [0mEmbedding file /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/lib/jackson-mapper-asl-1.7.0.jar -> WEB-INF/lib/jackson-mapper-asl-1.7.0.jar[0m
-[0m[[0mdebug[0m] [0mEmbedding file /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/lib/ojdbc6.jar -> WEB-INF/lib/ojdbc6.jar[0m
+[0m[[0mdebug[0m] [0mEmbedding file /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/target/scala-2.10/evadoc_2.10-1.jar -> WEB-INF/lib/evadoc.evadoc-1.jar[0m
+[0m[[0mdebug[0m] [0mEmbedding file /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/lib/itextpdf-5.4.5.jar -> WEB-INF/lib/itextpdf-5.4.5.jar[0m
+[0m[[0mdebug[0m] [0mEmbedding file /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/lib/xmlworker-5.4.5.jar -> WEB-INF/lib/xmlworker-5.4.5.jar[0m
+[0m[[0mdebug[0m] [0mEmbedding file /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/lib/poi-3.9-20121203.jar -> WEB-INF/lib/poi-3.9-20121203.jar[0m
+[0m[[0mdebug[0m] [0mEmbedding file /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/lib/jackson-mapper-asl-1.7.0.jar -> WEB-INF/lib/jackson-mapper-asl-1.7.0.jar[0m
+[0m[[0mdebug[0m] [0mEmbedding file /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/lib/ojdbc6.jar -> WEB-INF/lib/ojdbc6.jar[0m
 [0m[[33mwarn[0m] [0mUnknown servlet container version: 3.1. Force default 3.0 version[0m
-[0m[[0mdebug[0m] [0mWebapp resources directory: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/war[0m
+[0m[[0mdebug[0m] [0mWebapp resources directory: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/SIETE/war[0m
 [0m[[0minfo[0m] [0mPackaging done.[0m
