@@ -1,21 +1,12 @@
 package controllers;
 
-
-
-
-
 import java.util.ArrayList;
 import java.util.List;
-import static play.data.Form.*;
+
 
 import models.*;
 import play.data.Form;
 import play.mvc.*;
-
-/** Controlador principal. Procesa las acciones de Login, Logout y cuando el 
- * usuario selecciona un semestre en el menú lateral.
- *
- */
 
 /**
  * 
@@ -24,7 +15,6 @@ import play.mvc.*;
  * @author Camilo Rodriguez
  *
  */
-
 public class Application extends Controller {
 	/**
 	 * 
@@ -42,11 +32,7 @@ public class Application extends Controller {
         public String password;
         
         public String validate() {
-
         	String cedula="";
-        email=Form.form().bindFromRequest().get("email");
-        password=Form.form().bindFromRequest().get("password");
-        cedula = email;
         	// 52348310 Johanna Ovalle
         	if(email.equals("13923305") || email.equals("79511724") )
         	{ 
@@ -58,8 +44,6 @@ public class Application extends Controller {
         		
         	}
         	
-<<<<<<< HEAD
-=======
            if (cedula!=null) {
         	   if(cedula.equals("-1"))
         	   {
@@ -105,53 +89,7 @@ public class Application extends Controller {
             return null;
         }
     }
->>>>>>> 83ea5cc9add5bfe76dd8df164a8931789e2d0402
 
-        	
-            if (cedula!=null) {
-         	   if(cedula.equals("-1"))
-         	   {
-         		   return "No se puede establecer conexión con el servicio de autenticación " +
-         		   		"de usuarios de la institución. Por favor contacte al administrador del sistema.";
-         	   }
-         	   Usuario usuario = Usuario.findByDocumento(cedula);
-         	   if(usuario!=null)
-         	   {   
-         	   session().clear();
- 	        	   if(usuario.getRol()!=null)
- 	        	   {
- 	               session("rol", usuario.getRol());
- 	               	if(usuario.getRol().equals(Rol.COORDINADOR))
- 	               		{
- 	               			Permiso permiso = Permiso.findByDocumento(cedula);
- 	               			session("codigoPrograma",permiso.getPrograma().getCodPrograma());
- 	               			session("nombrePrograma",permiso.getPrograma().getNombre()); 
- 	               	
- 	               		}
- 	               		
- 	        	   }
- 	        	   else
- 	        	   {
- 	        	   session("rol", Rol.PROFESOR);	   
- 	        	   }
- 	               session("documento",cedula);
- 	               session("nombre",usuario.getNombre());
-         	   }
-         	   else
-         	   {
-          		   return "El usuario no tiene permisos para ingresar";
-         	   }
-               
-             }
-            else {
-         	   return "Usuario o contraseña incorrecta";
-            }
-         	   
-             return null;
-         }
-     }
-     
-    
 	@Security.Authenticated(Secured.class)
 	public static Result logout() {
 	    session().clear();
@@ -189,8 +127,7 @@ public class Application extends Controller {
     public static Result authenticate() {
         
             Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
-
-	     if (loginForm.hasErrors()) {
+            if (loginForm.hasErrors()) {
                 return badRequest(views.html.login.render(loginForm));
             } else {
               
@@ -235,7 +172,7 @@ public class Application extends Controller {
     		List<Programa> programas=null;
     		if(session("rol").equals(Rol.COORDINADOR))
         	{
-    			 
+    			
     			programas = new ArrayList<Programa>();
     			programas.add(Programa.findById(session("codigoPrograma")));
         	}
@@ -253,5 +190,4 @@ public class Application extends Controller {
        	
     }
     
-} //fin clase
-	
+}
