@@ -50,22 +50,10 @@ Seq[Any](format.raw/*1.124*/("""
 }
                 /*
                     -- GENERATED --
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    DATE: Mon May 12 13:05:46 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/informes/informedocencia.scala.html
-=======
-                    DATE: Fri Jul 04 16:10:10 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/informes/informedocencia.scala.html
->>>>>>> 372fc1744ef1390cc0f6719f5a95e33da34749d9
-                    HASH: ceaae20854a50d4ce397ee02c1d2eff314c32fc7
-                    MATRIX: 838->1|1048->94|1075->119|1112->122|1136->138|1174->139|1243->173|1294->202|1329->206
-=======
-                    DATE: Sun Jul 27 17:10:53 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/informes/informedocencia.scala.html
+                    DATE: Sun Aug 03 10:49:41 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/fuentes_SIETE/SIETE/app/views/informes/informedocencia.scala.html
                     HASH: 4839d8f48c1ec69d0cdc916afe590b7b5590419a
                     MATRIX: 853->1|1093->123|1120->148|1157->151|1181->167|1219->168|1288->202|1349->241|1384->245
->>>>>>> 83ea5cc9add5bfe76dd8df164a8931789e2d0402
                     LINES: 26->1|30->1|31->3|33->5|33->5|33->5|38->10|38->10|40->12
                     -- GENERATED --
                 */

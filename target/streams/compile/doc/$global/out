@@ -82,15 +82,4 @@
 [0m[[0mdebug[0m] [0m	/home/camilo/Documents/InpahuGeneracionInformes/fuentes_SIETE/SIETE/target/scala-2.10/src_managed/main/views/html/pdf/tablagestion.template.scala[0m
 [0m[[0mdebug[0m] [0m	/home/camilo/Documents/InpahuGeneracionInformes/fuentes_SIETE/SIETE/target/scala-2.10/src_managed/main/views/html/pdf/tablainvestigacion.template.scala[0m
 [0m[[0mdebug[0m] [0m	/home/camilo/Documents/InpahuGeneracionInformes/fuentes_SIETE/SIETE/target/scala-2.10/src_managed/main/views/html/sidebar.template.scala[0m
-[0m[[31merror[0m] [0m/home/camilo/Documents/InpahuGeneracionInformes/fuentes_SIETE/SIETE/app/controllers/Application.java:108: illegal start of type[0m
-[0m[[31merror[0m] [0m>>>>>>> 83ea5cc9add5bfe76dd8df164a8931789e2d0402[0m
-[0m[[31merror[0m] [0m^[0m
-[0m[[31merror[0m] [0m/home/camilo/Documents/InpahuGeneracionInformes/fuentes_SIETE/SIETE/app/controllers/Application.java:150: identifier expected but `;' found.[0m
-[0m[[31merror[0m] [0m             return null;[0m
-[0m[[31merror[0m] [0m                        ^[0m
-[0m[[31merror[0m] [0m/home/camilo/Documents/InpahuGeneracionInformes/fuentes_SIETE/SIETE/app/controllers/Application.java:152: eof expected but `}' found.[0m
-[0m[[31merror[0m] [0m     }[0m
-[0m[[31merror[0m] [0m     ^[0m
-[0m[[0minfo[0m] [0mNo documentation generated with unsucessful compiler run[0m
-[0m[[31merror[0m] [0mthree errors found[0m
-[0m[[31merror[0m] [0m(compile:[31mdoc[0m) Scaladoc generation failed[0m
+[0m[[0minfo[0m] [0mMain Scala API documentation successful.[0m

@@ -46,22 +46,10 @@ Seq[Any](format.raw/*1.49*/("""
 }
                 /*
                     -- GENERATED --
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    DATE: Mon May 12 13:05:37 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/glassfish/ModuloInformes/app/views/listaprogramas.scala.html
-=======
-                    DATE: Fri Jul 04 16:10:05 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/listaprogramas.scala.html
->>>>>>> 372fc1744ef1390cc0f6719f5a95e33da34749d9
-                    HASH: 7dae5c4e0844dc8012a230630fc49460101dbdd2
-                    MATRIX: 799->1|940->48|1109->183|1150->209|1188->210|1240->227|1256->235|1294->252|1332->255|1348->263|1386->280|1423->282|1439->290|1472->302|1513->313
-=======
-                    DATE: Sun Jul 27 17:20:16 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/listaprogramas.scala.html
+                    DATE: Sun Aug 03 10:49:35 COT 2014
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/fuentes_SIETE/SIETE/app/views/listaprogramas.scala.html
                     HASH: 085380d0f0eae67780ec0a9f7eff55afcbce4222
                     MATRIX: 799->1|940->48|1108->182|1149->208|1187->209|1239->226|1255->234|1293->251|1331->254|1347->262|1385->279|1422->281|1438->289|1471->301|1512->312
->>>>>>> 83ea5cc9add5bfe76dd8df164a8931789e2d0402
                     LINES: 26->1|29->1|33->5|33->5|33->5|34->6|34->6|34->6|34->6|34->6|34->6|34->6|34->6|34->6|35->7
                     -- GENERATED --
                 */

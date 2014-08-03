@@ -7,7 +7,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for evadoc#evadoc_2.10;1 [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies evadoc#evadoc_2.10;1->org.scala-lang#scala-library;2.10.2 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.10.2 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7342e709[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@570aa4d0[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.2[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: org.scala-lang#scala-library;2.10.2[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.10.2 in sbt-chain[0m
@@ -514,7 +514,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play_2.10;2.2.0->org.scala-lang#scala-reflect;2.10.2 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies evadoc#evadoc_2.10;1->com.typesafe.play#play-java_2.10;2.2.0 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving com.typesafe.play#play-java_2.10;2.2.0 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@2712a04[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@d2dbf4[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.typesafe.play#play-java_2.10;2.2.0[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: com.typesafe.play#play-java_2.10;2.2.0[0m
 [0m[[0mdebug[0m] [0m	found com.typesafe.play#play-java_2.10;2.2.0 in sbt-chain[0m
@@ -5151,7 +5151,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.10.2!scala-compiler.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.2!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 6468ms :: artifacts dl 144ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 15409ms :: artifacts dl 634ms[0m
 [0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 compile produced in /home/camilo/Documents/InpahuGeneracionInformes/fuentes_SIETE/SIETE/target/resolution-cache/reports/evadoc-evadoc_2.10-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 runtime produced in /home/camilo/Documents/InpahuGeneracionInformes/fuentes_SIETE/SIETE/target/resolution-cache/reports/evadoc-evadoc_2.10-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 test produced in /home/camilo/Documents/InpahuGeneracionInformes/fuentes_SIETE/SIETE/target/resolution-cache/reports/evadoc-evadoc_2.10-test.xml[0m
@@ -5165,5 +5165,5 @@
 [0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 docs produced in /home/camilo/Documents/InpahuGeneracionInformes/fuentes_SIETE/SIETE/target/resolution-cache/reports/evadoc-evadoc_2.10-docs.xml[0m
 [0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 pom produced in /home/camilo/Documents/InpahuGeneracionInformes/fuentes_SIETE/SIETE/target/resolution-cache/reports/evadoc-evadoc_2.10-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for evadoc#evadoc_2.10;1 scala-tool produced in /home/camilo/Documents/InpahuGeneracionInformes/fuentes_SIETE/SIETE/target/resolution-cache/reports/evadoc-evadoc_2.10-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (6468ms resolve - 144ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (15409ms resolve - 634ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
