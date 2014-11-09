@@ -785,7 +785,6 @@ public class InformesDAO {
 			if(rs.getString("tipo_evaluacion")!=null)	
 			if(rs.getString("tipo_evaluacion").contains("ESTUDIANTES") || rs.getString("tipo_evaluacion").contains("AUTOEVALUACION DE LA DOCENCIA"))
 			{	
-				
 				if(!(rs.getString("CODIGO_MATERIA")+" "+rs.getString("GRUPO")).equals(materiaAnterior))
 				{
 					tipoEvaluacion = EvaluacionMateria.EVALUACION;
@@ -794,12 +793,9 @@ public class InformesDAO {
 						tipoEvaluacion = EvaluacionMateria.AUTOEVALUACION;
 				
 						}
-					
-			
 					codigoMateria = rs.getString("CODIGO_MATERIA");
 					grupo = rs.getString("GRUPO");
 					ev = new EvaluacionMateria(tipoEvaluacion,new Materia(codigoMateria,rs.getString("NOMBRE_MATERIA"),grupo, rs.getInt("inscritos")),true);
-					
 					materiaAnterior=rs.getString("CODIGO_MATERIA")+" "+rs.getString("GRUPO");
 					evaluacionMaterias.add(ev);
 					
