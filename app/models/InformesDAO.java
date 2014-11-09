@@ -666,7 +666,7 @@ public class InformesDAO {
 				
 				while (rs.next()) {
 				if(rs.getString("tipo_evaluacion")!=null)	
-				if(rs.getString("tipo_evaluacion").contains("ESTUDIANTES"))
+				if(rs.getString("tipo_evaluacion").contains("ESTUDIANTES") )
 				{	
 					if(!(rs.getString("CODIGO_MATERIA")+" "+rs.getString("GRUPO")).equals(materiaAnterior))
 					{
@@ -696,6 +696,9 @@ public class InformesDAO {
 					}
 					
 					
+					
+						
+
 				}
 				
 				if(rs.getString("saber")!=null)
@@ -705,7 +708,9 @@ public class InformesDAO {
 				if(rs.getString("saber")!=null)
 				if(rs.getString("saber").equals("Inve"))
 					evaluacionInvestigacion.getPromedioRespuestas()[rs.getInt("valor")-1]=rs.getInt("suma");
-				}
+				
+				} //fin while 
+				
 				con.close();		
 		 }catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -809,6 +814,7 @@ public class InformesDAO {
 					}
 					else
 					{
+						
 						indicePregunta = ev.getPreguntas().indexOf(new Pregunta(tituloPregunta));
 						if(indicePregunta!=-1)
 						{	
@@ -900,6 +906,7 @@ public class InformesDAO {
 				}
 			
 			}
+			
 			if(rs.getString("tipo_evaluacion")==null)
 			{
 				tipoEvaluacion = EvaluacionMateria.EVALUACION;
@@ -922,7 +929,6 @@ public class InformesDAO {
 				EvaluacionMateria evaluacionMateria = evaluacionMaterias.get(i);
 				 if(evaluacionMateria.getTipoEvaluacion()==EvaluacionMateria.AUTOEVALUACION)
 				 {
-					 System.out.println("Materia"+evaluacionMateria.getMateria());
 						
 					em= new EvaluacionMateria(EvaluacionMateria.EVALUACION,evaluacionMateria.getMateria(),false);
 					if(evaluacionMaterias.indexOf(em)<0)
