@@ -624,8 +624,7 @@ public class InformesDAO {
 		 }
 		 evaluacionMaterias.get(0).getMateria().setInscritos(inscritos);
 		 evaluacionMaterias.get(0).setEvaluados((int)totalDocencia[0]/6);
-		
-	   
+		 
 		 return new Evaluacion(evaluacionMaterias, evaluacionGestion, evaluacionInvestigacion,autoEvaluacionGestion,autoEvaluacionInvestigacion);
 
 		
@@ -667,9 +666,8 @@ public class InformesDAO {
 				
 				while (rs.next()) {
 				if(rs.getString("tipo_evaluacion")!=null)	
-				if(rs.getString("tipo_evaluacion").contains("ESTUDIANTES"))
+				if(rs.getString("tipo_evaluacion").contains("ESTUDIANTES") )
 				{	
-				
 					if(!(rs.getString("CODIGO_MATERIA")+" "+rs.getString("GRUPO")).equals(materiaAnterior))
 					{
 						tipoEvaluacion = EvaluacionMateria.EVALUACION;
@@ -679,7 +677,6 @@ public class InformesDAO {
 					
 							}
 						
-				
 						codigoMateria = rs.getString("CODIGO_MATERIA");
 						grupo = rs.getString("GRUPO");
 						ev = new EvaluacionMateria(tipoEvaluacion,new Materia(codigoMateria,rs.getString("NOMBRE_MATERIA"),grupo, rs.getInt("inscritos")),true);
@@ -699,6 +696,9 @@ public class InformesDAO {
 					}
 					
 					
+					
+						
+
 				}
 				
 				if(rs.getString("saber")!=null)
@@ -708,7 +708,9 @@ public class InformesDAO {
 				if(rs.getString("saber")!=null)
 				if(rs.getString("saber").equals("Inve"))
 					evaluacionInvestigacion.getPromedioRespuestas()[rs.getInt("valor")-1]=rs.getInt("suma");
-				}
+				
+				} //fin while 
+				
 				con.close();		
 		 }catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -812,6 +814,7 @@ public class InformesDAO {
 					}
 					else
 					{
+						
 						indicePregunta = ev.getPreguntas().indexOf(new Pregunta(tituloPregunta));
 						if(indicePregunta!=-1)
 						{	
@@ -903,11 +906,46 @@ public class InformesDAO {
 				}
 			
 			}
+			
+			if(rs.getString("tipo_evaluacion")==null)
+			{
+				tipoEvaluacion = EvaluacionMateria.EVALUACION;
+				codigoMateria = rs.getString("CODIGO_MATERIA");
+				grupo = rs.getString("GRUPO");
+				ev = new EvaluacionMateria(tipoEvaluacion,new Materia(codigoMateria,rs.getString("NOMBRE_MATERIA"),grupo, rs.getInt("inscritos")),true);
+				
+				materiaAnterior=rs.getString("CODIGO_MATERIA")+" "+rs.getString("GRUPO");
+				evaluacionMaterias.add(ev);
+			}
+				
+				
 			}// fin while
+			
+			// Posibles asignaturas con autoevaluación pero sin evaluación de estudiantes.
+		
+			EvaluacionMateria em=null;
+			for(int i=0;i<evaluacionMaterias.size();i++)
+			{
+				EvaluacionMateria evaluacionMateria = evaluacionMaterias.get(i);
+				 if(evaluacionMateria.getTipoEvaluacion()==EvaluacionMateria.AUTOEVALUACION)
+				 {
+						
+					em= new EvaluacionMateria(EvaluacionMateria.EVALUACION,evaluacionMateria.getMateria(),false);
+					if(evaluacionMaterias.indexOf(em)<0)
+					{
+						em= new EvaluacionMateria(EvaluacionMateria.EVALUACION,evaluacionMateria.getMateria(),true);	
+						evaluacionMaterias.add(em);
+						
+					}
+				 }
+			}
+			
 			// realiza los cálculos de los porcentajes y promedios
 			int nmateria=0;
 			for(EvaluacionMateria evaluacionMateria:evaluacionMaterias)
 			{
+			 if(evaluacionMateria.getTipoEvaluacion()==EvaluacionMateria.EVALUACION)
+			 {	 
 				nmateria++;
 				int sum=0;
 				Pregunta pregunta = evaluacionMateria.getPreguntas().get(0);
@@ -955,7 +993,9 @@ public class InformesDAO {
 					evaluacionMateria.getPromedioPorcentaje()[Pregunta.RELACIONAL][nivel] =  evaluacionMateria.getPromedioPorcentaje()[Pregunta.RELACIONAL][nivel] /3;
 		
 				}
-			
+				
+			 } //fin if
+			 	 
 			}	//fin for materias
 			con.close();		
 			} 
@@ -980,6 +1020,7 @@ public class InformesDAO {
 			autoEvaluacionInvestigacion.getPromedioRespuestas()[nivel] = autoEvaluacionInvestigacion.getPromedioRespuestas()[nivel]/6;
 			autoEvaluacionInvestigacion.getPromedioPorcentaje()[nivel] = autoEvaluacionInvestigacion.getPromedioPorcentaje()[nivel]/6;
 		} 
+			
      return new Evaluacion(evaluacionMaterias, evaluacionGestion, evaluacionInvestigacion,autoEvaluacionGestion,autoEvaluacionInvestigacion);
 	}
 	
