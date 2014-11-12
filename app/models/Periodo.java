@@ -43,7 +43,7 @@ public class Periodo {
 		}	
 		else
 		{	
-			fecha[Periodo.FECHAINICIO]=ano+"-"+"06"+"-"+"01";
+			fecha[Periodo.FECHAINICIO]=ano+"-"+"08"+"-"+"01";
 			fecha[Periodo.FECHAFIN]=ano+"-"+"12"+"-"+"31";
 			
 		}			

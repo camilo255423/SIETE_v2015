@@ -671,6 +671,7 @@ public class InformesDAO {
 					if(!(rs.getString("CODIGO_MATERIA")+" "+rs.getString("GRUPO")).equals(materiaAnterior))
 					{
 						tipoEvaluacion = EvaluacionMateria.EVALUACION;
+					
 						if(rs.getString("tipo_evaluacion").contains("AUTOEVALUACION")) 
 							{
 							tipoEvaluacion = EvaluacionMateria.AUTOEVALUACION;
@@ -795,6 +796,7 @@ public class InformesDAO {
 						tipoEvaluacion = EvaluacionMateria.AUTOEVALUACION;
 				
 						}
+					
 					codigoMateria = rs.getString("CODIGO_MATERIA");
 					grupo = rs.getString("GRUPO");
 					ev = new EvaluacionMateria(tipoEvaluacion,new Materia(codigoMateria,rs.getString("NOMBRE_MATERIA"),grupo, rs.getInt("inscritos")),true);
@@ -804,7 +806,7 @@ public class InformesDAO {
 				}
 				
 				tituloPregunta = rs.getString("pregunta");
-				
+		
 				numeroRespuestas = rs.getInt("conteo");
 				
 				
@@ -944,8 +946,8 @@ public class InformesDAO {
 			int nmateria=0;
 			for(EvaluacionMateria evaluacionMateria:evaluacionMaterias)
 			{
-			 if(evaluacionMateria.getTipoEvaluacion()==EvaluacionMateria.EVALUACION)
-			 {	 
+			// if(evaluacionMateria.getTipoEvaluacion()==EvaluacionMateria.EVALUACION)
+			// {	 
 				nmateria++;
 				int sum=0;
 				Pregunta pregunta = evaluacionMateria.getPreguntas().get(0);
@@ -994,7 +996,7 @@ public class InformesDAO {
 		
 				}
 				
-			 } //fin if
+			// } //fin if
 			 	 
 			}	//fin for materias
 			con.close();		
