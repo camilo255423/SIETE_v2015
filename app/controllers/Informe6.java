@@ -172,8 +172,8 @@ public class Informe6 extends Controller {
    		columna=0;	
    		row = sheet.createRow(fila++);
    		row.createCell(columna++).setCellValue("Facultad");
-   		row.createCell(columna++).setCellValue("No de Docentes");
-   		row.createCell(columna++).setCellValue("Total Estudiantes");
+   		row.createCell(columna++).setCellValue("No de Docentes Participantes");
+   		row.createCell(columna++).setCellValue("Total Docentes");
    		row.createCell(columna++).setCellValue("Porcentaje");
    		for(Facultad facultad:docentesEvaluadosPorEstudiantesPorFacultad)
    		{	
@@ -192,8 +192,8 @@ public class Informe6 extends Controller {
    		columna=0;	
    		row = sheet.createRow(fila++);
    		row.createCell(columna++).setCellValue("Facultad");
-   		row.createCell(columna++).setCellValue("No de Docentes");
-   		row.createCell(columna++).setCellValue("Total Estudiantes");
+   		row.createCell(columna++).setCellValue("No de Docentes Participantes");
+   		row.createCell(columna++).setCellValue("Total Docentes");
    		row.createCell(columna++).setCellValue("Porcentaje");
    		for(Facultad facultad:docentesConAutoevaluacionPorFacultad)
    		{	
@@ -212,8 +212,8 @@ public class Informe6 extends Controller {
    		columna=0;	
    		row = sheet.createRow(fila++);
    		row.createCell(columna++).setCellValue("Facultad");
-   		row.createCell(columna++).setCellValue("No de Directivos");
-   		row.createCell(columna++).setCellValue("Total Estudiantes");
+   		row.createCell(columna++).setCellValue("No de Directivos Participantes");
+   		row.createCell(columna++).setCellValue("Total Directivos");
    		row.createCell(columna++).setCellValue("Porcentaje");
    		for(Facultad facultad:directivosGestionEvaluadosPorFacultad)
    		{	
@@ -228,12 +228,12 @@ public class Informe6 extends Controller {
    		columna=0;
    		row = sheet.createRow(fila++);
    		row = sheet.createRow(fila++);
-   		row.createCell(columna).setCellValue("Número de directivos");
+   		row.createCell(columna).setCellValue("Número de directivos que evaluaron investigación");
    		columna=0;	
    		row = sheet.createRow(fila++);
    		row.createCell(columna++).setCellValue("Facultad");
-   		row.createCell(columna++).setCellValue("No de Estudiantes Participantes");
-   		row.createCell(columna++).setCellValue("Total Estudiantes");
+   		row.createCell(columna++).setCellValue("No de Directivos Participantes");
+   		row.createCell(columna++).setCellValue("Total Directivos");
    		row.createCell(columna++).setCellValue("Porcentaje");
    		for(Facultad facultad:directivosInvestigacionEvaluadosPorFacultad)
    		{	
