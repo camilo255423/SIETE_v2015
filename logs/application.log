@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 2014-08-03 10:11:36,676 - [INFO] - from play in pool-4-thread-2 
 =======
 2014-11-09 12:05:16,091 - [INFO] - from play in pool-4-thread-2 
@@ -7,5 +8,8 @@
 =======
 2014-11-12 14:59:20,538 - [INFO] - from play in pool-4-thread-2 
 >>>>>>> 53a7d77202b5b2dcf6c74a70fb184aa33fcf04bf
+=======
+2015-06-20 22:26:23,262 - [INFO] - from play in pool-4-thread-5 
+>>>>>>> 4a2195a910fb46be91c7fe535367d03d9c0846e8
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
