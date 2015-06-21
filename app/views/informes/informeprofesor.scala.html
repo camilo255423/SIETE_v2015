@@ -18,11 +18,12 @@
 			<li><a href="#tabs-autoevaluacion">Autoevaluación</a></li>
 			
 		</ul>
+
 	<div id="tabs-estudiantes">	
 
 	<h4> Encuestados: @evaluacion.getEvaluados() de @evaluacion.getMateria().getInscritos(), 
 porcentaje @(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscritos()/100.0)% </h4>
-		
+	 	
 	
 	@tabladocencia(evaluacion,"Saber Pedagógico",Pregunta.PEDAGOGICO, 0,5)
 	
@@ -98,7 +99,8 @@ porcentaje @(10000*evaluacion.getEvaluados()/evaluacion.getMateria().getInscrito
 	</div>
 </div>
 </div>
-</div> <!-- tabs docencia-gestión-invest --> 
+</div> <!-- tabs docencia-gestión-invest -->
+ 
 </div>  <!-- div informe -->
 <script>
 $( ".tabs" ).tabs();
