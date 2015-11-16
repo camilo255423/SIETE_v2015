@@ -98,7 +98,6 @@ public class NumeroParticipantes {
 				p.setString(9, periodo[Periodo.FECHAINICIO]);
 				p.setString(10, periodo[Periodo.FECHAFIN]);
 				docentesEvaluadosPorEstudiantesPorFacultad = NumeroParticipantes.consultarParticipantes(p);
-				System.out.println("docentes evaluados");
 				p = con.prepareStatement(NumeroParticipantes.consultaDocentesConAutoevaluacionPorFacultad);
 				p.setString(1, fechaContrato);
 				p.setString(2, fechaContrato);
@@ -117,14 +116,19 @@ public class NumeroParticipantes {
 				p = con.prepareStatement(NumeroParticipantes.consultaDirectivosGestionEvaluadosPorFacultad);
 			
 				p.setString(1, semestre);
-				p.setString(2, periodo[Periodo.FECHAINICIO]);
-				p.setString(3, periodo[Periodo.FECHAFIN]);
+				p.setString(2, semestre);
+				p.setString(3, periodo[Periodo.FECHAINICIO]);
+				p.setString(4, periodo[Periodo.FECHAFIN]);
 				directivosGestionEvaluadosPorFacultad = NumeroParticipantes.consultarParticipantes(p);
 				
+				
 				p = con.prepareStatement(NumeroParticipantes.consultaDirectivosInvestigacionEvaluadosPorFacultad);
-				p.setString(1, periodo[Periodo.FECHAINICIO]);
-				p.setString(2, periodo[Periodo.FECHAFIN]);
+				p.setString(1, semestre);
+				p.setString(2, semestre);
+				p.setString(3, periodo[Periodo.FECHAINICIO]);
+				p.setString(4, periodo[Periodo.FECHAFIN]);
 				directivosInvestigacionEvaluadosPorFacultad = NumeroParticipantes.consultarParticipantes(p);
+				System.out.println(directivosInvestigacionEvaluadosPorFacultad.size());
 				
 				con.close();		
 			} catch (SQLException e) {
@@ -454,7 +458,7 @@ public static final String consultaDirectivosGestionEvaluadosPorFacultad=
 "(  "+ 
 "select count(distinct cli_numdcto) as encuestados, facultad_centro_costo.ID_DECAN as id_decan "+  
 " from eva_view_docente_rol, facultad_centro_costo   "+ 
-" where estado='ACT' and cargo='DI' and facultad_centro_costo.id_decan = eva_view_docente_rol.id_decan "+  
+" where periodo=? and estado='ACT' and cargo='DI' and facultad_centro_costo.id_decan = eva_view_docente_rol.id_decan "+  
 "and cli_numdcto in  "+ 
 "(  "+ 
 "select distinct(CEDULA) "+  
@@ -467,7 +471,7 @@ public static final String consultaDirectivosGestionEvaluadosPorFacultad=
 "                     AND cue.idcuestionarioh = cpr.idcuestionarioh  "+ 
 "                     AND pre.idpreguntah = cpr.idpreguntah  "+ 
 "                     AND cue.idcuestionarioh = enc.idcuestionarioh "+  
-"                     and cue.titulo like '%GESTION%'  "+ 
+"                     and cue.titulo like '%GESTI%'  "+ 
 "                     and   ENC.IDCUESTIONARIOH IN ((SELECT IDCUESTIONARIOH FROM SAI.TBL_H_CUESTIONARIOS "+  
 "where fecha_inicia >  to_date(?,'yyyy-mm-dd')    "+ 
 "and fecha_inicia < to_date(?,'yyyy-mm-dd')))  "+ 
@@ -486,13 +490,13 @@ public static final String consultaDirectivosInvestigacionEvaluadosPorFacultad=
 "("+
 "select count(distinct cli_numdcto) as total, facultad_centro_costo.ID_DECAN as id_decan, facultad_centro_costo.nombre as facultad "+ 
 " from eva_view_docente_rol, facultad_centro_costo  "+ 
-" where estado='ACT' and cargo='CI' and facultad_centro_costo.id_decan = eva_view_docente_rol.id_decan  "+ 
+" where periodo=? and estado='ACT' and cargo='CI' and facultad_centro_costo.id_decan = eva_view_docente_rol.id_decan  "+ 
 "group by facultad_centro_costo.ID_DECAN,facultad_centro_costo.nombre  "+ 
 ") a left join "+  
 "(  "+ 
 "select count(distinct cli_numdcto) as encuestados, facultad_centro_costo.ID_DECAN as id_decan "+  
 " from eva_view_docente_rol, facultad_centro_costo   "+ 
-" where estado='ACT' and cargo='CI' and facultad_centro_costo.id_decan = eva_view_docente_rol.id_decan "+  
+" where periodo=? and estado='ACT' and cargo='CI' and facultad_centro_costo.id_decan = eva_view_docente_rol.id_decan "+  
 "and cli_numdcto in  "+ 
 "(  "+ 
 "select distinct(CEDULA) "+  

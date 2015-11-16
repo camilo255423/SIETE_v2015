@@ -148,7 +148,7 @@ public class Informe6 extends Controller {
    		columna=0;
    		row = sheet.createRow(fila++);
    		row = sheet.createRow(fila++);
-   		row.createCell(columna).setCellValue("Número de estudiantes evaluados");
+   		row.createCell(columna).setCellValue("Número de estudiantes que realizaron  la evaluación");
    		columna=0;	
    		row = sheet.createRow(fila++);
    		row.createCell(columna++).setCellValue("Facultad");
@@ -168,7 +168,7 @@ public class Informe6 extends Controller {
    		columna=0;
    		row = sheet.createRow(fila++);
    		row = sheet.createRow(fila++);
-   		row.createCell(columna).setCellValue("Número de docentes evaluados por los estudiantes");
+   		row.createCell(columna).setCellValue("Número de docentes evaluados por al menos un estudiante");
    		columna=0;	
    		row = sheet.createRow(fila++);
    		row.createCell(columna++).setCellValue("Facultad");
