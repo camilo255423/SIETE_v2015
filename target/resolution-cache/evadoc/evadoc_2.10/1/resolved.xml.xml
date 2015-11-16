@@ -4,11 +4,7 @@
 		module="evadoc_2.10"
 		revision="1"
 		status="integration"
-<<<<<<< HEAD:target/resolution-cache/evadoc/evadoc_2.10/1/resolved.xml.xml
-		publication="20140803104927"
-=======
-		publication="20150620230142"
->>>>>>> 4bfcb1c42432bdc96ffaf8d174e21b71ca0d642d:target/resolution-cache/moduloinformes/moduloinformes_2.10/1.0-SNAPSHOT/resolved.xml.xml
+		publication="20151116142647"
 	>
 		<description>
 		evadoc

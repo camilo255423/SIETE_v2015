@@ -7,11 +7,7 @@
 		revision="1"
 		conf="compile-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-<<<<<<< HEAD:target/resolution-cache/reports/evadoc-evadoc_2.10-compile-internal.xml
-		date="20140803104927"/>
-=======
-		date="20150620230142"/>
->>>>>>> 4bfcb1c42432bdc96ffaf8d174e21b71ca0d642d:target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-compile-internal.xml
+		date="20151116142648"/>
 	<dependencies>
 		<module organisation="com.github.play2war" name="play2-war-core-servlet30_2.10">
 			<revision name="1.2-beta4" status="release" pubdate="20140130043926" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/dlecan/play2-war-plugin" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="62">

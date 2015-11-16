@@ -9,11 +9,7 @@
 		extra-scalaVersion="2.10"
 		conf="docs"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-<<<<<<< HEAD:project/target/resolution-cache/reports/default-siete-build-docs.xml
-		date="20140731191220"/>
-=======
-		date="20150620230142"/>
->>>>>>> 4bfcb1c42432bdc96ffaf8d174e21b71ca0d642d:target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-provided.xml
+		date="20151116142639"/>
 	<dependencies>
 	</dependencies>
 </ivy-report>
