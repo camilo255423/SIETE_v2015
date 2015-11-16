@@ -7,7 +7,11 @@
 		revision="1"
 		conf="docs"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
+<<<<<<< HEAD:target/resolution-cache/reports/evadoc-evadoc_2.10-docs.xml
 		date="20140803104927"/>
+=======
+		date="20150620230142"/>
+>>>>>>> 4bfcb1c42432bdc96ffaf8d174e21b71ca0d642d:target/resolution-cache/reports/moduloinformes-moduloinformes_2.10-docs.xml
 	<dependencies>
 		<module organisation="com.typesafe.play" name="play-docs_2.10">
 			<revision name="2.2.0" status="release" pubdate="20130919112601" resolver="sbt-chain" artresolver="sbt-chain" downloaded="false" searched="false" default="false" conf="default(compile), compile" position="0">
