@@ -94,8 +94,8 @@ public class Directivos extends Controller{
 			  return ok("Acceso denegado para este rol");
 		  }
 	    	List<Permiso> permisos = Permiso.findAll();
-	    
-	    	return ok(views.html.admin.render(permisos));
+	        Rol roles= new Rol();
+	    	return ok(views.html.admin.render(permisos,roles));
 	    }
 
 }

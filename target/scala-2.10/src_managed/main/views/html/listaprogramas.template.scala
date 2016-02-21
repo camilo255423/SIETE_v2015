@@ -28,7 +28,7 @@ object listaprogramas extends BaseScalaTemplate[play.api.templates.HtmlFormat.Ap
 
 Seq[Any](format.raw/*1.49*/("""
 
-<select name='documento' id='listaProgramas' style="width:100%;max-width:99%;">
+<select name='documento' id='listaProgramas' style='width:100%;max-width:99%;'>
 <option value=-1>- Seleccione un Programa</option>
 """),_display_(Seq[Any](/*5.2*/for(programa <- programas) yield /*5.28*/{_display_(Seq[Any](format.raw/*5.29*/("""
 <option value='"""),_display_(Seq[Any](/*6.17*/programa/*6.25*/.getCodPrograma())),format.raw/*6.42*/("""'>"""),_display_(Seq[Any](/*6.45*/programa/*6.53*/.getCodPrograma())),format.raw/*6.70*/(""" """),_display_(Seq[Any](/*6.72*/programa/*6.80*/.getNombre())),format.raw/*6.92*/("""</option>
@@ -46,9 +46,9 @@ Seq[Any](format.raw/*1.49*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Aug 03 10:49:35 COT 2014
-                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/fuentes_SIETE/SIETE/app/views/listaprogramas.scala.html
-                    HASH: 085380d0f0eae67780ec0a9f7eff55afcbce4222
+                    DATE: Sun Feb 21 17:48:33 COT 2016
+                    SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/listaprogramas.scala.html
+                    HASH: bc757d13a8b1304a25cd69810d41ad3ea6e132c8
                     MATRIX: 799->1|940->48|1108->182|1149->208|1187->209|1239->226|1255->234|1293->251|1331->254|1347->262|1385->279|1422->281|1438->289|1471->301|1512->312
                     LINES: 26->1|29->1|33->5|33->5|33->5|34->6|34->6|34->6|34->6|34->6|34->6|34->6|34->6|34->6|35->7
                     -- GENERATED --

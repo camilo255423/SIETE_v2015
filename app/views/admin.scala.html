@@ -1,21 +1,26 @@
-@(permisos:List[Permiso])
+@(permisos:List[Permiso], rol:Rol)
 @main(""){
 <div class="tabs" style="position: absolute; left: 300px;">
 		<ul>
 			<li><a href="#tabs-admin">Administración de Permisos</a></li>
-		
-			
 		</ul>
  	<div id="tabs-admin">      
 
 <table id="tabla">
 <tr>
-<td><b>Usuario</b></td><td><b>Rol</b></td><td><b>Programa</b></td><td><b>Operación</b></td>
+<td><b>Usuario</b></td><td><b>Rol</b></td><td><b>Permiso</b></td><td><b>Operación</b></td>
 </tr>
 <tr>
 <td width='220'><input id='inputusuario' name="location" class="autocomplete-relation" data-url='autocompleteLabel' size='40'/></td>
-<td><select name="listaroles" id='listaroles'><option value='1'>ADMINISTRADOR</option><option value='2'>DIRECTOR DE PROGRAMA</option></select></td>
-<td><b>@listaprogramas(Programa.findAll(),0)</b></td>
+<td><select name="listaroles" id='listaroles'>
+<option value='@rol.getAdministradorId()'>ADMINISTRADOR</option>
+<option value='@rol.getCoordinadorId()'>DIRECTOR DE PROGRAMA</option>
+<option value='@rol.getCoordinadorDeAreaId()'>COORDINADOR DE AREA</option>
+<option value='@rol.getDecanoId()'>DECANO</option>
+<option value='@rol.getSecretariaFacultadId()'>SECRETARIA FACULTAD</option>
+</select></td>
+<td><b>
+<div id="listaPermisos"></div></b></td>
 <td><a href="javascript: void(0)" 
 	 id="adicionar"
 	 >Adicionar</a></td>
@@ -46,11 +51,13 @@
 <div id="confirmDialog" title="Eliminar Permiso">
 </div>
 
+<div id="listaFacultades">@listafacultades(Facultad.findAll(),0)</div>
+<div id="listaProgramas">@listaprogramas(Programa.findAll(),0)</div>
+
 }
 <script>
-var fila;
-var nuevaFila; 
-
+$('#listaFacultades').hide();
+$('#listaProgramas').hide();
 
 $('input.autocomplete-relation').each( function() {
    var $input = $(this);
@@ -153,17 +160,28 @@ var error=0;
 }
 );
 $('#listaProgramas').hide();
-$('#nuevodocumento').val('-1');
-$('#listaroles').on('change', function(){
-	if($('#listaroles').val()==1)
-	{
-	$('#listaProgramas').hide();
-	}
-	else
-	{
-	$('#listaProgramas').show();
-	}
 
+$('#nuevodocumento').val('-1');
+
+$('#listaroles').on('change', function(){
+
+	if($('#listaroles').val()==@rol.getDecanoId() || $('#listaroles').val()==@rol.getSecretariaFacultadId())
+	{
+		$('#listaPermisos').html($('#listaFacultades').html());
+	}
+	else if($('#listaroles').val()==@rol.getCoordinadorId())
+	{
+		$('#listaPermisos').html($('#listaProgramas').html());
+	}
+	else if($('#listaroles').val()==@rol.getCoordinadorDeAreaId())
+	{
+		$('#listaPermisos').html('');
+	}
+	else if($('#listaroles').val()==@rol.getAdministradorId())
+	{
+		$('#listaPermisos').html('');
+	}
+	
 }
 );
 $('.eliminar').on("click",eliminar);

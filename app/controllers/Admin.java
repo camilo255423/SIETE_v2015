@@ -10,7 +10,6 @@ import models.Permiso;
 import models.Rol;
 import models.Usuario;
 
-
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 
@@ -92,8 +91,8 @@ public class Admin extends Controller{
 			  return ok("Acceso denegado para este rol");
 		  }
 	    	List<Permiso> permisos = Permiso.findAll();
-	    
-	    	return ok(views.html.admin.render(permisos));
+	        Rol rol = new Rol();
+	    	return ok(views.html.admin.render(permisos, rol));
 	    }
 
 }

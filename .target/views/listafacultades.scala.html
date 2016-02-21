@@ -1,6 +1,6 @@
 @(facultades:List[Facultad], conScript:Integer=0)
 
-<select name='documento' id='listaProfesores' style="width:100%;max-width:99%;">
+<select name='documento' id='listaProfesores' style='width:100%;max-width:99%;'>
 <option value=-1>- Seleccione una Facultad</option>
 @for(facultad <- facultades){
 <option value='@facultad.getCodFacultad()'>@facultad.getNombre()</option>
