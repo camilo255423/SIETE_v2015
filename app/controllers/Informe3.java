@@ -38,10 +38,55 @@ import play.mvc.Security;
  *
  */
 public class Informe3 extends Controller {
-	@Security.Authenticated(Secured.class)
+
     public static Result index() {
     
-    	return null;
+    		Document document = new Document();
+ 		    document.open();
+ 		    File file=null; 
+ 		    File folder = new File(".");
+ 		    final File[] files = folder.listFiles();
+ 		    for ( final File f : files ) {
+ 		    	
+ 		    	if(f.getName().contains(".pdf"))
+ 		    	{	
+ 			        if ( !f.delete() ) {
+ 			            System.err.println( "Can't remove " + f.getAbsolutePath() );
+ 			        }
+ 		    	}
+ 		    }
+ 		  
+ 			try {
+ 				file = new File("Final.pdf");
+ 				PdfWriter writer = PdfWriter.getInstance(document,
+ 						
+ 				        new FileOutputStream(file));
+ 				String imagen = "http://192.168.1.215/imagenes/v1/apps/ulises/logoEafit.gif";
+ 				String imagen2 = routes.Assets.at("images/logoNIT.gif").absoluteURL(request());
+				String imagen3 = routes.Assets.at("images/logo.jpg").absoluteURL(request());
+ 				document.open();
+ 				//XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.informeheteroevaluacion.render(evaluacion.getEvaluacionDocencia(), evaluacion.getEvaluacionGestion(), evaluacion.getEvaluacionInvestigacion(), profesor, semestre, imagen).toString()));
+ 				XMLWorkerHelper.getInstance().parseXHtml(writer, document,new StringReader(views.html.pdf.prueba.render(imagen,imagen2,imagen3).toString()));
+ 	        	
+ 			} catch (FileNotFoundException e) {
+ 				// TODO Auto-generated catch block
+ 				e.printStackTrace();
+ 			} catch (DocumentException e) {
+ 				// TODO Auto-generated catch block
+ 				e.printStackTrace();
+ 			} catch (IOException e) {
+ 				// TODO Auto-generated catch block
+ 				e.printStackTrace();
+ 			}
+
+ 			response().setContentType("application/x-download");  
+ 	  		response().setHeader("Content-disposition","attachment; filename="+"Final.pdf");
+ 	   	
+ 		    
+
+ 		    document.close();
+ 			return ok(file);
+ 	    
     }
 	@Security.Authenticated(Secured.class)
     public static Result informeProfesor()

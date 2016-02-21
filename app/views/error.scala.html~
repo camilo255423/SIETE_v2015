@@ -1,0 +1,8 @@
+@(ex: Throwable)
+
+
+    <p>@ex.getMessage()</p>
+	<p>trace</p>
+<@ex.printStackTrace()</p>
+
+
