@@ -50,7 +50,7 @@ Seq[Any](format.raw/*1.124*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Feb 21 17:17:26 COT 2016
+                    DATE: Sun Mar 06 11:27:31 COT 2016
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/informes/informedocencia.scala.html
                     HASH: 4839d8f48c1ec69d0cdc916afe590b7b5590419a
                     MATRIX: 853->1|1093->123|1120->148|1157->151|1181->167|1219->168|1288->202|1349->241|1384->245

@@ -46,7 +46,7 @@ Seq[Any](format.raw/*1.27*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Feb 21 17:17:22 COT 2016
+                    DATE: Sun Mar 06 11:27:26 COT 2016
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/error.scala.html
                     HASH: ddc7876d73e4ade0854e4c39bbb5738558d7684d
                     MATRIX: 784->1|903->26|948->37|958->39|992->52|1049->75|1070->76

@@ -1,5 +1,6 @@
 package controllers;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -54,11 +55,16 @@ public class Admin extends Controller{
 		{
 			return ok("duplicado");
 		}
+		System.out.println("documento "+documento);
+		System.out.println("idRol "+idRol);
+		System.out.println("Codigo programa "+codigoPrograma);
 		
 		if(Permiso.save(documento,idRol,codigoPrograma))
 		{	
 		return ok("ok");
 		}
+	
+		
 		return ok("error");
 	}
 	

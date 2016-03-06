@@ -22,10 +22,10 @@ var error=0;
 	if($('#nuevodocumento').val()!='-1')
 	{
 	documento=$('#nuevodocumento').val();
-		if($('#listaProgramas').css('display')!='none')
+		if($('#listaPermisos').css('display')!='none')
 		{
 			
-			if($('#listaProgramas').val()=='-1')
+			if($('#listaPermisos option:selected').val()=='-1')
 			{
 		
 		    $("#errorDialog").dialog({
@@ -37,13 +37,13 @@ var error=0;
 		        }
 		      }
 		    });
-		$("#errorDialog").html("<p>Por favor seleccione un programa.</p>");
+		$("#errorDialog").html("<p>Por favor seleccione un programa, facultad o área.</p>");
 			error=1;
 			}
 			else
 			{
-			codigoPrograma = $('#listaProgramas').val();
-			nombrePrograma = $('#listaProgramas option:selected').text();
+			codigoPrograma = $('#listaPermisos option:selected').val();
+			nombrePrograma = $('#listaPermisos option:selected').text();
 			}
 		}
 	}

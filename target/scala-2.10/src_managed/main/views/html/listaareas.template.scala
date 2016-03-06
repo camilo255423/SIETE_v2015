@@ -46,7 +46,7 @@ Seq[Any](format.raw/*1.49*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Feb 21 17:17:22 COT 2016
+                    DATE: Sun Mar 06 11:27:27 COT 2016
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/listaareas.scala.html
                     HASH: 085380d0f0eae67780ec0a9f7eff55afcbce4222
                     MATRIX: 795->1|936->48|1104->182|1145->208|1183->209|1235->226|1251->234|1289->251|1327->254|1343->262|1381->279|1418->281|1434->289|1467->301|1508->312

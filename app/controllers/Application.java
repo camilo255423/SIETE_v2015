@@ -34,6 +34,7 @@ public class Application extends Controller {
         public String validate() {
         	String cedula="";
         	// 52348310 Johanna Ovalle
+        	System.out.println(email);
         	if(email.equals("13923305") || email.equals("79511724") )
         	{ 
         		cedula = email;

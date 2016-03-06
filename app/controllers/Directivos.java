@@ -1,5 +1,7 @@
 package controllers;
 
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -57,11 +59,11 @@ public class Directivos extends Controller{
 		{
 			return ok("duplicado");
 		}
-		
 		if(Permiso.save(documento,idRol,codigoPrograma))
 		{	
-		return ok("ok");
+		  return ok("ok");
 		}
+		
 		return ok("error");
 	}
 	

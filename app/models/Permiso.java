@@ -76,7 +76,7 @@ public class Permiso {
 	 * @param codigoPrograma código del programa sobre el cual se otorga permiso para el caso de director de programa.
 	 * @return
 	 */
-	public static boolean save(String documento,String idRol, String codigoPrograma )
+	public static boolean save(String documento,String idRol, String codigoPrograma ) 
 	{
 		Connection con = DB.getConnection();
 		PreparedStatement p;
@@ -96,6 +96,7 @@ public class Permiso {
 			e.printStackTrace();
 			System.out.println("Excepcion : "+e.getMessage());
 			System.out.println(e.getLocalizedMessage());
+			return false;
 		}
 	
 		

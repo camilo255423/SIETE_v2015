@@ -137,9 +137,15 @@ public class Usuario extends Model {
 	 */
 	public String getNombreRol()
 	{
-		if(this.rol.equals(Rol.ADMINISTRADOR)) return "ADMINISTRADOR";
-		else if (this.rol.equals(Rol.COORDINADOR)) return "DIRECTOR DE PROGRAMA";
-		return "PROFESOR";
+		String nombreRol="";
+		if(this.rol.equals(Rol.ADMINISTRADOR)) nombreRol= "ADMINISTRADOR";
+		else if (this.rol.equals(Rol.COORDINADOR)) nombreRol= "DIRECTOR DE PROGRAMA";
+		else if (this.rol.equals(Rol.PROFESOR)) nombreRol= "PROFESOR";
+		else if (this.rol.equals(Rol.COORDINADOR_DE_AREA)) nombreRol= "COORDINADOR DE AREA";
+		else if (this.rol.equals(Rol.DECANO)) nombreRol= "DECANO";
+		else if (this.rol.equals(Rol.SECRETARIA_FACULTAD)) nombreRol= "SECRETARIA FACULTAD";
+		else throw new UnsupportedOperationException("ID ROL INCORRECTO: ID="+this.rol);
+		return nombreRol;
 	}
 /**
  * 

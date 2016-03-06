@@ -32,8 +32,8 @@ function adicionar(data)
 	}
 	$('#listaroles').val('1');
 	$('#inputusuario').val('');
-	$('#listaProgramas').val('1');
-	$('#listaProgramas').hide();
+	$('#listaPermisos').val('1');
+	$('#listaPermisos').hide();
 }
 
 function eliminar(){
