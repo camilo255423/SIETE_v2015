@@ -58,7 +58,7 @@ Seq[Any](format.raw/*1.32*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Mar 06 11:27:26 COT 2016
+                    DATE: Sun Mar 06 18:39:34 COT 2016
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/main.scala.html
                     HASH: 2023409a40a7eeae7953ee7a06c24fcfaecfe825
                     MATRIX: 778->1|902->31|939->34|969->56|1007->57|1124->140|1155->150|1224->184|1238->190|1295->226|1481->377|1510->384|1585->428

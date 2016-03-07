@@ -29,13 +29,13 @@
 <tr>
 	<td>@permiso.getUsuario().getNombre()</td>
 	<td>@permiso.getUsuario().getNombreRol()</td>
-	<td>@if(permiso.getPrograma().getCodPrograma()!=null){
-	@permiso.getPrograma().getCodPrograma() @permiso.getPrograma().getNombre()
+	<td>@if(permiso.getCodigoPermiso()!=0){
+	@permiso.getCodigoPermiso() @permiso.getNombrePermiso()
 	}
 	</td>
 	<td><a href="javascript: void(0)" data-documento='@permiso.getUsuario().getDocumento()'
-	@if(permiso.getPrograma().getCodPrograma()!=null){
-	 data-codigoPrograma='@permiso.getPrograma().getCodPrograma()'
+	@if(permiso.getCodigoPermiso!=0){
+	 data-codigoPrograma='@permiso.getCodigoPermiso()'
 	 }else{
 	 	 data-codigoPrograma='0'
 	 }

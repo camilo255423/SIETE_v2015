@@ -1,6 +1,6 @@
 // @SOURCE:/home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/conf/routes
 // @HASH:3b37217133cdf87415adf68c931cd39fe73f4024
-// @DATE:Sun Mar 06 11:27:24 COT 2016
+// @DATE:Sun Mar 06 18:39:32 COT 2016
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._

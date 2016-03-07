@@ -19,56 +19,64 @@ public class Permiso {
 	 * Usuario sobre el cual se otorga el permiso
 	 */
 	Usuario usuario;
-	/**
-	 * Para los directores de programa, programa sobre el cual se otorga el permiso.
-	 */
-	Programa programa;
-	/**
-	 * 
-	 * @param usuario Usuario sobre el cual se otorga el permiso
-	 * @param programa En caso de tener rol de director de programa, Programa del cual se es director
-	 */
-	public Permiso(Usuario usuario, Programa programa) {
-		super();
-		this.usuario = usuario;
-		this.programa = programa;
-	}
+	String nombrePermiso;
+	String codigoPermiso;
+	
 	
 
-/**
- * 
- * @return Usuario sobre el cual se otorga el permiso
- */
-	
-	
+	public Permiso(Usuario usuario, String codigoPermiso) {
+		super();
+		this.usuario = usuario;
+		this.codigoPermiso = codigoPermiso;
+		this.nombrePermiso = this.getNombrePermisoByCodigo(usuario, codigoPermiso);
+	}
+	private String getNombrePermisoByCodigo(Usuario usuario, String codigoPermiso)
+	{
+		String nombrePermiso = "";
+		if(usuario.rol.equals(Rol.ADMINISTRADOR)){
+			nombrePermiso="ADMINISTRADOR";
+		}
+		else if(usuario.rol.equals(Rol.COORDINADOR)){
+			Programa programa = Programa.findById(codigoPermiso);
+			nombrePermiso=programa.getNombre();
+			
+		}
+		else if(usuario.rol.equals(Rol.COORDINADOR_DE_AREA)){
+			nombrePermiso="COORDINADOR DE AREA";
+		}
+		else if(usuario.rol.equals(Rol.DECANO) || usuario.rol.equals(Rol.SECRETARIA_FACULTAD)){
+			Facultad facultad = Facultad.findById(codigoPermiso);
+			nombrePermiso=facultad.getNombre();
+		}
+		else throw  new UnsupportedOperationException("ID ROL NO VALIDO PARA PERMISO, ID="+usuario.rol);	
+		
+		return nombrePermiso;
+	}
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
 
-/**
- * 
- * @param usuario Usuario sobre el cual se otorga el permiso
- */
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
 
-	/**
-	 * 
-	 * @return programa sobre el cual se otorga el permiso.
-	 */
-
-	public Programa getPrograma() {
-		return programa;
+	public String getNombrePermiso() {
+		return nombrePermiso;
 	}
-/**
- * 
- * @param programa programa sobre el cual se otorga el permiso.
- */
 
-	public void setPrograma(Programa programa) {
-		this.programa = programa;
+	public void setNombrePermiso(String nombrePermiso) {
+		this.nombrePermiso = nombrePermiso;
 	}
+
+	public String getCodigoPermiso() {
+		return codigoPermiso;
+	}
+
+	public void setCodigoPermiso(String codigoPermiso) {
+		this.codigoPermiso = codigoPermiso;
+	}
+
 	/**
 	 * Método encargado de insertar un nuevo registro en la base de datos.
 	 * @param documento Documento el usuario
@@ -119,7 +127,6 @@ public class Permiso {
 			
 			p.setString(1, documento);
 			p.setString(2, codPrograma);
-			System.out.println("intentando borrar "+documento+"-"+codPrograma);
 			numeroFilas = p.executeUpdate();
 			
 			con.close();	
@@ -150,7 +157,7 @@ public class Permiso {
 			ResultSet rs=p.executeQuery();
 			while (rs.next()) {
 				Permiso permiso = new Permiso(new Usuario(rs.getString("NOMBRE"),rs.getString("DOCUMENTO"),rs.getString("ID_ROL")),
-						new Programa(rs.getString("CODIGO_PROGRAMA"),rs.getString("NOMBRE_PROGRAMA")));
+						rs.getString("CODIGO_PERMISO"));
 				permisos.add(permiso);
 			}
 			con.close();	
@@ -181,7 +188,7 @@ public class Permiso {
 			ResultSet rs=p.executeQuery();
 			if (rs.next()) {
 				permiso = new Permiso(new Usuario(rs.getString("NOMBRE"),rs.getString("DOCUMENTO"),rs.getString("ID_ROL")),
-						new Programa(rs.getString("CODIGO_PROGRAMA"),rs.getString("NOMBRE_PROGRAMA")));
+						"");
 				
 			}
 			con.close();	
@@ -236,25 +243,20 @@ public class Permiso {
  * Consulta de todos los permisos
  */
 	private static final String consultaUsuarios = "select r.ID_ROL as ID_ROL, cli_numdcto  AS DOCUMENTO, " +
-			"a.PRO_CODPROGRAMA AS CODIGO_PROGRAMA, "+
-	"PRO_NOMBREPROG AS NOMBRE_PROGRAMA, "+ 
+    "p.centro_costo_programa as CODIGO_PERMISO, " +
 	"cli_apellidos || ' ' || cli_nombres as NOMBRE  " +
 	"from rol r inner join permiso p "+  
 	"on r.id_rol=p.id_rol inner join sai.rct_clientes c on p.cedula = c.cli_numdcto "+ 
-	"left join sai.art_programas a "+
-	"on a.pro_codprograma=p.centro_costo_programa "+
 	" order by NOMBRE ";
 	/**
 	 * Consulta de permiso por documento
 	 */
 	private static final String consultaUsuarioPorDocumento = "select r.ID_ROL as ID_ROL, cli_numdcto  AS DOCUMENTO, " +
-			"a.PRO_CODPROGRAMA AS CODIGO_PROGRAMA, "+
-	"PRO_NOMBREPROG AS NOMBRE_PROGRAMA, "+ 
+	"p.centro_costo_programa as CODIGO_PERMISO, " +
 	"cli_apellidos || ' ' || cli_nombres as NOMBRE  " +
 	"from rol r inner join permiso p "+  
 	"on r.id_rol=p.id_rol inner join sai.rct_clientes c on p.cedula = c.cli_numdcto "+ 
-	"left join sai.art_programas a "+
-	"on a.pro_codprograma=p.centro_costo_programa where p.cedula = ?";
+	"where p.cedula = ?";
 	/** 
 	 * sql que borra un registro
 	 */

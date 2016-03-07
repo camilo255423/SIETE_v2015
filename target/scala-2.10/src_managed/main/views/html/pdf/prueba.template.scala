@@ -61,7 +61,7 @@ Seq[Any](format.raw/*1.47*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Mar 06 11:27:30 COT 2016
+                    DATE: Sun Mar 06 18:39:38 COT 2016
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/pdf/prueba.scala.html
                     HASH: 7f7ea7f8e56d46bc8a6a66b75ddb431dddc6df4c
                     MATRIX: 793->1|984->46|1011->100|1085->140|1111->146|1182->182|1209->188|1337->281|1365->288|1493->381|1521->388|1825->656|1853->662
