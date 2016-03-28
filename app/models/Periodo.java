@@ -62,7 +62,6 @@ public class Periodo {
 		
 		String ano = periodo.substring(0, 4);
 		char semestre = periodo.charAt(4);
-		System.out.println("semestre"+semestre);
 		if(semestre=='1')
 		{	
 			fecha=ano+"-"+"05"+"-"+"03";

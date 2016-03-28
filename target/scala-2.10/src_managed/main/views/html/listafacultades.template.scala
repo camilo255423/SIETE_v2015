@@ -28,7 +28,7 @@ object listafacultades extends BaseScalaTemplate[play.api.templates.HtmlFormat.A
 
 Seq[Any](format.raw/*1.50*/("""
 
-<select name='documento' id='listaProfesores' style='width:100%;max-width:99%;'>
+<select name='documento' id='listaProgramas' style='width:100%;max-width:99%;'>
 <option value=-1>- Seleccione una Facultad</option>
 """),_display_(Seq[Any](/*5.2*/for(facultad <- facultades) yield /*5.29*/{_display_(Seq[Any](format.raw/*5.30*/("""
 <option value='"""),_display_(Seq[Any](/*6.17*/facultad/*6.25*/.getCodFacultad())),format.raw/*6.42*/("""'>"""),_display_(Seq[Any](/*6.45*/facultad/*6.53*/.getNombre())),format.raw/*6.65*/("""</option>
@@ -46,10 +46,10 @@ Seq[Any](format.raw/*1.50*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Mar 06 18:39:34 COT 2016
+                    DATE: Mon Mar 28 11:16:07 COT 2016
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/listafacultades.scala.html
-                    HASH: c7b76542cdfd2463818a14fb298d592bcddf7764
-                    MATRIX: 800->1|942->49|1112->185|1154->212|1192->213|1244->230|1260->238|1298->255|1336->258|1352->266|1385->278|1426->289
+                    HASH: 4c5413b5082b8b7e430a1ce45f2e61c424702c81
+                    MATRIX: 800->1|942->49|1111->184|1153->211|1191->212|1243->229|1259->237|1297->254|1335->257|1351->265|1384->277|1425->288
                     LINES: 26->1|29->1|33->5|33->5|33->5|34->6|34->6|34->6|34->6|34->6|34->6|35->7
                     -- GENERATED --
                 */

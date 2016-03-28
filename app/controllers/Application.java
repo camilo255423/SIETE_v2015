@@ -33,8 +33,7 @@ public class Application extends Controller {
         
         public String validate() {
         	String cedula="";
-        	// 52348310 Johanna Ovalle
-        	System.out.println(email);
+  
         	if(email.equals("13923305") || email.equals("79511724") )
         	{ 
         		cedula = email;
@@ -59,9 +58,9 @@ public class Application extends Controller {
 	        	   if(usuario.getRol()!=null)
 	        	   {
 	               session("rol", usuario.getRol());
-	               	if(usuario.getRol().equals(Rol.COORDINADOR))
+
+	               	if(usuario.getRol().equals(Rol.COORDINADOR) || usuario.getRol().equals(Rol.DECANO))
 	               		{
-	               		//	Permiso permiso = Permiso.findByDocumento(cedula);
 	               			session("documento",cedula);
 	       
 	               	
@@ -111,13 +110,19 @@ public class Application extends Controller {
     	List<Profesor> profesores = new ArrayList<Profesor>();
     	List<String> semestres = Periodo.findAll(semestreMinimo);
     	List<Programa> programas = null;
+    	List<Facultad> facultades = null;
     	
      	if(session("rol").equals(Rol.COORDINADOR))
      	{
      		programas = Programa.findProgramasByDirector(session("documento"));
-     		System.out.println(programas.get(0));
      	}
-    	return ok(views.html.informes.informedocencia.render(null,profesores,semestres,programas));
+     	if(session("rol").equals(Rol.DECANO))
+     	{
+     		facultades = Facultad.findAllByDecano(session("documento"));
+     	}
+    
+    
+    	return ok(views.html.informes.informedocencia.render(null,profesores,semestres,programas,facultades));
     }
   public static Result login() {
         return ok(
@@ -147,22 +152,34 @@ public class Application extends Controller {
     	if(valor.equals("profesores"))
     	{
     		
-    	List<Profesor> profesores = null;
-    	if(session("rol").equals(Rol.COORDINADOR))
-    	{
-    		String codigoPrograma = Form.form().bindFromRequest().get("codigoPrograma");
-    		
-    		profesores= Profesor.findAllBySemestreAndPrograma(semestre, codigoPrograma);	
-  
-    	
-    	}
-    	else
-    	{
-    		profesores= Profesor.findAllBySemestre(semestre);
-    	}
-    	
-    	return ok(views.html.lista.render(profesores,0));
-    	}
+	    	List<Profesor> profesores = null;
+	    	if(session("rol").equals(Rol.COORDINADOR))
+	    	{
+	    		String codigoPrograma = Form.form().bindFromRequest().get("codigoPrograma");
+	    		
+	    		profesores= Profesor.findAllBySemestreAndPrograma(semestre, codigoPrograma);	
+	  
+	    	
+	    	}
+	    	else if(session("rol").equals(Rol.COORDINADOR_DE_AREA))
+	    	{
+	    		String codigoPrograma = Form.form().bindFromRequest().get("codigoPrograma");   		
+	    		profesores= Profesor.findAllBySemestreAndPrograma(semestre, codigoPrograma);	
+	  
+	    	
+	    	}
+	    	else if(session("rol").equals(Rol.DECANO))
+	    	{
+	    		String codigoFacultad = Form.form().bindFromRequest().get("codigoPrograma");
+	    		profesores= Profesor.findAllBySemestreAndFacultad(semestre, codigoFacultad);	
+	    	}
+	    	else
+	    	{
+	    		profesores= Profesor.findAllBySemestre(semestre);
+	    	}
+	    	
+	    	return ok(views.html.lista.render(profesores,0));
+	    }
     	if(valor.equals("facultades"))
     	{	
     	List<Facultad> facultades = Facultad.findAll();

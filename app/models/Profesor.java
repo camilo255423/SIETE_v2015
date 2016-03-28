@@ -90,7 +90,40 @@ public class Profesor {
 			p.setString(1, fecha);
 			p.setString(2, fecha);
 			p.setString(3, codigoPrograma);
-			System.out.println(fecha);
+			ResultSet rs=p.executeQuery();
+			while (rs.next()) {
+				profesores.add(new Profesor(rs.getString("documento"),
+						rs.getString("nombre"),rs.getString("primer_apellido")+" "+rs.getString("segundo_apellido")));
+			}
+			con.close();	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Excepcion : "+e.getMessage());
+			System.out.println(e.getLocalizedMessage());
+		}
+	
+		
+		
+		return profesores;
+	}
+	
+	/**
+	 * 
+	 * @param semestre
+	 * @param codigoPrograma
+	 * @return List<Profesor>
+	 */
+	
+	public static List<Profesor> findAllBySemestreAndFacultad(String semestre, String codigoFacultad)
+	{
+     	Connection con = DB.getConnection();
+		List<Profesor> profesores = new ArrayList<Profesor>();
+		PreparedStatement p;
+		try {
+			p = con.prepareStatement(consultaProfesoresFacultadSemestre);
+			p.setString(1, semestre);
+			p.setString(2, codigoFacultad);
 			ResultSet rs=p.executeQuery();
 			while (rs.next()) {
 				profesores.add(new Profesor(rs.getString("documento"),
@@ -228,36 +261,19 @@ public class Profesor {
 	/**
 	 * Consulta sql que permite encontrar los docentes por programa y semestre
 	 */
-	/* private static final String consultaProfesoresPrograma = "SELECT  distinct NIT as documento, nombre_empleado as nombres, ' ' as primer_apellido,' ' as segundo_apellido "+
-			"from ( "+
-			"		SELECT  * "+
-			"		FROM v1_empleado "+   
-			"		where  "+
-			"		EMPRESA IN ('CAT', 'DOC') "+
-			"		AND NOMBRE_CARGO LIKE  'CAT%' "+
-			"		AND FECHA_INGRESO<to_date(?,'yyyy-mm-dd') "+
-			"		AND (FECHA_FIN_CONTRATO>to_date(?,'yyyy-mm-dd') "+
-			"		or FECHA_FIN_CONTRATO is null) "+
-			"		UNION ALL "+
-			"		SELECT  * "+
-			"		FROM v1_empleado "+   
-			"		where  "+
-			"		EMPRESA IN ('CAT', 'DOC') "+
-			"		AND NOMBRE_CARGO LIKE  'DOC%' "+
-			"		AND FECHA_INGRESO<to_date(?,'yyyy-mm-dd') "+
-			"		AND (FECHA_FIN_CONTRATO>to_date(?,'yyyy-mm-dd') "+
-			"		or FECHA_FIN_CONTRATO is null) "+
-			"		) e "+
-			"		inner join sai.art_programas on   e.centro_costo=sai.art_programas.igecodigo "+ 
-			"		where e.centro_costo=? "+ 
-			"		order by nombres";
-			*/
+	
 	private static final String consultaProfesoresPrograma ="SELECT  nit as documento, primer_apellido,segundo_apellido, nombre "+
 			  "FROM   ICEBERG.EMPLEADO e inner join sai.art_programas on   e.centro_costo=sai.art_programas.igecodigo "+
 			 "WHERE to_date(?,'yyyy-mm-dd')>fecha_ingreso and "+  //1. fecha contrato
 			 "to_date(?,'yyyy-mm-dd')<FECHA_FIN_CONTRATO "+  //2. fecha contrato
 			 "and sai.art_programas.pro_codprograma=? "+    //3. codigo programa
 			  "order by primer_apellido, segundo_apellido, nombre ";
+	
+	private static final String consultaProfesoresFacultadSemestre="SELECT  nit as documento, primer_apellido,segundo_apellido, nombre "+ 
+			"FROM DIT_DOCENTE_FACULTAD "+
+			"WHERE PERIODO=? AND ID_DECAN=? "+
+			"order by primer_apellido, segundo_apellido, nombre ";
+	
 	/**
 	 * Consulta sql que encuentra un profesor por documento
 	 */

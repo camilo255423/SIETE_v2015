@@ -45,7 +45,7 @@ var documentoProfesor = '@session.get("documento")';
 	$("#progressbar").progressbar({
 	value:false
 	});
-	@if(session.get("rol")==Rol.COORDINADOR){
+	@if(session.get("rol")==Rol.COORDINADOR || session.get("rol")==Rol.DECANO){
 	codigoPrograma=$('#listaProgramas').val();
 	}
 	if($('#listainformes').val()==1 || $('#listainformes').val()==2 || $('#listainformes').val()==3 ) entidad="profesores";
