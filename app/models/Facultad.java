@@ -105,6 +105,31 @@ public class Facultad {
 		
 		return facultades;
 	}
+	public static List<Facultad> findAllBySecretaria(String cedula)
+	{
+     	Connection con = DB.getConnection();
+		List<Facultad> facultades = new ArrayList<Facultad>();
+		PreparedStatement p;
+		try {
+			p = con.prepareStatement(consultaFacultadesSecretaria);
+			p.setString(1, cedula);
+			ResultSet rs=p.executeQuery();
+			while (rs.next()) {
+				facultades.add(new Facultad(rs.getString("ID_DECAN"),
+						rs.getString("DESCRIP")));
+			}
+			  con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Excepcion : "+e.getMessage());
+			System.out.println(e.getLocalizedMessage());
+		}
+	
+		
+		
+		return facultades;
+	}
 	/**
 	 * Busca una facultad por su código
 	 * @param id código de la facultad
@@ -231,5 +256,7 @@ public class Facultad {
 	private static final String consultaIdFacultad ="select * from sai.SCT_DECAN where id_decan=?";
 	private static final String consultaFacultadesDecano="select * from sai.sct_decan, permiso "+
 	"where centro_costo_programa=id_decan and id_rol=5 and cedula = ?";
+	private static final String consultaFacultadesSecretaria="select * from sai.sct_decan, permiso "+
+	"where centro_costo_programa=id_decan and id_rol=6 and cedula = ?";
 	
 }

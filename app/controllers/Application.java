@@ -33,8 +33,12 @@ public class Application extends Controller {
         
         public String validate() {
         	String cedula="";
-  
-        	if(email.equals("13923305") || email.equals("79511724") )
+        	// 52438059 AGUILERA VACA
+        	// 7710026 SAAB
+        	// 41752230 ACOSTA
+        	// 13923305 BARAJAS 
+        	
+        	if(email.equals("13923305") || email.equals("52438059") || email.equals("7710026")|| email.equals("41752230"))
         	{ 
         		cedula = email;
         	}
@@ -111,6 +115,7 @@ public class Application extends Controller {
     	List<String> semestres = Periodo.findAll(semestreMinimo);
     	List<Programa> programas = null;
     	List<Facultad> facultades = null;
+    	List<Area> areas = null;
     	
      	if(session("rol").equals(Rol.COORDINADOR))
      	{
@@ -120,9 +125,16 @@ public class Application extends Controller {
      	{
      		facultades = Facultad.findAllByDecano(session("documento"));
      	}
+     	if(session("rol").equals(Rol.SECRETARIA_FACULTAD))
+     	{ 	
+     		facultades = Facultad.findAllBySecretaria(session("documento"));
+     	}
+     	if(session("rol").equals(Rol.COORDINADOR_DE_AREA))
+     	{
+     		areas = Area.findAllByCoordinador(session("documento"));
+     	}    
     
-    
-    	return ok(views.html.informes.informedocencia.render(null,profesores,semestres,programas,facultades));
+    	return ok(views.html.informes.informedocencia.render(null,profesores,semestres,programas,facultades,areas));
     }
   public static Result login() {
         return ok(
@@ -155,20 +167,17 @@ public class Application extends Controller {
 	    	List<Profesor> profesores = null;
 	    	if(session("rol").equals(Rol.COORDINADOR))
 	    	{
-	    		String codigoPrograma = Form.form().bindFromRequest().get("codigoPrograma");
-	    		
+	    		String codigoPrograma = Form.form().bindFromRequest().get("codigoPrograma"); 		
 	    		profesores= Profesor.findAllBySemestreAndPrograma(semestre, codigoPrograma);	
 	  
 	    	
 	    	}
 	    	else if(session("rol").equals(Rol.COORDINADOR_DE_AREA))
 	    	{
-	    		String codigoPrograma = Form.form().bindFromRequest().get("codigoPrograma");   		
-	    		profesores= Profesor.findAllBySemestreAndPrograma(semestre, codigoPrograma);	
-	  
-	    	
+	    		String codigoArea = Form.form().bindFromRequest().get("codigoPrograma");   		
+	    		profesores= Profesor.findAllBySemestreAndArea(semestre, codigoArea);
 	    	}
-	    	else if(session("rol").equals(Rol.DECANO))
+	    	else if(session("rol").equals(Rol.DECANO) || session("rol").equals(Rol.SECRETARIA_FACULTAD))
 	    	{
 	    		String codigoFacultad = Form.form().bindFromRequest().get("codigoPrograma");
 	    		profesores= Profesor.findAllBySemestreAndFacultad(semestre, codigoFacultad);	

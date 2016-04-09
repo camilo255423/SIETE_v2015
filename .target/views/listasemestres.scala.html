@@ -45,7 +45,7 @@ var documentoProfesor = '@session.get("documento")';
 	$("#progressbar").progressbar({
 	value:false
 	});
-	@if(session.get("rol")==Rol.COORDINADOR || session.get("rol")==Rol.DECANO){
+	@if(session.get("rol")!=Rol.ADMINISTRADOR){
 	codigoPrograma=$('#listaProgramas').val();
 	}
 	if($('#listainformes').val()==1 || $('#listainformes').val()==2 || $('#listainformes').val()==3 ) entidad="profesores";
@@ -126,7 +126,7 @@ var s =  '';
 	enlace=informe+'/pdf/'+documento+'/'+semestre;
 	s =  "<ul class='side'>";
 	s= s+ "<li><a href='"+enlace+"'>Descargar PDF</a></li>";
-	@if(session.get("rol")==Rol.COORDINADOR || session.get("rol")==Rol.ADMINISTRADOR){
+	@if(session.get("rol")!=Rol.PROFESOR){
 	enlace = informe+'/excel/'+documento+'/'+semestre;
 	s = s +  "<li><a href='"+enlace+"'>Descargar Excel</a></li>";
 	s = s + "</ul>";

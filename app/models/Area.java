@@ -124,6 +124,11 @@ public class Area {
 		
 		return areas;
 	}
+	
+	@Override
+	public String toString() {
+		return "Area [codArea=" + codArea + ", nombre=" + nombre + "]";
+	}
 
 	private static final String consultaAreas ="select * from AREA_CENTRO_COSTO";
 	private static final String consultaIdArea ="select * from AREA_CENTRO_COSTO where CENTRO_COSTO=?";

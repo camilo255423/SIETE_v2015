@@ -141,6 +141,33 @@ public class Profesor {
 		
 		return profesores;
 	}
+	public static List<Profesor> findAllBySemestreAndArea(String semestre, String codigoArea)
+	{
+     	Connection con = DB.getConnection();
+		List<Profesor> profesores = new ArrayList<Profesor>();
+		PreparedStatement p;
+		try {
+			p = con.prepareStatement(consultaProfesoresAreaSemestre);
+			p.setString(1, semestre);
+			p.setString(2, codigoArea);
+			ResultSet rs=p.executeQuery();
+			while (rs.next()) {
+				profesores.add(new Profesor(rs.getString("documento"),
+						rs.getString("nombre"),rs.getString("primer_apellido")+" "+rs.getString("segundo_apellido")));
+			}
+			con.close();	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Excepcion : "+e.getMessage());
+			System.out.println(e.getLocalizedMessage());
+		}
+	
+		
+		
+		return profesores;
+	}
+	
 	/**
 	 * Método que encuentra un profesor por su documento
 	 * @param documento String documento el profesor
@@ -273,7 +300,12 @@ public class Profesor {
 			"FROM DIT_DOCENTE_FACULTAD "+
 			"WHERE PERIODO=? AND ID_DECAN=? "+
 			"order by primer_apellido, segundo_apellido, nombre ";
-	
+
+	private static final String consultaProfesoresAreaSemestre="SELECT  nit as documento, primer_apellido,segundo_apellido, nombre "+ 
+			"FROM DIT_DOCENTE_FACULTAD "+
+			"WHERE PERIODO=? AND CENTRO_COSTO=? "+
+			"order by primer_apellido, segundo_apellido, nombre ";
+
 	/**
 	 * Consulta sql que encuentra un profesor por documento
 	 */
