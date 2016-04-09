@@ -42,7 +42,8 @@ public class Permiso {
 			
 		}
 		else if(usuario.rol.equals(Rol.COORDINADOR_DE_AREA)){
-			nombrePermiso="COORDINADOR DE AREA";
+			Area area = Area.findById(codigoPermiso);
+			nombrePermiso=area.getNombre();
 		}
 		else if(usuario.rol.equals(Rol.DECANO) || usuario.rol.equals(Rol.SECRETARIA_FACULTAD)){
 			Facultad facultad = Facultad.findById(codigoPermiso);
@@ -238,6 +239,34 @@ public class Permiso {
 		
 		return existe;
 	}
+	public static boolean  existeUsuarioRolDiferente(String documento, String idRol)
+	{
+		Connection con = DB.getConnection();
+		PreparedStatement p;
+		boolean existe=false;
+		try {
+			p = con.prepareStatement(consultaUsuarioRolPermiso);
+			p.setString(1, documento);
+			ResultSet rs=p.executeQuery();
+			if (rs.next()) {
+				if(!rs.getString("ID_ROL").equals(idRol)){
+				existe= true;
+				}
+				
+			}
+			
+			con.close();	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Excepcion : "+e.getMessage());
+			System.out.println(e.getLocalizedMessage());
+		}
+	
+		
+		
+		return existe;
+	}
 	
 /**
  * Consulta de todos los permisos
@@ -257,6 +286,7 @@ public class Permiso {
 	"from rol r inner join permiso p "+  
 	"on r.id_rol=p.id_rol inner join sai.rct_clientes c on p.cedula = c.cli_numdcto "+ 
 	"where p.cedula = ?";
+	
 	/** 
 	 * sql que borra un registro
 	 */
@@ -267,6 +297,8 @@ public class Permiso {
 	private static final String sqlInsertar = "INSERT INTO PERMISO VALUES (?,?,?)";
 	
 	private static final String consultaPermiso = "select * from permiso where cedula=? and id_rol=? and centro_costo_programa=?";
+	
+	private static final String consultaUsuarioRolPermiso = "select * from permiso where cedula=?";
 	 
 
 }

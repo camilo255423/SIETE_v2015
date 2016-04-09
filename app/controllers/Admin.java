@@ -55,9 +55,16 @@ public class Admin extends Controller{
 		{
 			return ok("duplicado");
 		}
-		System.out.println("documento "+documento);
-		System.out.println("idRol "+idRol);
-		System.out.println("Codigo programa "+codigoPrograma);
+		if(Permiso.existeUsuarioRolDiferente(documento, idRol))
+		{
+			return ok("rol_diferente");
+		}
+
+		if(idRol.equals(Rol.ADMINISTRADOR))
+		{
+			codigoPrograma="0";
+		}
+			
 		
 		if(Permiso.save(documento,idRol,codigoPrograma))
 		{	

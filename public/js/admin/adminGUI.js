@@ -1,5 +1,6 @@
-$('#listaFacultades').hide();
-$('#listaProgramas').hide();
+$('#listaDeFacultades').hide();
+$('#listaDeProgramas').hide();
+$('#listaDeAreas').hide();
 $('#nuevodocumento').val('-1');
 
 $('.eliminar').on("click",eliminar);

@@ -24,7 +24,11 @@ function adicionar(data)
 	}
 	else if (data=="duplicado")
 	{
-		alert("El usuario ya tiene un permiso asignado para este programa o ya está como administrador del sistema. ");
+		alert("El usuario ya tiene este permiso asignado. ");
+	}
+	else if (data=="rol_diferente")
+	{
+		alert("El usuario ya está en el sistema con un ROL diferente. ");
 	}
 	else
 	{
@@ -33,7 +37,7 @@ function adicionar(data)
 	$('#listaroles').val('1');
 	$('#inputusuario').val('');
 	$('#listaPermisos').val('1');
-	$('#listaPermisos').hide();
+	$('#listaPermisos').html('');
 }
 
 function eliminar(){

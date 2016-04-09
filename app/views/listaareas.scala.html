@@ -1,8 +1,8 @@
-@(programas:List[Programa], conScript:Integer=0)
+@(areas:List[Area], conScript:Integer=0)
 
 <select name='documento' id='listaProgramas' style="width:100%;max-width:99%;">
-<option value=-1>- Seleccione un Programa</option>
-@for(programa <- programas){
-<option value='@programa.getCodPrograma()'>@programa.getCodPrograma() @programa.getNombre()</option>
+<option value=-1>- Seleccione un Área</option>
+@for(area <- areas){
+<option value='@area.getCodArea()'>@area.getCodArea() @area.getNombre()</option>
 }
 </select>

@@ -20,36 +20,36 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object listaareas extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template2[List[Programa],Integer,play.api.templates.HtmlFormat.Appendable] {
+object listaareas extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template2[List[Area],Integer,play.api.templates.HtmlFormat.Appendable] {
 
     /**/
-    def apply/*1.2*/(programas:List[Programa], conScript:Integer=0):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*1.2*/(areas:List[Area], conScript:Integer=0):play.api.templates.HtmlFormat.Appendable = {
         _display_ {
 
-Seq[Any](format.raw/*1.49*/("""
+Seq[Any](format.raw/*1.41*/("""
 
 <select name='documento' id='listaProgramas' style="width:100%;max-width:99%;">
-<option value=-1>- Seleccione un Programa</option>
-"""),_display_(Seq[Any](/*5.2*/for(programa <- programas) yield /*5.28*/{_display_(Seq[Any](format.raw/*5.29*/("""
-<option value='"""),_display_(Seq[Any](/*6.17*/programa/*6.25*/.getCodPrograma())),format.raw/*6.42*/("""'>"""),_display_(Seq[Any](/*6.45*/programa/*6.53*/.getCodPrograma())),format.raw/*6.70*/(""" """),_display_(Seq[Any](/*6.72*/programa/*6.80*/.getNombre())),format.raw/*6.92*/("""</option>
+<option value=-1>- Seleccione un Área</option>
+"""),_display_(Seq[Any](/*5.2*/for(area <- areas) yield /*5.20*/{_display_(Seq[Any](format.raw/*5.21*/("""
+<option value='"""),_display_(Seq[Any](/*6.17*/area/*6.21*/.getCodArea())),format.raw/*6.34*/("""'>"""),_display_(Seq[Any](/*6.37*/area/*6.41*/.getCodArea())),format.raw/*6.54*/(""" """),_display_(Seq[Any](/*6.56*/area/*6.60*/.getNombre())),format.raw/*6.72*/("""</option>
 """)))})),format.raw/*7.2*/("""
 </select>
 """))}
     }
     
-    def render(programas:List[Programa],conScript:Integer): play.api.templates.HtmlFormat.Appendable = apply(programas,conScript)
+    def render(areas:List[Area],conScript:Integer): play.api.templates.HtmlFormat.Appendable = apply(areas,conScript)
     
-    def f:((List[Programa],Integer) => play.api.templates.HtmlFormat.Appendable) = (programas,conScript) => apply(programas,conScript)
+    def f:((List[Area],Integer) => play.api.templates.HtmlFormat.Appendable) = (areas,conScript) => apply(areas,conScript)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Sun Mar 06 18:39:35 COT 2016
+                    DATE: Sat Apr 09 12:16:51 COT 2016
                     SOURCE: /home/camilo/Documents/InpahuGeneracionInformes/ModuloInformes/app/views/listaareas.scala.html
-                    HASH: 085380d0f0eae67780ec0a9f7eff55afcbce4222
-                    MATRIX: 795->1|936->48|1104->182|1145->208|1183->209|1235->226|1251->234|1289->251|1327->254|1343->262|1381->279|1418->281|1434->289|1467->301|1508->312
+                    HASH: 267457047ebf0c08124f66f491bdfdb812a887d7
+                    MATRIX: 791->1|924->40|1088->170|1121->188|1159->189|1211->206|1223->210|1257->223|1295->226|1307->230|1341->243|1378->245|1390->249|1423->261|1464->272
                     LINES: 26->1|29->1|33->5|33->5|33->5|34->6|34->6|34->6|34->6|34->6|34->6|34->6|34->6|34->6|35->7
                     -- GENERATED --
                 */

@@ -17,6 +17,35 @@ public class Area {
 		this.codArea = codArea;
 		this.nombre = nombre;
 	}
+	
+	public String getCodArea() {
+		return codArea;
+	}
+
+	public void setCodArea(String codArea) {
+		this.codArea = codArea;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public static String getConsultaareas() {
+		return consultaAreas;
+	}
+
+	public static String getConsultaidarea() {
+		return consultaIdArea;
+	}
+
+	public static String getConsultaareascoordinador() {
+		return consultaAreasCoordinador;
+	}
+
 	public static List<Area> findAll()
 	{
      	Connection con = DB.getConnection();

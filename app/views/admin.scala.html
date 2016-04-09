@@ -51,8 +51,9 @@
 <div id="confirmDialog" title="Eliminar Permiso">
 </div>
 
-<div id="listaFacultades">@listafacultades(Facultad.findAll(),0)</div>
-<div id="listaProgramas">@listaprogramas(Programa.findAll(),0)</div>
+<div id="listaDeFacultades">@listafacultades(Facultad.findAll(),0)</div>
+<div id="listaDeProgramas">@listaprogramas(Programa.findAll(),0)</div>
+<div id="listaDeAreas">@listaareas(Area.findAll(),0)</div>
 
 }
 <script src="@routes.Assets.at("js/admin/autocomplete.js")"></script>
@@ -63,15 +64,15 @@ $('#listaroles').on('change', function(){
 
 	if($('#listaroles').val()==@rol.getDecanoId() || $('#listaroles').val()==@rol.getSecretariaFacultadId())
 	{
-		$('#listaPermisos').html($('#listaFacultades').html());
+		$('#listaPermisos').html($('#listaDeFacultades').html());
 	}
 	else if($('#listaroles').val()==@rol.getCoordinadorId())
 	{
-		$('#listaPermisos').html($('#listaProgramas').html());
+		$('#listaPermisos').html($('#listaDeProgramas').html());
 	}
 	else if($('#listaroles').val()==@rol.getCoordinadorDeAreaId())
 	{
-		$('#listaPermisos').html('');
+		$('#listaPermisos').html($('#listaDeAreas').html());
 	}
 	else if($('#listaroles').val()==@rol.getAdministradorId())
 	{
