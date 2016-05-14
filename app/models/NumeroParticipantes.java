@@ -320,7 +320,7 @@ public class NumeroParticipantes {
 // 3. fecha contrato 4.fecha contrato
 "AND a.EMPRESA IN ('CAT', 'DOC') AND a.NOMBRE_CARGO LIKE  'DOC%' AND b.centro_costo = a.centro_costo AND c.cc_predecesor=b.CENTRO_COSTO_PREDECESOR "+
 "and c.centro_costo= f.centro_costo ) group by id_facultad, nombre_facultad "+
-" ) aa, "+
+" ) aa left join "+
 "( "+
 "select count(distinct NIT) as evaluados, id_facultad as id_decan "+
 "from( "+
@@ -360,7 +360,7 @@ public class NumeroParticipantes {
 ") "+
 "group by id_facultad "+
 ") bb "+
-"where aa.id_decan= bb.id_decan "+
+"on aa.id_decan= bb.id_decan "+
 "order By IDFACULTAD ";	 
 	/**
 	 * Consulta de número de docentes que realizaron autoevaluación por facultad
