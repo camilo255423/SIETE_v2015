@@ -264,7 +264,7 @@ public class NumeroParticipantes {
 ") p "+
 "group by "+ 
 "id_facultad, "+
-"facultad) a, "+
+"facultad) a left join "+
 "( "+
 "select id_facultad,facultad,count(*) as encuestados from ( "+
 "SELECT     distinct FAC.ID_DECAN as id_facultad, "+
@@ -294,7 +294,7 @@ public class NumeroParticipantes {
 "id_facultad, "+
 "facultad "+
 ") b "+
-"where a.id_facultad=b.id_facultad "+ 
+"on a.id_facultad = b.id_facultad "+ 
 "order by idFacultad"; 
 	/**
 	 * Consulta de número de docentes evaluados por estudiantes por facultad
@@ -386,7 +386,7 @@ private  static final String consultaDocentesConAutoevaluacionPorFacultad =
 // 3. fecha contrato 4.fecha contrato
 "AND a.EMPRESA IN ('CAT', 'DOC') AND a.NOMBRE_CARGO LIKE  'DOC%' AND b.centro_costo = a.centro_costo AND c.cc_predecesor=b.CENTRO_COSTO_PREDECESOR "+
 "and c.centro_costo= f.centro_costo ) group by id_facultad, nombre_facultad "+
-" ) aa, "+
+" ) aa left join "+
 "( "+
 "select count(distinct NIT) as evaluados, id_facultad as id_decan "+
 "from( "+
@@ -441,7 +441,7 @@ private  static final String consultaDocentesConAutoevaluacionPorFacultad =
 ") "+
 " group by id_facultad "+
 " ) bb "+
-" where aa.ID_DECAN = bb.ID_DECAN "+
+" on aa.ID_DECAN = bb.ID_DECAN "+
 " order by idFacultad ";
 /**
  * Consulta de número de directivos que evaluaron gestión por facultad
